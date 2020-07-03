@@ -1,8 +1,8 @@
 **公众号数言微语(Math for Microbes)**
 
-本仓是公众号数言微语发布的原创文章目录索引。
+本仓为公众号数言微语发布的原创文章目录索引。
 
-# 文献解读-anammox
+# 文献解读
 - [WR|在膜反应器中耦合anammox和DAMO反应实现mainstream的高水平脱氮](https://mp.weixin.qq.com/s/zDh1gPNFQKzFI7kHajayMw)
 - [Microbiom|DNRA微生物的繁殖降低anammox表现](https://mp.weixin.qq.com/s/vQqWXg7Omzw-QGs1iAmjrA)
 - [ISME|昆士兰大学Gene Tyson组|耦合AOM和Mn(IV)还原新古菌的富集和鉴定](https://mp.weixin.qq.com/s/sKN59nqPFqilRK7_xHk3Fg)
