@@ -3,6 +3,9 @@
 本仓为公众号数言微语发布的原创文章目录索引。
 
 # 文献解读
+- [STE| 反应器起始阶段中功能变化和对anammox群落的影响](https://mp.weixin.qq.com/s/TvlAdyokAtxhGiSo3WbyTQ)
+- [Nature|厌氧氨氧化的分子机制](https://mp.weixin.qq.com/s/yVHM-m1TOC6TeOBLFZ8cMw)
+- [WR|代谢组学解释低N提高anammox biomass产量和脱氮能力的机制](https://mp.weixin.qq.com/s/3a95flV6lH1NROlB-b4p_g)
 - [SR|缺氧条件下DAMO和anammox之间的互作](https://mp.weixin.qq.com/s/2Qo8P_EENsQzNWe3EY6Nvg)
 - [WR|PN，anammox和DAMO共同作用下的高水平脱氮](https://mp.weixin.qq.com/s/ceEq9ZpvHMHElbMppg0Icg)
 - [WR|在膜反应器中耦合anammox和DAMO反应实现mainstream的高水平脱氮](https://mp.weixin.qq.com/s/zDh1gPNFQKzFI7kHajayMw)
