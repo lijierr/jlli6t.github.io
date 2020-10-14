@@ -59,4 +59,3 @@ sim.chisqdraws = rchisq(10e6, df=24)
 quantile(sim.chisqdraws, 0.025)
 quantile(sim.chisqdraws, 0.975)
 
-# this file will be uploaded to Blackboard 
