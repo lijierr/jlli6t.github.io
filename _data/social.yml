@@ -1,0 +1,9 @@
+- title: Email
+  url: mailto:jlli6t@gmail.com
+  icon: fas fa-envelope
+- title: Twitter
+  url: https://twitter.com/jlli6t
+  icon: fab fa-twitter
+- title: GitHub
+  url: https://github.com/jlli6t
+  icon: fab fa-github

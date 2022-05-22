@@ -1,0 +1,16 @@
+title: Jie Li
+tagline: HAHAHAHAH A content-first minimalist Jekyll theme for blogs
+description: This is a stupid demo site for the Jekyll theme Tao.
+theme: jekyll-theme-tao
+
+author:
+  name: Jie Li
+  url:  jjjjjhttps://twitter.com/vfvong
+
+plugins:
+  - jekyll-paginate
+
+paginate: 2
+
+categories_path: /categories/
+tags_path: /tags/
