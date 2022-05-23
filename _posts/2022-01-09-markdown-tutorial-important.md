@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Example Content
-author: [Mark Otto, Song-Zi Vong]
+title: markdown tutorial
+author: [Jie Li]
 categories: [Essays, Examples]
-tags: [example, html]
+tags: [markdown, html]
 math: true
-last_modified_at: 2022-03-23 00:04:00 +0800
+last_modified_at: 2022-05-23 00:04:00 +0800
 ---
 
 **Howdy!** This is an example blog post that shows several types of HTML content supported in this theme.

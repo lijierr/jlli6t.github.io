@@ -1,7 +1,7 @@
 ---
 layout: post
 title: What's Jekyll?
-author: Song-Zi Vong
+author: Jie Li
 categories: [Misc]
 tags: [example, jekyll]
 ---
