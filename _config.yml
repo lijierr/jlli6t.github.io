@@ -1,11 +1,11 @@
 title: Jie Li
-tagline: HAHAHAHAH A content-first minimalist Jekyll theme for blogs
-description: This is a stupid demo site for the Jekyll theme Tao.
+tagline: Welcome to my personel website.
+description: This is a personel website of Jie.
 theme: jekyll-theme-tao
 
 author:
   name: Jie Li
-  url:  jjjjjhttps://twitter.com/vfvong
+  url: https://github.com/jlli6t/jlli6t.github.io
 
 plugins:
   - jekyll-paginate
