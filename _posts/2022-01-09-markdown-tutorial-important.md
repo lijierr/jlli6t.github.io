@@ -1,11 +1,12 @@
 ---
 layout: post
 title: markdown tutorial
-author: [Jie Li]
-categories: [Essays, Examples]
-tags: [markdown, html]
+author: Jie Li
+categories: tutorials
+tags: markdown
 math: true
 last_modified_at: 2022-05-23 00:04:00 +0800
+image: /prof_pic.jpg
 ---
 
 **Howdy!** This is an example blog post that shows several types of HTML content supported in this theme.
