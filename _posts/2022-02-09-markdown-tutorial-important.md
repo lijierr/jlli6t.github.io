@@ -3,10 +3,10 @@ layout: post
 title: markdown tutorial
 author: Jie Li
 categories: tutorials
-tags: markdown
+tags: [markdown, tutorials]
 math: true
-last_modified_at: 2022-05-23 00:04:00 +0800
-image: /prof_pic.jpg
+last_modified_at: 2022-03-23 00:04:00 +0800
+image: /_imgs/prof_pic.jpg
 ---
 
 **Howdy!** This is an example blog post that shows several types of HTML content supported in this theme.

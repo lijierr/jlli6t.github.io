@@ -1,9 +1,15 @@
 - title: Email
   url: mailto:jlli6t@gmail.com
   icon: fas fa-envelope
-- title: Twitter
-  url: https://twitter.com/jlli6t
-  icon: fab fa-twitter
+- title: Google scholar
+  url: https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ
+  icon: fab fa-google
 - title: GitHub
   url: https://github.com/jlli6t
   icon: fab fa-github
+- title: linkedin
+  url: https://www.linkedin.com/in/jie-li-3201a57b/
+  icon: fab fa-linkedin
+- title: Twitter
+  url: https://twitter.com/jlli6t
+  icon: fab fa-twitter

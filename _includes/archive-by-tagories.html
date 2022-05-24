@@ -1,5 +1,5 @@
-{%- if page.type == 'categories' -%}
-  {%- assign taxonomies = site.categories -%}
+{%- if page.type == 'catalogue' -%}
+  {%- assign taxonomies = site.catalogue -%}
 {%- elsif page.type == 'tags' -%}
   {%- assign taxonomies = site.tags -%}
 {%- else -%}
@@ -55,8 +55,8 @@
       <ul>
         {%- for post in posts -%}
           <li>
-            <time class="archive-date" datetime="{{ page.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time> 
-            &raquo; 
+            <time class="archive-date" datetime="{{ page.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+            &raquo;
             <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
           </li>
         {%- endfor -%}

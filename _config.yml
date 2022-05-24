@@ -1,6 +1,6 @@
 title: Jie Li
-tagline: Welcome to my personel website.
-description: This is a personel website of Jie.
+tagline: Welcome to the dream land of J!
+description: This is 洁宝
 theme: jekyll-theme-tao
 
 author:
@@ -10,7 +10,8 @@ author:
 plugins:
   - jekyll-paginate
 
-paginate: 2
+paginate: 3
 
-categories_path: /categories/
+catalogue_path: /catalogue/
 tags_path: /tags/
+years_path: /years/

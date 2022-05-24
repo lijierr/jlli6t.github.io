@@ -1,12 +1,12 @@
-- title: About
+- title: about
   url: /about/
-- title: Archive
-  url: /archive/
-- title: Categories
-  url: /categories/
-- title: Tags
+- title: projects
+  url: /projects/
+- title: catalogue
+  url: /catalogue/
+- title: years
+  url: /years/
+- title: tags
   url: /tags/
-- title: GitHub
-  url: https://github.com/vfvong/jekyll-theme-tao
 - title: CV
   url: /cv/
