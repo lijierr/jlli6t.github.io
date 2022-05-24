@@ -2,10 +2,9 @@
 layout: post
 title: Landed brisbane
 subtitle: The first day in brisbane
-image: /prof_pic.jpg
 ---
 
-The first day here in Brisbane. Are you
+The first day in Brisbane. Are you
 
 Ruby is a simple and powerful object-oriented programming language, created by Yukihiro Matsumoto (who goes by the handle “Matz” in this document and on the mailing lists).
 

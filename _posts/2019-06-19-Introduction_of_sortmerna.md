@@ -2,7 +2,7 @@
 layout: post
 title: Introduction to SortMeRNA
 author: Jie Li
-categories: [metatranscriptomic]
+categories: [metatranscriptomic, bioinformatics tools]
 tags: [tutorials, RNA, mapping]
 math: false
 image: /assets/_imgs/sortmerna_title.png

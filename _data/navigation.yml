@@ -1,9 +1,11 @@
 - title: about
   url: /about/
+- title: home
+  url: /home/
 - title: projects
   url: /projects/
-- title: catalogue
-  url: /catalogue/
+- title: categories
+  url: /categories/
 - title: years
   url: /years/
 - title: tags

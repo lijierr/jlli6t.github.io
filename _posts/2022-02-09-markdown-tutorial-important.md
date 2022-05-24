@@ -6,7 +6,6 @@ categories: tutorials
 tags: [markdown, tutorials]
 math: true
 last_modified_at: 2022-03-23 00:04:00 +0800
-image: /_imgs/prof_pic.jpg
 ---
 
 **Howdy!** This is an example blog post that shows several types of HTML content supported in this theme.

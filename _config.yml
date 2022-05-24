@@ -1,5 +1,5 @@
-title: Jie Li
-tagline: Welcome to the dream land of J!
+title: Jie Li (She/Her)
+tagline: Welcome to the dream land of Jie!
 description: This is 洁宝
 theme: jekyll-theme-tao
 
@@ -12,6 +12,6 @@ plugins:
 
 paginate: 3
 
-catalogue_path: /catalogue/
+categories_path: /categories/
 tags_path: /tags/
 years_path: /years/
