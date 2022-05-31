@@ -32,4 +32,4 @@ No big difference of syntax between python3 and python2, I adapted well, I hope 
 Python3，Python2个人感觉语法差异没有很大，小编适应得不错，希望你们也是呀~~
 
 ### Reference (参考)
-[stackoverflow](https://stackoverflow.com/questions/16026348/preparing-tkinter-and-sqlite3-for-python-installation-no-admin-rights)
+[stackoverflow thread](https://stackoverflow.com/questions/16026348/preparing-tkinter-and-sqlite3-for-python-installation-no-admin-rights)
