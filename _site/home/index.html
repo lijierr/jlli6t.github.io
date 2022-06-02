@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/assets/css/normalize.css"/>
+	<link rel="stylesheet" href="/assets/css/open-color.css"/>
+	<link rel="stylesheet" href="/assets/css/tao/styles.css"/>
+
+  <script async src="https://use.fontawesome.com/releases/v6.0.0/js/all.js"></script>
+
+  
+
+</head>
+
+  <body>
+    <div class="wrapper">
+      <header class="masthead">
+  <h2 class="masthead-title">
+    <a href="/">Jie Li (She/Her)</a>
+  </h2>
+  
+    <h5 class="masthead-tagline">PhD student interested in microbial ecology, bioinformatics and statistics</h5>
+  
+  
+    <nav class="nav">
+      
+        <a class="nav-item " href="/about/">
+          about
+        </a>
+      
+        <a class="nav-item active" href="/home/">
+          home
+        </a>
+      
+        <a class="nav-item " href="/projects/">
+          projects
+        </a>
+      
+        <a class="nav-item " href="/categories/">
+          categories
+        </a>
+      
+        <a class="nav-item " href="/years/">
+          years
+        </a>
+      
+        <a class="nav-item " href="/tags/">
+          tags
+        </a>
+      
+        <a class="nav-item " href="https://github.com/jlli6t/jlli6t.github.io/cv/index.html">
+          CV
+        </a>
+      
+      </nav>
+  
+</header>
+
+      <main>
+        <section>
+  
+  
+  
+    <article class="post-entry">
+      <h1 class="post-title"><a href="/tutorials/2022/02/09/markdown-tutorial-important.html">markdown tutorial</a></h1>
+      
+      
+      <p>
+        Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet... <a href="/tutorials/2022/02/09/markdown-tutorial-important.html"><i class="fa-solid fa-angles-right"></i></a>
+      </p>
+
+      <time class="post-meta" datetime="2022-02-09T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 09 Feb 2022
+      </time>
+    </article>
+  
+    <article class="post-entry">
+      <h1 class="post-title"><a href="/statistics/2020/09/10/Little_treehouse_collection.html">How much I would have to spend to collect full set of little treehouse</a></h1>
+      
+      
+      <p>
+        1. Introduction
+最近，超市推出了消费金额满$30可兑换LITTLE TREEHOUSE小书集一本。这套小书共24本，编号1, 2, 3, … , 24。大概为图片中的样子。但每一本书都被包装覆盖，拆开之前看不到编号🤣（小编表示，如果可以看到编号就直接挑24个不一样的啦！哪里需要实验🙄）
+
+
+真的好想要集齐24本书啊~~~
+那如果想要集齐24本书，需要消费多少金额？（谁让我有一颗强大且无聊的人类的好奇心）（假设单次消费$30以上但不足$60按$30进行计算）。
+
+Preparation
+假设：每一个编号的书具有相同数量被分别包装并均匀混合，每$30兑换的书本之间相互独立。
+先随机生成了一组0-9的数1,000,000个。截取一段实验中生成的随机数：
+
+1, 3, 1, 4... <a href="/statistics/2020/09/10/Little_treehouse_collection.html"><i class="fa-solid fa-angles-right"></i></a>
+      </p>
+
+      <time class="post-meta" datetime="2020-09-10T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 10 Sep 2020
+      </time>
+    </article>
+  
+    <article class="post-entry">
+      <h1 class="post-title"><a href="/database/2020/06/18/Silva_update_138.html">Silva updates to 138</a></h1>
+      
+      
+      <p>
+        Introduction
+SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。
+
+数据集的快速增长极大的增加了硬件需求，数据库越大，则越需要更多的资源例如内存来加载数据库。目前有两种策略解决此问题：1）升级硬件满足需求。2）减小数据库中的序列数。出于多种原因，只要结果数据集仍然具有代表性（这是环境微生物学中的一个非常重要的参数），第二种方法会更具性价比。SILVA项目选择了99% identity作为标准对SSU Ref进行去冗余构建了SSU Ref NR数据集。
+
+这次138版本目前只更新了SSU库，LSU库还在进行中。taxonomy信息加入了G... <a href="/database/2020/06/18/Silva_update_138.html"><i class="fa-solid fa-angles-right"></i></a>
+      </p>
+
+      <time class="post-meta" datetime="2020-06-18T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 18 Jun 2020
+      </time>
+    </article>
+  
+    <article class="post-entry">
+      <h1 class="post-title"><a href="/coding/python/2019/07/21/Comparison_of_Readfq_FastqGeneralIterator.html">Comparison of Readfq and FastqGeneralIterator</a></h1>
+      
+      
+      <p>
+        Introduction
+做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。
+需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。
+
+Bio.SeqIO.QualityIO.FastqGeneralIterator同Bio.SeqIO.parse一样也是一个迭代器，只不过不生成对象record，而是生成序列id、序列、以及质量值本身，遍历的时候调用语法为
+
+For title, seq, qua... <a href="/coding/python/2019/07/21/Comparison_of_Readfq_FastqGeneralIterator.html"><i class="fa-solid fa-angles-right"></i></a>
+      </p>
+
+      <time class="post-meta" datetime="2019-07-21T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 21 Jul 2019
+      </time>
+    </article>
+  
+    <article class="post-entry">
+      <h1 class="post-title"><a href="/metatranscriptomic/bioinformatics%20tools/2019/06/19/Introduction_of_sortmerna.html">Introduction to SortMeRNA</a></h1>
+      
+      
+        <div class="thumbnail-container">
+          <a href="/metatranscriptomic/bioinformatics%20tools/2019/06/19/Introduction_of_sortmerna.html">
+            <img class="post-image" src="/assets/_imgs/sortmerna_title.png" alt="Introduction to SortMeRNA">
+          </a>
+        </div>
+      
+      <p>
+        1. Introduction
+SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。
+
+2. 算法基本原理
+底层算法与seed策略类似，主要是寻找rRNA数据库和read之间的一定数量的相似短区域。对rRNA序列建立索引的时候，与HMM一样，利用同源序列之间的冗余，建立所有rRNA序列的压缩模型。
+然后设定一个窗口，对read进行窗口滑动扫描，基于设定的阈值，单个read中超过阈值数量的窗口比对到数据库则该read被鉴定为rRNA。其中窗口... <a href="/metatranscriptomic/bioinformatics%20tools/2019/06/19/Introduction_of_sortmerna.html"><i class="fa-solid fa-angles-right"></i></a>
+      </p>
+
+      <time class="post-meta" datetime="2019-06-19T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 19 Jun 2019
+      </time>
+    </article>
+  
+    <article class="post-entry">
+      <h1 class="post-title"><a href="/coding/2019/06/17/git_local_repo.html">Learning git - local repo</a></h1>
+      
+      
+      <p>
+        小编有言：
+使用git的好处不多说，网上有非常多的博客讲解了其逻辑结构。最最主要的功能版本控制，真的是所有代码爱好者的福音了（嘻嘻）。
+建议不熟悉git逻辑的同学宝宝先了解一下git的逻辑再阅读本文，会更顺畅哦，（一个梦幻拉丁式谢礼）。
+
+git工具
+查看服务器上是否已经安装好git， 服务器上有自带的git，直接使用即可，不需要自行安装了
+
+$which git
+/opt/rocks/bin/git
+
+初始化仓库：
+进入到对应的目录，然后执行git init命令即可
+
+$git init
+
+查看工作状态：
+查看工作目录+stage+HEAD的状态，发现工作目录有一个rdetfq.py文件，但是没有被加入到stage，也没有commit到HEAD过。
+
+$git status
+On b... <a href="/coding/2019/06/17/git_local_repo.html"><i class="fa-solid fa-angles-right"></i></a>
+      </p>
+
+      <time class="post-meta" datetime="2019-06-17T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 17 Jun 2019
+      </time>
+    </article>
+  
+    <article class="post-entry">
+      <h1 class="post-title"><a href="/coding/python/2018/06/20/Configure_Python3_with_TCL-TK.html">Configure Python3 with TCL-TK</a></h1>
+      
+      
+      <p>
+        Introduction (简介)
+More and more projects are migrating from Python2 to Python3. On the one hand, Python3 has more features available, and secondly, the more important reason should be that with the development of Python3 and its community, Python2 will gradually no longer be maintained.
+Due to the needs of the work, my working python have to be ... <a href="/coding/python/2018/06/20/Configure_Python3_with_TCL-TK.html"><i class="fa-solid fa-angles-right"></i></a>
+      </p>
+
+      <time class="post-meta" datetime="2018-06-20T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 20 Jun 2018
+      </time>
+    </article>
+  
+    <article class="post-entry">
+      <h1 class="post-title"><a href="/bioinformatics%20tools/2018/04/20/PICRUST.html">Notes of PICRUST</a></h1>
+      
+      
+      <p>
+        Introduction
+picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。
+picrust是基于已经计算好的数据库进行预测，数据库下载地址。
+下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库
+
+Installation
+安装picrust, 这个中间没有遇到麻烦；注意picrsut是基于python2.7版本(用的2.7.12)， 其他版本的python会报错例如python3.5.2
+
+Usage tips
+因为picrust是读入bi... <a href="/bioinformatics%20tools/2018/04/20/PICRUST.html"><i class="fa-solid fa-angles-right"></i></a>
+      </p>
+
+      <time class="post-meta" datetime="2018-04-20T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 20 Apr 2018
+      </time>
+    </article>
+  
+    <article class="post-entry">
+      <h1 class="post-title"><a href="/database/2018/04/02/Introduction_to_UniProtKB.html">Introduction to UniprotKB</a></h1>
+      
+      
+      <p>
+        Introduction
+UniProt Knowledgebase (UniProtKB)数据库中收集的是蛋白序列的信息以及准确的，连续的，丰富的注释信息。除此之外还收集一些比较重要的信息例如氨基酸序列，蛋白名称/描述，tax分类信息以及引用信息。这些囊括的信息涵盖了被广泛认可的生物学知识，classifications 以及cross-references, 以及明确的该蛋白可信度的层级分类。
+
+UniProtKB收集的序列超过95%都来自于公共核酸序列数据库中的CDS序列的翻译氨基酸序列，公共数据库指EMBL-Bank/GenBank/DDBJ等 authors们提交的序列会自动整合到TrEMBL中；
+
+UniProtKB数据库包含两个sections, UniProtKB/Sw... <a href="/database/2018/04/02/Introduction_to_UniProtKB.html"><i class="fa-solid fa-angles-right"></i></a>
+      </p>
+
+      <time class="post-meta" datetime="2018-04-02T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 02 Apr 2018
+      </time>
+    </article>
+  
+    <article class="post-entry">
+      <h1 class="post-title"><a href="/coding/bash/2018/03/23/scp_demo.html">scp demo</a></h1>
+      
+      
+      <p>
+        1.Copy local files to remote server
+
+$scp local_file remore_username@remote_ip:remote_folder
+
+2. Copy file from remote server to local
+
+$scp remote_username@remote_ip:remote_folder local_folder
+
+ref
+ref_link
+ <a href="/coding/bash/2018/03/23/scp_demo.html"><i class="fa-solid fa-angles-right"></i></a>
+      </p>
+
+      <time class="post-meta" datetime="2018-03-23T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 23 Mar 2018
+      </time>
+    </article>
+  
+    <article class="post-entry">
+      <h1 class="post-title"><a href="/2018/03/23/Landed-Brisbane.html">Landed brisbane</a></h1>
+      
+        <h4 class="post-subtitle">The first day in brisbane</h4>
+      
+      
+      <p>
+        The first day in Brisbane. Are you
+
+Ruby is a simple and powerful object-oriented programming language, created by Yukihiro Matsumoto (who goes by the handle “Matz” in this document and on the mailing lists).
+
+Let’s see what the original paper says about ruby.
+
+
+  Like Perl, Ruby is good at text processing. Like Smalltalk, everything in Ruby is ... <a href="/2018/03/23/Landed-Brisbane.html"><i class="fa-solid fa-angles-right"></i></a>
+      </p>
+
+      <time class="post-meta" datetime="2018-03-23T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 23 Mar 2018
+      </time>
+    </article>
+  
+</section>
+
+
+
+      </main>
+      <footer class="footer">
+  
+  <div class="social">
+    
+      <a href="mailto:jlli6t@gmail.com" target="_blank">
+        <i class="fas fa-envelope" title="Email"></i>
+      </a>
+    
+      <a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" target="_blank">
+        <i class="fab fa-google" title="Google scholar"></i>
+      </a>
+    
+      <a href="https://github.com/jlli6t" target="_blank">
+        <i class="fab fa-github" title="Github"></i>
+      </a>
+    
+      <a href="https://www.linkedin.com/in/jie-li-3201a57b/" target="_blank">
+        <i class="fab fa-linkedin" title="linkedin"></i>
+      </a>
+    
+      <a href="https://orcid.org/0000-0002-9623-9213" target="_blank">
+        <i class="fa-brands fa-orcid" title="ORCID"></i>
+      </a>
+    
+      <a href="https://twitter.com/jlli6t" target="_blank">
+        <i class="fab fa-twitter" title="Twitter"></i>
+      </a>
+    
+      <a href="https://jlli6t.github.io" target="_blank">
+        <i class="fas fa-link" title="Website"></i>
+      </a>
+    
+  </div>
+  
+
+  <div class="columns">
+    <p class="column">
+      &copy; <time datetime="2022-06-02T12:57:46+10:00">2022</time>&nbsp;<a href="https://github.com/jlli6t/jlli6t.github.io" target="_blank">Jie Li</a>. All rights reserved.
+    </p>
+
+    <p class="column">
+      Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/vfvong/jekyll-theme-tao" target="_blank">Tao</a>
+    </p>
+
+    
+    <p class="column">
+      This is the dream land of Jie, you are warmly welcomed.
+    </p>
+    
+  </div>
+</footer>
+
+    </div>
+
+    
+
+    
+  </body>
+</html>

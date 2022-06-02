@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/assets/css/normalize.css"/>
+	<link rel="stylesheet" href="/assets/css/open-color.css"/>
+	<link rel="stylesheet" href="/assets/css/tao/styles.css"/>
+
+  <script async src="https://use.fontawesome.com/releases/v6.0.0/js/all.js"></script>
+
+  
+
+</head>
+
+  <body>
+    <div class="wrapper">
+      <header class="masthead">
+  <h2 class="masthead-title">
+    <a href="/">Jie Li (She/Her)</a>
+  </h2>
+  
+    <h5 class="masthead-tagline">PhD student interested in microbial ecology, bioinformatics and statistics</h5>
+  
+  
+    <nav class="nav">
+      
+        <a class="nav-item " href="/about/">
+          about
+        </a>
+      
+        <a class="nav-item " href="/home/">
+          home
+        </a>
+      
+        <a class="nav-item " href="/projects/">
+          projects
+        </a>
+      
+        <a class="nav-item " href="/categories/">
+          categories
+        </a>
+      
+        <a class="nav-item " href="/years/">
+          years
+        </a>
+      
+        <a class="nav-item " href="/tags/">
+          tags
+        </a>
+      
+        <a class="nav-item " href="https://github.com/jlli6t/jlli6t.github.io/cv/index.html">
+          CV
+        </a>
+      
+      </nav>
+  
+</header>
+
+      <main>
+        <article class="post">
+  <div class="post-meta post-meta-top">
+    <div>
+      <time datetime="2018-04-20T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 20 Apr 2018
+      </time><i class="fa-solid fa-at"></i> 
+        
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">Jie Li</span></div>
+    
+    
+      <nav class="post-categories">
+        
+          
+            <a class="post-category" href="/categories/#bioinformatics-tools">bioinformatics tools</a> /
+          
+        
+      </nav>
+    
+  </div>
+
+  <h1 class="post-title">Notes of PICRUST</h1>
+  
+
+  
+
+  <div class="post-content">
+    <h2 id="introduction">Introduction</h2>
+<p>picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。<br />
+picrust是基于已经计算好的数据库进行预测，数据库<a href="http://picrust.github.io/picrust/picrust_precalculated_files.html">下载地址</a>。<br />
+下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库</p>
+
+<h2 id="installation">Installation</h2>
+<p>安装picrust, 这个中间没有遇到麻烦；注意picrsut是基于python2.7版本(用的2.7.12)， 其他版本的python会报错例如python3.5.2</p>
+
+<h2 id="usage-tips">Usage tips</h2>
+<p>因为picrust是读入biom文件 所以先要生成biom 格式的文件，其中biom需要包含的信息有每个样品注释上的物种信息及对应的丰度，生成biom的格式方法有两种：</p>
+
+<h3 id="way-1">way 1</h3>
+<p>通过利用qiime1的命令先挑选otu比对的ref, 这里相当于重新比对分类一次，默认方法是uclust(其他还有usearch_ref， sortmerna), 所以挑出来的otu 比OTU_final.fasta里的序列要少, 整体预测的通路的矩阵里的值会小一些，通路数量上可能也小一些. 这里好像不支持rdp的结果，因为rdp基于贝叶斯的概率方法，最后没有给出具体比对的哪个id, 而是只给出一个分类taxonomy信息。</p>
+
+<p><strong>step 1</strong><br />
+首先用qiime1里的pick_closed_reference_otus.py 命令挑选ref：(可以使用97，也可以使用90，99或者其他的)</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"pick_otus:enable_rev_strand_match True"</span><span class="o">&gt;&gt;</span>otu_picking_params_97.txt
+<span class="nb">echo</span> <span class="s2">"pick_otus:similarity 0.97"</span><span class="o">&gt;&gt;</span>otu_picking_params_97.txt
+pick_closed_reference_otus.py <span class="nt">-i</span> OTU_final.fasta <span class="nt">-o</span> <span class="nv">$PWD</span>/ucrC972/ <span class="nt">-p</span> <span class="nv">$PWD</span>/otu_picking_params_97.txt <span class="nt">-r</span> ./gg_13_5_otus/rep_set/97_otus.fasta <span class="nt">-t</span> ./gg_13_5_otus/taxonomy/97_otu_taxonomy.txt <span class="nt">-a</span> <span class="nt">-O</span> 8</code></pre></figure>
+
+<p><strong>step 2</strong><br />
+使用命令<code class="language-plaintext highlighter-rouge">biom convert -i ucrC972/otu_table.biom -o ucrC972/otu_table.biom.tsv --to-tsv</code>
+tsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个0 1矩阵
+<img src="/assets/_imgs/" alt="" /></p>
+
+  </div>
+
+  
+    <nav class="post-meta post-meta-bottom">
+      
+        
+        
+          <a class="post-tag" href="/tags/#annotation">#annotation</a>
+        
+      
+        
+        
+          <a class="post-tag" href="/tags/#prokaryotic">#prokaryotic</a>
+        
+      
+        
+        
+          <a class="post-tag" href="/tags/#amplicon">#amplicon</a>
+        
+      
+        
+        
+          <a class="post-tag" href="/tags/#pathway">#pathway</a>
+        
+      
+    </nav>
+  
+</article>
+
+<div class="pagination">
+  
+    <a class="prev post-prev" href="/database/2018/04/02/Introduction_to_UniProtKB.html">
+      <i class="fas fa-chevron-left"></i> <span class="">Introduction to UniprotKB
+</span>
+    </a>
+  
+  
+  
+    <a class="next post-next" href="/coding/python/2018/06/20/Configure_Python3_with_TCL-TK.html">
+      <span class="">Configure Python3 with TCL-TK
+</span> <i class="fas fa-chevron-right"></i> 
+    </a>
+  
+</div>
+
+
+
+      </main>
+      <footer class="footer">
+  
+  <div class="social">
+    
+      <a href="mailto:jlli6t@gmail.com" target="_blank">
+        <i class="fas fa-envelope" title="Email"></i>
+      </a>
+    
+      <a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" target="_blank">
+        <i class="fab fa-google" title="Google scholar"></i>
+      </a>
+    
+      <a href="https://github.com/jlli6t" target="_blank">
+        <i class="fab fa-github" title="Github"></i>
+      </a>
+    
+      <a href="https://www.linkedin.com/in/jie-li-3201a57b/" target="_blank">
+        <i class="fab fa-linkedin" title="linkedin"></i>
+      </a>
+    
+      <a href="https://orcid.org/0000-0002-9623-9213" target="_blank">
+        <i class="fa-brands fa-orcid" title="ORCID"></i>
+      </a>
+    
+      <a href="https://twitter.com/jlli6t" target="_blank">
+        <i class="fab fa-twitter" title="Twitter"></i>
+      </a>
+    
+      <a href="https://jlli6t.github.io" target="_blank">
+        <i class="fas fa-link" title="Website"></i>
+      </a>
+    
+  </div>
+  
+
+  <div class="columns">
+    <p class="column">
+      &copy; <time datetime="2022-06-02T12:57:46+10:00">2022</time>&nbsp;<a href="https://github.com/jlli6t/jlli6t.github.io" target="_blank">Jie Li</a>. All rights reserved.
+    </p>
+
+    <p class="column">
+      Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/vfvong/jekyll-theme-tao" target="_blank">Tao</a>
+    </p>
+
+    
+    <p class="column">
+      This is the dream land of Jie, you are warmly welcomed.
+    </p>
+    
+  </div>
+</footer>
+
+    </div>
+
+    
+
+    
+  </body>
+</html>

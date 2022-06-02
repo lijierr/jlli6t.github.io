@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Warmly welcome! This is my **personal website**. If you find anything interesting, feel free to drop an [email](jlli6t@gmail.com)!
+Warmly welcome! This is my **personal website**. If you find anything interesting of this site, feel free to contact me in any of the ways listed below!
 
 I am currently pursuing a PhD under supervision of [Associate Professor Jianhua Guo](https://researchers.uq.edu.au/researcher/3045) and [Professor Gene Tyson](https://www.qut.edu.au/about/our-people/academic-profiles/gene.tyson) with focus on microbial ecology study with financial support of UQ Research Training Scholarship. Pursuing a PhD is exiting and the journey will be finished around the **middle of 2022**.
 
