@@ -1,14 +1,14 @@
-- title: about
+- title: About
   url: /about/
-- title: home
+- title: Home
   url: /home/
-- title: projects
+- title: Projects
   url: /projects/
-- title: categories
+- title: Categories
   url: /categories/
-- title: years
+- title: Years
   url: /years/
-- title: tags
+- title: Tags
   url: /tags/
 - title: CV
-  url: https://github.com/jlli6t/jlli6t.github.io/cv/index.html
+  url: /cv/
