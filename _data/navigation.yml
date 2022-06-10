@@ -2,13 +2,13 @@
   url: /about/
 - title: Home
   url: /home/
-- title: Projects
-  url: /projects/
 - title: Categories
   url: /categories/
 - title: Years
   url: /years/
 - title: Tags
   url: /tags/
+- title: Projects
+  url: /projects/
 - title: CV
   url: /cv/
