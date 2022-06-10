@@ -1,6 +1,6 @@
 - title: About
   url: /about/
-- title: Home
+- title: Blogs
   url: /home/
 - title: Categories
   url: /categories/
@@ -12,3 +12,5 @@
   url: /projects/
 - title: CV
   url: /cv/
+- title: Website
+  url: /website/
