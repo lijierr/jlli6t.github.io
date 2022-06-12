@@ -5,7 +5,7 @@ theme: jekyll-theme-tao
 
 author:
   name: Jie Li
-  url: jlli6t.github.io
+  url: https://jlli6t.github.io
 
 plugins:
   - jekyll-paginate
