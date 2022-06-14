@@ -1,16 +1,14 @@
 - title: About
   url: /about/
 - title: Blogs
-  url: /home/
-- title: Categories
-  url: /categories/
-- title: Years
-  url: /years/
-- title: Tags
-  url: /tags/
+  url: /home/index.html
 - title: Projects
-  url: /projects/
+  url: /projects/index.html
+- title: Categories
+  url: /categories/index.html
+- title: Years
+  url: /years/index.html
+- title: Tags
+  url: /tags/index.html
 - title: CV
   url: /cv/
-- title: Website
-  url: /website/

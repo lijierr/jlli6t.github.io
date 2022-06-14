@@ -1,6 +1,6 @@
 ---
-layout: home
-type: catalogue
+layout: archive
+type: projects
 title: Projects
-permalink: /website/
+permalink: /projects/
 ---

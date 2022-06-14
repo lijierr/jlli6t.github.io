@@ -1,6 +1,6 @@
 title: Jie Li (She/Her/Hers)
 tagline: "PhD student interested in microbial ecology, bioinformatics and statistics"
-description: Passion is the thing that can get you through the long years(热爱，可抵岁月漫长).
+description: Passion is the only thing that can get you through the long years|唯有热爱，可抵岁月漫长
 theme: jekyll-theme-tao
 
 author:
@@ -15,13 +15,11 @@ paginate: 3
 categories_path: /categories/
 tags_path: /tags/
 years_path: /years/
-site_path: /website/
 
+# manually added:
 # Where things are
 source              : .
 destination         : ./_site
-collections_dir     : .
-plugins_dir         : _plugins # takes an array of strings and loads plugins in that order
 layouts_dir         : _layouts
 data_dir            : _data
 includes_dir        : _includes
@@ -49,7 +47,6 @@ unpublished         : false
 # Plugins
 whitelist           : []
 plugins             : []
-
 
 # Conversion
 markdown            : kramdown

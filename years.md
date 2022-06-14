@@ -1,6 +1,6 @@
 ---
 layout: archive
 type: years
-title: Years
-permalink: /years/
+title: Blog by years
+permalink: /years/index.html
 ---

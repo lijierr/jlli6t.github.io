@@ -1,6 +1,6 @@
 ---
 layout: archive
 type: categories
-title: Categories
-permalink: /categories/
+title: Blog by categories
+permalink: /categories/index.html
 ---
