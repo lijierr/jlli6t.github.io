@@ -17,6 +17,9 @@ tags_path: /tags/
 years_path: /years/
 
 # manually added:
+# use theme settings or not
+ignore_theme_config: false
+
 # Where things are
 source              : .
 destination         : ./_site
