@@ -15,6 +15,8 @@ paginate: 10
 categories_path: /categories/
 tags_path: /tags/
 years_path: /years/
+cv_path: /cv/
+home_path: /home/
 
 # manually added:
 # use theme settings or not
