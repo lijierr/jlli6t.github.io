@@ -5,8 +5,8 @@ theme: jekyll-theme-tao
 
 author:
   name: Jie Li
-  url: "htpps://jlli6t.github.io"
-
+  url: "https://twitter.com/jlli6t"
+url: "htpps://jlli6t.github.io"
 
 # Plugins
 plugins:
@@ -30,11 +30,6 @@ destination         : ./_site
 layouts_dir         : _layouts
 data_dir            : _data
 includes_dir        : _includes
-sass:
-  sass_dir: _sass
-collections:
-  posts:
-    output          : true
 
 # Handling Reading
 safe                : false
@@ -51,22 +46,6 @@ exclude:
   - _sass
   - README.md
 
-keep_files:
-  - .git
-  - .svn
-
-markdown_ext        : "markdown,mkdown,mkdn,mkd,md"
-strict_front_matter : false
-
-
-
-# Conversion
-markdown            : kramdown
-highlighter         : rouge
-lsi                 : false
-excerpt_separator   : "\n\n"
-incremental         : false
-
 # Serving
 port                : 3080
 
@@ -74,19 +53,3 @@ port                : 3080
 permalink           : date
 paginate_path       : /page:num
 timezone            : null
-
-liquid:
-  error_mode        : warn
-  strict_filters    : false
-  strict_variables  : false
-
-# Markdown Processors
-kramdown:
-  auto_ids          : true
-  entity_output     : as_char
-  toc_levels        : [1, 2, 3, 4, 5, 6]
-  smart_quotes      : lsquo,rsquo,ldquo,rdquo
-  input             : GFM
-  hard_wrap         : false
-  footnote_nr       : 1
-  show_warnings     : false

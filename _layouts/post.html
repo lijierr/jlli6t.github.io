@@ -16,14 +16,14 @@ layout: default
         </time>
       {%- endif -%}
       {%- if page.author -%}
-        <i class="fa-solid fa-at"></i> 
+        <i class="fa-solid fa-at"></i>
         {% for author in page.author %}
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">{{ author }}</span>
           {%- if forloop.last == false %}, {% endif -%}
         {% endfor %}
       {%- endif -%}
     </div>
-    
+
     {% if page.categories.size > 0 %}
       <nav class="post-categories">
         {% for category in page.categories %}
@@ -72,10 +72,10 @@ layout: default
   {% else %}
     <span class="prev post-prev unable"><i class="fas fa-chevron-left"></i></span>
   {% endif %}
-  
+
   {% if page.next %}
     <a class="next post-next" href="{{ page.next.url | relative_url }}">
-      <span class="">{{ page.next.title | markdownify | strip_html }}</span> <i class="fas fa-chevron-right"></i> 
+      <span class="">{{ page.next.title | markdownify | strip_html }}</span> <i class="fas fa-chevron-right"></i>
     </a>
   {% else %}
     <span class="next post-next unable"><i class="fas fa-chevron-right"></i></span>
