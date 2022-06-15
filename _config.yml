@@ -5,10 +5,14 @@ theme: jekyll-theme-tao
 
 author:
   name: Jie Li
-  url: https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ
+  url: "htpps://jlli6t.github.io"
 
+
+# Plugins
+whitelist           : []
 plugins:
   - jekyll-paginate
+  - jekyll-seo-tag
 
 paginate: 10
 
@@ -37,21 +41,28 @@ collections:
 # Handling Reading
 safe                : false
 include             : [".htaccess"]
-exclude             : ["Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/", "_sass"]
-keep_files          : [".git", ".svn"]
-encoding            : "utf-8"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - _sass
+  - README.md
+
+keep_files:
+  - .git
+  - .svn
+
+encoding:
+  - utf-8
 markdown_ext        : "markdown,mkdown,mkdn,mkd,md"
 strict_front_matter : false
 
-# Filtering Content
-show_drafts         : null
-limit_posts         : 0
-future              : false
-unpublished         : false
 
-# Plugins
-whitelist           : []
-plugins             : []
 
 # Conversion
 markdown            : kramdown
@@ -61,20 +72,12 @@ excerpt_separator   : "\n\n"
 incremental         : false
 
 # Serving
-detach              : false
 port                : 3080
-host                : 127.0.0.1
-baseurl             : "/jlli6t.github.io" # does not include hostname
-show_dir_listing    : false
 
 # Outputting
 permalink           : date
 paginate_path       : /page:num
 timezone            : null
-
-quiet               : false
-verbose             : false
-defaults            : []
 
 liquid:
   error_mode        : warn
