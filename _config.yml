@@ -5,12 +5,12 @@ theme: jekyll-theme-tao
 
 author:
   name: Jie Li
-  url: https://jlli6t.github.io
+  url: https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ
 
 plugins:
   - jekyll-paginate
 
-paginate: 3
+paginate: 10
 
 categories_path: /categories/
 tags_path: /tags/
@@ -35,7 +35,7 @@ collections:
 # Handling Reading
 safe                : false
 include             : [".htaccess"]
-exclude             : ["Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/"]
+exclude             : ["Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/", "_sass"]
 keep_files          : [".git", ".svn"]
 encoding            : "utf-8"
 markdown_ext        : "markdown,mkdown,mkdn,mkd,md"
@@ -62,7 +62,7 @@ incremental         : false
 detach              : false
 port                : 3080
 host                : 127.0.0.1
-baseurl             : "" # does not include hostname
+baseurl             : "/jlli6t.github.io" # does not include hostname
 show_dir_listing    : false
 
 # Outputting
