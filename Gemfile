@@ -5,7 +5,7 @@ gemspec
 
 # Jekyll <= 4.2.0 compatibility with Ruby 3.0
 gem "webrick", "~> 1.7"
-
+gem 'jekyll-sitemap'
 
 group :jekyll_plugins do
   gem "jekyll-paginate", "~> 1.1"
