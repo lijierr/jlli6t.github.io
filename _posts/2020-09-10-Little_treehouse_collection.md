@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How much I would have to spend to collect full set of little treehouse
+title: little treehouse collection - estimation
 author: Jie Li
 categories: [statistics]
 tags: [estimation]
@@ -9,7 +9,7 @@ math: false
 
 ### 1. Introduction
 最近，超市推出了消费金额满$30可兑换LITTLE TREEHOUSE小书集一本。这套小书共24本，编号1, 2, 3, … , 24。大概为图片中的样子。但每一本书都被包装覆盖，拆开之前看不到编号🤣（小编表示，如果可以看到编号就直接挑24个不一样的啦！哪里需要实验🙄）
-![photo](/assets/_imgs/little_treehouse.png "little treehouse books")
+![photo](https://github.com/jlli6t/jlli6t.github.io/assets/_imgs/little_treehouse.png "little treehouse books")
 
 真的好想要集齐24本书啊~~~
 那如果想要集齐24本书，需要消费多少金额？（谁让我有一颗强大且无聊的人类的好奇心）（假设单次消费$30以上但不足$60按$30进行计算）。

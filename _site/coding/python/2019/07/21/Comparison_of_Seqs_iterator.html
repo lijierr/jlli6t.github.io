@@ -21,37 +21,37 @@
     <a href="/">Jie Li (She/Her/Hers)</a>
   </h2>
   
-    <h5 class="masthead-tagline">PhD student interested in microbial ecology, bioinformatics and statistics</h5>
+    <h5 class="masthead-tagline">A PhD student interested in microbial ecology</h5>
   
   
     <nav class="nav">
       
         <a class="nav-item " href="/about/">
-          About
+          <u>About</u>
         </a>
       
         <a class="nav-item " href="/home/index.html">
-          Blogs
+          <u>Blogs</u>
         </a>
       
         <a class="nav-item " href="/categories/index.html">
-          Categories
+          <u>Categories</u>
         </a>
       
         <a class="nav-item " href="/years/index.html">
-          Years
+          <u>Years</u>
         </a>
       
         <a class="nav-item " href="/tags/index.html">
-          Tags
+          <u>Tags</u>
         </a>
       
         <a class="nav-item " href="/projects/index.html">
-          Projects
+          <u>Projects</u>
         </a>
       
         <a class="nav-item " href="/cv/">
-          CV
+          <u>_CV_</u>
         </a>
       
       </nav>
@@ -83,7 +83,7 @@
     
   </div>
 
-  <h1 class="post-title">Comparison of Readfq and FastqGeneralIterator</h1>
+  <h1 class="post-title">Comparison of Seqs iterator</h1>
   
 
   
@@ -108,9 +108,9 @@
 	1. 代码非常简洁，仅仅31行！相比于Bio来说，非常轻量。
 	2. 大神的代码同时兼容<code class="language-plaintext highlighter-rouge">fasta</code>和<code class="language-plaintext highlighter-rouge">fastq</code>！而<code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>只能处理<code class="language-plaintext highlighter-rouge">fastq</code>文件，如果要处理<code class="language-plaintext highlighter-rouge">fasta</code>格式的文件的话，需要调用<code class="language-plaintext highlighter-rouge">Bio.SeqIO.FastaIO.SimpleFastaParser</code>
 	3. 本着代码的简洁性以及减少对<code class="language-plaintext highlighter-rouge">library</code>的依赖，<code class="language-plaintext highlighter-rouge">readfq</code>胜任。
-	4. 最后就是虽然在测试过程中，<code class="language-plaintext highlighter-rouge">Bio</code>略胜一筹，但是现实中大部分的情况我们不需要频繁遍历太大的数据，所以速度上可以认为<code class="language-plaintext highlighter-rouge">readfq</code>与<code class="language-plaintext highlighter-rouge">Bio</code>的<code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>不相上下。
-————————————————————————————————–
-测试代码：</p>
+	4. 最后就是虽然在测试过程中，<code class="language-plaintext highlighter-rouge">Bio</code>略胜一筹，但是现实中大部分的情况我们不需要频繁遍历太大的数据，所以速度上可以认为<code class="language-plaintext highlighter-rouge">readfq</code>与<code class="language-plaintext highlighter-rouge">Bio</code>的<code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>不相上下。</p>
+
+<p>测试代码：</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">'start readfq'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
 <span class="n">n</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="n">qlen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
@@ -221,10 +221,6 @@
   
   <div class="social">
     
-      <a href="mailto:jlli6t@gmail.com" target="_blank">
-        <i class="fas fa-envelope" title="Email"></i>
-      </a>
-    
       <a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" target="_blank">
         <i class="fab fa-google" title="Google scholar"></i>
       </a>
@@ -249,12 +245,16 @@
         <i class="fas fa-link" title="Website"></i>
       </a>
     
+      <a href="mailto:jlli6t@gmail.com" target="_blank">
+        <i class="fas fa-envelope" title="Email"></i>
+      </a>
+    
   </div>
   
 
   <div class="columns">
     <p class="column">
-      &copy; <time datetime="2022-06-15T21:57:11+10:00">2022</time>&nbsp;<a href="https://twitter.com/jlli6t" target="_blank">Jie Li</a>. All rights reserved.
+      &copy; <time datetime="2022-06-16T18:35:25+10:00">2022</time>&nbsp;<a href="https://twitter.com/jlli6t" target="_blank">Jie Li</a>. All rights reserved.
     </p>
 
     <p class="column">
@@ -263,7 +263,7 @@
 
     
     <p class="column">
-      Passion is the only thing that can get you through the long years|唯有热爱，可抵岁月漫长
+      Passion is the only thing that can get you through the long years
     </p>
     
   </div>

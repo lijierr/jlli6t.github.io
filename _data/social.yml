@@ -1,6 +1,3 @@
-- title: Email
-  url: mailto:jlli6t@gmail.com
-  icon: fas fa-envelope
 - title: Google scholar
   url: https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ
   icon: fab fa-google
@@ -19,3 +16,6 @@
 - title: Website
   url: https://jlli6t.github.io
   icon: fas fa-link
+- title: Email
+  url: mailto:jlli6t@gmail.com
+  icon: fas fa-envelope
