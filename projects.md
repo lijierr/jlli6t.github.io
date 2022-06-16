@@ -23,4 +23,4 @@ When you zoom in, you can clearly see the difference between these two genomes.
 # ReadTrim
 
 ### Description
-**[ReadTrim]()** is an integrated workflow that used for
+**[ReadTrim]()** is workflow that used for Short read QC and trimming.
