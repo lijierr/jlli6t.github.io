@@ -5,9 +5,9 @@ author: Jie Li
 categories: [metatranscriptomic, bioinformatics tools]
 tags: [tutorials, RNA, mapping]
 math: false
-image: /assets/_imgs/sortmerna_title.png
 ---
 
+![]({{ 'assets/_imgs/sortmerna_title.png' | relative_url}})
 ## 1. Introduction
 SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。
 
@@ -16,7 +16,7 @@ SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工�
 然后设定一个窗口，对read进行窗口滑动扫描，基于设定的阈值，单个read中超过阈值数量的窗口比对到数据库则该read被鉴定为rRNA。其中窗口比对数据库时容错为1（例如碱基替换，插入或缺失）。
 基础算法很容易理解，主要是提高算法效率，大比例缩短比对时间。
 作者的策略如下图所示：
-![](https://github.com/jlli6t/jlli6t.github.io/assets/_imgs/sortmerna_algorithm.png#pic_center "sortmerna_algorithm.png")
+![]({{ 'assets/_imgs/sortmerna_algorithm.png' | relative_url }})
 
 ### 2.1 具体算法过程
 1. 使用`Burst trie (BT)`结合查找表策略存储数据库。假设窗口为`w`，窗口序列长度为`s（14~20）`。
@@ -33,7 +33,7 @@ SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工�
 
 ## 3.关于作者使用的Levenshtein自动机
 作者用自动机实现字符串之间的模糊匹配（文中是read和db）。假设字符串p和错误数k，经典的非确定性Levenshtein自动机可识别的最大编辑距离为k到p的字符集，文中k=1。
-![](https://github.com/jlli6t/jlli6t.github.io/assets/_imgs/sortmerna_levenshtein.png#pic_center "sortmerna_levenshtein")
+![]({{ 'assets/_imgs/sortmerna_levenshtein.png' | relative_url }})
 
 ## 4. 与其他工具的对比：
 Meta-RNA，SSU-ALIGN，rRNASelector使用了常见的概率模型，其中Meta-RNA和rRNASelector使用了HMM模型，然后利用HMMER3比对短read到数据库，SSU-ALIGN使用协方差模型来支持二级结构的信息。除了概率模型之外，riboPicker使用的是修改版的BWA算法。BLASTN也使用非常多，特别是大家各自用的workflow。

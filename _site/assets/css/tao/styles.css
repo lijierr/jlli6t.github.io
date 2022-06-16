@@ -99,7 +99,7 @@ a[href^="#fn:"], a[href^="#fnref:"] { display: inline-block; margin-left: .1em; 
 
 .post-image { width: 80%; }
 
-.post-meta { color: var(--body-color-light); font-size: 1em; }
+.post-meta { color: var(--body-color-light); font-size: .8em; }
 
 .post-meta-top { margin-bottom: var(--spacing); display: grid; grid-template-columns: 2fr 1fr; gap: calc(1/2 * var(--spacing)); }
 
@@ -145,7 +145,7 @@ a.post-tag:hover, a.post-tag:focus { text-decoration: none; color: var(--color-n
 /** Styles for the footer */
 .footer { margin-top: auto; margin-bottom: var(--spacing); padding-top: calc(1 * var(--spacing)); color: var(--body-color-light); text-align: center; }
 
-.footer .columns { font-size: 0.8em; }
+.footer .columns { font-size: 1em; }
 
 .social a { color: inherit; margin-left: var(--spacing); margin-right: var(--spacing); }
 

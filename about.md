@@ -6,7 +6,7 @@ permalink: /about/
 
 # <center>About me</center>
 
-![]("https://github.com/jlli6t/jlli6t.github.io/assets/_imgs/MM.log.jpg")
+![My profile picture]({{ 'assets/_imgs/prof_pic.jpg' | relative_url }})
 Warmly welcome! This is Jie's personal website. If you find anything interesting of this site, feel free to contact in any of the ways listed below!
 
 Jie is currently pursuing a PhD under supervision of [Associate Professor Jianhua Guo](https://researchers.uq.edu.au/researcher/3045) and [Professor Gene Tyson](https://www.qut.edu.au/about/our-people/academic-profiles/gene.tyson) with focus on microbial ecology study with financial support of UQ Research Training Scholarship. Pursuing a PhD is exiting and the journey will be finished around the **middle of 2022**.
