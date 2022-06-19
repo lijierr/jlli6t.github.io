@@ -3,7 +3,7 @@ layout: post
 title: Comparison of Seqs iterator
 author: Jie Li
 categories: [coding, python]
-tags: [fastq/a, sequence process]
+tags: [fastq, fasta, sequence]
 math: false
 ---
 

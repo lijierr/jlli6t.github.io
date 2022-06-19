@@ -15,12 +15,14 @@ $screen-desktop: 1024px;
   --body-color-light: var(--oc-gray-6);
   --body-color:       var(--oc-gray-8);  //主体文字的颜色
   --body-color-dark:  var(--oc-black);
-  --accent-color:     var(--oc-blue-3);  // 有链接的文字的颜色
-  --color-tag:        var(--oc-pink-3);
-  --color-category:   var(--oc-orange-4);
+  --accent-color:     var(--oc-black-3);  // 有链接的文字的颜色
+  --color-tag:        var(--oc-pink-2);
+  --color-tag-active: var(--oc-blue-4);
+  --color-category:   var(--oc-blue-4);
+  --color-category-active: var(--oc-pink-2);
   --color-tagline:    var(--oc-gray-6);
-  --color-nav:        var(--oc-violet-3);
-  --color-nav-active: var(--oc-gray-4);
+  --color-nav:        var(--oc-blue-4);
+  --color-nav-active: var(--oc-pink-2);
 
   --body-font:        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   --title-font:       'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

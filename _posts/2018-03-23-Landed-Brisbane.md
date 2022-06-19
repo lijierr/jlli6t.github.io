@@ -3,4 +3,4 @@ layout: post
 title: Landed brisbane
 ---
 
-Mark mark. The first day in Brisbane.
+Mark a mark. The first day in Brisbane.

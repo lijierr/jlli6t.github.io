@@ -1,2 +1,2 @@
-# test
-add this for test
+# Jie's site
+This is a site built by Jie

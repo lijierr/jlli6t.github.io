@@ -43,7 +43,7 @@ a.post-category {
   &:hover,
   &:focus {
     text-decoration: none;
-    color: var(--color-nav-active);
+    color: var(--color-category-active);
   }
 }
 
@@ -53,7 +53,7 @@ a.post-tag {
   &:hover,
   &:focus {
     text-decoration: none;
-    color: var(--color-nav-active);
+    color: var(--color-tag-active);
   }
 }
 

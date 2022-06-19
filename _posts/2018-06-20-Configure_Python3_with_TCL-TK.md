@@ -3,7 +3,7 @@ layout: post
 title: Configure Python3 with TCL-TK
 author: Jie Li
 categories: [coding, python]
-tags: [TCK-TK, environments]
+tags: [TCK-TK, environment, linux]
 ---
 
 ### Introduction (简介)
