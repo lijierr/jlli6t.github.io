@@ -7,7 +7,6 @@ tags: [tutorials, git]
 math: false
 ---
 
-## Words from J：
 Git is a tool for version control, and it is one of the bests, there are lots of blogs describing the logic of git.
 使用git的好处不多说，网上有非常多的博客讲解了其逻辑结构。最最主要的功能版本控制，真的是所有代码爱好者的福音了（嘻嘻）。
 建议不熟悉git逻辑的同学宝宝先了解一下git的逻辑再阅读本文，会更顺畅哦。
