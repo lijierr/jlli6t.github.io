@@ -18,10 +18,10 @@
     <div class="wrapper">
       <header class="masthead">
   <h2 class="masthead-title">
-    <a href="/">Jie Li (She/Her/Hers)</a>
+    <a href="/"><font color=red>❤️</font> Jie Li (She/Her/Hers) <font color=red>❤️</font></a>
   </h2>
   
-    <h5 class="masthead-tagline">PhD student interested in microbial ecology, bioinformatics and statistics</h5>
+    <h5 class="masthead-tagline">A PhD student interested in microbial ecology</h5>
   
   
     <nav class="nav">
@@ -64,77 +64,18 @@
   
   
     <article class="post-entry">
-      <h1 class="post-title"><a href="/coding/python/2019/07/21/Comparison_of_Readfq_FastqGeneralIterator.html">Comparison of Readfq and FastqGeneralIterator</a></h1>
+      <h1 class="post-title"><a href="/2018/03/23/Landed-Brisbane.html">Landed brisbane</a></h1>
+      
+        <h4 class="post-subtitle">The first day in brisbane</h4>
       
       
       <p>
-        Introduction
-做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。
-需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。
-
-Bio.SeqIO.QualityIO.FastqGeneralIterator同Bio.SeqIO.parse一样也是一个迭代器，只不过不生成对象record，而是生成序列id、序列、以及质量值本身，遍历的时候调用语法为
-
-For title, seq, qua... <a href="/coding/python/2019/07/21/Comparison_of_Readfq_FastqGeneralIterator.html"><i class="fa-solid fa-angles-right"></i></a>
+        Mark mark. The first day in Brisbane.
+ <a href="/2018/03/23/Landed-Brisbane.html"><i class="fa-solid fa-angles-right"></i></a>
       </p>
 
-      <time class="post-meta" datetime="2019-07-21T00:00:00+10:00">
-        <i class="fa-solid fa-calendar-days"></i> 21 Jul 2019
-      </time>
-    </article>
-  
-    <article class="post-entry">
-      <h1 class="post-title"><a href="/metatranscriptomic/bioinformatics%20tools/2019/06/19/Introduction_of_sortmerna.html">Introduction to SortMeRNA</a></h1>
-      
-      
-        <div class="thumbnail-container">
-          <a href="/metatranscriptomic/bioinformatics%20tools/2019/06/19/Introduction_of_sortmerna.html">
-            <img class="post-image" src="/assets/_imgs/sortmerna_title.png" alt="Introduction to SortMeRNA">
-          </a>
-        </div>
-      
-      <p>
-        1. Introduction
-SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。
-
-2. 算法基本原理
-底层算法与seed策略类似，主要是寻找rRNA数据库和read之间的一定数量的相似短区域。对rRNA序列建立索引的时候，与HMM一样，利用同源序列之间的冗余，建立所有rRNA序列的压缩模型。
-然后设定一个窗口，对read进行窗口滑动扫描，基于设定的阈值，单个read中超过阈值数量的窗口比对到数据库则该read被鉴定为rRNA。其中窗口... <a href="/metatranscriptomic/bioinformatics%20tools/2019/06/19/Introduction_of_sortmerna.html"><i class="fa-solid fa-angles-right"></i></a>
-      </p>
-
-      <time class="post-meta" datetime="2019-06-19T00:00:00+10:00">
-        <i class="fa-solid fa-calendar-days"></i> 19 Jun 2019
-      </time>
-    </article>
-  
-    <article class="post-entry">
-      <h1 class="post-title"><a href="/coding/2019/06/17/git_local_repo.html">Learning git - local repo</a></h1>
-      
-      
-      <p>
-        小编有言：
-使用git的好处不多说，网上有非常多的博客讲解了其逻辑结构。最最主要的功能版本控制，真的是所有代码爱好者的福音了（嘻嘻）。
-建议不熟悉git逻辑的同学宝宝先了解一下git的逻辑再阅读本文，会更顺畅哦，（一个梦幻拉丁式谢礼）。
-
-git工具
-查看服务器上是否已经安装好git， 服务器上有自带的git，直接使用即可，不需要自行安装了
-
-$which git
-/opt/rocks/bin/git
-
-初始化仓库：
-进入到对应的目录，然后执行git init命令即可
-
-$git init
-
-查看工作状态：
-查看工作目录+stage+HEAD的状态，发现工作目录有一个rdetfq.py文件，但是没有被加入到stage，也没有commit到HEAD过。
-
-$git status
-On b... <a href="/coding/2019/06/17/git_local_repo.html"><i class="fa-solid fa-angles-right"></i></a>
-      </p>
-
-      <time class="post-meta" datetime="2019-06-17T00:00:00+10:00">
-        <i class="fa-solid fa-calendar-days"></i> 17 Jun 2019
+      <time class="post-meta" datetime="2018-03-23T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 23 Mar 2018
       </time>
     </article>
   
@@ -146,7 +87,7 @@ On b... <a href="/coding/2019/06/17/git_local_repo.html"><i class="fa-solid fa-a
       <a class="prev home-prev" href="/"><i class="fas fa-chevron-left"></i></a>
     
     
-      <a class="next home-next" href="/page3"><i class="fas fa-chevron-right"></i></a>
+      <span class="next home-next unable"><i class="fas fa-chevron-right"></i></span>
     
   </div>
 
@@ -189,7 +130,7 @@ On b... <a href="/coding/2019/06/17/git_local_repo.html"><i class="fa-solid fa-a
 
   <div class="columns">
     <p class="column">
-      &copy; <time datetime="2022-06-15T09:26:24+10:00">2022</time>&nbsp;<a href="https://jlli6t.github.io" target="_blank">Jie Li</a>. All rights reserved.
+      &copy; <time datetime="2022-06-20T09:57:49+10:00">2022</time>&nbsp;<a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" target="_blank">Jie Li</a>. All rights reserved.
     </p>
 
     <p class="column">
@@ -198,7 +139,7 @@ On b... <a href="/coding/2019/06/17/git_local_repo.html"><i class="fa-solid fa-a
 
     
     <p class="column">
-      Passion is the only thing that can get you through the long years|唯有热爱，可抵岁月漫长
+      Passion can get you through the long years <font color=F08F8F>❤</font> 热爱可抵岁月漫长
     </p>
     
   </div>
