@@ -1,8 +1,5 @@
 ---
 layout: home
 title: Blog list
-permalink: /home
+permalink: /home/index.html
 ---
-
-test
-<center>test</center>
