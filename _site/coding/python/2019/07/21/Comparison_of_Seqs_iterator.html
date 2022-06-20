@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/assets/css/normalize.css"/>
+	<link rel="stylesheet" href="/assets/css/open-color.css"/>
+	<link rel="stylesheet" href="/assets/css/tao/styles.css"/>
+
+  <script async src="https://use.fontawesome.com/releases/v6.0.0/js/all.js"></script>
+
+  
+
+</head>
+
+  <body>
+    <div class="wrapper">
+      <header class="masthead">
+  <h2 class="masthead-title">
+    <a href="/"><font color=red>❤️</font> Jie Li (She/Her/Hers) <font color=red>❤️</font></a>
+  </h2>
+  
+    <h5 class="masthead-tagline">A PhD student interested in microbial ecology</h5>
+  
+  
+    <nav class="nav">
+      
+        <a class="nav-item " href="/about/">
+          <u>About</u>
+        </a>
+      
+        <a class="nav-item " href="/home/index.html">
+          <u>Blogs</u>
+        </a>
+      
+        <a class="nav-item " href="/categories/index.html">
+          <u>Categories</u>
+        </a>
+      
+        <a class="nav-item " href="/years/index.html">
+          <u>Years</u>
+        </a>
+      
+        <a class="nav-item " href="/tags/index.html">
+          <u>Tags</u>
+        </a>
+      
+        <a class="nav-item " href="/projects/index.html">
+          <u>Projects</u>
+        </a>
+      
+        <a class="nav-item " href="/cv/">
+          <u>_CV_</u>
+        </a>
+      
+      </nav>
+  
+</header>
+
+      <main>
+        <article class="post">
+  <div class="post-meta post-meta-top">
+    <div>
+      <time datetime="2019-07-21T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 21 Jul 2019
+      </time><i class="fa-solid fa-at"></i>
+        
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">Jie Li</span></div>
+
+    
+      <nav class="post-categories">
+        
+          
+            <a class="post-category" href="/categories/#coding">coding</a> /
+          
+        
+          
+            <a class="post-category" href="/categories/#python">python</a> /
+          
+        
+      </nav>
+    
+  </div>
+
+  <h1 class="post-title">Comparison of Seqs iterator</h1>
+  
+
+  
+
+  <div class="post-content">
+    <h2 id="introduction">Introduction</h2>
+<p>做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。
+需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，<code class="language-plaintext highlighter-rouge">Biopython</code>除了提供<code class="language-plaintext highlighter-rouge">Bio.seqIO.parse</code>函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。</p>
+
+<p><code class="language-plaintext highlighter-rouge">Bio.SeqIO.QualityIO.FastqGeneralIterator</code>同<code class="language-plaintext highlighter-rouge">Bio.SeqIO.parse</code>一样也是一个迭代器，只不过不生成对象<code class="language-plaintext highlighter-rouge">record</code>，而是生成序列id、序列、以及质量值本身，遍历的时候调用语法为</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">For</span> <span class="n">title</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="n">qual</span> <span class="ow">in</span> <span class="n">FastqGeneralIterator</span><span class="p">(</span><span class="n">fh</span><span class="p">):</span>
+	<span class="n">Do</span> <span class="n">something</span></code></pre></figure>
+
+<p><code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>速度很快了，但我偶然又看到大神Heng Li 12年写的一个小代码<code class="language-plaintext highlighter-rouge">readfq</code>，相信不少同学有看过源码（我看到不少项目都嵌了这段代码），也是一个序列遍历器，且居然还在活跃，还有人在提issue和pr。</p>
+
+<p>测试文件为一个<code class="language-plaintext highlighter-rouge">36,518,870</code>条序列的fastq.gz文件，这个序列数量已经是人肠道微生物基因集的几倍了，大多数情况下都不会需要频繁迭代这么多的序列量。我测试迭代然后统计序列数，碱基数，及质量字符数。
+考虑到服务器上其他用户的状态可能也会影响测试效果，所以做了多次测试，<code class="language-plaintext highlighter-rouge">Bio</code>版本为<code class="language-plaintext highlighter-rouge">1.76</code>，测试平台为<code class="language-plaintext highlighter-rouge">x86_64 GNU/Linux</code>：</p>
+
+<p>通过5次单独的测试，总的来说<code class="language-plaintext highlighter-rouge">readfq</code>速度上比<code class="language-plaintext highlighter-rouge">Bio</code>慢一点点，不会超过<code class="language-plaintext highlighter-rouge">20%</code>，其中第四次测试<code class="language-plaintext highlighter-rouge">readfq</code>的速度超过了<code class="language-plaintext highlighter-rouge">Bio</code>，可能测试环境也有一定的影响。
+强推大神代码的原因：
+	1. 代码非常简洁，仅仅31行！相比于Bio来说，非常轻量。
+	2. 大神的代码同时兼容<code class="language-plaintext highlighter-rouge">fasta</code>和<code class="language-plaintext highlighter-rouge">fastq</code>！而<code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>只能处理<code class="language-plaintext highlighter-rouge">fastq</code>文件，如果要处理<code class="language-plaintext highlighter-rouge">fasta</code>格式的文件的话，需要调用<code class="language-plaintext highlighter-rouge">Bio.SeqIO.FastaIO.SimpleFastaParser</code>
+	3. 本着代码的简洁性以及减少对<code class="language-plaintext highlighter-rouge">library</code>的依赖，<code class="language-plaintext highlighter-rouge">readfq</code>胜任。
+	4. 最后就是虽然在测试过程中，<code class="language-plaintext highlighter-rouge">Bio</code>略胜一筹，但是现实中大部分的情况我们不需要频繁遍历太大的数据，所以速度上可以认为<code class="language-plaintext highlighter-rouge">readfq</code>与<code class="language-plaintext highlighter-rouge">Bio</code>的<code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>不相上下。</p>
+
+<p>测试代码：</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">'start readfq'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="n">qlen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="n">qual</span> <span class="ow">in</span> <span class="n">readfq</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="n">n</span><span class="o">+=</span> <span class="mi">1</span>
+	<span class="n">slen</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+	<span class="n">qlen</span> <span class="o">+=</span> <span class="n">qual</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">qlen</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'end readfq'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'start Bio'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="n">qlen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="n">qual</span> <span class="ow">in</span> <span class="n">FastqGeneralIterator</span><span class="p">(</span><span class="n">fh</span><span class="p">):</span>
+	<span class="n">n</span><span class="o">+=</span><span class="mi">1</span>
+	<span class="n">slen</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+	<span class="n">qlen</span> <span class="o">+=</span> <span class="n">qual</span>
+<span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">qlen</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'end Bio'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span></code></pre></figure>
+
+<h2 id="附上测试结果供参考">附上测试结果供参考：</h2>
+<p><strong>第一次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>118.88%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mf">13.063023</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mf">32.138950</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">259.075927</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mf">35.854583</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mf">13.789172</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">217.934589</span><span class="n">s</span></code></pre></figure>
+
+<p><strong>第二次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>118.62%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mf">58.999203</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mf">06.315406</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">247.316203</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mf">08.641087</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mf">37.140562</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">208.499475</span><span class="n">s</span></code></pre></figure>
+
+<p><strong>第三次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>15.51%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mf">28.903198</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mf">53.790852</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">264.887654</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mf">53.912627</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mf">43.230618</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">229.317991</span><span class="n">s</span></code></pre></figure>
+
+<p><strong>第四次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>96.91%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mf">52.750406</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">23.449189</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">270.698783</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">23.554306</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mf">02.897335</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">279.343029</span><span class="n">s</span></code></pre></figure>
+
+<p><strong>第五次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>116.17%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mf">57.625076</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">58.973375</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">241.348299</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">59.101057</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mf">26.855097</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">207.754040</span><span class="n">s</span></code></pre></figure>
+
+<h2 id="附大神代码地址">附大神代码地址</h2>
+<p><a href="https://github.com/lh3/readfq/blob/master/readfq.py">地址</a></p>
+
+  </div>
+
+  
+    <nav class="post-meta post-meta-bottom">
+      
+        
+        
+          <a class="post-tag" href="/tags/#fastq">#fastq</a>
+        
+      
+        
+        
+          <a class="post-tag" href="/tags/#fasta">#fasta</a>
+        
+      
+        
+        
+          <a class="post-tag" href="/tags/#sequence">#sequence</a>
+        
+      
+    </nav>
+  
+</article>
+
+<div class="pagination">
+  
+    <a class="prev post-prev" href="/metatranscriptomic/bioinformatics/2019/06/19/Introduction_of_sortmerna.html">
+      <i class="fas fa-chevron-left"></i> <span class="">Introduction to SortMeRNA
+</span>
+    </a>
+  
+
+  
+    <a class="next post-next" href="/database/amplicon/2020/06/18/Silva_update_138.html">
+      <span class="">Silva updates to 138
+</span> <i class="fas fa-chevron-right"></i>
+    </a>
+  
+</div>
+
+
+
+      </main>
+      <footer class="footer">
+  
+  <div class="social">
+    
+      <a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" target="_blank">
+        <i class="fab fa-google" title="Google scholar"></i>
+      </a>
+    
+      <a href="https://github.com/jlli6t" target="_blank">
+        <i class="fab fa-github" title="Github"></i>
+      </a>
+    
+      <a href="https://www.linkedin.com/in/jie-li-3201a57b/" target="_blank">
+        <i class="fab fa-linkedin" title="linkedin"></i>
+      </a>
+    
+      <a href="https://orcid.org/0000-0002-9623-9213" target="_blank">
+        <i class="fa-brands fa-orcid" title="ORCID"></i>
+      </a>
+    
+      <a href="https://twitter.com/jlli6t" target="_blank">
+        <i class="fab fa-twitter" title="Twitter"></i>
+      </a>
+    
+      <a href="https://jlli6t.github.io" target="_blank">
+        <i class="fas fa-link" title="Website"></i>
+      </a>
+    
+      <a href="mailto:jlli6t@gmail.com" target="_blank">
+        <i class="fas fa-envelope" title="Email"></i>
+      </a>
+    
+  </div>
+  
+
+  <div class="columns">
+    <p class="column">
+      &copy; <time datetime="2022-06-20T10:19:28+10:00">2022</time>&nbsp;<a href="/" target="_blank">Jie Li</a>. All rights reserved.
+    </p>
+
+    <p class="column">
+      Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/vfvong" target="_blank">vfvong</a>
+    </p>
+
+    
+    <p class="column">
+      <a href="/" target="_blank">Passion can get you through the long years <font color=F08F8F>❤</font> 热爱可抵岁月漫长</a>
+    </p>
+    
+  </div>
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">
+    <center><a href="/" target="_blank">Total visits: <span id="busuanzi_value_site_pv"> </span> <font color=F08F8F>❤</font> Jie Li</a></center>
+  </span>
+</footer>
+
+    </div>
+
+    
+
+    
+  </body>
+</html>

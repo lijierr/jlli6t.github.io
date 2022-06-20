@@ -1,11 +1,15 @@
 ---
 layout: page
-title: About me
 permalink: /about/
 ---
+# <center>About me</center>
 
-Warmly welcome! This is Jie's personal website. If you find anything interesting of this site, feel free to contact in any of the ways listed below!
+Hi there! I am Jie, this is my website. If you find anything interesting feel free to contact me!
 
-Jie is currently pursuing a PhD under supervision of [Associate Professor Jianhua Guo](https://researchers.uq.edu.au/researcher/3045) and [Professor Gene Tyson](https://www.qut.edu.au/about/our-people/academic-profiles/gene.tyson) with focus on microbial ecology study with financial support of UQ Research Training Scholarship. Pursuing a PhD is exiting and the journey will be finished around the **middle of 2022**.
+![]({{ 'assets/picbed/cover/cover4.jpg' | relative_url}})
 
-Jie is passionate about **microbial ecology** and has participated in a few **[projects](https://jlli6t.github.io/projects/index.html)** and involved in **[publications](https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ)**. Jie has worked in a wide range of different environments from molecular biology science at Hunan Agricultural University and Beijing Institute of Genomics, Chinese Academy of Science to bioinformatics at BGI and Australian Centre for Water and Environmental Biotechnology. The wet lab experience of molecular biology aids in her data analysis a lots. For her, it's exciting to work with different people and to learn different stuff, these experiences largely diversified her background and enabled her a solid foundation as an independent researcher.
+I am currently pursuing a PhD with advisors of [**<u>Associate Professor Jianhua Guo</u>**](https://researchers.uq.edu.au/researcher/3045) and [**<u>Professor Gene Tyson</u>**](https://www.qut.edu.au/about/our-people/academic-profiles/gene.tyson). This PhD focuses on microbial ecology with financial support of UQ Research Training Scholarship. Pursuing a PhD is exiting and the journey will be finished around the **middle of 2022**.
+
+I am passionate about **microbial ecology** and have been involved in [**<u>publications</u>**](https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ). My passion extends to coding as well. I have led the development of [**<u>pipelines</u>**](https://jlli6t.github.io/projects/index.html) mainly with Python.
+
+I have worked in a wide range of different environments from molecular biology science bioinformatics. The wet lab experience of molecular biology aids in data analysis a lots. For me, it's exciting to work with different people and to learn different stuff, these experiences largely diversified my background and enabled me a solid foundation as an independent researcher.

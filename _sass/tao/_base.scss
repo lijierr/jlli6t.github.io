@@ -45,7 +45,7 @@ article img {
 }
 
 blockquote {
-  border-left: .2em solid var(--body-color-light);
+  border-left: .1em solid var(--body-color-light);
   padding-left: var(--spacing);
   margin-left: 0;
   margin-right: 0;
@@ -93,7 +93,7 @@ hr {
 
 code, pre {
   font-family: var(--code-font);
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 code {
@@ -154,7 +154,7 @@ a[href^="#fnref:"] {
 
 #markdown-toc {
   font-family: var(--body-font);
-  font-size: .8em;
+  font-size: 1em;
   padding: 2em 3em;
   margin: 2em 0;
   border: solid var(--body-color-light);

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Landed brisbane
-subtitle: The first day in brisbane
 ---
 
-Mark mark. The first day in Brisbane.
+![]({{ 'assets/picbed/cover/mountains.jpg' | relative_url}})
+Mark a mark. The first day in Brisbane.

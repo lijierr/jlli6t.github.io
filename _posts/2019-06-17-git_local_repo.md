@@ -2,14 +2,14 @@
 layout: post
 title: Learning git - local repo
 author: Jie Li
-categories: [coding]
-tags: [tutorials]
+categories: [coding, bash]
+tags: [tutorials, git]
 math: false
 ---
 
-### 小编有言：
+Git is a tool for version control, and it is one of the bests, there are lots of blogs describing the logic of git.
 使用git的好处不多说，网上有非常多的博客讲解了其逻辑结构。最最主要的功能版本控制，真的是所有代码爱好者的福音了（嘻嘻）。
-建议不熟悉git逻辑的同学宝宝先了解一下git的逻辑再阅读本文，会更顺畅哦，（一个梦幻拉丁式谢礼）。
+建议不熟悉git逻辑的同学宝宝先了解一下git的逻辑再阅读本文，会更顺畅哦。
 
 ### git工具
 查看服务器上是否已经安装好git， 服务器上有自带的git，直接使用即可，不需要自行安装了

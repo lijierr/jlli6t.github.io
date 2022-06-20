@@ -2,8 +2,8 @@
 layout: post
 title: Introduction to UniprotKB
 author: Jie Li
-categories: database
-tags: [protein, annotation]
+categories: [annotation, database]
+tags: [protein, annotation, protein, gene]
 math: false
 ---
 

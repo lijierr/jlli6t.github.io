@@ -7,11 +7,11 @@
 
   // Refer: https://jonathannicol.com/blog/2014/06/16/centre-crop-thumbnails-with-css/
   .thumbnail-container {
-    margin-top: var(--spacing);
+    margin-top: calc(2 * var(--spacing));
     border-radius: .5em;
     overflow: hidden;
     height: 50vw;
-    max-height: 240px;
+    max-height: 100px;
     position: relative;
 
     .post-image {
@@ -31,7 +31,7 @@
   margin-top: calc(2 * var(--spacing));
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  font-size: .8em;
+  font-size: 0.8em;
 
   .prev, .next {
     padding: var(--spacing);
@@ -39,11 +39,11 @@
   }
 
   .prev {
-    border-radius: 1em 0 0 1em;
+    border-radius: .6em 0 0 .6em;
   }
 
   .next {
-    border-radius: 0 1em 1em 0;
+    border-radius: 0 .6em .6em 0;
   }
 
   .home-prev, .home-next {

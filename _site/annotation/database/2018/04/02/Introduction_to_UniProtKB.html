@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/assets/css/normalize.css"/>
+	<link rel="stylesheet" href="/assets/css/open-color.css"/>
+	<link rel="stylesheet" href="/assets/css/tao/styles.css"/>
+
+  <script async src="https://use.fontawesome.com/releases/v6.0.0/js/all.js"></script>
+
+  
+
+</head>
+
+  <body>
+    <div class="wrapper">
+      <header class="masthead">
+  <h2 class="masthead-title">
+    <a href="/"><font color=red>❤️</font> Jie Li (She/Her/Hers) <font color=red>❤️</font></a>
+  </h2>
+  
+    <h5 class="masthead-tagline">A PhD student interested in microbial ecology</h5>
+  
+  
+    <nav class="nav">
+      
+        <a class="nav-item " href="/about/">
+          <u>About</u>
+        </a>
+      
+        <a class="nav-item " href="/home/index.html">
+          <u>Blogs</u>
+        </a>
+      
+        <a class="nav-item " href="/categories/index.html">
+          <u>Categories</u>
+        </a>
+      
+        <a class="nav-item " href="/years/index.html">
+          <u>Years</u>
+        </a>
+      
+        <a class="nav-item " href="/tags/index.html">
+          <u>Tags</u>
+        </a>
+      
+        <a class="nav-item " href="/projects/index.html">
+          <u>Projects</u>
+        </a>
+      
+        <a class="nav-item " href="/cv/">
+          <u>_CV_</u>
+        </a>
+      
+      </nav>
+  
+</header>
+
+      <main>
+        <article class="post">
+  <div class="post-meta post-meta-top">
+    <div>
+      <time datetime="2018-04-02T00:00:00+10:00">
+        <i class="fa-solid fa-calendar-days"></i> 02 Apr 2018
+      </time><i class="fa-solid fa-at"></i>
+        
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">Jie Li</span></div>
+
+    
+      <nav class="post-categories">
+        
+          
+            <a class="post-category" href="/categories/#annotation">annotation</a> /
+          
+        
+          
+            <a class="post-category" href="/categories/#database">database</a> /
+          
+        
+      </nav>
+    
+  </div>
+
+  <h1 class="post-title">Introduction to UniprotKB</h1>
+  
+
+  
+
+  <div class="post-content">
+    <h2 id="introduction">Introduction</h2>
+<p><a href="https://www.uniprot.org/help/uniprotkb">UniProt Knowledgebase (UniProtKB)</a>数据库中收集的是蛋白序列的信息以及准确的，连续的，丰富的注释信息。除此之外还收集一些比较重要的信息例如氨基酸序列，蛋白名称/描述，tax分类信息以及引用信息。这些囊括的信息涵盖了被广泛认可的生物学知识，classifications 以及cross-references, 以及明确的该蛋白可信度的层级分类。</p>
+
+<p>UniProtKB收集的序列超过95%都来自于公共核酸序列数据库中的CDS序列的翻译氨基酸序列，公共数据库指EMBL-Bank/GenBank/DDBJ等 authors们提交的序列会自动整合到TrEMBL中；</p>
+
+<p>UniProtKB数据库包含两个sections, UniProtKB/Swiss-Prot 和UniProtKB/TrEMBL</p>
+
+<p>数据库去冗余的过程是怎么样的？见<a href="https://www.uniprot.org/docs/sop_manual_curation.pdf">文档</a>。</p>
+
+<h2 id="uniprotkbswiss-prot">UniProtKB/Swiss-Prot</h2>
+<p>UniProtKB/Swiss-Prot是UniProt Knowledgebase(UniProtKB)的手动注释和reviewed 的section，其手工收集的信息来自于文献例如文献中的实验结果，非常严格的计算机分析结果（automatic annotation）， 序列注释可信度非常高的，非冗余的一个蛋白序列数据库，从2002年开始，由UniProt consortium 维护, 而通过了automatic annotation 但未经人工review的蛋白序列则归入到UniProtKB/TrEMBL数据库中</p>
+
+<h2 id="uniprotkbtrembl">UniProtKB/TrEMBL</h2>
+<p>UniProtKB的TrEMBL部分是1996年建立，那时数据增长较快，因手工校正和review的速度比较慢，所以采取了 比较严格的 automatic annotation，将high quality computaionally analyzed records 都纳入TrEMBL, 与Swiss-Prot分开，这种既不会影响Swiss-Prot的准确性，又可以及时的公开数据让所有的研究者访问。</p>
+
+<p><strong>a1: 定义一个cds序列为 真正的蛋白 的标准是怎么样的？</strong>
+大多数的蛋白序列都是从预测的CoDing Sequence(CDS)翻译过来的。一个CDS序列是DNA或者RNA中可以翻译为氨基酸序列的一个region。 它和Open Reading Frame(ORF)的定义不同，ORF通常是一系列的密码子而不包含终止密码子（可以理解为不完整的CDS）。CDS一定是ORFs, 但ORFs不一定是CDS。</p>
+
+<p><strong>a2: UniProtKB 定义一个CDS 不是真正的蛋白 的标准是怎么样的？</strong><br />
+基因预测的performance 极大程度上依赖于现有的生物学知识和背景。 我们使用生物信息学的工具将可能的CDS序列比对到最大的核酸序列数据库（genomic and RNA/ESTs）（可以理解为nt/nr库？），将一个CDS定义为 非真正蛋白序列的条件包括：1 更长/更短的RNAs的出现（融合/剪切所预测的基因）2. 缺乏对应的RNA序列，及/或 错误的内含子/外显子的边界（真核生物中） 3. 文献中报道为假基因的。当证据足够充分，就会将该条CDS从UniProtKB中移除。</p>
+
+  </div>
+
+  
+    <nav class="post-meta post-meta-bottom">
+      
+        
+        
+          <a class="post-tag" href="/tags/#protein">#protein</a>
+        
+      
+        
+        
+          <a class="post-tag" href="/tags/#annotation">#annotation</a>
+        
+      
+        
+        
+          <a class="post-tag" href="/tags/#protein">#protein</a>
+        
+      
+        
+        
+          <a class="post-tag" href="/tags/#gene">#gene</a>
+        
+      
+    </nav>
+  
+</article>
+
+<div class="pagination">
+  
+    <a class="prev post-prev" href="/coding/bash/2018/03/23/scp_demo.html">
+      <i class="fas fa-chevron-left"></i> <span class="">scp demo
+</span>
+    </a>
+  
+
+  
+    <a class="next post-next" href="/bioinformatics/annotation/2018/04/20/PICRUST.html">
+      <span class="">Notes of PICRUST
+</span> <i class="fas fa-chevron-right"></i>
+    </a>
+  
+</div>
+
+
+
+      </main>
+      <footer class="footer">
+  
+  <div class="social">
+    
+      <a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" target="_blank">
+        <i class="fab fa-google" title="Google scholar"></i>
+      </a>
+    
+      <a href="https://github.com/jlli6t" target="_blank">
+        <i class="fab fa-github" title="Github"></i>
+      </a>
+    
+      <a href="https://www.linkedin.com/in/jie-li-3201a57b/" target="_blank">
+        <i class="fab fa-linkedin" title="linkedin"></i>
+      </a>
+    
+      <a href="https://orcid.org/0000-0002-9623-9213" target="_blank">
+        <i class="fa-brands fa-orcid" title="ORCID"></i>
+      </a>
+    
+      <a href="https://twitter.com/jlli6t" target="_blank">
+        <i class="fab fa-twitter" title="Twitter"></i>
+      </a>
+    
+      <a href="https://jlli6t.github.io" target="_blank">
+        <i class="fas fa-link" title="Website"></i>
+      </a>
+    
+      <a href="mailto:jlli6t@gmail.com" target="_blank">
+        <i class="fas fa-envelope" title="Email"></i>
+      </a>
+    
+  </div>
+  
+
+  <div class="columns">
+    <p class="column">
+      &copy; <time datetime="2022-06-20T10:19:28+10:00">2022</time>&nbsp;<a href="/" target="_blank">Jie Li</a>. All rights reserved.
+    </p>
+
+    <p class="column">
+      Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/vfvong" target="_blank">vfvong</a>
+    </p>
+
+    
+    <p class="column">
+      <a href="/" target="_blank">Passion can get you through the long years <font color=F08F8F>❤</font> 热爱可抵岁月漫长</a>
+    </p>
+    
+  </div>
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">
+    <center><a href="/" target="_blank">Total visits: <span id="busuanzi_value_site_pv"> </span> <font color=F08F8F>❤</font> Jie Li</a></center>
+  </span>
+</footer>
+
+    </div>
+
+    
+
+    
+  </body>
+</html>
