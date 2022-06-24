@@ -12,4 +12,4 @@ I am currently pursuing a PhD with advisors of [**<u>Associate Professor Jianhua
 
 I am passionate about **microbial ecology** and have been involved in [**<u>publications</u>**](https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ). My passion extends to coding as well. I have led the development of [**<u>pipelines</u>**](https://jlli6t.github.io/projects/index.html) mainly with Python.
 
-I have worked in a wide range of different environments from molecular biology science bioinformatics. The wet lab experience of molecular biology aids in data analysis a lots. For me, it's exciting to work with different people and to learn different stuff, these experiences largely diversified my background and enabled me a solid foundation as an independent researcher.
+I have worked in a wide range of different environments from molecular biology science to bioinformatics. The wet lab experience of molecular biology aids in data analysis a lots. For me, it's exciting to work with different people and to learn different stuff, these experiences largely diversified my background and enabled me a solid foundation as an independent researcher.
