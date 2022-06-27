@@ -3,12 +3,14 @@ layout: page
 permalink: /projects/
 ---
 
-# gccov
+## [gccov](https://github.com/jlli6t/gccov)
 ![]({{ 'assets/picbed/cover/mountains.jpg' | relative_url}})
 **[gccov](https://github.com/jlli6t/gccov)**, a light tool used for visualization of GC and coverage of assemblies.
-It is useful especially when you are
 
+This light tool is useful when you want to look at the GC and coverage distribution of the contigs or scaffolds.
 
-# ReadTrim
-![]({{ 'assets/picbed/cover/cover4.jpg' | relative_url}})
-**[ReadTrim]()** is workflow that used for Short read QC and trimming.
+<br>
+<br>
+## [ReadTrim]()
+![]({{ 'assets/picbed/cover/cover5.jpg' | relative_url}})
+**[ReadTrim](https://github.com/jlli6t/ReadTrim)** is a workflow for Short read QC, includes modules for adapter, duplicates, poor quality ends trimming.
