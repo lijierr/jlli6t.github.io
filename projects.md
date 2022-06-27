@@ -14,3 +14,9 @@ This light tool is useful when you want to look at the GC and coverage distribut
 ## [ReadTrim]()
 ![]({{ 'assets/picbed/cover/cover5.jpg' | relative_url}})
 **[ReadTrim](https://github.com/jlli6t/ReadTrim)** is a workflow for Short read QC, includes modules for adapter, duplicates, poor quality ends trimming.
+
+<br>
+<br>
+## BioSut
+![]()
+**[BioSut](https://github.com/jlli6t/biosut)** is a Python package that integrated few useful utils.
