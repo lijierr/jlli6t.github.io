@@ -1,6 +1,7 @@
 ---
 layout: page
 permalink: /about/index.html
+classes: wide
 ---
 # <center>About me</center>
 
