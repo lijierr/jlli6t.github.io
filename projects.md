@@ -4,7 +4,7 @@ permalink: /projects/
 ---
 
 ## [gccov](https://github.com/jlli6t/gccov)
-![]({{ 'assets/picbed/cover/mountains.jpg' | relative_url}})
+![]({{ 'assets/picbed/cover/cover4.jpg' | relative_url}})
 **[gccov](https://github.com/jlli6t/gccov)**, a light tool used for visualization of GC and coverage of assemblies.
 
 This light tool is useful when you want to look at the GC and coverage distribution of the contigs or scaffolds.
