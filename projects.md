@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /projects/
-title: Projects
+title:     
 ---
 
 ## [ReadTrim](ttps://github.com/jlli6t/ReadTrim)
