@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posts
 title: Comparison of Seqs iterator
 author: Jie Li
 categories: [coding, python]

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posts
 title: Introduction to UniprotKB
 author: Jie Li
 categories: [annotation, database]

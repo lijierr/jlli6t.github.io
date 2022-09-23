@@ -1,10 +1,14 @@
-- title: <u>Projects</u>
-  url: /projects/index.html
-- title: <u>Blogs</u>
-  url: /home/index.html
-- title: <u>Categories</u>
-  url: /categories/index.html
-- title: <u>Tags</u>
-  url: /tags/index.html
-- title: <u>Years</u>
-  url: /years/index.html
+# main links
+main:
+  - title: <u>Projects</u>
+    url: /projects/index.html
+  - title: <u>Blogs</u>
+    url: /home/index.html
+  - title: <u>Categories</u>
+    url: /categories/index.html
+  - title: <u>Tags</u>
+    url: /tags/index.html
+  - title: <u>Years</u>
+    url: /years/index.html
+  - title: <u>CV</u>
+    url: /cv/index.html

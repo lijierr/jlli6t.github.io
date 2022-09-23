@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posts
 title: little treehouse collection - estimation
 author: Jie Li
 categories: [statistics, estimation]

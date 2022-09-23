@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posts
 title: Configure Python3 with TCL-TK
 author: Jie Li
 categories: [coding, python]

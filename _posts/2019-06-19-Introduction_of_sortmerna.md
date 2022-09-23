@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posts
 title: Introduction to SortMeRNA
 author: Jie Li
 categories: [metatranscriptomic, bioinformatics]

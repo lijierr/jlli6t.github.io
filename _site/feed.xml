@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-07-27T00:09:37+10:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">&lt;font color=&quot;red&quot;&gt;❤️&lt;/font&gt;
+ Jie Li (She/Her) &lt;font color=&quot;red&quot;&gt;❤️&lt;/font&gt;</title><subtitle>Passion can outweight the long years &lt;font color=F08F8F&gt;❤&lt;/font&gt; 热爱可抵岁月漫长</subtitle><author><name>Jie Li</name></author><entry><title type="html">markdown tutorial</title><link href="http://localhost:4000/tutorials/markdown-tutorial-important/" rel="alternate" type="text/html" title="markdown tutorial" /><published>2022-02-09T00:00:00+10:00</published><updated>2022-03-23T02:04:00+10:00</updated><id>http://localhost:4000/tutorials/markdown-tutorial-important</id><content type="html" xml:base="http://localhost:4000/tutorials/markdown-tutorial-important/"><![CDATA[<p><strong>Howdy!</strong> This is an example blog post that shows several types of HTML content supported in this theme.</p>
+
+<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. <em>Aenean eu leo quam.</em> Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+
+<blockquote>
+  <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+</blockquote>
+
+<p>Etiam porta <strong>sem malesuada magna</strong> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#inline-html-elements" id="markdown-toc-inline-html-elements">Inline HTML elements</a></li>
+  <li><a href="#footnotes" id="markdown-toc-footnotes">Footnotes</a></li>
+  <li><a href="#heading" id="markdown-toc-heading">Heading</a>    <ul>
+      <li><a href="#code" id="markdown-toc-code">Code</a></li>
+      <li><a href="#lists" id="markdown-toc-lists">Lists</a></li>
+      <li><a href="#images" id="markdown-toc-images">Images</a></li>
+      <li><a href="#tables" id="markdown-toc-tables">Tables</a></li>
+    </ul>
+  </li>
+  <li><a href="#rendering-math" id="markdown-toc-rendering-math">Rendering Math</a></li>
+</ul>
+
+<h2 id="inline-html-elements">Inline HTML elements</h2>
+
+<p>HTML defines a long list of available inline tags, a complete list of which can be found on the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Mozilla Developer Network</a>.</p>
+
+<ul>
+  <li><strong>To bold text</strong>, use <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>.</li>
+  <li><em>To italicize text</em>, use <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>.</li>
+  <li><mark>To highlight</mark>, use <code class="language-plaintext highlighter-rouge">&lt;mark&gt;</code>.</li>
+  <li>Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> should use <code class="language-plaintext highlighter-rouge">&lt;abbr&gt;</code>, with an optional <code class="language-plaintext highlighter-rouge">title</code> attribute for the full phrase.</li>
+  <li>Citations, like <cite>— Mark Otto</cite>, should use <code class="language-plaintext highlighter-rouge">&lt;cite&gt;</code>.</li>
+  <li><del>Deleted</del> text should use <code class="language-plaintext highlighter-rouge">&lt;del&gt;</code> and <ins>inserted</ins> text should use <code class="language-plaintext highlighter-rouge">&lt;ins&gt;</code>.</li>
+  <li>Superscript <sup>text</sup> uses <code class="language-plaintext highlighter-rouge">&lt;sup&gt;</code> and subscript <sub>text</sub> uses <code class="language-plaintext highlighter-rouge">&lt;sub&gt;</code>.</li>
+</ul>
+
+<p>Most of these elements are styled by browsers with few modifications on our part.</p>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<p>Footnotes are supported as part of the Markdown syntax. Here’s one in action. Clicking this number<sup id="fnref:fn-sample_footnote" role="doc-noteref"><a href="#fn:fn-sample_footnote" class="footnote" rel="footnote">1</a></sup> will lead you to a footnote. The syntax looks like:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">Clicking this number[^fn-sample_footnote]</code></pre></figure>
+
+<p>Each footnote needs the <code class="language-plaintext highlighter-rouge">^fn-</code> prefix and a unique ID to be referenced for the footnoted content. The syntax for that list looks something like this:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">[^fn-sample_footnote]: Handy! Now click the return link to go back.</code></pre></figure>
+
+<p>You can place the footnoted content wherever you like. Markdown parsers should properly place it at the bottom of the post.</p>
+
+<h2 id="heading">Heading</h2>
+
+<p>Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+<h3 id="code">Code</h3>
+
+<p>Inline code is available with the <code class="language-plaintext highlighter-rouge">&lt;code&gt;</code> element. Snippets of multiple lines of code are supported through Rouge. Longer lines will automatically scroll horizontally when needed. You may also use code fencing (triple backticks) for rendering code.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Example can be run directly in your JavaScript console
+</span>
+
+<span class="c1">// Create a function that takes two arguments and returns the sum of those arguments
+</span>
+<span class="kd">var</span> <span class="nx">adder</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">return a + b</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// Call the function
+</span>
+<span class="nx">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+<span class="c1">// &gt; 8</span></code></pre></figure>
+
+<p>You may also optionally show code snippets with line numbers. Add <code class="language-plaintext highlighter-rouge">linenos</code> to the Rouge tags.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="c1">// Example can be run directly in your JavaScript console
+</span>
+
+<span class="c1">// Create a function that takes two arguments and returns the sum of those arguments
+</span>
+<span class="kd">var</span> <span class="nx">adder</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">return a + b</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// Call the function
+</span>
+<span class="nx">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+<span class="c1">// &gt; 8</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+
+<h3 id="lists">Lists</h3>
+
+<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+
+<ul>
+  <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+  <li>Donec id elit non mi porta gravida at eget metus.</li>
+  <li>Nulla vitae elit libero, a pharetra augue.</li>
+</ul>
+
+<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+
+<ol>
+  <li>Vestibulum id ligula porta felis euismod semper.</li>
+  <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+  <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+</ol>
+
+<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+
+<dl>
+  <dt>HyperText Markup Language (HTML)</dt>
+  <dd>The language used to describe and define the content of a Web page</dd>
+
+  <dt>Cascading Style Sheets (CSS)</dt>
+  <dd>Used to describe the appearance of Web content</dd>
+
+  <dt>JavaScript (JS)</dt>
+  <dd>The programming language used to build advanced Web sites and applications</dd>
+</dl>
+
+<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+
+<h3 id="images">Images</h3>
+
+<p>Quisque consequat sapien eget quam rhoncus, sit amet laoreet diam tempus. Aliquam aliquam metus erat, a pulvinar turpis suscipit at.</p>
+
+<p><img src="http://via.placeholder.com/800x400" alt="placeholder" title="Large example image" />
+<img src="http://via.placeholder.com/400x200" alt="placeholder" title="Medium example image" />
+<img src="http://via.placeholder.com/200x200" alt="placeholder" title="Small example image" /></p>
+
+<h3 id="tables">Tables</h3>
+
+<p>Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Upvotes</th>
+      <th>Downvotes</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td>Totals</td>
+      <td>21</td>
+      <td>23</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>Alice</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>Bob</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Charlie</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+
+<h2 id="rendering-math">Rendering Math</h2>
+
+<p>Schrodinger’s equation:</p>
+
+\[i \hbar \frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \hat H \Psi(\mathbf{r},t)\]
+
+<hr />
+
+<p>Want to see something else added? <a href="https://github.com/vfvong/jekyll-theme-tao/issues/new">Open an issue.</a></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:fn-sample_footnote" role="doc-endnote">
+      <p>Handy! Now click the return link to go back. <a href="#fnref:fn-sample_footnote" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Jie Li</name></author><category term="tutorials" /><category term="markdown" /><category term="tutorials" /><summary type="html"><![CDATA[Howdy! This is an example blog post that shows several types of HTML content supported in this theme. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. Inline HTML elements Footnotes Heading Code Lists Images Tables Rendering Math Inline HTML elements HTML defines a long list of available inline tags, a complete list of which can be found on the Mozilla Developer Network. To bold text, use &lt;strong&gt;. To italicize text, use &lt;em&gt;. To highlight, use &lt;mark&gt;. Abbreviations, like HTML should use &lt;abbr&gt;, with an optional title attribute for the full phrase. Citations, like — Mark Otto, should use &lt;cite&gt;. Deleted text should use &lt;del&gt; and inserted text should use &lt;ins&gt;. Superscript text uses &lt;sup&gt; and subscript text uses &lt;sub&gt;. Most of these elements are styled by browsers with few modifications on our part. Footnotes Footnotes are supported as part of the Markdown syntax. Here’s one in action. Clicking this number1 will lead you to a footnote. The syntax looks like: Clicking this number[^fn-sample_footnote] Each footnote needs the ^fn- prefix and a unique ID to be referenced for the footnoted content. The syntax for that list looks something like this: [^fn-sample_footnote]: Handy! Now click the return link to go back. You can place the footnoted content wherever you like. Markdown parsers should properly place it at the bottom of the post. Heading Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Code Inline code is available with the &lt;code&gt; element. Snippets of multiple lines of code are supported through Rouge. Longer lines will automatically scroll horizontally when needed. You may also use code fencing (triple backticks) for rendering code. // Example can be run directly in your JavaScript console // Create a function that takes two arguments and returns the sum of those arguments var adder = new Function("a", "b", "return a + b"); // Call the function adder(2, 6); // &gt; 8 You may also optionally show code snippets with line numbers. Add linenos to the Rouge tags. 1 2 3 4 5 6 7 8 // Example can be run directly in your JavaScript console // Create a function that takes two arguments and returns the sum of those arguments var adder = new Function("a", "b", "return a + b"); // Call the function adder(2, 6); // &gt; 8 Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. Lists Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. HyperText Markup Language (HTML) The language used to describe and define the content of a Web page Cascading Style Sheets (CSS) Used to describe the appearance of Web content JavaScript (JS) The programming language used to build advanced Web sites and applications Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo. Images Quisque consequat sapien eget quam rhoncus, sit amet laoreet diam tempus. Aliquam aliquam metus erat, a pulvinar turpis suscipit at. Tables Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Name Upvotes Downvotes Totals 21 23 Alice 10 11 Bob 4 3 Charlie 7 9 Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo. Rendering Math Schrodinger’s equation: \[i \hbar \frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \hat H \Psi(\mathbf{r},t)\] Want to see something else added? Open an issue. Handy! Now click the return link to go back. &#8617;]]></summary></entry><entry><title type="html">little treehouse collection - estimation</title><link href="http://localhost:4000/statistics/estimation/Little_treehouse_collection/" rel="alternate" type="text/html" title="little treehouse collection - estimation" /><published>2020-09-10T00:00:00+10:00</published><updated>2020-09-10T00:00:00+10:00</updated><id>http://localhost:4000/statistics/estimation/Little_treehouse_collection</id><content type="html" xml:base="http://localhost:4000/statistics/estimation/Little_treehouse_collection/"><![CDATA[<h3 id="1-introduction">1. Introduction</h3>
+<p>Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below). However, every redeemed book is <strong>wrapped with cover</strong>, thus, you won’t be able to know which number you get until you uncover it.
+<img src="/assets/picbed/post/little_treehouse.png" alt="photo" /></p>
+
+<p>I am curious about roughly how much you gonna spend at Coles to collect a full set of LITTLE TREEHOUSE book (a single transaction of $30 or more but less than $60 is calculated as $30).</p>
+
+<h3 id="preparation">Preparation</h3>
+<p>Hypothesis: Same quantity of each book was packed and evenly mixed. Books redeemed for every $30 are independent from each other.</p>
+
+<p>Randomly generated 1,000,000 numbers between 0 and 9 as an array. For example:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">1, 3, 1, 4, 0, 0, 5, 3, 0, 6, 7, 8, 4, 6, 3, 2, 6, 6, 4, 1, 0, 2, 5, 5, 6, 2, 2, 7, 9, 1, 6, 3, 5, 9, 6, 4, 4, 9, 7, 1, 3, 1, 3, 3, 4, 9, 5, 7, 8, 7, 4, 9, 6, 8, 6, 2, 8, 8, 5, 2, 8, 9, 5, 4, 6, 0, 8, 4, 1, 1, 0, 4, 7, 5, 6, 7, 8, 7, 2, 1, 7, 2, 0, 4, 5, 1, 6, 0, 7, 3, 6, 9, 9, 0, 7, 8, 8, 3, 4, 9, 9, 0, 0, 3, 5, 0, 6, 8, 0, 8, 4, 3, 1, 2, 5, 1, 4, 6, 7, 1, 7, 0, 8, 3, 3, 3, 1, 4, 8, 8, 5, 7, 3, 4, 5, 6, 2, 2, 6, 1, 9, 9, 0, 9, 4, 4, 4, 7, 1, 8, 8, 4, 9, 7, 5, 5, 6, 7, 1, 0, 2, 3, 4, 0, 6, 4, 4, 7, 8, 9, 7, 6, 7, 5, 5, 4, 6, 0, 0, 4, 0, 4, 9, 1, 7, 4, 4, 1, 8, 3, 7, 1, 2, 3, 8, 4, 6, 1, 5, 5, 5, 1, 9, 2, 5, 6, 1, 6, 0, 9, 5, 3, 7, 7, 4, 5, 4, 9, 0, 7, 9, 1, 0, 4, 7, 1, 1, 5, 8, 8, 9, 2, 8, 2, 9, 0, 8, 3, 0, 4, 0, 3, 2, 3, 4, 7, 9, 5, 0, 8, 0, 0, 0, 4, 0, 1, 5, 5, 9, 7, 9, 2, 3, 4, 1, 3, 0, 4, 0, 4, 3, 7, 7, 6, 6, 5, 7, 1, 1, 3, 9, 0, 7, 3, 1, 5, 7, 3, 3, 8, 8, 3, 0, 0, 4, 1, 0, 8, 9, 3, 3, 3, 9, 6, 0, 5, 0, 8, 7, 1, 5, 1, 3, 3, 7, 7, 0, 7, 6, 4, 6, 8, 5, 2, 5, 0, 1, 1, 7, 0, 1, 3, 4, 5, 4, 3, 1, 0, 9, 8, 8, 4, 2, 1, 7, 9, 5, 9, 9, 6, 4, 9, 5, 6, 8, 6, 3, 8, 8, 7, 8, 6, 7, 3, 2, 0, 2, 0, 5, 8, 3, 7, 8, 1, 4, 2, 9, 6, 5, 6, 9, 5, 9, 1, 5, 5, 1, 2, 7, 5, 1, 1, 6, 6, 9, 7, 0, 6, 3, 2, 3, 3, 4, 0, 3, 2, 0, 0, 8, 3, 7, 6, 7, 7, 9, 2, 3, 2, 4, 6, 5, 9, 4, 7, 9, 4, 0, 2, 6, 4, 9, 5, 0, 0, 4, 3, 3, 9, 8, 4, 7, 4, 8, 3, 3, 6, 2, 9, 6, 3, 0, 0, 7, 8, 1, 0, 9, 3, 3, 6, 3, 6, 2, 6, 6, 7, 6, 3, 8, 9, 2, 5, 0, 2, 4, 0, 2, 7, 3, 9, 2, 7, 1, 7, 8, 8, 0, 7, 8, 3, 0, 3, 2, 6, 2, 2, 9, 5, 1, 7, 4, 2, 0, 0, 5, 3, 1, 9, 0, 3, 3, 5, 4, 4, 2, 1, 9, 4, 0, 9, 0, 1, 2, 0, 8, 3, 6, 6, 0, 5, 2, 1, 2, 6, 8, 2, 9, 3, 8, 4, 9, 1, 5, 2, 1, 1, 2, 2, 3, 5, 4, 0, 2, 9, 5, 2, 8, 7, 8, 5, 9, 4, 2, 2, 3, 1, 5, 6, 3, 4, 0, 5, 0, 5, 0, 3, 3, 9, 8, 6, 9, 1, 6, 1, 8, 4, 9, 9, 6, 4, 1, 8, 2, 4, 0, 0, 4, 5, 8, 7, 2, 8, 5, 1, 1, 5, 0, 2, 8, 9, 7, 3, 1, 2, 1, 0, 5, 2, 3, 7, 3, 6, 0, 3, 5, 8, 7, 7, 4, 9, 9, 4, 3, 1, 8, 4, 6, 2, 3, 9, 3, 5, 2, 1, 9, 1, 2, 1, 4, 8, 9, 3, 8, 1, 5, 2, 7, 1, 7, 8, 2, 9, 6, 8, 8, 7, 2, 3, 9, 0, 5, 7, 0, 6, 1, 8, 2, 1, 5, 0, 3, 1, 9, 4, 8, 6, 9, 1, 6, 7, 0, 4, 6, 8, 4, 6, 8, 7, 9, 4, 1, 9, 4, 9, 6, 9, 5, 2, 9, 9, 2, 2, 3, 8, 2, 8, 6, 7, 6, 2, 9, 6, 3, 0, 8, 4, 2, 6, 5, 5, 4, 1, 4, 4, 3, 9, 8, 9, 9, 2, 4, 7, 3, 4, 0, 2, 0, 4, 7, 2, 7, 9, 1, 5, 3, 5, 5, 4, 7, 4, 1, 9, 9, 5, 1, 6, 7, 3, 5, 4, 6, 0, 9, 3, 4, 4, 2, 9, 0, 9, 6, 5, 5, 7, 1, 5, 4, 9, 1, 0, 7, 0, 8, 6, 9, 4, 5, 7, 1, 0, 7, 3, 9, 1, 4, 0, 3, 6, 1, 9, 9, 6, 7, 1, 1, 3, 7, 1, 8, 5, 7, 9, 2, 2, 6, 8, 3, 9, 1, 0, 1, 4, 9, 1, 1, 6, 0, 6, 3, 0, 4, 4, 6, 1, 6, 5, 5, 5, 2, 0, 2, 8, 6, 5, 9, 8, 6, 0, 4, 9, 5, 7, 2, 5, 7, 1, 6, 6, 6, 5, 5, 9, 5, 4, 0, 8, 1, 7, 1, 2, 9, 4, 9, 3, 6, 8, 7, 0, 0, 4, 1, 5, 9, 8, 8, 7, 5, 3, 3, 4, 8, 3, 9, 2, 1, 3, 1, 2, 4, 4</code></pre></figure>
+
+<h3 id="experiment">Experiment</h3>
+<p>Sampling from left to right from this array, take two numbers at a time as a combination. Skip combinations of <code class="language-plaintext highlighter-rouge">00</code> or larger than <code class="language-plaintext highlighter-rouge">24</code>. Repeating the process until <code class="language-plaintext highlighter-rouge">24</code> different numbers are collected.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mean: 88.9</code></pre></figure>
+
+<h3 id="conclusion">Conclusion</h3>
+<p><code class="language-plaintext highlighter-rouge">$30 * 89 = $2670</code>, theoretically, I may need spend $2670 to collect the full set of LITTLE TREEHOUSE book.</p>
+
+<p>After 1,000 independent trials, this value converges to a number close to $2670.</p>
+
+<p>Thus, I decided to give up collecting those books…</p>]]></content><author><name>Jie Li</name></author><category term="statistics" /><category term="estimation" /><category term="estimation" /><summary type="html"><![CDATA[1. Introduction Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below). However, every redeemed book is wrapped with cover, thus, you won’t be able to know which number you get until you uncover it. I am curious about roughly how much you gonna spend at Coles to collect a full set of LITTLE TREEHOUSE book (a single transaction of $30 or more but less than $60 is calculated as $30). Preparation Hypothesis: Same quantity of each book was packed and evenly mixed. Books redeemed for every $30 are independent from each other. Randomly generated 1,000,000 numbers between 0 and 9 as an array. For example: 1, 3, 1, 4, 0, 0, 5, 3, 0, 6, 7, 8, 4, 6, 3, 2, 6, 6, 4, 1, 0, 2, 5, 5, 6, 2, 2, 7, 9, 1, 6, 3, 5, 9, 6, 4, 4, 9, 7, 1, 3, 1, 3, 3, 4, 9, 5, 7, 8, 7, 4, 9, 6, 8, 6, 2, 8, 8, 5, 2, 8, 9, 5, 4, 6, 0, 8, 4, 1, 1, 0, 4, 7, 5, 6, 7, 8, 7, 2, 1, 7, 2, 0, 4, 5, 1, 6, 0, 7, 3, 6, 9, 9, 0, 7, 8, 8, 3, 4, 9, 9, 0, 0, 3, 5, 0, 6, 8, 0, 8, 4, 3, 1, 2, 5, 1, 4, 6, 7, 1, 7, 0, 8, 3, 3, 3, 1, 4, 8, 8, 5, 7, 3, 4, 5, 6, 2, 2, 6, 1, 9, 9, 0, 9, 4, 4, 4, 7, 1, 8, 8, 4, 9, 7, 5, 5, 6, 7, 1, 0, 2, 3, 4, 0, 6, 4, 4, 7, 8, 9, 7, 6, 7, 5, 5, 4, 6, 0, 0, 4, 0, 4, 9, 1, 7, 4, 4, 1, 8, 3, 7, 1, 2, 3, 8, 4, 6, 1, 5, 5, 5, 1, 9, 2, 5, 6, 1, 6, 0, 9, 5, 3, 7, 7, 4, 5, 4, 9, 0, 7, 9, 1, 0, 4, 7, 1, 1, 5, 8, 8, 9, 2, 8, 2, 9, 0, 8, 3, 0, 4, 0, 3, 2, 3, 4, 7, 9, 5, 0, 8, 0, 0, 0, 4, 0, 1, 5, 5, 9, 7, 9, 2, 3, 4, 1, 3, 0, 4, 0, 4, 3, 7, 7, 6, 6, 5, 7, 1, 1, 3, 9, 0, 7, 3, 1, 5, 7, 3, 3, 8, 8, 3, 0, 0, 4, 1, 0, 8, 9, 3, 3, 3, 9, 6, 0, 5, 0, 8, 7, 1, 5, 1, 3, 3, 7, 7, 0, 7, 6, 4, 6, 8, 5, 2, 5, 0, 1, 1, 7, 0, 1, 3, 4, 5, 4, 3, 1, 0, 9, 8, 8, 4, 2, 1, 7, 9, 5, 9, 9, 6, 4, 9, 5, 6, 8, 6, 3, 8, 8, 7, 8, 6, 7, 3, 2, 0, 2, 0, 5, 8, 3, 7, 8, 1, 4, 2, 9, 6, 5, 6, 9, 5, 9, 1, 5, 5, 1, 2, 7, 5, 1, 1, 6, 6, 9, 7, 0, 6, 3, 2, 3, 3, 4, 0, 3, 2, 0, 0, 8, 3, 7, 6, 7, 7, 9, 2, 3, 2, 4, 6, 5, 9, 4, 7, 9, 4, 0, 2, 6, 4, 9, 5, 0, 0, 4, 3, 3, 9, 8, 4, 7, 4, 8, 3, 3, 6, 2, 9, 6, 3, 0, 0, 7, 8, 1, 0, 9, 3, 3, 6, 3, 6, 2, 6, 6, 7, 6, 3, 8, 9, 2, 5, 0, 2, 4, 0, 2, 7, 3, 9, 2, 7, 1, 7, 8, 8, 0, 7, 8, 3, 0, 3, 2, 6, 2, 2, 9, 5, 1, 7, 4, 2, 0, 0, 5, 3, 1, 9, 0, 3, 3, 5, 4, 4, 2, 1, 9, 4, 0, 9, 0, 1, 2, 0, 8, 3, 6, 6, 0, 5, 2, 1, 2, 6, 8, 2, 9, 3, 8, 4, 9, 1, 5, 2, 1, 1, 2, 2, 3, 5, 4, 0, 2, 9, 5, 2, 8, 7, 8, 5, 9, 4, 2, 2, 3, 1, 5, 6, 3, 4, 0, 5, 0, 5, 0, 3, 3, 9, 8, 6, 9, 1, 6, 1, 8, 4, 9, 9, 6, 4, 1, 8, 2, 4, 0, 0, 4, 5, 8, 7, 2, 8, 5, 1, 1, 5, 0, 2, 8, 9, 7, 3, 1, 2, 1, 0, 5, 2, 3, 7, 3, 6, 0, 3, 5, 8, 7, 7, 4, 9, 9, 4, 3, 1, 8, 4, 6, 2, 3, 9, 3, 5, 2, 1, 9, 1, 2, 1, 4, 8, 9, 3, 8, 1, 5, 2, 7, 1, 7, 8, 2, 9, 6, 8, 8, 7, 2, 3, 9, 0, 5, 7, 0, 6, 1, 8, 2, 1, 5, 0, 3, 1, 9, 4, 8, 6, 9, 1, 6, 7, 0, 4, 6, 8, 4, 6, 8, 7, 9, 4, 1, 9, 4, 9, 6, 9, 5, 2, 9, 9, 2, 2, 3, 8, 2, 8, 6, 7, 6, 2, 9, 6, 3, 0, 8, 4, 2, 6, 5, 5, 4, 1, 4, 4, 3, 9, 8, 9, 9, 2, 4, 7, 3, 4, 0, 2, 0, 4, 7, 2, 7, 9, 1, 5, 3, 5, 5, 4, 7, 4, 1, 9, 9, 5, 1, 6, 7, 3, 5, 4, 6, 0, 9, 3, 4, 4, 2, 9, 0, 9, 6, 5, 5, 7, 1, 5, 4, 9, 1, 0, 7, 0, 8, 6, 9, 4, 5, 7, 1, 0, 7, 3, 9, 1, 4, 0, 3, 6, 1, 9, 9, 6, 7, 1, 1, 3, 7, 1, 8, 5, 7, 9, 2, 2, 6, 8, 3, 9, 1, 0, 1, 4, 9, 1, 1, 6, 0, 6, 3, 0, 4, 4, 6, 1, 6, 5, 5, 5, 2, 0, 2, 8, 6, 5, 9, 8, 6, 0, 4, 9, 5, 7, 2, 5, 7, 1, 6, 6, 6, 5, 5, 9, 5, 4, 0, 8, 1, 7, 1, 2, 9, 4, 9, 3, 6, 8, 7, 0, 0, 4, 1, 5, 9, 8, 8, 7, 5, 3, 3, 4, 8, 3, 9, 2, 1, 3, 1, 2, 4, 4 Experiment Sampling from left to right from this array, take two numbers at a time as a combination. Skip combinations of 00 or larger than 24. Repeating the process until 24 different numbers are collected. mean: 88.9 Conclusion $30 * 89 = $2670, theoretically, I may need spend $2670 to collect the full set of LITTLE TREEHOUSE book. After 1,000 independent trials, this value converges to a number close to $2670. Thus, I decided to give up collecting those books…]]></summary></entry><entry><title type="html">Silva updates to 138</title><link href="http://localhost:4000/database/amplicon/Silva_update_138/" rel="alternate" type="text/html" title="Silva updates to 138" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:4000/database/amplicon/Silva_update_138</id><content type="html" xml:base="http://localhost:4000/database/amplicon/Silva_update_138/"><![CDATA[<h3 id="introduction">Introduction</h3>
+<p>SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。</p>
+
+<p>数据集的快速增长极大的增加了硬件需求，数据库越大，则越需要更多的资源例如内存来加载数据库。目前有两种策略解决此问题：1）升级硬件满足需求。2）减小数据库中的序列数。出于多种原因，只要结果数据集仍然具有<strong>代表性</strong>（这是环境微生物学中的一个非常重要的参数），第二种方法会更具性价比。SILVA项目选择了99% identity作为标准对SSU Ref进行去冗余构建了SSU Ref NR数据集。</p>
+
+<p><strong>这次138版本目前只更新了SSU库</strong>，LSU库还在进行中。taxonomy信息加入了GTDB的分类信息，138以前的版本中还有greengenes数据库的信息。GTDB项目的负责人是昆士兰大学的Prof. Phil Hugenholtz，他同时也参与了greengenes数据库的构建。</p>
+
+<h3 id="简介">简介：</h3>
+<p>silva是一个全面的比对的核糖体RNA序列数据的在线资源，由德国Microbial Genomics and Bioinformatics Research Group开发及维护。SILVA提供了三个域（细菌，古菌，真核生物）的对齐的小亚基（16S/18S，SSU）和大亚基（23S/28S，LSU）rRNA序列的全面、质量检查过并定期更新的数据集。且SILVA是软件包ARB的官方数据库。<br />
+SSU：核糖体小亚基库，包含了细菌和古菌的16S序列，以及真核生物的18S序列。<br />
+LSU：核糖体大亚基库，包含了细菌和古菌的23S序列，以及真核生物的28S序列</p>
+
+<h3 id="文件描述">文件描述：</h3>
+<p><strong>_tax_silva.fasta.gz</strong>
+SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息。
+标注：这些文件里包含的是原始的存储在公共数据库（ENA/GenBank/DDBJ）中的序列，没有对序列进行修剪。<br />
+<strong>_tax_silva_full_align_trunc.fasta.gz</strong>
+SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息，同时还包含了比对信息。
+标注：这些文件里的序列是修剪过的，数据库中没有被比对的序列皆被去除了。<br />
+<strong>_tax_silva_trunc.fasta.gz</strong>
+SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息。
+标注：这些文件里的序列是修剪过的，数据库中没有被比对的序列皆被去除了。</p>
+
+<h3 id="库构建方法">库构建方法：</h3>
+<p><strong>SSU Parc库：</strong><br />
+包含所有比对identity&gt;=50，比对质量值&gt;=40，碱基对分数或序列质量值&gt;30的序列。Pintail值&lt;50或比对质量值&lt;75的所有序列在ARB中指定为红色。而ALL-&gt;Living Tree Project 或 StrainInfo中的typestrans在ARB中指定为浅蓝色。</p>
+
+<p><strong>SSU Ref库：</strong><br />
+细菌和真核生物序列&lt;1200bp，古菌序列&lt;900bp，比对identity&lt;70，或比对质量值&lt;50的序列被去除。而ALL-&gt;Living Tree Project 或 StrainInfo中的typestrans在ARB中指定为浅蓝色。</p>
+
+<p><strong>SSU Ref NR库：</strong><br />
+基于最后发行的Ref NR 99版本的数据库里自定义的序列顺序结合序列长度（加权两倍）和质量，以99%的identity标准，来去除高度相似相同的序列。而对于排序，序列的质量由ambiguties（50%），总体比对质量（45%）以及均聚物（5%）进行定义。序列的总体比对质量是根据其比对得分，比对identity，以及比对的百分比（相等的权重）计算得来。已可培养物种的序列在所有的情况下都进行保留。</p>
+
+<p>标注：<strong>138版本的SSU Ref NR 99比之前的版本包含更少的序列</strong>。因为团队把序列比对的工具从USEARCH中整合的UCLUST (1.0.50) 换到VSEARCH (2.13)，提升了聚类的性能，且有望使团队可以在将来提供更稳定的Ref NR库。</p>
+
+<p>Ref NR库减小是由于这两个工具使用不同的序列/比对identity的定义差异导致。团队还使用了第三方工具CD-HIT（v4.8）交叉检查了比对的结果。在使用同样的identity阈值条件下，VSEARCH和CD-HIT返回了相似的聚类簇，而UCLUST返回了<strong>显著更大数目</strong>的聚类簇。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="amplicon" /><category term="tutorial" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。 数据集的快速增长极大的增加了硬件需求，数据库越大，则越需要更多的资源例如内存来加载数据库。目前有两种策略解决此问题：1）升级硬件满足需求。2）减小数据库中的序列数。出于多种原因，只要结果数据集仍然具有代表性（这是环境微生物学中的一个非常重要的参数），第二种方法会更具性价比。SILVA项目选择了99% identity作为标准对SSU Ref进行去冗余构建了SSU Ref NR数据集。 这次138版本目前只更新了SSU库，LSU库还在进行中。taxonomy信息加入了GTDB的分类信息，138以前的版本中还有greengenes数据库的信息。GTDB项目的负责人是昆士兰大学的Prof. Phil Hugenholtz，他同时也参与了greengenes数据库的构建。 简介： silva是一个全面的比对的核糖体RNA序列数据的在线资源，由德国Microbial Genomics and Bioinformatics Research Group开发及维护。SILVA提供了三个域（细菌，古菌，真核生物）的对齐的小亚基（16S/18S，SSU）和大亚基（23S/28S，LSU）rRNA序列的全面、质量检查过并定期更新的数据集。且SILVA是软件包ARB的官方数据库。 SSU：核糖体小亚基库，包含了细菌和古菌的16S序列，以及真核生物的18S序列。 LSU：核糖体大亚基库，包含了细菌和古菌的23S序列，以及真核生物的28S序列 文件描述： _tax_silva.fasta.gz SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息。 标注：这些文件里包含的是原始的存储在公共数据库（ENA/GenBank/DDBJ）中的序列，没有对序列进行修剪。 _tax_silva_full_align_trunc.fasta.gz SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息，同时还包含了比对信息。 标注：这些文件里的序列是修剪过的，数据库中没有被比对的序列皆被去除了。 _tax_silva_trunc.fasta.gz SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息。 标注：这些文件里的序列是修剪过的，数据库中没有被比对的序列皆被去除了。 库构建方法： SSU Parc库： 包含所有比对identity&gt;=50，比对质量值&gt;=40，碱基对分数或序列质量值&gt;30的序列。Pintail值&lt;50或比对质量值&lt;75的所有序列在ARB中指定为红色。而ALL-&gt;Living Tree Project 或 StrainInfo中的typestrans在ARB中指定为浅蓝色。 SSU Ref库： 细菌和真核生物序列&lt;1200bp，古菌序列&lt;900bp，比对identity&lt;70，或比对质量值&lt;50的序列被去除。而ALL-&gt;Living Tree Project 或 StrainInfo中的typestrans在ARB中指定为浅蓝色。 SSU Ref NR库： 基于最后发行的Ref NR 99版本的数据库里自定义的序列顺序结合序列长度（加权两倍）和质量，以99%的identity标准，来去除高度相似相同的序列。而对于排序，序列的质量由ambiguties（50%），总体比对质量（45%）以及均聚物（5%）进行定义。序列的总体比对质量是根据其比对得分，比对identity，以及比对的百分比（相等的权重）计算得来。已可培养物种的序列在所有的情况下都进行保留。 标注：138版本的SSU Ref NR 99比之前的版本包含更少的序列。因为团队把序列比对的工具从USEARCH中整合的UCLUST (1.0.50) 换到VSEARCH (2.13)，提升了聚类的性能，且有望使团队可以在将来提供更稳定的Ref NR库。 Ref NR库减小是由于这两个工具使用不同的序列/比对identity的定义差异导致。团队还使用了第三方工具CD-HIT（v4.8）交叉检查了比对的结果。在使用同样的identity阈值条件下，VSEARCH和CD-HIT返回了相似的聚类簇，而UCLUST返回了显著更大数目的聚类簇。]]></summary></entry><entry><title type="html">Comparison of Seqs iterator</title><link href="http://localhost:4000/coding/python/Comparison_of_Seqs_iterator/" rel="alternate" type="text/html" title="Comparison of Seqs iterator" /><published>2019-07-21T00:00:00+10:00</published><updated>2019-07-21T00:00:00+10:00</updated><id>http://localhost:4000/coding/python/Comparison_of_Seqs_iterator</id><content type="html" xml:base="http://localhost:4000/coding/python/Comparison_of_Seqs_iterator/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。
+需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，<code class="language-plaintext highlighter-rouge">Biopython</code>除了提供<code class="language-plaintext highlighter-rouge">Bio.seqIO.parse</code>函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。</p>
+
+<p><code class="language-plaintext highlighter-rouge">Bio.SeqIO.QualityIO.FastqGeneralIterator</code>同<code class="language-plaintext highlighter-rouge">Bio.SeqIO.parse</code>一样也是一个迭代器，只不过不生成对象<code class="language-plaintext highlighter-rouge">record</code>，而是生成序列id、序列、以及质量值本身，遍历的时候调用语法为</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">For</span> <span class="n">title</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="n">qual</span> <span class="ow">in</span> <span class="n">FastqGeneralIterator</span><span class="p">(</span><span class="n">fh</span><span class="p">):</span>
+	<span class="n">Do</span> <span class="n">something</span></code></pre></figure>
+
+<p><code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>速度很快了，但我偶然又看到大神Heng Li 12年写的一个小代码<code class="language-plaintext highlighter-rouge">readfq</code>，相信不少同学有看过源码（我看到不少项目都嵌了这段代码），也是一个序列遍历器，且居然还在活跃，还有人在提issue和pr。</p>
+
+<p>测试文件为一个<code class="language-plaintext highlighter-rouge">36,518,870</code>条序列的fastq.gz文件，这个序列数量已经是人肠道微生物基因集的几倍了，大多数情况下都不会需要频繁迭代这么多的序列量。我测试迭代然后统计序列数，碱基数，及质量字符数。
+考虑到服务器上其他用户的状态可能也会影响测试效果，所以做了多次测试，<code class="language-plaintext highlighter-rouge">Bio</code>版本为<code class="language-plaintext highlighter-rouge">1.76</code>，测试平台为<code class="language-plaintext highlighter-rouge">x86_64 GNU/Linux</code>：</p>
+
+<p>通过5次单独的测试，总的来说<code class="language-plaintext highlighter-rouge">readfq</code>速度上比<code class="language-plaintext highlighter-rouge">Bio</code>慢一点点，不会超过<code class="language-plaintext highlighter-rouge">20%</code>，其中第四次测试<code class="language-plaintext highlighter-rouge">readfq</code>的速度超过了<code class="language-plaintext highlighter-rouge">Bio</code>，可能测试环境也有一定的影响。
+强推大神代码的原因：
+	1. 代码非常简洁，仅仅31行！相比于Bio来说，非常轻量。
+	2. 大神的代码同时兼容<code class="language-plaintext highlighter-rouge">fasta</code>和<code class="language-plaintext highlighter-rouge">fastq</code>！而<code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>只能处理<code class="language-plaintext highlighter-rouge">fastq</code>文件，如果要处理<code class="language-plaintext highlighter-rouge">fasta</code>格式的文件的话，需要调用<code class="language-plaintext highlighter-rouge">Bio.SeqIO.FastaIO.SimpleFastaParser</code>
+	3. 本着代码的简洁性以及减少对<code class="language-plaintext highlighter-rouge">library</code>的依赖，<code class="language-plaintext highlighter-rouge">readfq</code>胜任。
+	4. 最后就是虽然在测试过程中，<code class="language-plaintext highlighter-rouge">Bio</code>略胜一筹，但是现实中大部分的情况我们不需要频繁遍历太大的数据，所以速度上可以认为<code class="language-plaintext highlighter-rouge">readfq</code>与<code class="language-plaintext highlighter-rouge">Bio</code>的<code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>不相上下。</p>
+
+<p>测试代码：</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">'start readfq'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="n">qlen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="n">qual</span> <span class="ow">in</span> <span class="n">readfq</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="n">n</span><span class="o">+=</span> <span class="mi">1</span>
+	<span class="n">slen</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+	<span class="n">qlen</span> <span class="o">+=</span> <span class="n">qual</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">qlen</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'end readfq'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'start Bio'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="n">qlen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="n">qual</span> <span class="ow">in</span> <span class="n">FastqGeneralIterator</span><span class="p">(</span><span class="n">fh</span><span class="p">):</span>
+	<span class="n">n</span><span class="o">+=</span><span class="mi">1</span>
+	<span class="n">slen</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+	<span class="n">qlen</span> <span class="o">+=</span> <span class="n">qual</span>
+<span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">qlen</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'end Bio'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span></code></pre></figure>
+
+<h2 id="附上测试结果供参考">附上测试结果供参考：</h2>
+<p><strong>第一次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>118.88%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mf">13.063023</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mf">32.138950</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">259.075927</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mf">35.854583</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mf">13.789172</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">217.934589</span><span class="n">s</span></code></pre></figure>
+
+<p><strong>第二次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>118.62%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mf">58.999203</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mf">06.315406</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">247.316203</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mf">08.641087</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mf">37.140562</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">208.499475</span><span class="n">s</span></code></pre></figure>
+
+<p><strong>第三次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>15.51%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mf">28.903198</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mf">53.790852</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">264.887654</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mf">53.912627</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mf">43.230618</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">229.317991</span><span class="n">s</span></code></pre></figure>
+
+<p><strong>第四次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>96.91%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mf">52.750406</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">23.449189</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">270.698783</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">23.554306</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mf">02.897335</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">279.343029</span><span class="n">s</span></code></pre></figure>
+
+<p><strong>第五次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>116.17%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mf">57.625076</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">58.973375</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">241.348299</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">59.101057</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mf">26.855097</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">207.754040</span><span class="n">s</span></code></pre></figure>
+
+<h2 id="附大神代码地址">附大神代码地址</h2>
+<p><a href="https://github.com/lh3/readfq/blob/master/readfq.py">地址</a></p>]]></content><author><name>Jie Li</name></author><category term="coding" /><category term="python" /><category term="fastq" /><category term="fasta" /><category term="sequence" /><summary type="html"><![CDATA[Introduction 做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。 需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。 Bio.SeqIO.QualityIO.FastqGeneralIterator同Bio.SeqIO.parse一样也是一个迭代器，只不过不生成对象record，而是生成序列id、序列、以及质量值本身，遍历的时候调用语法为 For title, seq, qual in FastqGeneralIterator(fh): Do something FastqGeneralIterator速度很快了，但我偶然又看到大神Heng Li 12年写的一个小代码readfq，相信不少同学有看过源码（我看到不少项目都嵌了这段代码），也是一个序列遍历器，且居然还在活跃，还有人在提issue和pr。 测试文件为一个36,518,870条序列的fastq.gz文件，这个序列数量已经是人肠道微生物基因集的几倍了，大多数情况下都不会需要频繁迭代这么多的序列量。我测试迭代然后统计序列数，碱基数，及质量字符数。 考虑到服务器上其他用户的状态可能也会影响测试效果，所以做了多次测试，Bio版本为1.76，测试平台为x86_64 GNU/Linux： 通过5次单独的测试，总的来说readfq速度上比Bio慢一点点，不会超过20%，其中第四次测试readfq的速度超过了Bio，可能测试环境也有一定的影响。 强推大神代码的原因： 1. 代码非常简洁，仅仅31行！相比于Bio来说，非常轻量。 2. 大神的代码同时兼容fasta和fastq！而FastqGeneralIterator只能处理fastq文件，如果要处理fasta格式的文件的话，需要调用Bio.SeqIO.FastaIO.SimpleFastaParser 3. 本着代码的简洁性以及减少对library的依赖，readfq胜任。 4. 最后就是虽然在测试过程中，Bio略胜一筹，但是现实中大部分的情况我们不需要频繁遍历太大的数据，所以速度上可以认为readfq与Bio的FastqGeneralIterator不相上下。 测试代码： print('start readfq', datetime.now()) n, slen, qlen = 0, 0, 0 for name, seq, qual in readfq(f): n+= 1 slen += len(seq) qlen += qual print(n, '\t', slen, '\t', qlen) print('end readfq', datetime.now()) print('start Bio', datetime.now()) n, slen, qlen = 0, 0, 0 for name, seq, qual in FastqGeneralIterator(fh): n+=1 slen += len(seq) qlen += qual print(n, '\t', slen, '\t', qlen) print('end Bio', datetime.now()) 附上测试结果供参考： 第一次测试: readfq比Bio: 118.88% start readfq 2020-06-23 10:47:13.063023 end readfq 2020-06-23 10:51:32.138950 readfq用时：259.075927s start Bio 2020-06-23 10:51:35.854583 end Bio 2020-06-23 10:55:13.789172 Bio用时：217.934589s 第二次测试: readfq比Bio: 118.62% start readfq 2020-06-23 10:55:58.999203 end readfq 2020-06-23 11:00:06.315406 readfq用时：247.316203s start Bio 2020-06-23 11:00:08.641087 end Bio 2020-06-23 11:03:37.140562 Bio用时：208.499475s 第三次测试: readfq比Bio: 15.51% start readfq 2020-06-23 11:05:28.903198 end readfq 2020-06-23 11:09:53.790852 readfq用时：264.887654s start Bio 2020-06-23 11:09:53.912627 end Bio 2020-06-23 11:13:43.230618 Bio用时：229.317991s 第四次测试: readfq比Bio: 96.91% start readfq 2020-06-23 11:13:52.750406 end readfq 2020-06-23 11:18:23.449189 readfq用时：270.698783s start Bio 2020-06-23 11:18:23.554306 end Bio 2020-06-23 11:23:02.897335 Bio用时：279.343029s 第五次测试: readfq比Bio: 116.17% start readfq 2020-06-23 11:24:57.625076 end readfq 2020-06-23 11:28:58.973375 readfq用时：241.348299s start Bio 2020-06-23 11:28:59.101057 end Bio 2020-06-23 11:32:26.855097 Bio用时：207.754040s 附大神代码地址 地址]]></summary></entry><entry><title type="html">Introduction to SortMeRNA</title><link href="http://localhost:4000/metatranscriptomic/bioinformatics/Introduction_of_sortmerna/" rel="alternate" type="text/html" title="Introduction to SortMeRNA" /><published>2019-06-19T00:00:00+10:00</published><updated>2019-06-19T00:00:00+10:00</updated><id>http://localhost:4000/metatranscriptomic/bioinformatics/Introduction_of_sortmerna</id><content type="html" xml:base="http://localhost:4000/metatranscriptomic/bioinformatics/Introduction_of_sortmerna/"><![CDATA[<p><img src="/assets/picbed/post/sortmerna_title.png" alt="" /></p>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。</p>
+
+<h2 id="2-算法基本原理">2. 算法基本原理</h2>
+<p>底层算法与seed策略类似，主要是寻找rRNA数据库和read之间的一定数量的相似短区域。对rRNA序列建立索引的时候，与HMM一样，利用同源序列之间的冗余，建立所有rRNA序列的压缩模型。
+然后设定一个窗口，对read进行窗口滑动扫描，基于设定的阈值，单个read中超过阈值数量的窗口比对到数据库则该read被鉴定为rRNA。其中窗口比对数据库时容错为1（例如碱基替换，插入或缺失）。
+基础算法很容易理解，主要是提高算法效率，大比例缩短比对时间。
+作者的策略如下图所示：</p>
+
+<p><img src="/assets/picbed/post/sortmerna_algorithm.png" alt="" /></p>
+
+<h3 id="21-具体算法过程">2.1 具体算法过程</h3>
+<ol>
+  <li>使用<code class="language-plaintext highlighter-rouge">Burst trie (BT)</code>结合查找表策略存储数据库。假设窗口为<code class="language-plaintext highlighter-rouge">w</code>，窗口序列长度为<code class="language-plaintext highlighter-rouge">s（14~20）</code>。
+1a，首先存储了数据库中每一个<code class="language-plaintext highlighter-rouge">s/2-mer</code>序列的出现频次（#occ）
+1b，BT的结构，这个跟搜索树结构很像了，类比即可</li>
+  <li>处理输入read。同样窗口为w, 窗口长度为s，向右滑动。
+2a, 滑动窗口示意图
+2b, 将窗口分为窗口前段从<code class="language-plaintext highlighter-rouge">w[1..s/2 +1]</code>，和窗口后段<code class="language-plaintext highlighter-rouge">w[s..s/2 + 1]</code></li>
+  <li>判断窗口序列在BT中是否存在。通过通用Levenshtein自动机和BT循环遍历，及确保错误不大于1。
+遍历完所有的窗口后，判断接受的窗口数量是否高于阈值，高于阈值则认为该输入read判定为rRNA。</li>
+</ol>
+
+<h3 id="22-算法小结">2.2 算法小结</h3>
+<p>总结思路：输入read，生成第一个窗口序列，先查找前半段窗口序列在数据库中的频次，达到要求则定位这半段序列在BT中的位置，然后开始在BT搜索（burst）后半段窗口的序列，沿着BT把整个窗口遍历完，最后如果遍历的时候发现的错误&gt;1，则把这个窗口记录为非比对；接着滑动到下一个窗口从头开始判定，直到所有的窗口判定完成后，如果判定为比对的窗口的数量&gt;给定的阈值，则判定read为rRNA。</p>
+
+<h2 id="3关于作者使用的levenshtein自动机">3.关于作者使用的Levenshtein自动机</h2>
+<p>作者用自动机实现字符串之间的模糊匹配（文中是read和db）。假设字符串p和错误数k，经典的非确定性Levenshtein自动机可识别的最大编辑距离为k到p的字符集，文中k=1。
+<img src="/assets/picbed/post/sortmerna_levenshtein.png" alt="" /></p>
+
+<h2 id="4-与其他工具的对比">4. 与其他工具的对比：</h2>
+<p>Meta-RNA，SSU-ALIGN，rRNASelector使用了常见的概率模型，其中Meta-RNA和rRNASelector使用了HMM模型，然后利用HMMER3比对短read到数据库，SSU-ALIGN使用协方差模型来支持二级结构的信息。除了概率模型之外，riboPicker使用的是修改版的BWA算法。BLASTN也使用非常多，特别是大家各自用的workflow。</p>
+
+<h2 id="总结">总结：</h2>
+<p>文章是12年发表，除了文章中提到的工具，后来大家各自用的<code class="language-plaintext highlighter-rouge">workflow</code>也有很多用<code class="language-plaintext highlighter-rouge">bwa</code>，<code class="language-plaintext highlighter-rouge">bowtie</code>，<code class="language-plaintext highlighter-rouge">bowtie2</code>等工具进行比对的。其次就是这个算法策略对错误的容忍低（为1）。再有就是作者使用的<code class="language-plaintext highlighter-rouge">universal Levenshtein</code>自动机，越看越像马尔科夫链，可能是我对自动机的理解还不够深？
+其次是对于作者，EK小姐姐至今仍然在一线社区活跃。</p>]]></content><author><name>Jie Li</name></author><category term="metatranscriptomic" /><category term="bioinformatics" /><category term="tutorials" /><category term="RNA" /><category term="mapping" /><summary type="html"><![CDATA[1. Introduction SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。 2. 算法基本原理 底层算法与seed策略类似，主要是寻找rRNA数据库和read之间的一定数量的相似短区域。对rRNA序列建立索引的时候，与HMM一样，利用同源序列之间的冗余，建立所有rRNA序列的压缩模型。 然后设定一个窗口，对read进行窗口滑动扫描，基于设定的阈值，单个read中超过阈值数量的窗口比对到数据库则该read被鉴定为rRNA。其中窗口比对数据库时容错为1（例如碱基替换，插入或缺失）。 基础算法很容易理解，主要是提高算法效率，大比例缩短比对时间。 作者的策略如下图所示： 2.1 具体算法过程 使用Burst trie (BT)结合查找表策略存储数据库。假设窗口为w，窗口序列长度为s（14~20）。 1a，首先存储了数据库中每一个s/2-mer序列的出现频次（#occ） 1b，BT的结构，这个跟搜索树结构很像了，类比即可 处理输入read。同样窗口为w, 窗口长度为s，向右滑动。 2a, 滑动窗口示意图 2b, 将窗口分为窗口前段从w[1..s/2 +1]，和窗口后段w[s..s/2 + 1] 判断窗口序列在BT中是否存在。通过通用Levenshtein自动机和BT循环遍历，及确保错误不大于1。 遍历完所有的窗口后，判断接受的窗口数量是否高于阈值，高于阈值则认为该输入read判定为rRNA。 2.2 算法小结 总结思路：输入read，生成第一个窗口序列，先查找前半段窗口序列在数据库中的频次，达到要求则定位这半段序列在BT中的位置，然后开始在BT搜索（burst）后半段窗口的序列，沿着BT把整个窗口遍历完，最后如果遍历的时候发现的错误&gt;1，则把这个窗口记录为非比对；接着滑动到下一个窗口从头开始判定，直到所有的窗口判定完成后，如果判定为比对的窗口的数量&gt;给定的阈值，则判定read为rRNA。 3.关于作者使用的Levenshtein自动机 作者用自动机实现字符串之间的模糊匹配（文中是read和db）。假设字符串p和错误数k，经典的非确定性Levenshtein自动机可识别的最大编辑距离为k到p的字符集，文中k=1。 4. 与其他工具的对比： Meta-RNA，SSU-ALIGN，rRNASelector使用了常见的概率模型，其中Meta-RNA和rRNASelector使用了HMM模型，然后利用HMMER3比对短read到数据库，SSU-ALIGN使用协方差模型来支持二级结构的信息。除了概率模型之外，riboPicker使用的是修改版的BWA算法。BLASTN也使用非常多，特别是大家各自用的workflow。 总结： 文章是12年发表，除了文章中提到的工具，后来大家各自用的workflow也有很多用bwa，bowtie，bowtie2等工具进行比对的。其次就是这个算法策略对错误的容忍低（为1）。再有就是作者使用的universal Levenshtein自动机，越看越像马尔科夫链，可能是我对自动机的理解还不够深？ 其次是对于作者，EK小姐姐至今仍然在一线社区活跃。]]></summary></entry><entry><title type="html">Configure Python3 with TCL-TK</title><link href="http://localhost:4000/coding/python/Configure_Python3_with_TCL-TK/" rel="alternate" type="text/html" title="Configure Python3 with TCL-TK" /><published>2018-06-20T00:00:00+10:00</published><updated>2018-06-20T00:00:00+10:00</updated><id>http://localhost:4000/coding/python/Configure_Python3_with_TCL-TK</id><content type="html" xml:base="http://localhost:4000/coding/python/Configure_Python3_with_TCL-TK/"><![CDATA[<h3 id="introduction">Introduction</h3>
+<p>More and more projects are migrating from Python2 to Python3. On the one hand, Python3 has more features available, and secondly, the more important reason should be that with the development of Python3 and its community, Python2 will gradually no longer be maintained.
+Due to the needs of the work, my working python have to be configured with tk and tcl. The details are as follows:</p>
+
+<p>很多项目在陆陆续续的往Python3迁移，一方面是Python3有更多的feature可用，其次更重要的原因应该是，随着Python3和社区的发展，Python2慢慢会不再维护了。
+因工作内容需要，Python需要配置tk及tcl，细节如下：</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">tk</span><span class="o">=</span>~/tk8.6.6/unix <span class="c"># path to configured tk
+</span>
+<span class="nv">tcl</span><span class="o">=</span>~/tcl8.6.6/unix <span class="c"># path to configured tcl
+</span>
+<span class="nb">export </span><span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">" -L</span><span class="nv">$tk</span><span class="s2">/lib -L </span><span class="nv">$tcl</span><span class="s2">/lib </span><span class="nv">$LDFLAGS</span><span class="s2"> "</span>
+<span class="nb">export </span><span class="nv">CPPFLAGS</span><span class="o">=</span><span class="s2">" -I</span><span class="nv">$tk</span><span class="s2">/include -I</span><span class="nv">$tk</span><span class="s2">/include </span><span class="nv">$CPPFLAGS</span><span class="s2"> "</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$tk</span>/bin:<span class="nv">$tcl</span>/bin:<span class="nv">$PATH</span>
+<span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$tk</span>/lib:<span class="nv">$tcl</span>/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+
+./configure <span class="nt">--prefix</span><span class="o">=</span>~/Python-3.6.0 <span class="nt">--disable-ipv6</span> <span class="nt">--with-tcltk-libs</span><span class="o">=</span><span class="s2">"-L</span><span class="nv">$tk</span><span class="s2">/lib/ -L</span><span class="nv">$tcl</span><span class="s2">/lib"</span> <span class="nt">--with-tcltk-includes</span><span class="o">=</span><span class="s2">"-I</span><span class="nv">$tk</span><span class="s2">/include -I</span><span class="nv">$tcl</span><span class="s2">/include"</span> <span class="o">&amp;&amp;</span> <span class="nb">echo </span>configure <span class="k">done</span> <span class="o">&amp;&amp;</span>
+make <span class="nt">-j</span> 4 <span class="o">&amp;&amp;</span> <span class="nb">echo </span>make <span class="k">done</span> <span class="o">&amp;&amp;</span>
+make <span class="nb">install</span> <span class="nt">-j</span> 5 <span class="o">&amp;&amp;</span> <span class="nb">echo </span>make <span class="nb">install </span><span class="k">done</span></code></pre></figure>
+
+<h3 id="summary-结语">Summary (结语)</h3>
+<p>No big difference of syntax between python3 and python2, I adapted well, I hope you are too.</p>
+
+<p>Python3，Python2个人感觉语法差异没有很大，小编适应得不错，希望你们也是呀~~</p>
+
+<h3 id="reference-参考">Reference (参考)</h3>
+<p><a href="https://stackoverflow.com/questions/16026348/preparing-tkinter-and-sqlite3-for-python-installation-no-admin-rights">stackoverflow thread</a></p>]]></content><author><name>Jie Li</name></author><category term="coding" /><category term="python" /><category term="TCK-TK" /><category term="environment" /><category term="linux" /><summary type="html"><![CDATA[Introduction More and more projects are migrating from Python2 to Python3. On the one hand, Python3 has more features available, and secondly, the more important reason should be that with the development of Python3 and its community, Python2 will gradually no longer be maintained. Due to the needs of the work, my working python have to be configured with tk and tcl. The details are as follows: 很多项目在陆陆续续的往Python3迁移，一方面是Python3有更多的feature可用，其次更重要的原因应该是，随着Python3和社区的发展，Python2慢慢会不再维护了。 因工作内容需要，Python需要配置tk及tcl，细节如下： tk=~/tk8.6.6/unix # path to configured tk tcl=~/tcl8.6.6/unix # path to configured tcl export LDFLAGS=" -L$tk/lib -L $tcl/lib $LDFLAGS " export CPPFLAGS=" -I$tk/include -I$tk/include $CPPFLAGS " export PATH=$tk/bin:$tcl/bin:$PATH export LD_LIBRARY_PATH=$tk/lib:$tcl/lib:$LD_LIBRARY_PATH ./configure --prefix=~/Python-3.6.0 --disable-ipv6 --with-tcltk-libs="-L$tk/lib/ -L$tcl/lib" --with-tcltk-includes="-I$tk/include -I$tcl/include" &amp;&amp; echo configure done &amp;&amp; make -j 4 &amp;&amp; echo make done &amp;&amp; make install -j 5 &amp;&amp; echo make install done Summary (结语) No big difference of syntax between python3 and python2, I adapted well, I hope you are too. Python3，Python2个人感觉语法差异没有很大，小编适应得不错，希望你们也是呀~~ Reference (参考) stackoverflow thread]]></summary></entry><entry><title type="html">Notes of PICRUST</title><link href="http://localhost:4000/bioinformatics/annotation/PICRUST/" rel="alternate" type="text/html" title="Notes of PICRUST" /><published>2018-04-20T00:00:00+10:00</published><updated>2018-04-20T00:00:00+10:00</updated><id>http://localhost:4000/bioinformatics/annotation/PICRUST</id><content type="html" xml:base="http://localhost:4000/bioinformatics/annotation/PICRUST/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。<br />
+picrust是基于已经计算好的数据库进行预测，数据库<a href="http://picrust.github.io/picrust/picrust_precalculated_files.html">下载地址</a>。<br />
+下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库</p>
+
+<h2 id="installation">Installation</h2>
+<p>安装picrust, 这个中间没有遇到麻烦；注意picrsut是基于python2.7版本(用的2.7.12)， 其他版本的python会报错例如python3.5.2</p>
+
+<h2 id="usage-tips">Usage tips</h2>
+<p>因为picrust是读入biom文件 所以先要生成biom 格式的文件，其中biom需要包含的信息有每个样品注释上的物种信息及对应的丰度，生成biom的格式方法有两种：</p>
+
+<h3 id="way-1">way 1</h3>
+<p>通过利用qiime1的命令先挑选otu比对的ref, 这里相当于重新比对分类一次，默认方法是uclust(其他还有usearch_ref， sortmerna), 所以挑出来的otu 比OTU_final.fasta里的序列要少, 整体预测的通路的矩阵里的值会小一些，通路数量上可能也小一些. 这里好像不支持rdp的结果，因为rdp基于贝叶斯的概率方法，最后没有给出具体比对的哪个id, 而是只给出一个分类taxonomy信息。</p>
+
+<p><strong>step 1</strong><br />
+首先用qiime1里的pick_closed_reference_otus.py 命令挑选ref：(可以使用97，也可以使用90，99或者其他的)</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"pick_otus:enable_rev_strand_match True"</span><span class="o">&gt;&gt;</span>otu_picking_params_97.txt
+<span class="nb">echo</span> <span class="s2">"pick_otus:similarity 0.97"</span><span class="o">&gt;&gt;</span>otu_picking_params_97.txt
+pick_closed_reference_otus.py <span class="nt">-i</span> OTU_final.fasta <span class="nt">-o</span> <span class="nv">$PWD</span>/ucrC972/ <span class="nt">-p</span> <span class="nv">$PWD</span>/otu_picking_params_97.txt <span class="nt">-r</span> ./gg_13_5_otus/rep_set/97_otus.fasta <span class="nt">-t</span> ./gg_13_5_otus/taxonomy/97_otu_taxonomy.txt <span class="nt">-a</span> <span class="nt">-O</span> 8</code></pre></figure>
+
+<p><strong>step 2</strong><br />
+使用命令<code class="language-plaintext highlighter-rouge">biom convert -i ucrC972/otu_table.biom -o ucrC972/otu_table.biom.tsv --to-tsv</code>
+tsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个0 1矩阵
+<img src="/assets/_imgs/" alt="" /></p>]]></content><author><name>Jie Li</name></author><category term="bioinformatics" /><category term="annotation" /><category term="annotation" /><category term="prokaryotic" /><category term="amplicon" /><category term="pathway" /><summary type="html"><![CDATA[Introduction picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。 picrust是基于已经计算好的数据库进行预测，数据库下载地址。 下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库 Installation 安装picrust, 这个中间没有遇到麻烦；注意picrsut是基于python2.7版本(用的2.7.12)， 其他版本的python会报错例如python3.5.2 Usage tips 因为picrust是读入biom文件 所以先要生成biom 格式的文件，其中biom需要包含的信息有每个样品注释上的物种信息及对应的丰度，生成biom的格式方法有两种： way 1 通过利用qiime1的命令先挑选otu比对的ref, 这里相当于重新比对分类一次，默认方法是uclust(其他还有usearch_ref， sortmerna), 所以挑出来的otu 比OTU_final.fasta里的序列要少, 整体预测的通路的矩阵里的值会小一些，通路数量上可能也小一些. 这里好像不支持rdp的结果，因为rdp基于贝叶斯的概率方法，最后没有给出具体比对的哪个id, 而是只给出一个分类taxonomy信息。 step 1 首先用qiime1里的pick_closed_reference_otus.py 命令挑选ref：(可以使用97，也可以使用90，99或者其他的) echo "pick_otus:enable_rev_strand_match True"&gt;&gt;otu_picking_params_97.txt echo "pick_otus:similarity 0.97"&gt;&gt;otu_picking_params_97.txt pick_closed_reference_otus.py -i OTU_final.fasta -o $PWD/ucrC972/ -p $PWD/otu_picking_params_97.txt -r ./gg_13_5_otus/rep_set/97_otus.fasta -t ./gg_13_5_otus/taxonomy/97_otu_taxonomy.txt -a -O 8 step 2 使用命令biom convert -i ucrC972/otu_table.biom -o ucrC972/otu_table.biom.tsv --to-tsv tsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个0 1矩阵]]></summary></entry><entry><title type="html">Introduction to UniprotKB</title><link href="http://localhost:4000/annotation/database/Introduction_to_UniProtKB/" rel="alternate" type="text/html" title="Introduction to UniprotKB" /><published>2018-04-02T00:00:00+10:00</published><updated>2018-04-02T00:00:00+10:00</updated><id>http://localhost:4000/annotation/database/Introduction_to_UniProtKB</id><content type="html" xml:base="http://localhost:4000/annotation/database/Introduction_to_UniProtKB/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p><a href="https://www.uniprot.org/help/uniprotkb">UniProt Knowledgebase (UniProtKB)</a>数据库中收集的是蛋白序列的信息以及准确的，连续的，丰富的注释信息。除此之外还收集一些比较重要的信息例如氨基酸序列，蛋白名称/描述，tax分类信息以及引用信息。这些囊括的信息涵盖了被广泛认可的生物学知识，classifications 以及cross-references, 以及明确的该蛋白可信度的层级分类。</p>
+
+<p>UniProtKB收集的序列超过95%都来自于公共核酸序列数据库中的CDS序列的翻译氨基酸序列，公共数据库指EMBL-Bank/GenBank/DDBJ等 authors们提交的序列会自动整合到TrEMBL中；</p>
+
+<p>UniProtKB数据库包含两个sections, UniProtKB/Swiss-Prot 和UniProtKB/TrEMBL</p>
+
+<p>数据库去冗余的过程是怎么样的？见<a href="https://www.uniprot.org/docs/sop_manual_curation.pdf">文档</a>。</p>
+
+<h2 id="uniprotkbswiss-prot">UniProtKB/Swiss-Prot</h2>
+<p>UniProtKB/Swiss-Prot是UniProt Knowledgebase(UniProtKB)的手动注释和reviewed 的section，其手工收集的信息来自于文献例如文献中的实验结果，非常严格的计算机分析结果（automatic annotation）， 序列注释可信度非常高的，非冗余的一个蛋白序列数据库，从2002年开始，由UniProt consortium 维护, 而通过了automatic annotation 但未经人工review的蛋白序列则归入到UniProtKB/TrEMBL数据库中</p>
+
+<h2 id="uniprotkbtrembl">UniProtKB/TrEMBL</h2>
+<p>UniProtKB的TrEMBL部分是1996年建立，那时数据增长较快，因手工校正和review的速度比较慢，所以采取了 比较严格的 automatic annotation，将high quality computaionally analyzed records 都纳入TrEMBL, 与Swiss-Prot分开，这种既不会影响Swiss-Prot的准确性，又可以及时的公开数据让所有的研究者访问。</p>
+
+<p><strong>a1: 定义一个cds序列为 真正的蛋白 的标准是怎么样的？</strong>
+大多数的蛋白序列都是从预测的CoDing Sequence(CDS)翻译过来的。一个CDS序列是DNA或者RNA中可以翻译为氨基酸序列的一个region。 它和Open Reading Frame(ORF)的定义不同，ORF通常是一系列的密码子而不包含终止密码子（可以理解为不完整的CDS）。CDS一定是ORFs, 但ORFs不一定是CDS。</p>
+
+<p><strong>a2: UniProtKB 定义一个CDS 不是真正的蛋白 的标准是怎么样的？</strong><br />
+基因预测的performance 极大程度上依赖于现有的生物学知识和背景。 我们使用生物信息学的工具将可能的CDS序列比对到最大的核酸序列数据库（genomic and RNA/ESTs）（可以理解为nt/nr库？），将一个CDS定义为 非真正蛋白序列的条件包括：1 更长/更短的RNAs的出现（融合/剪切所预测的基因）2. 缺乏对应的RNA序列，及/或 错误的内含子/外显子的边界（真核生物中） 3. 文献中报道为假基因的。当证据足够充分，就会将该条CDS从UniProtKB中移除。</p>]]></content><author><name>Jie Li</name></author><category term="annotation" /><category term="database" /><category term="protein" /><category term="annotation" /><category term="protein" /><category term="gene" /><summary type="html"><![CDATA[Introduction UniProt Knowledgebase (UniProtKB)数据库中收集的是蛋白序列的信息以及准确的，连续的，丰富的注释信息。除此之外还收集一些比较重要的信息例如氨基酸序列，蛋白名称/描述，tax分类信息以及引用信息。这些囊括的信息涵盖了被广泛认可的生物学知识，classifications 以及cross-references, 以及明确的该蛋白可信度的层级分类。 UniProtKB收集的序列超过95%都来自于公共核酸序列数据库中的CDS序列的翻译氨基酸序列，公共数据库指EMBL-Bank/GenBank/DDBJ等 authors们提交的序列会自动整合到TrEMBL中； UniProtKB数据库包含两个sections, UniProtKB/Swiss-Prot 和UniProtKB/TrEMBL 数据库去冗余的过程是怎么样的？见文档。 UniProtKB/Swiss-Prot UniProtKB/Swiss-Prot是UniProt Knowledgebase(UniProtKB)的手动注释和reviewed 的section，其手工收集的信息来自于文献例如文献中的实验结果，非常严格的计算机分析结果（automatic annotation）， 序列注释可信度非常高的，非冗余的一个蛋白序列数据库，从2002年开始，由UniProt consortium 维护, 而通过了automatic annotation 但未经人工review的蛋白序列则归入到UniProtKB/TrEMBL数据库中 UniProtKB/TrEMBL UniProtKB的TrEMBL部分是1996年建立，那时数据增长较快，因手工校正和review的速度比较慢，所以采取了 比较严格的 automatic annotation，将high quality computaionally analyzed records 都纳入TrEMBL, 与Swiss-Prot分开，这种既不会影响Swiss-Prot的准确性，又可以及时的公开数据让所有的研究者访问。 a1: 定义一个cds序列为 真正的蛋白 的标准是怎么样的？ 大多数的蛋白序列都是从预测的CoDing Sequence(CDS)翻译过来的。一个CDS序列是DNA或者RNA中可以翻译为氨基酸序列的一个region。 它和Open Reading Frame(ORF)的定义不同，ORF通常是一系列的密码子而不包含终止密码子（可以理解为不完整的CDS）。CDS一定是ORFs, 但ORFs不一定是CDS。 a2: UniProtKB 定义一个CDS 不是真正的蛋白 的标准是怎么样的？ 基因预测的performance 极大程度上依赖于现有的生物学知识和背景。 我们使用生物信息学的工具将可能的CDS序列比对到最大的核酸序列数据库（genomic and RNA/ESTs）（可以理解为nt/nr库？），将一个CDS定义为 非真正蛋白序列的条件包括：1 更长/更短的RNAs的出现（融合/剪切所预测的基因）2. 缺乏对应的RNA序列，及/或 错误的内含子/外显子的边界（真核生物中） 3. 文献中报道为假基因的。当证据足够充分，就会将该条CDS从UniProtKB中移除。]]></summary></entry><entry><title type="html">scp demo</title><link href="http://localhost:4000/coding/bash/scp_demo/" rel="alternate" type="text/html" title="scp demo" /><published>2018-03-23T00:00:00+10:00</published><updated>2018-03-23T00:00:00+10:00</updated><id>http://localhost:4000/coding/bash/scp_demo</id><content type="html" xml:base="http://localhost:4000/coding/bash/scp_demo/"><![CDATA[<h2 id="1copy-local-files-to-remote-server">1.Copy local files to remote server</h2>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$scp</span> local_file remore_username@remote_ip:remote_folder</code></pre></figure>
+
+<h2 id="2-copy-file-from-remote-server-to-local">2. Copy file from remote server to local</h2>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$scp</span> remote_username@remote_ip:remote_folder local_folder</code></pre></figure>
+
+<h2 id="ref">ref</h2>
+<p><a href="https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/scp.html">ref_link</a></p>]]></content><author><name>Jie Li</name></author><category term="coding" /><category term="bash" /><category term="bash" /><category term="linux" /><summary type="html"><![CDATA[1.Copy local files to remote server $scp local_file remore_username@remote_ip:remote_folder 2. Copy file from remote server to local $scp remote_username@remote_ip:remote_folder local_folder ref ref_link]]></summary></entry><entry><title type="html">Landed brisbane</title><link href="http://localhost:4000/Landed-Brisbane/" rel="alternate" type="text/html" title="Landed brisbane" /><published>2018-03-23T00:00:00+10:00</published><updated>2018-03-23T00:00:00+10:00</updated><id>http://localhost:4000/Landed-Brisbane</id><content type="html" xml:base="http://localhost:4000/Landed-Brisbane/"><![CDATA[<p><img src="/assets/picbed/cover/mountains.jpg" alt="" />
+Mark a mark. The first day in Brisbane.</p>]]></content><author><name>Jie Li</name></author><summary type="html"><![CDATA[Mark a mark. The first day in Brisbane.]]></summary></entry></feed>

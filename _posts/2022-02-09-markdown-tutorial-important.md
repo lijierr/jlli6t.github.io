@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posts
 title: markdown tutorial
 author: Jie Li
 categories: tutorials
