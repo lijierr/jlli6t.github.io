@@ -10,18 +10,18 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Notes of PICRUST - ❤️ Jie Li (She/Her) ❤️</title>
-<meta name="description" content="Introduction picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。 picrust是基于已经计算好的数据库进行预测，数据库下载地址。 下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库  Installation 安装picrust, 这个中间没有遇到麻烦；注意picrsut是基于python2.7版本(用的2.7.12)， 其他版本的python会报错例如python3.5.2  Usage tips 因为picrust是读入biom文件 所以先要生成biom 格式的文件，其中biom需要包含的信息有每个样品注释上的物种信息及对应的丰度，生成biom的格式方法有两种：  way 1 通过利用qiime1的命令先挑选otu比对的ref, 这里相当于重新比对分类一次，默认方法是uclust(其他还有usearch_ref， sortmerna), 所以挑出来的otu 比OTU_final.fasta里的序列要少, 整体预测的通路的矩阵里的值会小一些，通路数量上可能也小一些. 这里好像不支持rdp的结果，因为rdp基于贝叶斯的概率方法，最后没有给出具体比对的哪个id, 而是只给出一个分类taxonomy信息。  step 1 首先用qiime1里的pick_closed_reference_otus.py 命令挑选ref：(可以使用97，也可以使用90，99或者其他的)  echo &quot;pick_otus:enable_rev_strand_match True&quot;&gt;&gt;otu_picking_params_97.txt echo &quot;pick_otus:similarity 0.97&quot;&gt;&gt;otu_picking_params_97.txt pick_closed_reference_otus.py -i OTU_final.fasta -o $PWD/ucrC972/ -p $PWD/otu_picking_params_97.txt -r ./gg_13_5_otus/rep_set/97_otus.fasta -t ./gg_13_5_otus/taxonomy/97_otu_taxonomy.txt -a -O 8  step 2 使用命令biom convert -i ucrC972/otu_table.biom -o ucrC972/otu_table.biom.tsv --to-tsv tsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个0 1矩阵">
+<meta name="description" content="Introduction picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。 picrust是基于已经计算好的数据库进行预测，数据库下载地址。 下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库">
 
 
 
 <meta property="og:type" content="article">
-<meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="<font color=red>❤️</font> Jie Li (She/Her) <font color=red>❤️</font>">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="<font color=pink>❤️</font> Jie Li (She/Her) <font color=pink>❤️</font>">
 <meta property="og:title" content="Notes of PICRUST">
-<meta property="og:url" content="http://localhost:4000/bioinformatics/annotation/PICRUST/">
+<meta property="og:url" content="http://localhost:3080/bioinformatics/annotation/PICRUST/">
 
 
-  <meta property="og:description" content="Introduction picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。 picrust是基于已经计算好的数据库进行预测，数据库下载地址。 下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库  Installation 安装picrust, 这个中间没有遇到麻烦；注意picrsut是基于python2.7版本(用的2.7.12)， 其他版本的python会报错例如python3.5.2  Usage tips 因为picrust是读入biom文件 所以先要生成biom 格式的文件，其中biom需要包含的信息有每个样品注释上的物种信息及对应的丰度，生成biom的格式方法有两种：  way 1 通过利用qiime1的命令先挑选otu比对的ref, 这里相当于重新比对分类一次，默认方法是uclust(其他还有usearch_ref， sortmerna), 所以挑出来的otu 比OTU_final.fasta里的序列要少, 整体预测的通路的矩阵里的值会小一些，通路数量上可能也小一些. 这里好像不支持rdp的结果，因为rdp基于贝叶斯的概率方法，最后没有给出具体比对的哪个id, 而是只给出一个分类taxonomy信息。  step 1 首先用qiime1里的pick_closed_reference_otus.py 命令挑选ref：(可以使用97，也可以使用90，99或者其他的)  echo &quot;pick_otus:enable_rev_strand_match True&quot;&gt;&gt;otu_picking_params_97.txt echo &quot;pick_otus:similarity 0.97&quot;&gt;&gt;otu_picking_params_97.txt pick_closed_reference_otus.py -i OTU_final.fasta -o $PWD/ucrC972/ -p $PWD/otu_picking_params_97.txt -r ./gg_13_5_otus/rep_set/97_otus.fasta -t ./gg_13_5_otus/taxonomy/97_otu_taxonomy.txt -a -O 8  step 2 使用命令biom convert -i ucrC972/otu_table.biom -o ucrC972/otu_table.biom.tsv --to-tsv tsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个0 1矩阵">
+  <meta property="og:description" content="Introduction picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。 picrust是基于已经计算好的数据库进行预测，数据库下载地址。 下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库">
 
 
 
@@ -40,7 +40,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/bioinformatics/annotation/PICRUST/">
+<link rel="canonical" href="http://localhost:3080/bioinformatics/annotation/PICRUST/">
 
 
 
@@ -51,7 +51,7 @@
     
       "@type": "Person",
       "name": "Jie Li (She/Her)",
-      "url": "http://localhost:4000/"
+      "url": "http://localhost:3080/"
     
   }
 </script>
@@ -66,7 +66,7 @@
 
 
 
-  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="<font color=red>❤️</font> Jie Li (She/Her) <font color=red>❤️</font> Feed">
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="<font color=pink>❤️</font> Jie Li (She/Her) <font color=pink>❤️</font> Feed">
 
 
 <!-- https://t.co/dKP3o1e -->
@@ -108,7 +108,7 @@
       <nav id="site-nav" class="greedy-nav">
         
         <a class="site-title" href="/">
-          <font color=red>❤️</font> Jie Li (She/Her) <font color=red>❤️</font>
+          <font color=pink>❤️</font> Jie Li (She/Her) <font color=pink>❤️</font>
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
@@ -153,7 +153,7 @@
 
   <div class="author__content">
     <h3 class="author__name p-name" itemprop="name">
-      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url"></a>
+      <a class="u-url" rel="me" href="http://localhost:3080/" itemprop="url"></a>
     </h3>
     
   </div>
@@ -331,8 +331,7 @@ tsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个
 
 
     <p class="archive__item-excerpt" itemprop="description">Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
-
-Cum sociis natoque penatibus et magnis dis parturient ...</p>
+</p>
   </article>
 </div>
 
@@ -421,8 +420,7 @@ Recently, Coles launched a membership campaign. One credit will be issued for ev
 
     <p class="archive__item-excerpt" itemprop="description">Introduction
 SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。
-
-数据集的快速增长极大的增加了硬件需求，数据库越大，则越需要更多的资源例如内存来加载数据库。目前...</p>
+</p>
   </article>
 </div>
 
@@ -684,10 +682,7 @@ UniProt Knowledgebase (UniProtKB)数据库中收集的是蛋白序列的信息�
     <p class="archive__item-excerpt" itemprop="description">1.Copy local files to remote server
 
 $scp local_file remore_username@remote_ip:remote_folder
-
-2. Copy file from remote server to local
-
-$scp remote_username@...</p>
+</p>
   </article>
 </div>
 
@@ -758,23 +753,23 @@ Mark a mark. The first day in Brisbane.
     
       
         
-          <li><a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" rel="nofollow noopener noreferrer"><i class="fab fa-google" aria-hidden="true"></i> Google scholar</a></li>
+          <li><a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" title="Google scholar"><i class="fab fa-google" aria-hidden="true"></i></a></li>
         
       
         
-          <li><a href="https://github.com/jlli6t" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          <li><a href="https://github.com/jlli6t" title="GitHub"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a></li>
         
       
         
-          <li><a href="https://www.linkedin.com/in/jie-li-3201a57b/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> linkedin</a></li>
+          <li><a href="https://www.linkedin.com/in/jie-li-3201a57b/" title="linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
         
       
         
-          <li><a href="https://orcid.org/0000-0002-9623-9213" rel="nofollow noopener noreferrer"><i class="fa-brands fa-orcid" aria-hidden="true"></i> ORCID</a></li>
+          <li><a href="https://orcid.org/0000-0002-9623-9213" title="ORCID"><i class="fa-brands fa-orcid" aria-hidden="true"></i></a></li>
         
       
         
-          <li><a href="https://twitter.com/jlli6t" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+          <li><a href="https://twitter.com/jlli6t" title="Twitter"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i></a></li>
         
       
     

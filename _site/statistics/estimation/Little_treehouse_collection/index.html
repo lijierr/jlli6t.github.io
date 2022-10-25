@@ -10,18 +10,18 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>little treehouse collection - estimation - ❤️ Jie Li (She/Her) ❤️</title>
-<meta name="description" content="1. Introduction Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below). However, every redeemed book is wrapped with cover, thus, you won’t be able to know which number you get until you uncover it.   I am curious about roughly how much you gonna spend at Coles to collect a full set of LITTLE TREEHOUSE book (a single transaction of $30 or more but less than $60 is calculated as $30).  Preparation Hypothesis: Same quantity of each book was packed and evenly mixed. Books redeemed for every $30 are independent from each other.  Randomly generated 1,000,000 numbers between 0 and 9 as an array. For example:  1, 3, 1, 4, 0, 0, 5, 3, 0, 6, 7, 8, 4, 6, 3, 2, 6, 6, 4, 1, 0, 2, 5, 5, 6, 2, 2, 7, 9, 1, 6, 3, 5, 9, 6, 4, 4, 9, 7, 1, 3, 1, 3, 3, 4, 9, 5, 7, 8, 7, 4, 9, 6, 8, 6, 2, 8, 8, 5, 2, 8, 9, 5, 4, 6, 0, 8, 4, 1, 1, 0, 4, 7, 5, 6, 7, 8, 7, 2, 1, 7, 2, 0, 4, 5, 1, 6, 0, 7, 3, 6, 9, 9, 0, 7, 8, 8, 3, 4, 9, 9, 0, 0, 3, 5, 0, 6, 8, 0, 8, 4, 3, 1, 2, 5, 1, 4, 6, 7, 1, 7, 0, 8, 3, 3, 3, 1, 4, 8, 8, 5, 7, 3, 4, 5, 6, 2, 2, 6, 1, 9, 9, 0, 9, 4, 4, 4, 7, 1, 8, 8, 4, 9, 7, 5, 5, 6, 7, 1, 0, 2, 3, 4, 0, 6, 4, 4, 7, 8, 9, 7, 6, 7, 5, 5, 4, 6, 0, 0, 4, 0, 4, 9, 1, 7, 4, 4, 1, 8, 3, 7, 1, 2, 3, 8, 4, 6, 1, 5, 5, 5, 1, 9, 2, 5, 6, 1, 6, 0, 9, 5, 3, 7, 7, 4, 5, 4, 9, 0, 7, 9, 1, 0, 4, 7, 1, 1, 5, 8, 8, 9, 2, 8, 2, 9, 0, 8, 3, 0, 4, 0, 3, 2, 3, 4, 7, 9, 5, 0, 8, 0, 0, 0, 4, 0, 1, 5, 5, 9, 7, 9, 2, 3, 4, 1, 3, 0, 4, 0, 4, 3, 7, 7, 6, 6, 5, 7, 1, 1, 3, 9, 0, 7, 3, 1, 5, 7, 3, 3, 8, 8, 3, 0, 0, 4, 1, 0, 8, 9, 3, 3, 3, 9, 6, 0, 5, 0, 8, 7, 1, 5, 1, 3, 3, 7, 7, 0, 7, 6, 4, 6, 8, 5, 2, 5, 0, 1, 1, 7, 0, 1, 3, 4, 5, 4, 3, 1, 0, 9, 8, 8, 4, 2, 1, 7, 9, 5, 9, 9, 6, 4, 9, 5, 6, 8, 6, 3, 8, 8, 7, 8, 6, 7, 3, 2, 0, 2, 0, 5, 8, 3, 7, 8, 1, 4, 2, 9, 6, 5, 6, 9, 5, 9, 1, 5, 5, 1, 2, 7, 5, 1, 1, 6, 6, 9, 7, 0, 6, 3, 2, 3, 3, 4, 0, 3, 2, 0, 0, 8, 3, 7, 6, 7, 7, 9, 2, 3, 2, 4, 6, 5, 9, 4, 7, 9, 4, 0, 2, 6, 4, 9, 5, 0, 0, 4, 3, 3, 9, 8, 4, 7, 4, 8, 3, 3, 6, 2, 9, 6, 3, 0, 0, 7, 8, 1, 0, 9, 3, 3, 6, 3, 6, 2, 6, 6, 7, 6, 3, 8, 9, 2, 5, 0, 2, 4, 0, 2, 7, 3, 9, 2, 7, 1, 7, 8, 8, 0, 7, 8, 3, 0, 3, 2, 6, 2, 2, 9, 5, 1, 7, 4, 2, 0, 0, 5, 3, 1, 9, 0, 3, 3, 5, 4, 4, 2, 1, 9, 4, 0, 9, 0, 1, 2, 0, 8, 3, 6, 6, 0, 5, 2, 1, 2, 6, 8, 2, 9, 3, 8, 4, 9, 1, 5, 2, 1, 1, 2, 2, 3, 5, 4, 0, 2, 9, 5, 2, 8, 7, 8, 5, 9, 4, 2, 2, 3, 1, 5, 6, 3, 4, 0, 5, 0, 5, 0, 3, 3, 9, 8, 6, 9, 1, 6, 1, 8, 4, 9, 9, 6, 4, 1, 8, 2, 4, 0, 0, 4, 5, 8, 7, 2, 8, 5, 1, 1, 5, 0, 2, 8, 9, 7, 3, 1, 2, 1, 0, 5, 2, 3, 7, 3, 6, 0, 3, 5, 8, 7, 7, 4, 9, 9, 4, 3, 1, 8, 4, 6, 2, 3, 9, 3, 5, 2, 1, 9, 1, 2, 1, 4, 8, 9, 3, 8, 1, 5, 2, 7, 1, 7, 8, 2, 9, 6, 8, 8, 7, 2, 3, 9, 0, 5, 7, 0, 6, 1, 8, 2, 1, 5, 0, 3, 1, 9, 4, 8, 6, 9, 1, 6, 7, 0, 4, 6, 8, 4, 6, 8, 7, 9, 4, 1, 9, 4, 9, 6, 9, 5, 2, 9, 9, 2, 2, 3, 8, 2, 8, 6, 7, 6, 2, 9, 6, 3, 0, 8, 4, 2, 6, 5, 5, 4, 1, 4, 4, 3, 9, 8, 9, 9, 2, 4, 7, 3, 4, 0, 2, 0, 4, 7, 2, 7, 9, 1, 5, 3, 5, 5, 4, 7, 4, 1, 9, 9, 5, 1, 6, 7, 3, 5, 4, 6, 0, 9, 3, 4, 4, 2, 9, 0, 9, 6, 5, 5, 7, 1, 5, 4, 9, 1, 0, 7, 0, 8, 6, 9, 4, 5, 7, 1, 0, 7, 3, 9, 1, 4, 0, 3, 6, 1, 9, 9, 6, 7, 1, 1, 3, 7, 1, 8, 5, 7, 9, 2, 2, 6, 8, 3, 9, 1, 0, 1, 4, 9, 1, 1, 6, 0, 6, 3, 0, 4, 4, 6, 1, 6, 5, 5, 5, 2, 0, 2, 8, 6, 5, 9, 8, 6, 0, 4, 9, 5, 7, 2, 5, 7, 1, 6, 6, 6, 5, 5, 9, 5, 4, 0, 8, 1, 7, 1, 2, 9, 4, 9, 3, 6, 8, 7, 0, 0, 4, 1, 5, 9, 8, 8, 7, 5, 3, 3, 4, 8, 3, 9, 2, 1, 3, 1, 2, 4, 4  Experiment Sampling from left to right from this array, take two numbers at a time as a combination. Skip combinations of 00 or larger than 24. Repeating the process until 24 different numbers are collected.  mean: 88.9  Conclusion $30 * 89 = $2670, theoretically, I may need spend $2670 to collect the full set of LITTLE TREEHOUSE book.  After 1,000 independent trials, this value converges to a number close to $2670.  Thus, I decided to give up collecting those books…">
+<meta name="description" content="1. Introduction Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below). However, every redeemed book is wrapped with cover, thus, you won’t be able to know which number you get until you uncover it.">
 
 
 
 <meta property="og:type" content="article">
-<meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="<font color=red>❤️</font> Jie Li (She/Her) <font color=red>❤️</font>">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="<font color=pink>❤️</font> Jie Li (She/Her) <font color=pink>❤️</font>">
 <meta property="og:title" content="little treehouse collection - estimation">
-<meta property="og:url" content="http://localhost:4000/statistics/estimation/Little_treehouse_collection/">
+<meta property="og:url" content="http://localhost:3080/statistics/estimation/Little_treehouse_collection/">
 
 
-  <meta property="og:description" content="1. Introduction Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below). However, every redeemed book is wrapped with cover, thus, you won’t be able to know which number you get until you uncover it.   I am curious about roughly how much you gonna spend at Coles to collect a full set of LITTLE TREEHOUSE book (a single transaction of $30 or more but less than $60 is calculated as $30).  Preparation Hypothesis: Same quantity of each book was packed and evenly mixed. Books redeemed for every $30 are independent from each other.  Randomly generated 1,000,000 numbers between 0 and 9 as an array. For example:  1, 3, 1, 4, 0, 0, 5, 3, 0, 6, 7, 8, 4, 6, 3, 2, 6, 6, 4, 1, 0, 2, 5, 5, 6, 2, 2, 7, 9, 1, 6, 3, 5, 9, 6, 4, 4, 9, 7, 1, 3, 1, 3, 3, 4, 9, 5, 7, 8, 7, 4, 9, 6, 8, 6, 2, 8, 8, 5, 2, 8, 9, 5, 4, 6, 0, 8, 4, 1, 1, 0, 4, 7, 5, 6, 7, 8, 7, 2, 1, 7, 2, 0, 4, 5, 1, 6, 0, 7, 3, 6, 9, 9, 0, 7, 8, 8, 3, 4, 9, 9, 0, 0, 3, 5, 0, 6, 8, 0, 8, 4, 3, 1, 2, 5, 1, 4, 6, 7, 1, 7, 0, 8, 3, 3, 3, 1, 4, 8, 8, 5, 7, 3, 4, 5, 6, 2, 2, 6, 1, 9, 9, 0, 9, 4, 4, 4, 7, 1, 8, 8, 4, 9, 7, 5, 5, 6, 7, 1, 0, 2, 3, 4, 0, 6, 4, 4, 7, 8, 9, 7, 6, 7, 5, 5, 4, 6, 0, 0, 4, 0, 4, 9, 1, 7, 4, 4, 1, 8, 3, 7, 1, 2, 3, 8, 4, 6, 1, 5, 5, 5, 1, 9, 2, 5, 6, 1, 6, 0, 9, 5, 3, 7, 7, 4, 5, 4, 9, 0, 7, 9, 1, 0, 4, 7, 1, 1, 5, 8, 8, 9, 2, 8, 2, 9, 0, 8, 3, 0, 4, 0, 3, 2, 3, 4, 7, 9, 5, 0, 8, 0, 0, 0, 4, 0, 1, 5, 5, 9, 7, 9, 2, 3, 4, 1, 3, 0, 4, 0, 4, 3, 7, 7, 6, 6, 5, 7, 1, 1, 3, 9, 0, 7, 3, 1, 5, 7, 3, 3, 8, 8, 3, 0, 0, 4, 1, 0, 8, 9, 3, 3, 3, 9, 6, 0, 5, 0, 8, 7, 1, 5, 1, 3, 3, 7, 7, 0, 7, 6, 4, 6, 8, 5, 2, 5, 0, 1, 1, 7, 0, 1, 3, 4, 5, 4, 3, 1, 0, 9, 8, 8, 4, 2, 1, 7, 9, 5, 9, 9, 6, 4, 9, 5, 6, 8, 6, 3, 8, 8, 7, 8, 6, 7, 3, 2, 0, 2, 0, 5, 8, 3, 7, 8, 1, 4, 2, 9, 6, 5, 6, 9, 5, 9, 1, 5, 5, 1, 2, 7, 5, 1, 1, 6, 6, 9, 7, 0, 6, 3, 2, 3, 3, 4, 0, 3, 2, 0, 0, 8, 3, 7, 6, 7, 7, 9, 2, 3, 2, 4, 6, 5, 9, 4, 7, 9, 4, 0, 2, 6, 4, 9, 5, 0, 0, 4, 3, 3, 9, 8, 4, 7, 4, 8, 3, 3, 6, 2, 9, 6, 3, 0, 0, 7, 8, 1, 0, 9, 3, 3, 6, 3, 6, 2, 6, 6, 7, 6, 3, 8, 9, 2, 5, 0, 2, 4, 0, 2, 7, 3, 9, 2, 7, 1, 7, 8, 8, 0, 7, 8, 3, 0, 3, 2, 6, 2, 2, 9, 5, 1, 7, 4, 2, 0, 0, 5, 3, 1, 9, 0, 3, 3, 5, 4, 4, 2, 1, 9, 4, 0, 9, 0, 1, 2, 0, 8, 3, 6, 6, 0, 5, 2, 1, 2, 6, 8, 2, 9, 3, 8, 4, 9, 1, 5, 2, 1, 1, 2, 2, 3, 5, 4, 0, 2, 9, 5, 2, 8, 7, 8, 5, 9, 4, 2, 2, 3, 1, 5, 6, 3, 4, 0, 5, 0, 5, 0, 3, 3, 9, 8, 6, 9, 1, 6, 1, 8, 4, 9, 9, 6, 4, 1, 8, 2, 4, 0, 0, 4, 5, 8, 7, 2, 8, 5, 1, 1, 5, 0, 2, 8, 9, 7, 3, 1, 2, 1, 0, 5, 2, 3, 7, 3, 6, 0, 3, 5, 8, 7, 7, 4, 9, 9, 4, 3, 1, 8, 4, 6, 2, 3, 9, 3, 5, 2, 1, 9, 1, 2, 1, 4, 8, 9, 3, 8, 1, 5, 2, 7, 1, 7, 8, 2, 9, 6, 8, 8, 7, 2, 3, 9, 0, 5, 7, 0, 6, 1, 8, 2, 1, 5, 0, 3, 1, 9, 4, 8, 6, 9, 1, 6, 7, 0, 4, 6, 8, 4, 6, 8, 7, 9, 4, 1, 9, 4, 9, 6, 9, 5, 2, 9, 9, 2, 2, 3, 8, 2, 8, 6, 7, 6, 2, 9, 6, 3, 0, 8, 4, 2, 6, 5, 5, 4, 1, 4, 4, 3, 9, 8, 9, 9, 2, 4, 7, 3, 4, 0, 2, 0, 4, 7, 2, 7, 9, 1, 5, 3, 5, 5, 4, 7, 4, 1, 9, 9, 5, 1, 6, 7, 3, 5, 4, 6, 0, 9, 3, 4, 4, 2, 9, 0, 9, 6, 5, 5, 7, 1, 5, 4, 9, 1, 0, 7, 0, 8, 6, 9, 4, 5, 7, 1, 0, 7, 3, 9, 1, 4, 0, 3, 6, 1, 9, 9, 6, 7, 1, 1, 3, 7, 1, 8, 5, 7, 9, 2, 2, 6, 8, 3, 9, 1, 0, 1, 4, 9, 1, 1, 6, 0, 6, 3, 0, 4, 4, 6, 1, 6, 5, 5, 5, 2, 0, 2, 8, 6, 5, 9, 8, 6, 0, 4, 9, 5, 7, 2, 5, 7, 1, 6, 6, 6, 5, 5, 9, 5, 4, 0, 8, 1, 7, 1, 2, 9, 4, 9, 3, 6, 8, 7, 0, 0, 4, 1, 5, 9, 8, 8, 7, 5, 3, 3, 4, 8, 3, 9, 2, 1, 3, 1, 2, 4, 4  Experiment Sampling from left to right from this array, take two numbers at a time as a combination. Skip combinations of 00 or larger than 24. Repeating the process until 24 different numbers are collected.  mean: 88.9  Conclusion $30 * 89 = $2670, theoretically, I may need spend $2670 to collect the full set of LITTLE TREEHOUSE book.  After 1,000 independent trials, this value converges to a number close to $2670.  Thus, I decided to give up collecting those books…">
+  <meta property="og:description" content="1. Introduction Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below). However, every redeemed book is wrapped with cover, thus, you won’t be able to know which number you get until you uncover it.">
 
 
 
@@ -40,7 +40,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/statistics/estimation/Little_treehouse_collection/">
+<link rel="canonical" href="http://localhost:3080/statistics/estimation/Little_treehouse_collection/">
 
 
 
@@ -51,7 +51,7 @@
     
       "@type": "Person",
       "name": "Jie Li (She/Her)",
-      "url": "http://localhost:4000/"
+      "url": "http://localhost:3080/"
     
   }
 </script>
@@ -66,7 +66,7 @@
 
 
 
-  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="<font color=red>❤️</font> Jie Li (She/Her) <font color=red>❤️</font> Feed">
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="<font color=pink>❤️</font> Jie Li (She/Her) <font color=pink>❤️</font> Feed">
 
 
 <!-- https://t.co/dKP3o1e -->
@@ -108,7 +108,7 @@
       <nav id="site-nav" class="greedy-nav">
         
         <a class="site-title" href="/">
-          <font color=red>❤️</font> Jie Li (She/Her) <font color=red>❤️</font>
+          <font color=pink>❤️</font> Jie Li (She/Her) <font color=pink>❤️</font>
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
@@ -153,7 +153,7 @@
 
   <div class="author__content">
     <h3 class="author__name p-name" itemprop="name">
-      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url"></a>
+      <a class="u-url" rel="me" href="http://localhost:3080/" itemprop="url"></a>
     </h3>
     
   </div>
@@ -330,8 +330,7 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
-
-Cum sociis natoque penatibus et magnis dis parturient ...</p>
+</p>
   </article>
 </div>
 
@@ -420,8 +419,7 @@ Recently, Coles launched a membership campaign. One credit will be issued for ev
 
     <p class="archive__item-excerpt" itemprop="description">Introduction
 SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。
-
-数据集的快速增长极大的增加了硬件需求，数据库越大，则越需要更多的资源例如内存来加载数据库。目前...</p>
+</p>
   </article>
 </div>
 
@@ -683,10 +681,7 @@ UniProt Knowledgebase (UniProtKB)数据库中收集的是蛋白序列的信息�
     <p class="archive__item-excerpt" itemprop="description">1.Copy local files to remote server
 
 $scp local_file remore_username@remote_ip:remote_folder
-
-2. Copy file from remote server to local
-
-$scp remote_username@...</p>
+</p>
   </article>
 </div>
 
@@ -757,23 +752,23 @@ Mark a mark. The first day in Brisbane.
     
       
         
-          <li><a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" rel="nofollow noopener noreferrer"><i class="fab fa-google" aria-hidden="true"></i> Google scholar</a></li>
+          <li><a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" title="Google scholar"><i class="fab fa-google" aria-hidden="true"></i></a></li>
         
       
         
-          <li><a href="https://github.com/jlli6t" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          <li><a href="https://github.com/jlli6t" title="GitHub"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a></li>
         
       
         
-          <li><a href="https://www.linkedin.com/in/jie-li-3201a57b/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> linkedin</a></li>
+          <li><a href="https://www.linkedin.com/in/jie-li-3201a57b/" title="linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
         
       
         
-          <li><a href="https://orcid.org/0000-0002-9623-9213" rel="nofollow noopener noreferrer"><i class="fa-brands fa-orcid" aria-hidden="true"></i> ORCID</a></li>
+          <li><a href="https://orcid.org/0000-0002-9623-9213" title="ORCID"><i class="fa-brands fa-orcid" aria-hidden="true"></i></a></li>
         
       
         
-          <li><a href="https://twitter.com/jlli6t" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+          <li><a href="https://twitter.com/jlli6t" title="Twitter"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i></a></li>
         
       
     

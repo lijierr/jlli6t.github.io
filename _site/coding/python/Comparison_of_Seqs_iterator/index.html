@@ -10,18 +10,18 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Comparison of Seqs iterator - ❤️ Jie Li (She/Her) ❤️</title>
-<meta name="description" content="Introduction 做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。 需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。  Bio.SeqIO.QualityIO.FastqGeneralIterator同Bio.SeqIO.parse一样也是一个迭代器，只不过不生成对象record，而是生成序列id、序列、以及质量值本身，遍历的时候调用语法为  For title, seq, qual in FastqGeneralIterator(fh): 	Do something  FastqGeneralIterator速度很快了，但我偶然又看到大神Heng Li 12年写的一个小代码readfq，相信不少同学有看过源码（我看到不少项目都嵌了这段代码），也是一个序列遍历器，且居然还在活跃，还有人在提issue和pr。  测试文件为一个36,518,870条序列的fastq.gz文件，这个序列数量已经是人肠道微生物基因集的几倍了，大多数情况下都不会需要频繁迭代这么多的序列量。我测试迭代然后统计序列数，碱基数，及质量字符数。 考虑到服务器上其他用户的状态可能也会影响测试效果，所以做了多次测试，Bio版本为1.76，测试平台为x86_64 GNU/Linux：  通过5次单独的测试，总的来说readfq速度上比Bio慢一点点，不会超过20%，其中第四次测试readfq的速度超过了Bio，可能测试环境也有一定的影响。 强推大神代码的原因： 	1. 代码非常简洁，仅仅31行！相比于Bio来说，非常轻量。 	2. 大神的代码同时兼容fasta和fastq！而FastqGeneralIterator只能处理fastq文件，如果要处理fasta格式的文件的话，需要调用Bio.SeqIO.FastaIO.SimpleFastaParser 	3. 本着代码的简洁性以及减少对library的依赖，readfq胜任。 	4. 最后就是虽然在测试过程中，Bio略胜一筹，但是现实中大部分的情况我们不需要频繁遍历太大的数据，所以速度上可以认为readfq与Bio的FastqGeneralIterator不相上下。  测试代码：  print(&#39;start readfq&#39;, datetime.now()) n, slen, qlen = 0, 0, 0 for name, seq, qual in readfq(f): 	n+= 1 	slen += len(seq) 	qlen += qual 	print(n, &#39;\t&#39;, slen, &#39;\t&#39;, qlen) print(&#39;end readfq&#39;, datetime.now())  print(&#39;start Bio&#39;, datetime.now()) n, slen, qlen = 0, 0, 0 for name, seq, qual in FastqGeneralIterator(fh): 	n+=1 	slen += len(seq) 	qlen += qual print(n, &#39;\t&#39;, slen, &#39;\t&#39;, qlen) print(&#39;end Bio&#39;, datetime.now())  附上测试结果供参考： 第一次测试: readfq比Bio: 118.88%  start readfq 2020-06-23 10:47:13.063023 end readfq 2020-06-23 10:51:32.138950 readfq用时：259.075927s start Bio 2020-06-23 10:51:35.854583 end Bio 2020-06-23 10:55:13.789172 Bio用时：217.934589s  第二次测试: readfq比Bio: 118.62%  start readfq 2020-06-23 10:55:58.999203 end readfq 2020-06-23 11:00:06.315406 readfq用时：247.316203s start Bio 2020-06-23 11:00:08.641087 end Bio 2020-06-23 11:03:37.140562 Bio用时：208.499475s  第三次测试: readfq比Bio: 15.51%  start readfq 2020-06-23 11:05:28.903198 end readfq 2020-06-23 11:09:53.790852 readfq用时：264.887654s start Bio 2020-06-23 11:09:53.912627 end Bio 2020-06-23 11:13:43.230618 Bio用时：229.317991s  第四次测试: readfq比Bio: 96.91%  start readfq 2020-06-23 11:13:52.750406 end readfq 2020-06-23 11:18:23.449189 readfq用时：270.698783s start Bio 2020-06-23 11:18:23.554306 end Bio 2020-06-23 11:23:02.897335 Bio用时：279.343029s  第五次测试: readfq比Bio: 116.17%  start readfq 2020-06-23 11:24:57.625076 end readfq 2020-06-23 11:28:58.973375 readfq用时：241.348299s start Bio 2020-06-23 11:28:59.101057 end Bio 2020-06-23 11:32:26.855097 Bio用时：207.754040s  附大神代码地址 地址">
+<meta name="description" content="Introduction 做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。 需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。">
 
 
 
 <meta property="og:type" content="article">
-<meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="<font color=red>❤️</font> Jie Li (She/Her) <font color=red>❤️</font>">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="<font color=pink>❤️</font> Jie Li (She/Her) <font color=pink>❤️</font>">
 <meta property="og:title" content="Comparison of Seqs iterator">
-<meta property="og:url" content="http://localhost:4000/coding/python/Comparison_of_Seqs_iterator/">
+<meta property="og:url" content="http://localhost:3080/coding/python/Comparison_of_Seqs_iterator/">
 
 
-  <meta property="og:description" content="Introduction 做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。 需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。  Bio.SeqIO.QualityIO.FastqGeneralIterator同Bio.SeqIO.parse一样也是一个迭代器，只不过不生成对象record，而是生成序列id、序列、以及质量值本身，遍历的时候调用语法为  For title, seq, qual in FastqGeneralIterator(fh): 	Do something  FastqGeneralIterator速度很快了，但我偶然又看到大神Heng Li 12年写的一个小代码readfq，相信不少同学有看过源码（我看到不少项目都嵌了这段代码），也是一个序列遍历器，且居然还在活跃，还有人在提issue和pr。  测试文件为一个36,518,870条序列的fastq.gz文件，这个序列数量已经是人肠道微生物基因集的几倍了，大多数情况下都不会需要频繁迭代这么多的序列量。我测试迭代然后统计序列数，碱基数，及质量字符数。 考虑到服务器上其他用户的状态可能也会影响测试效果，所以做了多次测试，Bio版本为1.76，测试平台为x86_64 GNU/Linux：  通过5次单独的测试，总的来说readfq速度上比Bio慢一点点，不会超过20%，其中第四次测试readfq的速度超过了Bio，可能测试环境也有一定的影响。 强推大神代码的原因： 	1. 代码非常简洁，仅仅31行！相比于Bio来说，非常轻量。 	2. 大神的代码同时兼容fasta和fastq！而FastqGeneralIterator只能处理fastq文件，如果要处理fasta格式的文件的话，需要调用Bio.SeqIO.FastaIO.SimpleFastaParser 	3. 本着代码的简洁性以及减少对library的依赖，readfq胜任。 	4. 最后就是虽然在测试过程中，Bio略胜一筹，但是现实中大部分的情况我们不需要频繁遍历太大的数据，所以速度上可以认为readfq与Bio的FastqGeneralIterator不相上下。  测试代码：  print(&#39;start readfq&#39;, datetime.now()) n, slen, qlen = 0, 0, 0 for name, seq, qual in readfq(f): 	n+= 1 	slen += len(seq) 	qlen += qual 	print(n, &#39;\t&#39;, slen, &#39;\t&#39;, qlen) print(&#39;end readfq&#39;, datetime.now())  print(&#39;start Bio&#39;, datetime.now()) n, slen, qlen = 0, 0, 0 for name, seq, qual in FastqGeneralIterator(fh): 	n+=1 	slen += len(seq) 	qlen += qual print(n, &#39;\t&#39;, slen, &#39;\t&#39;, qlen) print(&#39;end Bio&#39;, datetime.now())  附上测试结果供参考： 第一次测试: readfq比Bio: 118.88%  start readfq 2020-06-23 10:47:13.063023 end readfq 2020-06-23 10:51:32.138950 readfq用时：259.075927s start Bio 2020-06-23 10:51:35.854583 end Bio 2020-06-23 10:55:13.789172 Bio用时：217.934589s  第二次测试: readfq比Bio: 118.62%  start readfq 2020-06-23 10:55:58.999203 end readfq 2020-06-23 11:00:06.315406 readfq用时：247.316203s start Bio 2020-06-23 11:00:08.641087 end Bio 2020-06-23 11:03:37.140562 Bio用时：208.499475s  第三次测试: readfq比Bio: 15.51%  start readfq 2020-06-23 11:05:28.903198 end readfq 2020-06-23 11:09:53.790852 readfq用时：264.887654s start Bio 2020-06-23 11:09:53.912627 end Bio 2020-06-23 11:13:43.230618 Bio用时：229.317991s  第四次测试: readfq比Bio: 96.91%  start readfq 2020-06-23 11:13:52.750406 end readfq 2020-06-23 11:18:23.449189 readfq用时：270.698783s start Bio 2020-06-23 11:18:23.554306 end Bio 2020-06-23 11:23:02.897335 Bio用时：279.343029s  第五次测试: readfq比Bio: 116.17%  start readfq 2020-06-23 11:24:57.625076 end readfq 2020-06-23 11:28:58.973375 readfq用时：241.348299s start Bio 2020-06-23 11:28:59.101057 end Bio 2020-06-23 11:32:26.855097 Bio用时：207.754040s  附大神代码地址 地址">
+  <meta property="og:description" content="Introduction 做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。 需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。">
 
 
 
@@ -40,7 +40,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/coding/python/Comparison_of_Seqs_iterator/">
+<link rel="canonical" href="http://localhost:3080/coding/python/Comparison_of_Seqs_iterator/">
 
 
 
@@ -51,7 +51,7 @@
     
       "@type": "Person",
       "name": "Jie Li (She/Her)",
-      "url": "http://localhost:4000/"
+      "url": "http://localhost:3080/"
     
   }
 </script>
@@ -66,7 +66,7 @@
 
 
 
-  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="<font color=red>❤️</font> Jie Li (She/Her) <font color=red>❤️</font> Feed">
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="<font color=pink>❤️</font> Jie Li (She/Her) <font color=pink>❤️</font> Feed">
 
 
 <!-- https://t.co/dKP3o1e -->
@@ -108,7 +108,7 @@
       <nav id="site-nav" class="greedy-nav">
         
         <a class="site-title" href="/">
-          <font color=red>❤️</font> Jie Li (She/Her) <font color=red>❤️</font>
+          <font color=pink>❤️</font> Jie Li (She/Her) <font color=pink>❤️</font>
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
@@ -153,7 +153,7 @@
 
   <div class="author__content">
     <h3 class="author__name p-name" itemprop="name">
-      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url"></a>
+      <a class="u-url" rel="me" href="http://localhost:3080/" itemprop="url"></a>
     </h3>
     
   </div>
@@ -395,8 +395,7 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
-
-Cum sociis natoque penatibus et magnis dis parturient ...</p>
+</p>
   </article>
 </div>
 
@@ -485,8 +484,7 @@ Recently, Coles launched a membership campaign. One credit will be issued for ev
 
     <p class="archive__item-excerpt" itemprop="description">Introduction
 SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。
-
-数据集的快速增长极大的增加了硬件需求，数据库越大，则越需要更多的资源例如内存来加载数据库。目前...</p>
+</p>
   </article>
 </div>
 
@@ -748,10 +746,7 @@ UniProt Knowledgebase (UniProtKB)数据库中收集的是蛋白序列的信息�
     <p class="archive__item-excerpt" itemprop="description">1.Copy local files to remote server
 
 $scp local_file remore_username@remote_ip:remote_folder
-
-2. Copy file from remote server to local
-
-$scp remote_username@...</p>
+</p>
   </article>
 </div>
 
@@ -822,23 +817,23 @@ Mark a mark. The first day in Brisbane.
     
       
         
-          <li><a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" rel="nofollow noopener noreferrer"><i class="fab fa-google" aria-hidden="true"></i> Google scholar</a></li>
+          <li><a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" title="Google scholar"><i class="fab fa-google" aria-hidden="true"></i></a></li>
         
       
         
-          <li><a href="https://github.com/jlli6t" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          <li><a href="https://github.com/jlli6t" title="GitHub"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a></li>
         
       
         
-          <li><a href="https://www.linkedin.com/in/jie-li-3201a57b/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> linkedin</a></li>
+          <li><a href="https://www.linkedin.com/in/jie-li-3201a57b/" title="linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
         
       
         
-          <li><a href="https://orcid.org/0000-0002-9623-9213" rel="nofollow noopener noreferrer"><i class="fa-brands fa-orcid" aria-hidden="true"></i> ORCID</a></li>
+          <li><a href="https://orcid.org/0000-0002-9623-9213" title="ORCID"><i class="fa-brands fa-orcid" aria-hidden="true"></i></a></li>
         
       
         
-          <li><a href="https://twitter.com/jlli6t" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+          <li><a href="https://twitter.com/jlli6t" title="Twitter"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i></a></li>
         
       
     
