@@ -9,7 +9,7 @@ Hi there! This is Jie!
 
 ![]({{ 'assets/picbed/cover/cover4.jpg' | relative_url}})
 
-Jie is currently pursuing a PhD with advisors of [**<u>Associate Professor Jianhua Guo</u>**](https://researchers.uq.edu.au/researcher/3045) and [**<u>Professor Gene Tyson</u>**](https://www.qut.edu.au/about/our-people/academic-profiles/gene.tyson) with focus on microbial ecology in engineered systems with financial support of UQ Research Training Scholarship.
+Jie is currently pursuing a PhD with advisors [**<u>Associate Professor Jianhua Guo</u>**](https://researchers.uq.edu.au/researcher/3045) and [**<u>Professor Gene Tyson</u>**](https://www.qut.edu.au/about/our-people/academic-profiles/gene.tyson) with focus on microbial ecology in engineered systems with financial support of UQ Research Training Scholarship.
 
 With passion on **microbial ecology**, Jie has contributed to [**<u>publications</u>**](https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ). The passion extends to coding as well. Jie has led the development of [**<u>pipelines</u>**](https://jlli6t.github.io/projects/index.html) with Python.
 
