@@ -2,8 +2,13 @@
 layout: posts
 title: Perl包安装
 author: Jie Li
-categories: [coding, perl]
-tags: [annotation, perl, linux]
+categories:
+    - coding
+    - perl
+tags: 
+    - annotation
+    - perl
+    - linux
 math: false
 ---
 
