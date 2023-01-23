@@ -6,8 +6,7 @@ main:
     url: /index.html
   - title: <u>Projects</u>
     url: /projects/index.html
-  - title: <u>CV</u>
-    url: /cv/index.html
+    
 
 # sidebar navigation list sample
 sidebar-sample:
