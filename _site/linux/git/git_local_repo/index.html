@@ -1,0 +1,1351 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>git操作本地仓库 - Jie Li (She/Her)</title>
+<meta name="description" content="git 工具 查看服务器上是否已经安装好git。服务器上有自带的git，直接使用即可，不需要另外安装了。  which git /opt/rocks/bin/git">
+
+
+  <meta name="author" content="Jie Li">
+  
+  <meta property="article:author" content="Jie Li">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="Jie Li (She/Her)">
+<meta property="og:title" content="git操作本地仓库">
+<meta property="og:url" content="http://localhost:3080/linux/git/git_local_repo/">
+
+
+  <meta property="og:description" content="git 工具 查看服务器上是否已经安装好git。服务器上有自带的git，直接使用即可，不需要另外安装了。  which git /opt/rocks/bin/git">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-06-17T00:00:00+10:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:3080/linux/git/git_local_repo/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Jie Li",
+      "url": "http://localhost:3080/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--posts">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Jie Li (She/Her)
+          <span class="site-subtitle">Passion can outweight the long years❤️热爱可抵岁月漫长</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/index.html"><u>About</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/index.html"><u>Blogs</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/index.html"><u>Projects</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/cv/index.html"><u>CV</u></a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:3080/">
+        <img src="/assets/prof_pic2.jpg" alt="Jie Li" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:3080/" itemprop="url">Jie Li</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Just a bioinformatician in microbial ecology.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-google" aria-hidden="true"></i><span class="label">Google scholar</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/jlli6t" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">Github</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/jie-li-3201a57b/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+          
+            <li><a href="https://orcid.org/0000-0002-9623-9213" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fa-brands fa-orcid" aria-hidden="true"></i><span class="label">ORCID</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/jlli6t" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">git操作本地仓库</h1>
+    
+    <h3 id="git-工具">git 工具</h3>
+<p>查看服务器上是否已经安装好<code class="language-plaintext highlighter-rouge">git</code>。服务器上有自带的<code class="language-plaintext highlighter-rouge">git</code>，直接使用即可，不需要另外安装了。</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">which git
+/opt/rocks/bin/git</code></pre></figure>
+
+<h3 id="初始化仓库">初始化仓库</h3>
+<p>进入到对应的目录，执行<code class="language-plaintext highlighter-rouge">git init</code>命令。</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git init</code></pre></figure>
+
+<h3 id="查看工作状态">查看工作状态</h3>
+<p>查看工作目录<code class="language-plaintext highlighter-rouge">+stage+HEAD</code>的状态，发现工作目录有一个<code class="language-plaintext highlighter-rouge">rdetfq.py</code>文件，但是没有被<code class="language-plaintext highlighter-rouge">stage</code>，也没有<code class="language-plaintext highlighter-rouge">commit</code>到<code class="language-plaintext highlighter-rouge">HEAD</code>过。</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git status
+On branch master
+
+Initial commit
+
+Untracked files:
+    <span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to include <span class="k">in </span>what will be committed<span class="o">)</span>
+
+        rdetfq.py
+
+nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">"git add"</span> to track<span class="o">)</span></code></pre></figure>
+
+<h3 id="对目录下的文件进行stage">对目录下的文件进行stage</h3>
+<p>所以需要先<code class="language-plaintext highlighter-rouge">stage rdetrfq.py</code>。没有任何信息输出，Linux的核心，没有消息就是好消息之一。</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git add rdetrfq.fy</code></pre></figure>
+
+<h3 id="再次查看工作状态">再次查看工作状态</h3>
+<p>再次查看<code class="language-plaintext highlighter-rouge">status</code>，提示<code class="language-plaintext highlighter-rouge">rdetrfq.py</code>已经被<code class="language-plaintext highlighter-rouge">stage</code>，在等待被<code class="language-plaintext highlighter-rouge">commit</code>到<code class="language-plaintext highlighter-rouge">HEAD</code>。</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+    <span class="o">(</span>use <span class="s2">"git rm --cached &lt;file&gt;..."</span> to unstage<span class="o">)</span>
+
+        new file:     rdetfq.py</code></pre></figure>
+
+<h3 id="commit-stage的内容到head">commit stage的内容到HEAD</h3>
+<p>将<code class="language-plaintext highlighter-rouge">stage</code>中的所有内容<code class="language-plaintext highlighter-rouge">commit</code>到<code class="language-plaintext highlighter-rouge">HEAD</code>区， <code class="language-plaintext highlighter-rouge">-m</code>是注释信息，注明本次<code class="language-plaintext highlighter-rouge">commit</code>所做的改变。</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git commit <span class="nt">-m</span> <span class="s2">"add code of randomly extracting fq"</span></code></pre></figure>
+
+<h3 id="再次查看工作状态-1">再次查看工作状态</h3>
+<p>再次查看工作区的状态，显示<code class="language-plaintext highlighter-rouge">working tree clean</code>, 工作区的东西在<code class="language-plaintext highlighter-rouge">HEAD</code>区中都有，版本一致。</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git status
+On branch master
+nothing to commit, working tree clean</code></pre></figure>
+
+<h3 id="其他操作">其他操作</h3>
+<h4 id="tip-0">tip 0</h4>
+<p>如果已经<code class="language-plaintext highlighter-rouge">commit</code>多个不同的版本到<code class="language-plaintext highlighter-rouge">HEAD</code>，想回到以前<code class="language-plaintext highlighter-rouge">commit</code>的版本，例如回退一个版本：</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git reset <span class="nt">--hard</span> HEAD~1
+HEAD is now at e7b3364 add read_pars <span class="k">function</span></code></pre></figure>
+
+<h4 id="tip-1">tip 1</h4>
+<p>如果你想撤销<code class="language-plaintext highlighter-rouge">add</code>到<code class="language-plaintext highlighter-rouge">stage</code>区的文件，使用<code class="language-plaintext highlighter-rouge">git reset HEAD +文件</code>，这里的单独的<code class="language-plaintext highlighter-rouge">HEAD</code>指的是当前版本
+例如撤销<code class="language-plaintext highlighter-rouge">stage</code>区的<code class="language-plaintext highlighter-rouge">test</code>文件：(相当于撤销一次对<code class="language-plaintext highlighter-rouge">stage</code>区的操作):</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git reset HEAD <span class="nb">test
+</span>Unstaged changes after reset:
+M       <span class="nb">test</span></code></pre></figure>
+
+<h4 id="tip-2">tip 2</h4>
+<p>如果在工作区中对<code class="language-plaintext highlighter-rouge">test</code>文件进行了修改，但是并不想保留修改，则使用<code class="language-plaintext highlighter-rouge">git checkout</code>撤销在工作区中对文件<code class="language-plaintext highlighter-rouge">test</code>进行的修改，相当于从<code class="language-plaintext highlighter-rouge">HEAD</code>中把当前版本的<code class="language-plaintext highlighter-rouge">test</code> <code class="language-plaintext highlighter-rouge">copy</code>出来，<code class="language-plaintext highlighter-rouge">--</code> 是指定在当前<code class="language-plaintext highlighter-rouge">branch</code>。如果不加<code class="language-plaintext highlighter-rouge">--</code>，在多<code class="language-plaintext highlighter-rouge">branch</code>的情况下会切换到其他的<code class="language-plaintext highlighter-rouge">branch</code>进行操作，而不是对<code class="language-plaintext highlighter-rouge">test</code>这个文件进行操作。</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git checkout <span class="nt">--</span> <span class="nb">test</span></code></pre></figure>
+
+<h4 id="tip-3">tip 3</h4>
+<p>如果你想从<code class="language-plaintext highlighter-rouge">HEAD</code>中删除某个文件: 则使用<code class="language-plaintext highlighter-rouge">git rm file</code>来对<code class="language-plaintext highlighter-rouge">file</code>进行删除， 然后需要<code class="language-plaintext highlighter-rouge">git commit</code>此次操作到<code class="language-plaintext highlighter-rouge">HEAD</code></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git <span class="nb">rm </span>rdetrfq.py
+<span class="nb">rm</span> <span class="s1">'rdetrfq.py'</span></code></pre></figure>
+
+<h4 id="tip-4">tip 4</h4>
+<p>但是如果还没有进行<code class="language-plaintext highlighter-rouge">commit</code>到<code class="language-plaintext highlighter-rouge">HEAD</code>, 又想恢复文件的话，则需要先撤销一次对<code class="language-plaintext highlighter-rouge">stage</code>的操作。<code class="language-plaintext highlighter-rouge">git reset HEAD file</code>，这是把指针指回当前<code class="language-plaintext highlighter-rouge">HEAD</code>， 相当于忽略<code class="language-plaintext highlighter-rouge">git rm file</code>这一步操作。</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git reset HEAD rdetrfq.py
+Unstaged changes after reset:
+D       rdetrfq.py</code></pre></figure>
+
+<h4 id="tip-5">tip 5</h4>
+<p>通过<code class="language-plaintext highlighter-rouge">tip 4</code>指针指回当前<code class="language-plaintext highlighter-rouge">HEAD</code>之后，再<code class="language-plaintext highlighter-rouge">checkout</code>从<code class="language-plaintext highlighter-rouge">HEAD</code>区<code class="language-plaintext highlighter-rouge">copy</code>来对应的文件，可以看到紫粉色文件已经恢复到工作区。
+<img src="/assets/picbed/post/git_checkout_recall_file1.png" alt="" /></p>
+
+<h4 id="tip-6">tip 6</h4>
+<p>如果只是<code class="language-plaintext highlighter-rouge">linux</code>命令<code class="language-plaintext highlighter-rouge">rm</code>误删了某个工作区的文件：则直接使用<code class="language-plaintext highlighter-rouge">git checkout</code>可从<code class="language-plaintext highlighter-rouge">HEAD</code>里召回当前版本的该文件。
+<img src="/assets/picbed/post/git_checkout_recall_file2.png" alt="" /></p>
+
+<h3 id="ref">ref</h3>
+<p>https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5</p>
+
+
+<ul class="taxonomy__index">
+  
+  
+    <li>
+      <a href="#2022">
+        <strong>2022</strong> <span class="taxonomy__count">1</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2021">
+        <strong>2021</strong> <span class="taxonomy__count">1</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2020">
+        <strong>2020</strong> <span class="taxonomy__count">10</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2019">
+        <strong>2019</strong> <span class="taxonomy__count">2</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2018">
+        <strong>2018</strong> <span class="taxonomy__count">6</span>
+      </a>
+    </li>
+  
+</ul>
+
+
+
+
+  <section id="2022" class="taxonomy__section">
+    <h2 class="archive__subtitle">2022</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/tutorial/git/markdown-tutorial/" rel="permalink">markdown tutorial
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+  <section id="2021" class="taxonomy__section">
+    <h2 class="archive__subtitle">2021</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/bash/Upload_SRA/" rel="permalink">上传数据到SRA
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">说明
+数据分析结束之后，通常需要将原始数据上传到公共数据库进行分享。例如测序数据通常上传至NCBI的SRA库。当样本数目比较小的时候，通过网页上传是非常方便的。但是当样本数量庞大的时候，通过网页上传数据就非常麻烦了，因为需要手动依次上传每一个样本。所以最直接的方法是从服务器往NCBI传，例如是用aspera：
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+  <section id="2020" class="taxonomy__section">
+    <h2 class="archive__subtitle">2020</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/statistics/estimation/Little_treehouse_collection/" rel="permalink">little treehouse collection - estimation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">1. Introduction
+Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for ...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/rrna/5S_rRNA/" rel="permalink">5S rRNA 数据库
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+除了从NCBI，Rfam等这样的大库中分离5S rRNA序列之外，发现有人在收集相应的序列：http://www.combio.pl/rrna/。
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/git/git_remote_repo/" rel="permalink">git绑定github账户远端仓库
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+确认SSH key
+第一步，首先确实自己的目录下是否已经有SSH key。这个一般在~/.ssh目录下，可查看目录是否有
+
+ls ~/.ssh/
+a  b  id_rsa  id_rsa.pub  known_hosts
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/rrna/Silva_138/" rel="permalink">Silva updates to 138
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/git/git_local_repo/" rel="permalink">git操作本地仓库
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">git 工具
+查看服务器上是否已经安装好git。服务器上有自带的git，直接使用即可，不需要另外安装了。
+
+which git
+/opt/rocks/bin/git
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/genome/GTDB/" rel="permalink">GTDB数据库
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">GTDB数据库介绍
+GTDB的下载地址
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/coding/perl/Perl_package_installation_to_fix_Pfam_scan/" rel="permalink">Perl包安装
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Notes
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/bioinformatics/alignment/Diamond/" rel="permalink">Diamond比对
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">makedb建立数据库索引
+除了常用的--in和--db参数之外，--taxonmap，--taxonnodes，和--taxonnames这三个参数也可以在makedb的时候提供。这样在比对的时候可以选择性的对比特定的reference。例如只比对属于Bacteria的reference。如需实现此功能，则在m...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/bioinformatics/annotation/pfam_scan/" rel="permalink">pfam_scan注释Pfam
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">说明
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/protein/Pfam/" rel="permalink">Pfam数据库
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">ebi.ac.uk
+蛋白序列通常会包含一个至多个domains。不同domains的组合会得到不同的功能，导致了自然界中proteins的多样性。于是鉴定蛋白序列中的domains可以合理推测该蛋白潜在的功能。
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+  <section id="2019" class="taxonomy__section">
+    <h2 class="archive__subtitle">2019</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/coding/python/Comparison_of_Seqs_iterator/" rel="permalink">Comparison of Seqs iterator
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。
+需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/bioinformatics/metatranscriptomic/Sortmerna/" rel="permalink">SortMeRNA-Burst trie结合查找表，Levenshtein自动机搜索快速鉴定rRNA
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+1. Introduction
+SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork3...</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+  <section id="2018" class="taxonomy__section">
+    <h2 class="archive__subtitle">2018</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/coding/python/Configure_Python3_with_TCL-TK/" rel="permalink">Configure Python3 with TCL-TK
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+More and more projects are migrating from Python2 to Python3. On the one hand, Python3 has more features available, and secondly, the more impor...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/bioinformatics/dataqc/FastQC/" rel="permalink">FastQC质控测序数据
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">FastQC是一款用于对测序read进行QC的工具。工具可以查看碱基质量，含N，dup，碱基质量分布，GC含量，ATCGN碱基分布，以及adapter的比对情况。Adapter的序列目前可以使用例如trimmmomatic等工具提供的adapters库。也可以使用illumina官网提供的adapters。最好的...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/bioinformatics/amplicon/PICRUST/" rel="permalink">Notes of PICRUST
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。
+picrust是基于已经计算好的数据库进行预测，数据库下载地址。
+下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PI...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/protein/UniProtKB/" rel="permalink">Introduction to UniprotKB
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+UniProt Knowledgebase (UniProtKB)数据库中收集的是蛋白序列的信息以及准确的，连续的，丰富的注释信息。除此之外还收集一些比较重要的信息例如氨基酸序列，蛋白名称/描述，tax分类信息以及引用信息。这些囊括的信息涵盖了被广泛认可的生物学知识，classifica...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/coding/bash/scp/" rel="permalink">scp demo
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">1.Copy local files to remote server
+
+$scp local_file remore_username@remote_ip:remote_folder
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Landed-Brisbane/" rel="permalink">Landed brisbane
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+Mark a mark. The first day in Brisbane.
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" title="Google scholar"><i class="fab fa-google" aria-hidden="true"></i></a></li>
+        
+      
+        
+          <li><a href="https://github.com/jlli6t" title="Github"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/jie-li-3201a57b/" title="Linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+        
+      
+        
+          <li><a href="https://orcid.org/0000-0002-9623-9213" title="ORCID"><i class="fa-brands fa-orcid" aria-hidden="true"></i></a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/jlli6t" title="Twitter"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i></a></li>
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Jie Li. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

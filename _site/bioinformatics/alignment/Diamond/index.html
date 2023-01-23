@@ -1,0 +1,1329 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Diamond比对 - Jie Li (She/Her)</title>
+<meta name="description" content="makedb建立数据库索引 除了常用的--in和--db参数之外，--taxonmap，--taxonnodes，和--taxonnames这三个参数也可以在makedb的时候提供。这样在比对的时候可以选择性的对比特定的reference。例如只比对属于Bacteria的reference。如需实现此功能，则在makedb的时候，必须至少加上--taxonmap和--taxonnodes两个参数。 注意：diamond blast的reference必须由同一个版本的makedb建立的索引才能使用。 命令行：  diamond makedb --in $ot/uniprot_sprot.fasta -d $ot/uniprot_sprot.fasta --taxonmap $ot/prot.accession2taxid.gz --taxonnodes $ot/taxdmp.zip --taxonnames $ot/taxdmp -p 10">
+
+
+  <meta name="author" content="Jie Li">
+  
+  <meta property="article:author" content="Jie Li">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="Jie Li (She/Her)">
+<meta property="og:title" content="Diamond比对">
+<meta property="og:url" content="http://localhost:3080/bioinformatics/alignment/Diamond/">
+
+
+  <meta property="og:description" content="makedb建立数据库索引 除了常用的--in和--db参数之外，--taxonmap，--taxonnodes，和--taxonnames这三个参数也可以在makedb的时候提供。这样在比对的时候可以选择性的对比特定的reference。例如只比对属于Bacteria的reference。如需实现此功能，则在makedb的时候，必须至少加上--taxonmap和--taxonnodes两个参数。 注意：diamond blast的reference必须由同一个版本的makedb建立的索引才能使用。 命令行：  diamond makedb --in $ot/uniprot_sprot.fasta -d $ot/uniprot_sprot.fasta --taxonmap $ot/prot.accession2taxid.gz --taxonnodes $ot/taxdmp.zip --taxonnames $ot/taxdmp -p 10">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-03-10T00:00:00+10:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:3080/bioinformatics/alignment/Diamond/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Jie Li",
+      "url": "http://localhost:3080/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--posts">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Jie Li (She/Her)
+          <span class="site-subtitle">Passion can outweight the long years❤️热爱可抵岁月漫长</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/index.html"><u>About</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/index.html"><u>Blogs</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/index.html"><u>Projects</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/cv/index.html"><u>CV</u></a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:3080/">
+        <img src="/assets/prof_pic2.jpg" alt="Jie Li" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:3080/" itemprop="url">Jie Li</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Just a bioinformatician in microbial ecology.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-google" aria-hidden="true"></i><span class="label">Google scholar</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/jlli6t" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">Github</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/jie-li-3201a57b/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+          
+            <li><a href="https://orcid.org/0000-0002-9623-9213" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fa-brands fa-orcid" aria-hidden="true"></i><span class="label">ORCID</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/jlli6t" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Diamond比对</h1>
+    
+    <h2 id="makedb建立数据库索引">makedb建立数据库索引</h2>
+<p>除了常用的<code class="language-plaintext highlighter-rouge">--in</code>和<code class="language-plaintext highlighter-rouge">--db</code>参数之外，<code class="language-plaintext highlighter-rouge">--taxonmap</code>，<code class="language-plaintext highlighter-rouge">--taxonnodes</code>，和<code class="language-plaintext highlighter-rouge">--taxonnames</code>这三个参数也可以在<code class="language-plaintext highlighter-rouge">makedb</code>的时候提供。这样在比对的时候可以选择性的对比特定的<code class="language-plaintext highlighter-rouge">reference</code>。例如只比对属于<code class="language-plaintext highlighter-rouge">Bacteria</code>的<code class="language-plaintext highlighter-rouge">reference</code>。如需实现此功能，则在<code class="language-plaintext highlighter-rouge">makedb</code>的时候，必须至少加上<code class="language-plaintext highlighter-rouge">--taxonmap</code>和<code class="language-plaintext highlighter-rouge">--taxonnodes</code>两个参数。
+注意：<code class="language-plaintext highlighter-rouge">diamond blast</code>的<code class="language-plaintext highlighter-rouge">reference</code>必须由同一个版本的<code class="language-plaintext highlighter-rouge">makedb</code>建立的索引才能使用。
+命令行：</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">diamond makedb <span class="nt">--in</span> <span class="nv">$ot</span>/uniprot_sprot.fasta <span class="nt">-d</span> <span class="nv">$ot</span>/uniprot_sprot.fasta <span class="nt">--taxonmap</span> <span class="nv">$ot</span>/prot.accession2taxid.gz <span class="nt">--taxonnodes</span> <span class="nv">$ot</span>/taxdmp.zip <span class="nt">--taxonnames</span> <span class="nv">$ot</span>/taxdmp <span class="nt">-p</span> 10</code></pre></figure>
+
+<h2 id="关键参数">关键参数</h2>
+
+<p><code class="language-plaintext highlighter-rouge">--taxonlist</code> 参数可以提供<code class="language-plaintext highlighter-rouge">taxid list</code>。例如细菌的<code class="language-plaintext highlighter-rouge">taxid</code>为<code class="language-plaintext highlighter-rouge">2</code>, <code class="language-plaintext highlighter-rouge">archaea</code>的<code class="language-plaintext highlighter-rouge">taxid</code>为<code class="language-plaintext highlighter-rouge">2157</code>。若想比对多个<code class="language-plaintext highlighter-rouge">tax</code>, 将多个<code class="language-plaintext highlighter-rouge">tax id</code>用’,’隔开即可。</p>
+
+<p>测试的结果上看，
+我用SM1A02的MAG做测试，分别将–taxonlist参数设置为2 (bacteria), 203682(phylum Planctomycetota), 666505 (class Phycisphaerae), 666506 (order Phycisphaerales)，到class那一级时就已经注释不到蛋白了，可能的因素有1.数据库信息量有限，我使用的只是swiss-prot的序列, 这个物种可能并没有很多已知的蛋白。</p>
+
+<p><code class="language-plaintext highlighter-rouge">--threads/-p #int</code>:  需要使用的CPU线程数量。默认时使用所有可以获取的资源，所以针对需要投递上计算几点的任务的话，投递任务时指定了几个线程就会使用几个。
+<code class="language-plaintext highlighter-rouge">--db/-d &lt;file&gt;</code>: 数据库文件，不需要后缀.dmnd字符
+<code class="language-plaintext highlighter-rouge">--query/-q &lt;file&gt;</code>: <code class="language-plaintext highlighter-rouge">fasta/fastq</code>文件，可以为<code class="language-plaintext highlighter-rouge">gz</code>压缩文件，不提供参数的时候就读取<code class="language-plaintext highlighter-rouge">stdin</code>.
+<code class="language-plaintext highlighter-rouge">--taxonlist &lt;list&gt;</code>: 逗号分隔的<code class="language-plaintext highlighter-rouge">NCBI taxonomic IDs</code>, 任何一个level的id都可以，例如<code class="language-plaintext highlighter-rouge">bateria</code>为<code class="language-plaintext highlighter-rouge">2</code>.</p>
+
+<h2 id="blastx-输入及比对有关的参数">blastx 输入及比对有关的参数</h2>
+
+<p><code class="language-plaintext highlighter-rouge">--query-gencode #</code>: blastX 时使用的<code class="language-plaintext highlighter-rouge">translation genetic code</code>, 默认为标准<code class="language-plaintext highlighter-rouge">code(1)</code>。 如果要输出<code class="language-plaintext highlighter-rouge">DAA</code>格式，则部分的<code class="language-plaintext highlighter-rouge">genetic code</code>不支持。ps: <code class="language-plaintext highlighter-rouge">bacterial</code>, <code class="language-plaintext highlighter-rouge">archaeal</code> and <code class="language-plaintext highlighter-rouge">plant plastid</code> code 为 <code class="language-plaintext highlighter-rouge">11</code>.
+<code class="language-plaintext highlighter-rouge">--strand {both, plus, minus}</code>: 设置需要搜索的<code class="language-plaintext highlighter-rouge">strand for translated searches</code>. 默认<code class="language-plaintext highlighter-rouge">both strand</code>都会搜索
+<code class="language-plaintext highlighter-rouge">--min-orf/-l #</code>: 忽略翻译的<code class="language-plaintext highlighter-rouge">ORF</code>段于这个参数的序列。若设置为<code class="language-plaintext highlighter-rouge">1</code>，不执行此功能。默认是如果<code class="language-plaintext highlighter-rouge">ORF</code>短于<code class="language-plaintext highlighter-rouge">30</code>则不进行比对。
+<code class="language-plaintext highlighter-rouge">--frameshift/-F #</code>: 在<code class="language-plaintext highlighter-rouge">DNA-vs-proteins</code>比对的时候，<code class="language-plaintext highlighter-rouge">frameshifts</code>的罚分。参数设置<code class="language-plaintext highlighter-rouge">15</code>左右是比较reasonbable的。enabling这个参数意味着在比对的时候，<code class="language-plaintext highlighter-rouge">diamond</code>允许比对时DNA序列的缺失，所以更推荐在长度长及易高错误率时使用例如<code class="language-plaintext highlighter-rouge">MinION reads</code>.
+在<code class="language-plaintext highlighter-rouge">pairwise</code>的输出模式中（我理解的是<code class="language-plaintext highlighter-rouge">pairwise</code>的详细比对细节模式），用\和/代表正链/负链上的<code class="language-plaintext highlighter-rouge">frameshift</code>
+<code class="language-plaintext highlighter-rouge">--range-culling</code>: 允许<code class="language-plaintext highlighter-rouge">query</code>的重叠。这个参数是为长<code class="language-plaintext highlighter-rouge">query</code>设计的，这样<code class="language-plaintext highlighter-rouge">query</code>可以跨过多个基因。
+ In these cases, the default of reporting the 25 best overall hits could cause hits to a lower scoring gene to be overshadowed. But just increasing the number of alignments reported will bloat the output size and reduce performance.
+Using this feature along with -k 25 (default), a hit will only be deleted if at least 50% of its query range is spanned by at least 25 higher or equal scoring hits.
+Using this feature along with –top 10, a hit will only be deleted if its score is more than 10% lower than that of a higher scoring hit over at least 50% of its query range.
+The percentage is configurable using –range-cover. Note that this feature is currently only available in frameshift alignment mode.</p>
+
+<h2 id="比对本身的参数">比对本身的参数</h2>
+
+<p><code class="language-plaintext highlighter-rouge">--sensitive</code>: sensitive模式下，比对结果会比fast（默认）模式provides a lot higher sensitivity
+<code class="language-plaintext highlighter-rouge">--more-sensitive</code>：这个模式比sensitive模式会更sensitive一点
+<code class="language-plaintext highlighter-rouge">--gapopen #</code>: gap open 的罚分
+<code class="language-plaintext highlighter-rouge">--gapextend #</code>: gap extension 的罚分
+<code class="language-plaintext highlighter-rouge">--matrix &lt;matrix name&gt;</code>: 得分矩阵，默认为BLOSUM62，可支持的矩阵包括:
+Matrix	Supported values for (gap open)/(gap extend)	Default gap penalties
+BLOSUM45	(10-13)/3; (12-16)/2; (16-19)/1	14/2
+BLOSUM50	(9-13)/3; (12-16)/2; (15-19)/1	13/2
+BLOSUM62	(6-11)/2; (9-13)/1	11/1
+BLOSUM80	(6-9)/2; 13/2; 25/2; (9-11)/1	10/1
+BLOSUM90	(6-9)/2; (9-11)/1	10/1
+PAM250	(11-15)/3; (13-17)/2; (17-21)/1	14/2
+PAM70	(6-8)/2; (9-11)/1	10/1
+PAM30	(5-7)/2; (8-10)/1	9/1
+<code class="language-plaintext highlighter-rouge">--comp-based-stats (0, 1)</code>: 比对得分校正（compositional bias correction）。<code class="language-plaintext highlighter-rouge">0</code>代表不校正得分，<code class="language-plaintext highlighter-rouge">1</code>代表按照文章中的方法进行校正（Maria Hauser, Martin Steinegger, Johannes Söding; MMseqs software suite for fast and deep clustering and searching of large protein sequence sets, Bioinformatics, Volume 32, Issue 9, 1 May 2016, Pages 1323–1330）。Compositionally biased sequences 会导致false positive matches, 这样的情况会被这个算法过滤掉，有点像blast的模式。</p>
+
+<p><code class="language-plaintext highlighter-rouge">--algo (0, 1)</code>: seed search的算法，<code class="language-plaintext highlighter-rouge">0</code>代表double-indexed, <code class="language-plaintext highlighter-rouge">1</code>代表query-indexed。Double-indexed算法是这个program的主要算法，但是当<code class="language-plaintext highlighter-rouge">query</code>很小的时候，效率其实是不高的，这个时候应该使用query-indexed算法。
+默认时，会基于query和db的size自动选择一个算法。
+需要注意，虽然两种算法在各个模式下都提供了大致相同的<code class="language-plaintext highlighter-rouge">sentisivity</code>, 但是结果不会完全一致。</p>
+
+<h2 id="输出相关的参数">输出相关的参数</h2>
+<p><code class="language-plaintext highlighter-rouge">--out/-o &lt;file&gt;</code> 输出文件。不提供参数的时候就是stdout。
+<code class="language-plaintext highlighter-rouge">--outfmt/-f #</code>: 有很多种输出模式，6是输出tab-delimited格式
+<code class="language-plaintext highlighter-rouge">--salltitles</code>: 在DAA模式中，输出全长的id title, 默认只输出短的id（到第一个空格）
+<code class="language-plaintext highlighter-rouge">--sallseqid</code>: 把所有的db中的seq id 都包含到DAA文件中。比–salltitles更节省空间。说实话没看懂这一句解释
+<code class="language-plaintext highlighter-rouge">--compress(0, 1)</code>: 压缩输出结果与否。0代表不压缩，1代表gzip 压缩
+<code class="language-plaintext highlighter-rouge">--max-target-seqs/-k #</code>:  最大符合阈值的比对数量，默认为25，0代表report所有的合理比对。
+<code class="language-plaintext highlighter-rouge">--top #</code>: 输出比对最高分数的给定百分比内的alignments. (overrides –max-target-seqs/-k option). 例如设置为10，则输出所有得分低于最高得分的10%以内的alignments
+<code class="language-plaintext highlighter-rouge">--evalue/-e #</code>: Maximum expected value to report an alignment (default=0.001)
+<code class="language-plaintext highlighter-rouge">--min-score #</code>: 最小的bit score, 设置这个参数会override –evalue参数
+<code class="language-plaintext highlighter-rouge">--id #</code>: 最小identity阈值
+<code class="language-plaintext highlighter-rouge">--query-cover #</code>: 最小percentage of query cover
+<code class="language-plaintext highlighter-rouge">--subject-cover #</code>: 最小percentage of subject cover
+<code class="language-plaintext highlighter-rouge">--max-hsps #</code>: 针对每一个query, 输出单个subject的最大hsp。General 来说，在一个query/subject比对的时候完全有可能出现多个HSP. 程序默认输出所有的HSP（没有被其他的HSP覆盖的时候）。设置为1的时候，program只输出一个HSP for every qury/subject pair.
+<code class="language-plaintext highlighter-rouge">--unal (0, 1)</code>: 输出unaligned queries, 0 代表不输出，1代表输出。默认时 BLAST pairwise, BLAST XML, 以及SAM格式的时候为1， 其他时候为0
+<code class="language-plaintext highlighter-rouge">--no-self-hits</code>： 不输出identical self-hits between sequences</p>
+
+<p><code class="language-plaintext highlighter-rouge">--freq-sd #</code>: 在seed search过程中，忽略频率非常高的seed。这个参数这是的多少个单位的标准差为频率过高，fast mode 默认为50， sensitive mode 默认为10, more-sensitive mode 为200.
+<code class="language-plaintext highlighter-rouge">--band #</code>: 这个参数设置的在动态规划的过程中，seed延伸的band，两个方向都会scan.
+<code class="language-plaintext highlighter-rouge">--xml-blord-format</code>: Use gnlBL_ORD_ID style format for hit IDs in XML output.
+<code class="language-plaintext highlighter-rouge">--range-cover #</code>:  The minimum percentage of a hit’s query range that needs to be spanned by higher scoring hits for a hit to be deleted in range culling mode (default=50.0).
+<code class="language-plaintext highlighter-rouge">--culling-overlap #</code>: The minimum percentage of a hit’s query or target range that needs to be spanned by a higher scoring hit against the same target for a hit to be deleted. (default=50.0)</p>
+
+
+
+<ul class="taxonomy__index">
+  
+  
+    <li>
+      <a href="#2022">
+        <strong>2022</strong> <span class="taxonomy__count">1</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2021">
+        <strong>2021</strong> <span class="taxonomy__count">1</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2020">
+        <strong>2020</strong> <span class="taxonomy__count">10</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2019">
+        <strong>2019</strong> <span class="taxonomy__count">2</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2018">
+        <strong>2018</strong> <span class="taxonomy__count">6</span>
+      </a>
+    </li>
+  
+</ul>
+
+
+
+
+  <section id="2022" class="taxonomy__section">
+    <h2 class="archive__subtitle">2022</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/tutorial/git/markdown-tutorial/" rel="permalink">markdown tutorial
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+  <section id="2021" class="taxonomy__section">
+    <h2 class="archive__subtitle">2021</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/bash/Upload_SRA/" rel="permalink">上传数据到SRA
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">说明
+数据分析结束之后，通常需要将原始数据上传到公共数据库进行分享。例如测序数据通常上传至NCBI的SRA库。当样本数目比较小的时候，通过网页上传是非常方便的。但是当样本数量庞大的时候，通过网页上传数据就非常麻烦了，因为需要手动依次上传每一个样本。所以最直接的方法是从服务器往NCBI传，例如是用aspera：
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+  <section id="2020" class="taxonomy__section">
+    <h2 class="archive__subtitle">2020</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/statistics/estimation/Little_treehouse_collection/" rel="permalink">little treehouse collection - estimation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">1. Introduction
+Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for ...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/rrna/5S_rRNA/" rel="permalink">5S rRNA 数据库
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+除了从NCBI，Rfam等这样的大库中分离5S rRNA序列之外，发现有人在收集相应的序列：http://www.combio.pl/rrna/。
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/git/git_remote_repo/" rel="permalink">git绑定github账户远端仓库
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+确认SSH key
+第一步，首先确实自己的目录下是否已经有SSH key。这个一般在~/.ssh目录下，可查看目录是否有
+
+ls ~/.ssh/
+a  b  id_rsa  id_rsa.pub  known_hosts
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/rrna/Silva_138/" rel="permalink">Silva updates to 138
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/git/git_local_repo/" rel="permalink">git操作本地仓库
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">git 工具
+查看服务器上是否已经安装好git。服务器上有自带的git，直接使用即可，不需要另外安装了。
+
+which git
+/opt/rocks/bin/git
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/genome/GTDB/" rel="permalink">GTDB数据库
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">GTDB数据库介绍
+GTDB的下载地址
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/coding/perl/Perl_package_installation_to_fix_Pfam_scan/" rel="permalink">Perl包安装
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Notes
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/bioinformatics/alignment/Diamond/" rel="permalink">Diamond比对
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">makedb建立数据库索引
+除了常用的--in和--db参数之外，--taxonmap，--taxonnodes，和--taxonnames这三个参数也可以在makedb的时候提供。这样在比对的时候可以选择性的对比特定的reference。例如只比对属于Bacteria的reference。如需实现此功能，则在m...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/bioinformatics/annotation/pfam_scan/" rel="permalink">pfam_scan注释Pfam
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">说明
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/protein/Pfam/" rel="permalink">Pfam数据库
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">ebi.ac.uk
+蛋白序列通常会包含一个至多个domains。不同domains的组合会得到不同的功能，导致了自然界中proteins的多样性。于是鉴定蛋白序列中的domains可以合理推测该蛋白潜在的功能。
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+  <section id="2019" class="taxonomy__section">
+    <h2 class="archive__subtitle">2019</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/coding/python/Comparison_of_Seqs_iterator/" rel="permalink">Comparison of Seqs iterator
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。
+需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/bioinformatics/metatranscriptomic/Sortmerna/" rel="permalink">SortMeRNA-Burst trie结合查找表，Levenshtein自动机搜索快速鉴定rRNA
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+1. Introduction
+SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork3...</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+  <section id="2018" class="taxonomy__section">
+    <h2 class="archive__subtitle">2018</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/coding/python/Configure_Python3_with_TCL-TK/" rel="permalink">Configure Python3 with TCL-TK
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+More and more projects are migrating from Python2 to Python3. On the one hand, Python3 has more features available, and secondly, the more impor...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/bioinformatics/dataqc/FastQC/" rel="permalink">FastQC质控测序数据
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">FastQC是一款用于对测序read进行QC的工具。工具可以查看碱基质量，含N，dup，碱基质量分布，GC含量，ATCGN碱基分布，以及adapter的比对情况。Adapter的序列目前可以使用例如trimmmomatic等工具提供的adapters库。也可以使用illumina官网提供的adapters。最好的...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/bioinformatics/amplicon/PICRUST/" rel="permalink">Notes of PICRUST
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。
+picrust是基于已经计算好的数据库进行预测，数据库下载地址。
+下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PI...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/protein/UniProtKB/" rel="permalink">Introduction to UniprotKB
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+UniProt Knowledgebase (UniProtKB)数据库中收集的是蛋白序列的信息以及准确的，连续的，丰富的注释信息。除此之外还收集一些比较重要的信息例如氨基酸序列，蛋白名称/描述，tax分类信息以及引用信息。这些囊括的信息涵盖了被广泛认可的生物学知识，classifica...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/coding/bash/scp/" rel="permalink">scp demo
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">1.Copy local files to remote server
+
+$scp local_file remore_username@remote_ip:remote_folder
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Landed-Brisbane/" rel="permalink">Landed brisbane
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+Mark a mark. The first day in Brisbane.
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" title="Google scholar"><i class="fab fa-google" aria-hidden="true"></i></a></li>
+        
+      
+        
+          <li><a href="https://github.com/jlli6t" title="Github"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/jie-li-3201a57b/" title="Linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+        
+      
+        
+          <li><a href="https://orcid.org/0000-0002-9623-9213" title="ORCID"><i class="fa-brands fa-orcid" aria-hidden="true"></i></a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/jlli6t" title="Twitter"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i></a></li>
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Jie Li. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

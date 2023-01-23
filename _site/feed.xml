@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:3080/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3080/" rel="alternate" type="text/html" /><updated>2023-01-20T21:03:36+10:00</updated><id>http://localhost:3080/feed.xml</id><title type="html">&lt;font color=&quot;pink&quot;&gt;❤️&lt;/font&gt;
- Jie Li (She/Her) &lt;font color=&quot;pink&quot;&gt;❤️&lt;/font&gt;</title><subtitle>Passion can outweight the long years &lt;font color=F08F8F&gt;❤&lt;/font&gt; 热爱可抵岁月漫长</subtitle><author><name>Jie Li</name></author><entry><title type="html">markdown tutorial</title><link href="http://localhost:3080/tutorials/markdown-tutorial-important/" rel="alternate" type="text/html" title="markdown tutorial" /><published>2022-02-09T00:00:00+10:00</published><updated>2022-03-23T02:04:00+10:00</updated><id>http://localhost:3080/tutorials/markdown-tutorial-important</id><content type="html" xml:base="http://localhost:3080/tutorials/markdown-tutorial-important/"><![CDATA[<p><strong>Howdy!</strong> This is an example blog post that shows several types of HTML content supported in this theme.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:3080/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3080/" rel="alternate" type="text/html" /><updated>2023-01-23T21:31:26+10:00</updated><id>http://localhost:3080/feed.xml</id><title type="html">Jie Li (She/Her)</title><subtitle>Passion can outweight the long years &lt;font color=F08F8F&gt;❤&lt;/font&gt; 热爱可抵岁月漫长</subtitle><author><name>Jie Li</name></author><entry><title type="html">markdown tutorial</title><link href="http://localhost:3080/tutorial/git/markdown-tutorial/" rel="alternate" type="text/html" title="markdown tutorial" /><published>2022-02-09T00:00:00+10:00</published><updated>2022-03-23T02:04:00+10:00</updated><id>http://localhost:3080/tutorial/git/markdown-tutorial</id><content type="html" xml:base="http://localhost:3080/tutorial/git/markdown-tutorial/"><![CDATA[<p><strong>Howdy!</strong> This is an example blog post that shows several types of HTML content supported in this theme.</p>
 
 <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. <em>Aenean eu leo quam.</em> Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
 
@@ -186,7 +185,18 @@
       <p>Handy! Now click the return link to go back. <a href="#fnref:fn-sample_footnote" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name>Jie Li</name></author><category term="tutorials" /><category term="markdown" /><category term="tutorials" /><summary type="html"><![CDATA[Howdy! This is an example blog post that shows several types of HTML content supported in this theme.]]></summary></entry><entry><title type="html">little treehouse collection - estimation</title><link href="http://localhost:3080/statistics/estimation/Little_treehouse_collection/" rel="alternate" type="text/html" title="little treehouse collection - estimation" /><published>2020-09-10T00:00:00+10:00</published><updated>2020-09-10T00:00:00+10:00</updated><id>http://localhost:3080/statistics/estimation/Little_treehouse_collection</id><content type="html" xml:base="http://localhost:3080/statistics/estimation/Little_treehouse_collection/"><![CDATA[<h3 id="1-introduction">1. Introduction</h3>
+</div>]]></content><author><name>Jie Li</name></author><category term="tutorial" /><category term="git" /><category term="markdown" /><category term="tutorials" /><summary type="html"><![CDATA[Howdy! This is an example blog post that shows several types of HTML content supported in this theme.]]></summary></entry><entry><title type="html">上传数据到SRA</title><link href="http://localhost:3080/linux/bash/Upload_SRA/" rel="alternate" type="text/html" title="上传数据到SRA" /><published>2021-01-01T00:00:00+10:00</published><updated>2021-01-01T00:00:00+10:00</updated><id>http://localhost:3080/linux/bash/Upload_SRA</id><content type="html" xml:base="http://localhost:3080/linux/bash/Upload_SRA/"><![CDATA[<h2 id="说明">说明</h2>
+<p>数据分析结束之后，通常需要将原始数据上传到公共数据库进行分享。例如测序数据通常上传至NCBI的SRA库。当样本数目比较小的时候，通过网页上传是非常方便的。但是当样本数量庞大的时候，通过网页上传数据就非常麻烦了，因为需要手动依次上传每一个样本。所以最直接的方法是从服务器往NCBI传，例如是用<code class="language-plaintext highlighter-rouge">aspera</code>：</p>
+
+<p><code class="language-plaintext highlighter-rouge">aspera</code>的下载链接<code class="language-plaintext highlighter-rouge">https://www.ibm.com/products/aspera/downloads</code>
+其安装操作手册可参考<code class="language-plaintext highlighter-rouge">https://cloud.tencent.com/developer/article/1749467</code></p>
+
+<h2 id="上传的命令为">上传的命令为：</h2>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ascp <span class="nt">-i</span> /home/.aspera/connect/aspera.openssh <span class="nt">-QT</span> <span class="nt">-l100m</span> <span class="nt">-k1</span> <span class="nt">-d</span> DATA_PATH subasp@upload.ncbi.nlm.nih.gov:uploads/ACCOUNT_CODE</code></pre></figure>
+
+<h2 id="其他">其他</h2>
+<p>这个命令应该是默认传到了root目录。此目录是一个暂存目录，时间为30天。30天过后自动移除文件。因此，整个数据submission的操作需要在30天之内完成。</p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="bash" /><category term="bash" /><category term="linux" /><summary type="html"><![CDATA[说明 数据分析结束之后，通常需要将原始数据上传到公共数据库进行分享。例如测序数据通常上传至NCBI的SRA库。当样本数目比较小的时候，通过网页上传是非常方便的。但是当样本数量庞大的时候，通过网页上传数据就非常麻烦了，因为需要手动依次上传每一个样本。所以最直接的方法是从服务器往NCBI传，例如是用aspera：]]></summary></entry><entry><title type="html">little treehouse collection - estimation</title><link href="http://localhost:3080/statistics/estimation/Little_treehouse_collection/" rel="alternate" type="text/html" title="little treehouse collection - estimation" /><published>2020-09-10T00:00:00+10:00</published><updated>2020-09-10T00:00:00+10:00</updated><id>http://localhost:3080/statistics/estimation/Little_treehouse_collection</id><content type="html" xml:base="http://localhost:3080/statistics/estimation/Little_treehouse_collection/"><![CDATA[<h3 id="1-introduction">1. Introduction</h3>
 <p>Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below). However, every redeemed book is <strong>wrapped with cover</strong>, thus, you won’t be able to know which number you get until you uncover it.
 <img src="/assets/picbed/post/little_treehouse.png" alt="photo" /></p>
 
@@ -209,7 +219,68 @@
 
 <p>After 1,000 independent trials, this value converges to a number close to $2670.</p>
 
-<p>Thus, I decided to give up collecting those books…</p>]]></content><author><name>Jie Li</name></author><category term="statistics" /><category term="estimation" /><category term="estimation" /><summary type="html"><![CDATA[1. Introduction Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below). However, every redeemed book is wrapped with cover, thus, you won’t be able to know which number you get until you uncover it.]]></summary></entry><entry><title type="html">Silva updates to 138</title><link href="http://localhost:3080/database/amplicon/Silva_update_138/" rel="alternate" type="text/html" title="Silva updates to 138" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/database/amplicon/Silva_update_138</id><content type="html" xml:base="http://localhost:3080/database/amplicon/Silva_update_138/"><![CDATA[<h3 id="introduction">Introduction</h3>
+<p>Thus, I decided to give up collecting those books…</p>]]></content><author><name>Jie Li</name></author><category term="statistics" /><category term="estimation" /><category term="estimation" /><summary type="html"><![CDATA[1. Introduction Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below). However, every redeemed book is wrapped with cover, thus, you won’t be able to know which number you get until you uncover it.]]></summary></entry><entry><title type="html">5S rRNA 数据库</title><link href="http://localhost:3080/database/rrna/5S_rRNA/" rel="alternate" type="text/html" title="5S rRNA 数据库" /><published>2020-06-29T00:00:00+10:00</published><updated>2020-06-29T00:00:00+10:00</updated><id>http://localhost:3080/database/rrna/5S_rRNA</id><content type="html" xml:base="http://localhost:3080/database/rrna/5S_rRNA/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>除了从<code class="language-plaintext highlighter-rouge">NCBI</code>，<code class="language-plaintext highlighter-rouge">Rfam</code>等这样的大库中分离5S rRNA序列之外，发现有人在收集相应的序列：<code class="language-plaintext highlighter-rouge">http://www.combio.pl/rrna/</code>。</p>
+
+<p>数据库已经在线<code class="language-plaintext highlighter-rouge">13</code>年。目前收录了<code class="language-plaintext highlighter-rouge">11419</code>条序列，包括<code class="language-plaintext highlighter-rouge">7174</code>个不同的物种，版本号<code class="language-plaintext highlighter-rouge">17</code>。</p>
+
+<p><code class="language-plaintext highlighter-rouge">Taxon</code>分类包括<code class="language-plaintext highlighter-rouge">Archaea</code>， <code class="language-plaintext highlighter-rouge">Bacteria</code>， <code class="language-plaintext highlighter-rouge">Eukaryota</code>，<code class="language-plaintext highlighter-rouge">Plastids</code>，和<code class="language-plaintext highlighter-rouge">Mitochondria</code>。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction 除了从NCBI，Rfam等这样的大库中分离5S rRNA序列之外，发现有人在收集相应的序列：http://www.combio.pl/rrna/。]]></summary></entry><entry><title type="html">git绑定github账户远端仓库</title><link href="http://localhost:3080/linux/git/git_remote_repo/" rel="alternate" type="text/html" title="git绑定github账户远端仓库" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/linux/git/git_remote_repo</id><content type="html" xml:base="http://localhost:3080/linux/git/git_remote_repo/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<h3 id="确认ssh-key">确认SSH key</h3>
+<p>第一步，首先确实自己的目录下是否已经有<code class="language-plaintext highlighter-rouge">SSH key</code>。这个一般在<code class="language-plaintext highlighter-rouge">~/.ssh</code>目录下，可查看目录是否有</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">ls</span> ~/.ssh/
+a  b  id_rsa  id_rsa.pub  known_hosts</code></pre></figure>
+
+<p>需要的文件是一对以<code class="language-plaintext highlighter-rouge">id_rsa</code>或<code class="language-plaintext highlighter-rouge">id_dsa</code>命名的文件。例如上边我的目录中是<code class="language-plaintext highlighter-rouge">id_rsa</code>文件和<code class="language-plaintext highlighter-rouge">id_rsa.pub</code>文件，其中一个文件以<code class="language-plaintext highlighter-rouge">id_rsa.pub</code>文件是公钥，<code class="language-plaintext highlighter-rouge">id_rsa</code>是私钥。
+如果没有这样的文件，或者甚至都没有.ssh目录的话，那么需要自己生成<code class="language-plaintext highlighter-rouge">SSH</code>公钥：</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ssh-keygen <span class="nt">-o</span></code></pre></figure>
+
+<p>然后将生成的<code class="language-plaintext highlighter-rouge">id_rsa.pub</code>里的内容复制粘贴给<code class="language-plaintext highlighter-rouge">github</code>自己的账号中的<code class="language-plaintext highlighter-rouge">SSH key</code>。<code class="language-plaintext highlighter-rouge">SSH keys</code>的目的是为了保证推送的提交是你本人推送的，而不是别人冒充的。<code class="language-plaintext highlighter-rouge">git</code>支持<code class="language-plaintext highlighter-rouge">SSH</code>协议，并允许你添加多个<code class="language-plaintext highlighter-rouge">KEY</code>, 这样即使你有N台电脑并都会进行提交的时候，只需要把每一台电脑的<code class="language-plaintext highlighter-rouge">SSH key</code>都添加进去，<code class="language-plaintext highlighter-rouge">github</code>就允许每一台key被添加的都电脑都推送过来啦!
+<img src="/assets/picbed/post/ssh_key.png" alt="" /></p>
+
+<h3 id="绑定用户名和邮箱">绑定用户名和邮箱</h3>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git config <span class="nt">--global</span> user.name 用户名
+git config <span class="nt">--global</span> user.email 邮箱</code></pre></figure>
+
+<p>测试查看自己的用户名和email</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git config user.name
+git config user.email</code></pre></figure>
+
+<h3 id="创建远端仓库">创建远端仓库</h3>
+<p>如果该项目在远端仓库还没有对应的项目仓库，那么需要先在远端建立一个新仓库，例如github的网页操作。例如创建仓库名称为test的公开项目仓库。
+<img src="/assets/picbed/post/create_remote_repo.png" alt="" /></p>
+
+<h3 id="关联仓库">关联仓库</h3>
+<p>项目仓库创建好之后，进入到本地的仓库，将项目仓库与本地仓库进行关联。</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git remote add <span class="nb">test </span>https://github.com/username/test.git</code></pre></figure>
+
+<h3 id="推送本地仓库">推送本地仓库</h3>
+<p>关联好之后，就可以开始推送啦, 因为是第一次推送这个仓库，所以加入-u参数，把当前分支master所有内容推送到远程，并且会将本地的master分支和远程的master分支关联起来，这样以后推送或者拉取时就可以简化命令
+首次推送：</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git push <span class="nt">-u</span> <span class="nb">test </span>master</code></pre></figure>
+
+<p>其他推送：</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git push <span class="nb">test </span>master</code></pre></figure>
+
+<h3 id="其他命令">其他命令</h3>
+<p>查看本地已关联的远端仓库：
+git remote -v
+删除某个远端仓库的关联：
+git remote rm NAME
+如果推送远端被拒，有可能是<code class="language-plaintext highlighter-rouge">ssh keys</code>的问题，可以尝试在<code class="language-plaintext highlighter-rouge">command line</code>输入<code class="language-plaintext highlighter-rouge">unset SSH_ASKPASS</code>，问题可解决。</p>
+
+<p>当远端仓库里有1个或多个文件是本地仓库里没有的的时候，需要先将远端仓库<code class="language-plaintext highlighter-rouge">pull</code>到本地:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git pull 远端仓库</code></pre></figure>
+
+<h3 id="ref">ref</h3>
+<p>https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5</p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="git" /><category term="tutorial" /><category term="git" /><summary type="html"><![CDATA[Introduction 确认SSH key 第一步，首先确实自己的目录下是否已经有SSH key。这个一般在~/.ssh目录下，可查看目录是否有 ls ~/.ssh/ a b id_rsa id_rsa.pub known_hosts]]></summary></entry><entry><title type="html">Silva updates to 138</title><link href="http://localhost:3080/database/rrna/Silva_138/" rel="alternate" type="text/html" title="Silva updates to 138" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/database/rrna/Silva_138</id><content type="html" xml:base="http://localhost:3080/database/rrna/Silva_138/"><![CDATA[<h3 id="introduction">Introduction</h3>
 <p>SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。</p>
 
 <p>数据集的快速增长极大的增加了硬件需求，数据库越大，则越需要更多的资源例如内存来加载数据库。目前有两种策略解决此问题：1）升级硬件满足需求。2）减小数据库中的序列数。出于多种原因，只要结果数据集仍然具有<strong>代表性</strong>（这是环境微生物学中的一个非常重要的参数），第二种方法会更具性价比。SILVA项目选择了99% identity作为标准对SSU Ref进行去冗余构建了SSU Ref NR数据集。</p>
@@ -244,205 +315,250 @@ SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和�
 
 <p>标注：<strong>138版本的SSU Ref NR 99比之前的版本包含更少的序列</strong>。因为团队把序列比对的工具从USEARCH中整合的UCLUST (1.0.50) 换到VSEARCH (2.13)，提升了聚类的性能，且有望使团队可以在将来提供更稳定的Ref NR库。</p>
 
-<p>Ref NR库减小是由于这两个工具使用不同的序列/比对identity的定义差异导致。团队还使用了第三方工具CD-HIT（v4.8）交叉检查了比对的结果。在使用同样的identity阈值条件下，VSEARCH和CD-HIT返回了相似的聚类簇，而UCLUST返回了<strong>显著更大数目</strong>的聚类簇。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="amplicon" /><category term="tutorial" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。]]></summary></entry><entry><title type="html">Comparison of Seqs iterator</title><link href="http://localhost:3080/coding/python/Comparison_of_Seqs_iterator/" rel="alternate" type="text/html" title="Comparison of Seqs iterator" /><published>2019-07-21T00:00:00+10:00</published><updated>2019-07-21T00:00:00+10:00</updated><id>http://localhost:3080/coding/python/Comparison_of_Seqs_iterator</id><content type="html" xml:base="http://localhost:3080/coding/python/Comparison_of_Seqs_iterator/"><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。
-需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，<code class="language-plaintext highlighter-rouge">Biopython</code>除了提供<code class="language-plaintext highlighter-rouge">Bio.seqIO.parse</code>函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。</p>
+<p>Ref NR库减小是由于这两个工具使用不同的序列/比对identity的定义差异导致。团队还使用了第三方工具CD-HIT（v4.8）交叉检查了比对的结果。在使用同样的identity阈值条件下，VSEARCH和CD-HIT返回了相似的聚类簇，而UCLUST返回了<strong>显著更大数目</strong>的聚类簇。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="tutorial" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。]]></summary></entry><entry><title type="html">git操作本地仓库</title><link href="http://localhost:3080/linux/git/git_local_repo/" rel="alternate" type="text/html" title="git操作本地仓库" /><published>2020-06-17T00:00:00+10:00</published><updated>2020-06-17T00:00:00+10:00</updated><id>http://localhost:3080/linux/git/git_local_repo</id><content type="html" xml:base="http://localhost:3080/linux/git/git_local_repo/"><![CDATA[<h3 id="git-工具">git 工具</h3>
+<p>查看服务器上是否已经安装好<code class="language-plaintext highlighter-rouge">git</code>。服务器上有自带的<code class="language-plaintext highlighter-rouge">git</code>，直接使用即可，不需要另外安装了。</p>
 
-<p><code class="language-plaintext highlighter-rouge">Bio.SeqIO.QualityIO.FastqGeneralIterator</code>同<code class="language-plaintext highlighter-rouge">Bio.SeqIO.parse</code>一样也是一个迭代器，只不过不生成对象<code class="language-plaintext highlighter-rouge">record</code>，而是生成序列id、序列、以及质量值本身，遍历的时候调用语法为</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">which git
+/opt/rocks/bin/git</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">For</span> <span class="n">title</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="n">qual</span> <span class="ow">in</span> <span class="n">FastqGeneralIterator</span><span class="p">(</span><span class="n">fh</span><span class="p">):</span>
-	<span class="n">Do</span> <span class="n">something</span></code></pre></figure>
+<h3 id="初始化仓库">初始化仓库</h3>
+<p>进入到对应的目录，执行<code class="language-plaintext highlighter-rouge">git init</code>命令。</p>
 
-<p><code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>速度很快了，但我偶然又看到大神Heng Li 12年写的一个小代码<code class="language-plaintext highlighter-rouge">readfq</code>，相信不少同学有看过源码（我看到不少项目都嵌了这段代码），也是一个序列遍历器，且居然还在活跃，还有人在提issue和pr。</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git init</code></pre></figure>
 
-<p>测试文件为一个<code class="language-plaintext highlighter-rouge">36,518,870</code>条序列的fastq.gz文件，这个序列数量已经是人肠道微生物基因集的几倍了，大多数情况下都不会需要频繁迭代这么多的序列量。我测试迭代然后统计序列数，碱基数，及质量字符数。
-考虑到服务器上其他用户的状态可能也会影响测试效果，所以做了多次测试，<code class="language-plaintext highlighter-rouge">Bio</code>版本为<code class="language-plaintext highlighter-rouge">1.76</code>，测试平台为<code class="language-plaintext highlighter-rouge">x86_64 GNU/Linux</code>：</p>
+<h3 id="查看工作状态">查看工作状态</h3>
+<p>查看工作目录<code class="language-plaintext highlighter-rouge">+stage+HEAD</code>的状态，发现工作目录有一个<code class="language-plaintext highlighter-rouge">rdetfq.py</code>文件，但是没有被<code class="language-plaintext highlighter-rouge">stage</code>，也没有<code class="language-plaintext highlighter-rouge">commit</code>到<code class="language-plaintext highlighter-rouge">HEAD</code>过。</p>
 
-<p>通过5次单独的测试，总的来说<code class="language-plaintext highlighter-rouge">readfq</code>速度上比<code class="language-plaintext highlighter-rouge">Bio</code>慢一点点，不会超过<code class="language-plaintext highlighter-rouge">20%</code>，其中第四次测试<code class="language-plaintext highlighter-rouge">readfq</code>的速度超过了<code class="language-plaintext highlighter-rouge">Bio</code>，可能测试环境也有一定的影响。
-强推大神代码的原因：
-	1. 代码非常简洁，仅仅31行！相比于Bio来说，非常轻量。
-	2. 大神的代码同时兼容<code class="language-plaintext highlighter-rouge">fasta</code>和<code class="language-plaintext highlighter-rouge">fastq</code>！而<code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>只能处理<code class="language-plaintext highlighter-rouge">fastq</code>文件，如果要处理<code class="language-plaintext highlighter-rouge">fasta</code>格式的文件的话，需要调用<code class="language-plaintext highlighter-rouge">Bio.SeqIO.FastaIO.SimpleFastaParser</code>
-	3. 本着代码的简洁性以及减少对<code class="language-plaintext highlighter-rouge">library</code>的依赖，<code class="language-plaintext highlighter-rouge">readfq</code>胜任。
-	4. 最后就是虽然在测试过程中，<code class="language-plaintext highlighter-rouge">Bio</code>略胜一筹，但是现实中大部分的情况我们不需要频繁遍历太大的数据，所以速度上可以认为<code class="language-plaintext highlighter-rouge">readfq</code>与<code class="language-plaintext highlighter-rouge">Bio</code>的<code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>不相上下。</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git status
+On branch master
 
-<p>测试代码：</p>
+Initial commit
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">'start readfq'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
-<span class="n">n</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="n">qlen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="n">qual</span> <span class="ow">in</span> <span class="n">readfq</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-	<span class="n">n</span><span class="o">+=</span> <span class="mi">1</span>
-	<span class="n">slen</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
-	<span class="n">qlen</span> <span class="o">+=</span> <span class="n">qual</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">qlen</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'end readfq'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
+Untracked files:
+    <span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to include <span class="k">in </span>what will be committed<span class="o">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s">'start Bio'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
-<span class="n">n</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="n">qlen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="n">qual</span> <span class="ow">in</span> <span class="n">FastqGeneralIterator</span><span class="p">(</span><span class="n">fh</span><span class="p">):</span>
-	<span class="n">n</span><span class="o">+=</span><span class="mi">1</span>
-	<span class="n">slen</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
-	<span class="n">qlen</span> <span class="o">+=</span> <span class="n">qual</span>
-<span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">qlen</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'end Bio'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span></code></pre></figure>
+        rdetfq.py
 
-<h2 id="附上测试结果供参考">附上测试结果供参考：</h2>
-<p><strong>第一次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>118.88%</strong></p>
+nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">"git add"</span> to track<span class="o">)</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mf">13.063023</span>
-<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mf">32.138950</span>
-<span class="n">readfq用时</span><span class="err">：</span><span class="mf">259.075927</span><span class="n">s</span>
-<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mf">35.854583</span>
-<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mf">13.789172</span>
-<span class="n">Bio用时</span><span class="err">：</span><span class="mf">217.934589</span><span class="n">s</span></code></pre></figure>
+<h3 id="对目录下的文件进行stage">对目录下的文件进行stage</h3>
+<p>所以需要先<code class="language-plaintext highlighter-rouge">stage rdetrfq.py</code>。没有任何信息输出，Linux的核心，没有消息就是好消息之一。</p>
 
-<p><strong>第二次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>118.62%</strong></p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git add rdetrfq.fy</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mf">58.999203</span>
-<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mf">06.315406</span>
-<span class="n">readfq用时</span><span class="err">：</span><span class="mf">247.316203</span><span class="n">s</span>
-<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mf">08.641087</span>
-<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mf">37.140562</span>
-<span class="n">Bio用时</span><span class="err">：</span><span class="mf">208.499475</span><span class="n">s</span></code></pre></figure>
+<h3 id="再次查看工作状态">再次查看工作状态</h3>
+<p>再次查看<code class="language-plaintext highlighter-rouge">status</code>，提示<code class="language-plaintext highlighter-rouge">rdetrfq.py</code>已经被<code class="language-plaintext highlighter-rouge">stage</code>，在等待被<code class="language-plaintext highlighter-rouge">commit</code>到<code class="language-plaintext highlighter-rouge">HEAD</code>。</p>
 
-<p><strong>第三次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>15.51%</strong></p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git status
+On branch master
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mf">28.903198</span>
-<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mf">53.790852</span>
-<span class="n">readfq用时</span><span class="err">：</span><span class="mf">264.887654</span><span class="n">s</span>
-<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mf">53.912627</span>
-<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mf">43.230618</span>
-<span class="n">Bio用时</span><span class="err">：</span><span class="mf">229.317991</span><span class="n">s</span></code></pre></figure>
+Initial commit
 
-<p><strong>第四次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>96.91%</strong></p>
+Changes to be committed:
+    <span class="o">(</span>use <span class="s2">"git rm --cached &lt;file&gt;..."</span> to unstage<span class="o">)</span>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mf">52.750406</span>
-<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">23.449189</span>
-<span class="n">readfq用时</span><span class="err">：</span><span class="mf">270.698783</span><span class="n">s</span>
-<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">23.554306</span>
-<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mf">02.897335</span>
-<span class="n">Bio用时</span><span class="err">：</span><span class="mf">279.343029</span><span class="n">s</span></code></pre></figure>
+        new file:     rdetfq.py</code></pre></figure>
 
-<p><strong>第五次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>116.17%</strong></p>
+<h3 id="commit-stage的内容到head">commit stage的内容到HEAD</h3>
+<p>将<code class="language-plaintext highlighter-rouge">stage</code>中的所有内容<code class="language-plaintext highlighter-rouge">commit</code>到<code class="language-plaintext highlighter-rouge">HEAD</code>区， <code class="language-plaintext highlighter-rouge">-m</code>是注释信息，注明本次<code class="language-plaintext highlighter-rouge">commit</code>所做的改变。</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mf">57.625076</span>
-<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">58.973375</span>
-<span class="n">readfq用时</span><span class="err">：</span><span class="mf">241.348299</span><span class="n">s</span>
-<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">59.101057</span>
-<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mf">26.855097</span>
-<span class="n">Bio用时</span><span class="err">：</span><span class="mf">207.754040</span><span class="n">s</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git commit <span class="nt">-m</span> <span class="s2">"add code of randomly extracting fq"</span></code></pre></figure>
 
-<h2 id="附大神代码地址">附大神代码地址</h2>
-<p><a href="https://github.com/lh3/readfq/blob/master/readfq.py">地址</a></p>]]></content><author><name>Jie Li</name></author><category term="coding" /><category term="python" /><category term="fastq" /><category term="fasta" /><category term="sequence" /><summary type="html"><![CDATA[Introduction 做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。 需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。]]></summary></entry><entry><title type="html">Introduction to SortMeRNA</title><link href="http://localhost:3080/metatranscriptomic/bioinformatics/Introduction_of_sortmerna/" rel="alternate" type="text/html" title="Introduction to SortMeRNA" /><published>2019-06-19T00:00:00+10:00</published><updated>2019-06-19T00:00:00+10:00</updated><id>http://localhost:3080/metatranscriptomic/bioinformatics/Introduction_of_sortmerna</id><content type="html" xml:base="http://localhost:3080/metatranscriptomic/bioinformatics/Introduction_of_sortmerna/"><![CDATA[<p><img src="/assets/picbed/post/sortmerna_title.png" alt="" /></p>
-<h2 id="1-introduction">1. Introduction</h2>
-<p>SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。</p>
+<h3 id="再次查看工作状态-1">再次查看工作状态</h3>
+<p>再次查看工作区的状态，显示<code class="language-plaintext highlighter-rouge">working tree clean</code>, 工作区的东西在<code class="language-plaintext highlighter-rouge">HEAD</code>区中都有，版本一致。</p>
 
-<h2 id="2-算法基本原理">2. 算法基本原理</h2>
-<p>底层算法与seed策略类似，主要是寻找rRNA数据库和read之间的一定数量的相似短区域。对rRNA序列建立索引的时候，与HMM一样，利用同源序列之间的冗余，建立所有rRNA序列的压缩模型。
-然后设定一个窗口，对read进行窗口滑动扫描，基于设定的阈值，单个read中超过阈值数量的窗口比对到数据库则该read被鉴定为rRNA。其中窗口比对数据库时容错为1（例如碱基替换，插入或缺失）。
-基础算法很容易理解，主要是提高算法效率，大比例缩短比对时间。
-作者的策略如下图所示：</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git status
+On branch master
+nothing to commit, working tree clean</code></pre></figure>
 
-<p><img src="/assets/picbed/post/sortmerna_algorithm.png" alt="" /></p>
+<h3 id="其他操作">其他操作</h3>
+<h4 id="tip-0">tip 0</h4>
+<p>如果已经<code class="language-plaintext highlighter-rouge">commit</code>多个不同的版本到<code class="language-plaintext highlighter-rouge">HEAD</code>，想回到以前<code class="language-plaintext highlighter-rouge">commit</code>的版本，例如回退一个版本：</p>
 
-<h3 id="21-具体算法过程">2.1 具体算法过程</h3>
-<ol>
-  <li>使用<code class="language-plaintext highlighter-rouge">Burst trie (BT)</code>结合查找表策略存储数据库。假设窗口为<code class="language-plaintext highlighter-rouge">w</code>，窗口序列长度为<code class="language-plaintext highlighter-rouge">s（14~20）</code>。
-1a，首先存储了数据库中每一个<code class="language-plaintext highlighter-rouge">s/2-mer</code>序列的出现频次（#occ）
-1b，BT的结构，这个跟搜索树结构很像了，类比即可</li>
-  <li>处理输入read。同样窗口为w, 窗口长度为s，向右滑动。
-2a, 滑动窗口示意图
-2b, 将窗口分为窗口前段从<code class="language-plaintext highlighter-rouge">w[1..s/2 +1]</code>，和窗口后段<code class="language-plaintext highlighter-rouge">w[s..s/2 + 1]</code></li>
-  <li>判断窗口序列在BT中是否存在。通过通用Levenshtein自动机和BT循环遍历，及确保错误不大于1。
-遍历完所有的窗口后，判断接受的窗口数量是否高于阈值，高于阈值则认为该输入read判定为rRNA。</li>
-</ol>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git reset <span class="nt">--hard</span> HEAD~1
+HEAD is now at e7b3364 add read_pars <span class="k">function</span></code></pre></figure>
 
-<h3 id="22-算法小结">2.2 算法小结</h3>
-<p>总结思路：输入read，生成第一个窗口序列，先查找前半段窗口序列在数据库中的频次，达到要求则定位这半段序列在BT中的位置，然后开始在BT搜索（burst）后半段窗口的序列，沿着BT把整个窗口遍历完，最后如果遍历的时候发现的错误&gt;1，则把这个窗口记录为非比对；接着滑动到下一个窗口从头开始判定，直到所有的窗口判定完成后，如果判定为比对的窗口的数量&gt;给定的阈值，则判定read为rRNA。</p>
+<h4 id="tip-1">tip 1</h4>
+<p>如果你想撤销<code class="language-plaintext highlighter-rouge">add</code>到<code class="language-plaintext highlighter-rouge">stage</code>区的文件，使用<code class="language-plaintext highlighter-rouge">git reset HEAD +文件</code>，这里的单独的<code class="language-plaintext highlighter-rouge">HEAD</code>指的是当前版本
+例如撤销<code class="language-plaintext highlighter-rouge">stage</code>区的<code class="language-plaintext highlighter-rouge">test</code>文件：(相当于撤销一次对<code class="language-plaintext highlighter-rouge">stage</code>区的操作):</p>
 
-<h2 id="3关于作者使用的levenshtein自动机">3.关于作者使用的Levenshtein自动机</h2>
-<p>作者用自动机实现字符串之间的模糊匹配（文中是read和db）。假设字符串p和错误数k，经典的非确定性Levenshtein自动机可识别的最大编辑距离为k到p的字符集，文中k=1。
-<img src="/assets/picbed/post/sortmerna_levenshtein.png" alt="" /></p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git reset HEAD <span class="nb">test
+</span>Unstaged changes after reset:
+M       <span class="nb">test</span></code></pre></figure>
 
-<h2 id="4-与其他工具的对比">4. 与其他工具的对比：</h2>
-<p>Meta-RNA，SSU-ALIGN，rRNASelector使用了常见的概率模型，其中Meta-RNA和rRNASelector使用了HMM模型，然后利用HMMER3比对短read到数据库，SSU-ALIGN使用协方差模型来支持二级结构的信息。除了概率模型之外，riboPicker使用的是修改版的BWA算法。BLASTN也使用非常多，特别是大家各自用的workflow。</p>
+<h4 id="tip-2">tip 2</h4>
+<p>如果在工作区中对<code class="language-plaintext highlighter-rouge">test</code>文件进行了修改，但是并不想保留修改，则使用<code class="language-plaintext highlighter-rouge">git checkout</code>撤销在工作区中对文件<code class="language-plaintext highlighter-rouge">test</code>进行的修改，相当于从<code class="language-plaintext highlighter-rouge">HEAD</code>中把当前版本的<code class="language-plaintext highlighter-rouge">test</code> <code class="language-plaintext highlighter-rouge">copy</code>出来，<code class="language-plaintext highlighter-rouge">--</code> 是指定在当前<code class="language-plaintext highlighter-rouge">branch</code>。如果不加<code class="language-plaintext highlighter-rouge">--</code>，在多<code class="language-plaintext highlighter-rouge">branch</code>的情况下会切换到其他的<code class="language-plaintext highlighter-rouge">branch</code>进行操作，而不是对<code class="language-plaintext highlighter-rouge">test</code>这个文件进行操作。</p>
 
-<h2 id="总结">总结：</h2>
-<p>文章是12年发表，除了文章中提到的工具，后来大家各自用的<code class="language-plaintext highlighter-rouge">workflow</code>也有很多用<code class="language-plaintext highlighter-rouge">bwa</code>，<code class="language-plaintext highlighter-rouge">bowtie</code>，<code class="language-plaintext highlighter-rouge">bowtie2</code>等工具进行比对的。其次就是这个算法策略对错误的容忍低（为1）。再有就是作者使用的<code class="language-plaintext highlighter-rouge">universal Levenshtein</code>自动机，越看越像马尔科夫链，可能是我对自动机的理解还不够深？
-其次是对于作者，EK小姐姐至今仍然在一线社区活跃。</p>]]></content><author><name>Jie Li</name></author><category term="metatranscriptomic" /><category term="bioinformatics" /><category term="tutorials" /><category term="RNA" /><category term="mapping" /><summary type="html"><![CDATA[1. Introduction SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。]]></summary></entry><entry><title type="html">Configure Python3 with TCL-TK</title><link href="http://localhost:3080/coding/python/Configure_Python3_with_TCL-TK/" rel="alternate" type="text/html" title="Configure Python3 with TCL-TK" /><published>2018-06-20T00:00:00+10:00</published><updated>2018-06-20T00:00:00+10:00</updated><id>http://localhost:3080/coding/python/Configure_Python3_with_TCL-TK</id><content type="html" xml:base="http://localhost:3080/coding/python/Configure_Python3_with_TCL-TK/"><![CDATA[<h3 id="introduction">Introduction</h3>
-<p>More and more projects are migrating from Python2 to Python3. On the one hand, Python3 has more features available, and secondly, the more important reason should be that with the development of Python3 and its community, Python2 will gradually no longer be maintained.
-Due to the needs of the work, my working python have to be configured with tk and tcl. The details are as follows:</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git checkout <span class="nt">--</span> <span class="nb">test</span></code></pre></figure>
 
-<p>很多项目在陆陆续续的往Python3迁移，一方面是Python3有更多的feature可用，其次更重要的原因应该是，随着Python3和社区的发展，Python2慢慢会不再维护了。
-因工作内容需要，Python需要配置tk及tcl，细节如下：</p>
+<h4 id="tip-3">tip 3</h4>
+<p>如果你想从<code class="language-plaintext highlighter-rouge">HEAD</code>中删除某个文件: 则使用<code class="language-plaintext highlighter-rouge">git rm file</code>来对<code class="language-plaintext highlighter-rouge">file</code>进行删除， 然后需要<code class="language-plaintext highlighter-rouge">git commit</code>此次操作到<code class="language-plaintext highlighter-rouge">HEAD</code></p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">tk</span><span class="o">=</span>~/tk8.6.6/unix <span class="c"># path to configured tk</span>
-<span class="nv">tcl</span><span class="o">=</span>~/tcl8.6.6/unix <span class="c"># path to configured tcl</span>
-<span class="nb">export </span><span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">" -L</span><span class="nv">$tk</span><span class="s2">/lib -L </span><span class="nv">$tcl</span><span class="s2">/lib </span><span class="nv">$LDFLAGS</span><span class="s2"> "</span>
-<span class="nb">export </span><span class="nv">CPPFLAGS</span><span class="o">=</span><span class="s2">" -I</span><span class="nv">$tk</span><span class="s2">/include -I</span><span class="nv">$tk</span><span class="s2">/include </span><span class="nv">$CPPFLAGS</span><span class="s2"> "</span>
-<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$tk</span>/bin:<span class="nv">$tcl</span>/bin:<span class="nv">$PATH</span>
-<span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$tk</span>/lib:<span class="nv">$tcl</span>/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git <span class="nb">rm </span>rdetrfq.py
+<span class="nb">rm</span> <span class="s1">'rdetrfq.py'</span></code></pre></figure>
 
-./configure <span class="nt">--prefix</span><span class="o">=</span>~/Python-3.6.0 <span class="nt">--disable-ipv6</span> <span class="nt">--with-tcltk-libs</span><span class="o">=</span><span class="s2">"-L</span><span class="nv">$tk</span><span class="s2">/lib/ -L</span><span class="nv">$tcl</span><span class="s2">/lib"</span> <span class="nt">--with-tcltk-includes</span><span class="o">=</span><span class="s2">"-I</span><span class="nv">$tk</span><span class="s2">/include -I</span><span class="nv">$tcl</span><span class="s2">/include"</span> <span class="o">&amp;&amp;</span> <span class="nb">echo </span>configure <span class="k">done</span> <span class="o">&amp;&amp;</span>
-make <span class="nt">-j</span> 4 <span class="o">&amp;&amp;</span> <span class="nb">echo </span>make <span class="k">done</span> <span class="o">&amp;&amp;</span>
-make <span class="nb">install</span> <span class="nt">-j</span> 5 <span class="o">&amp;&amp;</span> <span class="nb">echo </span>make <span class="nb">install </span><span class="k">done</span></code></pre></figure>
+<h4 id="tip-4">tip 4</h4>
+<p>但是如果还没有进行<code class="language-plaintext highlighter-rouge">commit</code>到<code class="language-plaintext highlighter-rouge">HEAD</code>, 又想恢复文件的话，则需要先撤销一次对<code class="language-plaintext highlighter-rouge">stage</code>的操作。<code class="language-plaintext highlighter-rouge">git reset HEAD file</code>，这是把指针指回当前<code class="language-plaintext highlighter-rouge">HEAD</code>， 相当于忽略<code class="language-plaintext highlighter-rouge">git rm file</code>这一步操作。</p>
 
-<h3 id="summary-结语">Summary (结语)</h3>
-<p>No big difference of syntax between python3 and python2, I adapted well, I hope you are too.</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git reset HEAD rdetrfq.py
+Unstaged changes after reset:
+D       rdetrfq.py</code></pre></figure>
 
-<p>Python3，Python2个人感觉语法差异没有很大，小编适应得不错，希望你们也是呀~~</p>
+<h4 id="tip-5">tip 5</h4>
+<p>通过<code class="language-plaintext highlighter-rouge">tip 4</code>指针指回当前<code class="language-plaintext highlighter-rouge">HEAD</code>之后，再<code class="language-plaintext highlighter-rouge">checkout</code>从<code class="language-plaintext highlighter-rouge">HEAD</code>区<code class="language-plaintext highlighter-rouge">copy</code>来对应的文件，可以看到紫粉色文件已经恢复到工作区。
+<img src="/assets/picbed/post/git_checkout_recall_file1.png" alt="" /></p>
 
-<h3 id="reference-参考">Reference (参考)</h3>
-<p><a href="https://stackoverflow.com/questions/16026348/preparing-tkinter-and-sqlite3-for-python-installation-no-admin-rights">stackoverflow thread</a></p>]]></content><author><name>Jie Li</name></author><category term="coding" /><category term="python" /><category term="TCK-TK" /><category term="environment" /><category term="linux" /><summary type="html"><![CDATA[Introduction More and more projects are migrating from Python2 to Python3. On the one hand, Python3 has more features available, and secondly, the more important reason should be that with the development of Python3 and its community, Python2 will gradually no longer be maintained. Due to the needs of the work, my working python have to be configured with tk and tcl. The details are as follows:]]></summary></entry><entry><title type="html">Notes of PICRUST</title><link href="http://localhost:3080/bioinformatics/annotation/PICRUST/" rel="alternate" type="text/html" title="Notes of PICRUST" /><published>2018-04-20T00:00:00+10:00</published><updated>2018-04-20T00:00:00+10:00</updated><id>http://localhost:3080/bioinformatics/annotation/PICRUST</id><content type="html" xml:base="http://localhost:3080/bioinformatics/annotation/PICRUST/"><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。<br />
-picrust是基于已经计算好的数据库进行预测，数据库<a href="http://picrust.github.io/picrust/picrust_precalculated_files.html">下载地址</a>。<br />
-下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库</p>
+<h4 id="tip-6">tip 6</h4>
+<p>如果只是<code class="language-plaintext highlighter-rouge">linux</code>命令<code class="language-plaintext highlighter-rouge">rm</code>误删了某个工作区的文件：则直接使用<code class="language-plaintext highlighter-rouge">git checkout</code>可从<code class="language-plaintext highlighter-rouge">HEAD</code>里召回当前版本的该文件。
+<img src="/assets/picbed/post/git_checkout_recall_file2.png" alt="" /></p>
 
-<h2 id="installation">Installation</h2>
-<p>安装picrust, 这个中间没有遇到麻烦；注意picrsut是基于python2.7版本(用的2.7.12)， 其他版本的python会报错例如python3.5.2</p>
+<h3 id="ref">ref</h3>
+<p>https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5</p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="git" /><category term="tutorial" /><category term="git" /><summary type="html"><![CDATA[git 工具 查看服务器上是否已经安装好git。服务器上有自带的git，直接使用即可，不需要另外安装了。 which git /opt/rocks/bin/git]]></summary></entry><entry><title type="html">GTDB数据库</title><link href="http://localhost:3080/database/genome/GTDB/" rel="alternate" type="text/html" title="GTDB数据库" /><published>2020-04-02T00:00:00+10:00</published><updated>2020-04-02T00:00:00+10:00</updated><id>http://localhost:3080/database/genome/GTDB</id><content type="html" xml:base="http://localhost:3080/database/genome/GTDB/"><![CDATA[<h2 id="gtdb数据库介绍">GTDB数据库介绍</h2>
+<p>GTDB的<a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/latest/">下载地址</a></p>
 
-<h2 id="usage-tips">Usage tips</h2>
-<p>因为picrust是读入biom文件 所以先要生成biom 格式的文件，其中biom需要包含的信息有每个样品注释上的物种信息及对应的丰度，生成biom的格式方法有两种：</p>
+<h2 id="关于gtdb-taxonomy信息与ncbi的不一致问题">关于GTDB taxonomy信息与NCBI的不一致问题</h2>
+<p>因为GTDB的taxonomy是最新提出的，与传统已有的taxonomy的信息是有差异的。但是我们在处理数据的时候，经常会结合例如Silva等的数据结果，那么就会出现多个结果之间taxonomy不一致的情况。我们可以将GTDB的taxonomy的结果转换成NCBI的taxonomy的结果。具体可以参考整理的issues：</p>
 
-<h3 id="way-1">way 1</h3>
-<p>通过利用qiime1的命令先挑选otu比对的ref, 这里相当于重新比对分类一次，默认方法是uclust(其他还有usearch_ref， sortmerna), 所以挑出来的otu 比OTU_final.fasta里的序列要少, 整体预测的通路的矩阵里的值会小一些，通路数量上可能也小一些. 这里好像不支持rdp的结果，因为rdp基于贝叶斯的概率方法，最后没有给出具体比对的哪个id, 而是只给出一个分类taxonomy信息。</p>
+<p><a href="https://github.com/Ecogenomics/GTDBTk/issues/106">关于phylum命名规则的问题</a></p>
 
-<p><strong>step 1</strong><br />
-首先用qiime1里的pick_closed_reference_otus.py 命令挑选ref：(可以使用97，也可以使用90，99或者其他的)</p>
+<p><a href="https://github.com/Ecogenomics/GTDBTk/issues/210">关于gtdb_to_ncbi_majority_vote.py的使用</a></p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"pick_otus:enable_rev_strand_match True"</span><span class="o">&gt;&gt;</span>otu_picking_params_97.txt
-<span class="nb">echo</span> <span class="s2">"pick_otus:similarity 0.97"</span><span class="o">&gt;&gt;</span>otu_picking_params_97.txt
-pick_closed_reference_otus.py <span class="nt">-i</span> OTU_final.fasta <span class="nt">-o</span> <span class="nv">$PWD</span>/ucrC972/ <span class="nt">-p</span> <span class="nv">$PWD</span>/otu_picking_params_97.txt <span class="nt">-r</span> ./gg_13_5_otus/rep_set/97_otus.fasta <span class="nt">-t</span> ./gg_13_5_otus/taxonomy/97_otu_taxonomy.txt <span class="nt">-a</span> <span class="nt">-O</span> 8</code></pre></figure>
+<p><a href="https://github.com/Ecogenomics/GTDBTk/issues/204">整个taxonomy的问题</a>
+<a href="https://github.com/Ecogenomics/GTDBTk/issues/154">关于Desulfovibrionia等四个具体的菌的classification的信息</a></p>
 
-<p><strong>step 2</strong><br />
-使用命令<code class="language-plaintext highlighter-rouge">biom convert -i ucrC972/otu_table.biom -o ucrC972/otu_table.biom.tsv --to-tsv</code>
-tsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个0 1矩阵
-<img src="/assets/_imgs/" alt="" /></p>]]></content><author><name>Jie Li</name></author><category term="bioinformatics" /><category term="annotation" /><category term="annotation" /><category term="prokaryotic" /><category term="amplicon" /><category term="pathway" /><summary type="html"><![CDATA[Introduction picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。 picrust是基于已经计算好的数据库进行预测，数据库下载地址。 下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库]]></summary></entry><entry><title type="html">Introduction to UniprotKB</title><link href="http://localhost:3080/annotation/database/Introduction_to_UniProtKB/" rel="alternate" type="text/html" title="Introduction to UniprotKB" /><published>2018-04-02T00:00:00+10:00</published><updated>2018-04-02T00:00:00+10:00</updated><id>http://localhost:3080/annotation/database/Introduction_to_UniProtKB</id><content type="html" xml:base="http://localhost:3080/annotation/database/Introduction_to_UniProtKB/"><![CDATA[<h2 id="introduction">Introduction</h2>
-<p><a href="https://www.uniprot.org/help/uniprotkb">UniProt Knowledgebase (UniProtKB)</a>数据库中收集的是蛋白序列的信息以及准确的，连续的，丰富的注释信息。除此之外还收集一些比较重要的信息例如氨基酸序列，蛋白名称/描述，tax分类信息以及引用信息。这些囊括的信息涵盖了被广泛认可的生物学知识，classifications 以及cross-references, 以及明确的该蛋白可信度的层级分类。</p>
+<p><a href="https://github.com/Ecogenomics/GTDBTk/issues/61">关于如何transfer GTDB的taxonomy信息到NCBI的taxonomy信息，作者介绍了部分内容，且网友提供了一个工具</a></p>
 
-<p>UniProtKB收集的序列超过95%都来自于公共核酸序列数据库中的CDS序列的翻译氨基酸序列，公共数据库指EMBL-Bank/GenBank/DDBJ等 authors们提交的序列会自动整合到TrEMBL中；</p>
+<h2 id="关于gtdb的taxa与ncbi的taxa信息不是11的问题">关于GTDB的taxa与NCBI的taxa信息不是1:1的问题</h2>
+<p>他们的数据库里有两个文件：文件包含了每一个NCBI的taxa在GTDB中被分到的taxa所占的比例：
+<a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/latest/ncbi_vs_gtdb_bacteria.xlsx">Bacteria</a>
+<a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/latest/ncbi_vs_gtdb_archaea.xlsx">Archaea</a></p>
 
-<p>UniProtKB数据库包含两个sections, UniProtKB/Swiss-Prot 和UniProtKB/TrEMBL</p>
+<p>例如<code class="language-plaintext highlighter-rouge">Cyanobacteria</code>， 这个是<code class="language-plaintext highlighter-rouge">GTDB</code>给的新的分类，但是在对应回到<code class="language-plaintext highlighter-rouge">NCBI</code>的信息时候，会发现有<code class="language-plaintext highlighter-rouge">p__Candidatus Melainabacteria</code>的，<code class="language-plaintext highlighter-rouge">p__Proteobacteria</code>的，<code class="language-plaintext highlighter-rouge">p__Firmicutes</code>，<code class="language-plaintext highlighter-rouge">p__Actinobacteria</code>，<code class="language-plaintext highlighter-rouge">p__Spirochaetes</code>等的，</p>
 
-<p>数据库去冗余的过程是怎么样的？见<a href="https://www.uniprot.org/docs/sop_manual_curation.pdf">文档</a>。</p>
+<p>或者还有关于每一个GTDB序列对应的NCBI序列的metadata文件:
+<a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/latest/bac120_metadata.tsv">Bacteria</a>
+<a href="https://data.ace.uq.edu.au/public/gtdb/data/releases/latest/ar122_metadata.tsv">Archaea</a></p>
 
-<h2 id="uniprotkbswiss-prot">UniProtKB/Swiss-Prot</h2>
-<p>UniProtKB/Swiss-Prot是UniProt Knowledgebase(UniProtKB)的手动注释和reviewed 的section，其手工收集的信息来自于文献例如文献中的实验结果，非常严格的计算机分析结果（automatic annotation）， 序列注释可信度非常高的，非冗余的一个蛋白序列数据库，从2002年开始，由UniProt consortium 维护, 而通过了automatic annotation 但未经人工review的蛋白序列则归入到UniProtKB/TrEMBL数据库中</p>
+<p>但是有一个问题就是在<code class="language-plaintext highlighter-rouge">GTDBtk</code>进行分类的时候，并不是每一条<code class="language-plaintext highlighter-rouge">genome</code>都能匹配上一个<code class="language-plaintext highlighter-rouge">reference</code>。匹配不到<code class="language-plaintext highlighter-rouge">reference</code>的时候，它会采用<code class="language-plaintext highlighter-rouge">pplacer placement</code>在<code class="language-plaintext highlighter-rouge">topology</code>上决定<code class="language-plaintext highlighter-rouge">genome</code>上的分类，或者计算<code class="language-plaintext highlighter-rouge">RED value</code>的方法来<code class="language-plaintext highlighter-rouge">novelly</code>决定<code class="language-plaintext highlighter-rouge">genome</code>的分类。</p>
 
-<h2 id="uniprotkbtrembl">UniProtKB/TrEMBL</h2>
-<p>UniProtKB的TrEMBL部分是1996年建立，那时数据增长较快，因手工校正和review的速度比较慢，所以采取了 比较严格的 automatic annotation，将high quality computaionally analyzed records 都纳入TrEMBL, 与Swiss-Prot分开，这种既不会影响Swiss-Prot的准确性，又可以及时的公开数据让所有的研究者访问。</p>
+<h2 id="gtdb的配套工具gtdbtk">GTDB的配套工具GTDBTk</h2>
+<h3 id="使用建议">使用建议</h3>
+<p>作者推荐，这个工具用于contamination &lt; 10%，completeness &gt; 50%的genomes:
+<code class="language-plaintext highlighter-rouge">https://github.com/Ecogenomics/GTDBTk/issues/184</code></p>
 
-<p><strong>a1: 定义一个cds序列为 真正的蛋白 的标准是怎么样的？</strong>
-大多数的蛋白序列都是从预测的CoDing Sequence(CDS)翻译过来的。一个CDS序列是DNA或者RNA中可以翻译为氨基酸序列的一个region。 它和Open Reading Frame(ORF)的定义不同，ORF通常是一系列的密码子而不包含终止密码子（可以理解为不完整的CDS）。CDS一定是ORFs, 但ORFs不一定是CDS。</p>
+<h3 id="关于使用gtdbtk鉴定新物种">关于使用GTDBTk鉴定新物种</h3>
+<p>这里关注到GTDB有issues提到了类似的问题，想说有参考价值，如下:</p>
 
-<p><strong>a2: UniProtKB 定义一个CDS 不是真正的蛋白 的标准是怎么样的？</strong><br />
-基因预测的performance 极大程度上依赖于现有的生物学知识和背景。 我们使用生物信息学的工具将可能的CDS序列比对到最大的核酸序列数据库（genomic and RNA/ESTs）（可以理解为nt/nr库？），将一个CDS定义为 非真正蛋白序列的条件包括：1 更长/更短的RNAs的出现（融合/剪切所预测的基因）2. 缺乏对应的RNA序列，及/或 错误的内含子/外显子的边界（真核生物中） 3. 文献中报道为假基因的。当证据足够充分，就会将该条CDS从UniProtKB中移除。</p>]]></content><author><name>Jie Li</name></author><category term="annotation" /><category term="database" /><category term="protein" /><category term="annotation" /><category term="protein" /><category term="gene" /><summary type="html"><![CDATA[Introduction UniProt Knowledgebase (UniProtKB)数据库中收集的是蛋白序列的信息以及准确的，连续的，丰富的注释信息。除此之外还收集一些比较重要的信息例如氨基酸序列，蛋白名称/描述，tax分类信息以及引用信息。这些囊括的信息涵盖了被广泛认可的生物学知识，classifications 以及cross-references, 以及明确的该蛋白可信度的层级分类。]]></summary></entry><entry><title type="html">Landed brisbane</title><link href="http://localhost:3080/Landed-Brisbane/" rel="alternate" type="text/html" title="Landed brisbane" /><published>2018-03-23T00:00:00+10:00</published><updated>2018-03-23T00:00:00+10:00</updated><id>http://localhost:3080/Landed-Brisbane</id><content type="html" xml:base="http://localhost:3080/Landed-Brisbane/"><![CDATA[<p><img src="/assets/picbed/cover/mountains.jpg" alt="" />
-Mark a mark. The first day in Brisbane.</p>]]></content><author><name>Jie Li</name></author><summary type="html"><![CDATA[Mark a mark. The first day in Brisbane.]]></summary></entry><entry><title type="html">scp demo</title><link href="http://localhost:3080/coding/bash/scp_demo/" rel="alternate" type="text/html" title="scp demo" /><published>2018-03-23T00:00:00+10:00</published><updated>2018-03-23T00:00:00+10:00</updated><id>http://localhost:3080/coding/bash/scp_demo</id><content type="html" xml:base="http://localhost:3080/coding/bash/scp_demo/"><![CDATA[<h2 id="1copy-local-files-to-remote-server">1.Copy local files to remote server</h2>
+<p><a href="https://github.com/Ecogenomics/GTDBTk/issues/193">关于gtdbtk的result能否说明是一个new species</a>
+<a href="https://github.com/Ecogenomics/GTDBTk/issues/43">关于ANI的大小如何infer a new species</a></p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="genome" /><category term="genome" /><category term="taxonomy" /><summary type="html"><![CDATA[GTDB数据库介绍 GTDB的下载地址]]></summary></entry><entry><title type="html">Perl包安装</title><link href="http://localhost:3080/coding/perl/Perl_package_installation_to_fix_Pfam_scan/" rel="alternate" type="text/html" title="Perl包安装" /><published>2020-03-13T00:00:00+10:00</published><updated>2020-03-13T00:00:00+10:00</updated><id>http://localhost:3080/coding/perl/Perl_package_installation_to_fix_Pfam_scan</id><content type="html" xml:base="http://localhost:3080/coding/perl/Perl_package_installation_to_fix_Pfam_scan/"><![CDATA[<h2 id="notes">Notes</h2>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$scp</span> local_file remore_username@remote_ip:remote_folder</code></pre></figure>
+<p><code class="language-plaintext highlighter-rouge">CPAN</code>自动安装<code class="language-plaintext highlighter-rouge">Perl</code>包，这个最常用：</p>
 
-<h2 id="2-copy-file-from-remote-server-to-local">2. Copy file from remote server to local</h2>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">/path/to/cpan <span class="c"># 启动</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">install </span>PackageName</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$scp</span> remote_username@remote_ip:remote_folder local_folder</code></pre></figure>
+<h2 id="当你没有root权限">当你没有root权限</h2>
 
-<h2 id="ref">ref</h2>
-<p><a href="https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/scp.html">ref_link</a></p>]]></content><author><name>Jie Li</name></author><category term="coding" /><category term="bash" /><category term="bash" /><category term="linux" /><summary type="html"><![CDATA[1.Copy local files to remote server $scp local_file remore_username@remote_ip:remote_folder]]></summary></entry></feed>
+<p>假如你没有<code class="language-plaintext highlighter-rouge">root</code>权限，则你需要将包安装到你有写入权限的目录：
+首先安装<code class="language-plaintext highlighter-rouge">local::lib</code>
+https://metacpan.org/pod/local::lib
+使用的命令如下：</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">wget https://cpan.metacpan.org/authors/id/H/HA/HAARG/local-lib-2.000024.tar.gz
+<span class="nb">tar</span> <span class="nt">-xvf</span> local-lib-2.000024.tar.gz
+<span class="nb">cd </span>local-lib-2.000024
+perl Makefile.PL <span class="nt">--bootstrap</span><span class="o">=</span>YOURPATH
+make <span class="nb">test
+</span>make <span class="nb">install</span></code></pre></figure>
+
+<h2 id="当安装的时候报错需要解决依赖包的问题">当安装的时候报错，需要解决依赖包的问题</h2>
+
+<p>例如，需要安装<code class="language-plaintext highlighter-rouge">Moose</code>，<code class="language-plaintext highlighter-rouge">CPAN</code>安装的时候报错退出。提示此包的依赖包括:
+<code class="language-plaintext highlighter-rouge">Package::DeprecationManager,Package::Stash::XS,Test::CleanNamespaces,Sub::Exporter,Params::Util,Devel::OverloadInfo,Class::Load::XS,Package::Stash,Class::Load,Sub::Name,Data::OptList,Sub::Identify</code>
+那么，需要依次安装这些包：</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">perl <span class="nt">-MCPAN</span> <span class="nt">-Mlocal</span>::lib <span class="nt">-e</span> <span class="s1">'CPAN::install(包名)'</span></code></pre></figure>
+
+<p>把所有的依赖都准备好之后，安装Moose就成功了。</p>
+
+<p>接下来安装<code class="language-plaintext highlighter-rouge">IPC:Run</code>包</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s1">'eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)'</span> <span class="o">&gt;&gt;</span>~/.bashrc
+<span class="nb">source</span> ~/.bashrc</code></pre></figure>
+
+<p>最后需要解决pfam_scan检索目录的问题。需要把安装好的包所在的目录加入到pfam_scan的检索目录中就可以成功导入需要的依赖包并运行了。</p>]]></content><author><name>Jie Li</name></author><category term="coding" /><category term="perl" /><category term="annotation" /><category term="perl" /><category term="linux" /><summary type="html"><![CDATA[Notes]]></summary></entry><entry><title type="html">Diamond比对</title><link href="http://localhost:3080/bioinformatics/alignment/Diamond/" rel="alternate" type="text/html" title="Diamond比对" /><published>2020-03-10T00:00:00+10:00</published><updated>2020-03-10T00:00:00+10:00</updated><id>http://localhost:3080/bioinformatics/alignment/Diamond</id><content type="html" xml:base="http://localhost:3080/bioinformatics/alignment/Diamond/"><![CDATA[<h2 id="makedb建立数据库索引">makedb建立数据库索引</h2>
+<p>除了常用的<code class="language-plaintext highlighter-rouge">--in</code>和<code class="language-plaintext highlighter-rouge">--db</code>参数之外，<code class="language-plaintext highlighter-rouge">--taxonmap</code>，<code class="language-plaintext highlighter-rouge">--taxonnodes</code>，和<code class="language-plaintext highlighter-rouge">--taxonnames</code>这三个参数也可以在<code class="language-plaintext highlighter-rouge">makedb</code>的时候提供。这样在比对的时候可以选择性的对比特定的<code class="language-plaintext highlighter-rouge">reference</code>。例如只比对属于<code class="language-plaintext highlighter-rouge">Bacteria</code>的<code class="language-plaintext highlighter-rouge">reference</code>。如需实现此功能，则在<code class="language-plaintext highlighter-rouge">makedb</code>的时候，必须至少加上<code class="language-plaintext highlighter-rouge">--taxonmap</code>和<code class="language-plaintext highlighter-rouge">--taxonnodes</code>两个参数。
+注意：<code class="language-plaintext highlighter-rouge">diamond blast</code>的<code class="language-plaintext highlighter-rouge">reference</code>必须由同一个版本的<code class="language-plaintext highlighter-rouge">makedb</code>建立的索引才能使用。
+命令行：</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">diamond makedb <span class="nt">--in</span> <span class="nv">$ot</span>/uniprot_sprot.fasta <span class="nt">-d</span> <span class="nv">$ot</span>/uniprot_sprot.fasta <span class="nt">--taxonmap</span> <span class="nv">$ot</span>/prot.accession2taxid.gz <span class="nt">--taxonnodes</span> <span class="nv">$ot</span>/taxdmp.zip <span class="nt">--taxonnames</span> <span class="nv">$ot</span>/taxdmp <span class="nt">-p</span> 10</code></pre></figure>
+
+<h2 id="关键参数">关键参数</h2>
+
+<p><code class="language-plaintext highlighter-rouge">--taxonlist</code> 参数可以提供<code class="language-plaintext highlighter-rouge">taxid list</code>。例如细菌的<code class="language-plaintext highlighter-rouge">taxid</code>为<code class="language-plaintext highlighter-rouge">2</code>, <code class="language-plaintext highlighter-rouge">archaea</code>的<code class="language-plaintext highlighter-rouge">taxid</code>为<code class="language-plaintext highlighter-rouge">2157</code>。若想比对多个<code class="language-plaintext highlighter-rouge">tax</code>, 将多个<code class="language-plaintext highlighter-rouge">tax id</code>用’,’隔开即可。</p>
+
+<p>测试的结果上看，
+我用SM1A02的MAG做测试，分别将–taxonlist参数设置为2 (bacteria), 203682(phylum Planctomycetota), 666505 (class Phycisphaerae), 666506 (order Phycisphaerales)，到class那一级时就已经注释不到蛋白了，可能的因素有1.数据库信息量有限，我使用的只是swiss-prot的序列, 这个物种可能并没有很多已知的蛋白。</p>
+
+<p><code class="language-plaintext highlighter-rouge">--threads/-p #int</code>:  需要使用的CPU线程数量。默认时使用所有可以获取的资源，所以针对需要投递上计算几点的任务的话，投递任务时指定了几个线程就会使用几个。
+<code class="language-plaintext highlighter-rouge">--db/-d &lt;file&gt;</code>: 数据库文件，不需要后缀.dmnd字符
+<code class="language-plaintext highlighter-rouge">--query/-q &lt;file&gt;</code>: <code class="language-plaintext highlighter-rouge">fasta/fastq</code>文件，可以为<code class="language-plaintext highlighter-rouge">gz</code>压缩文件，不提供参数的时候就读取<code class="language-plaintext highlighter-rouge">stdin</code>.
+<code class="language-plaintext highlighter-rouge">--taxonlist &lt;list&gt;</code>: 逗号分隔的<code class="language-plaintext highlighter-rouge">NCBI taxonomic IDs</code>, 任何一个level的id都可以，例如<code class="language-plaintext highlighter-rouge">bateria</code>为<code class="language-plaintext highlighter-rouge">2</code>.</p>
+
+<h2 id="blastx-输入及比对有关的参数">blastx 输入及比对有关的参数</h2>
+
+<p><code class="language-plaintext highlighter-rouge">--query-gencode #</code>: blastX 时使用的<code class="language-plaintext highlighter-rouge">translation genetic code</code>, 默认为标准<code class="language-plaintext highlighter-rouge">code(1)</code>。 如果要输出<code class="language-plaintext highlighter-rouge">DAA</code>格式，则部分的<code class="language-plaintext highlighter-rouge">genetic code</code>不支持。ps: <code class="language-plaintext highlighter-rouge">bacterial</code>, <code class="language-plaintext highlighter-rouge">archaeal</code> and <code class="language-plaintext highlighter-rouge">plant plastid</code> code 为 <code class="language-plaintext highlighter-rouge">11</code>.
+<code class="language-plaintext highlighter-rouge">--strand {both, plus, minus}</code>: 设置需要搜索的<code class="language-plaintext highlighter-rouge">strand for translated searches</code>. 默认<code class="language-plaintext highlighter-rouge">both strand</code>都会搜索
+<code class="language-plaintext highlighter-rouge">--min-orf/-l #</code>: 忽略翻译的<code class="language-plaintext highlighter-rouge">ORF</code>段于这个参数的序列。若设置为<code class="language-plaintext highlighter-rouge">1</code>，不执行此功能。默认是如果<code class="language-plaintext highlighter-rouge">ORF</code>短于<code class="language-plaintext highlighter-rouge">30</code>则不进行比对。
+<code class="language-plaintext highlighter-rouge">--frameshift/-F #</code>: 在<code class="language-plaintext highlighter-rouge">DNA-vs-proteins</code>比对的时候，<code class="language-plaintext highlighter-rouge">frameshifts</code>的罚分。参数设置<code class="language-plaintext highlighter-rouge">15</code>左右是比较reasonbable的。enabling这个参数意味着在比对的时候，<code class="language-plaintext highlighter-rouge">diamond</code>允许比对时DNA序列的缺失，所以更推荐在长度长及易高错误率时使用例如<code class="language-plaintext highlighter-rouge">MinION reads</code>.
+在<code class="language-plaintext highlighter-rouge">pairwise</code>的输出模式中（我理解的是<code class="language-plaintext highlighter-rouge">pairwise</code>的详细比对细节模式），用\和/代表正链/负链上的<code class="language-plaintext highlighter-rouge">frameshift</code>
+<code class="language-plaintext highlighter-rouge">--range-culling</code>: 允许<code class="language-plaintext highlighter-rouge">query</code>的重叠。这个参数是为长<code class="language-plaintext highlighter-rouge">query</code>设计的，这样<code class="language-plaintext highlighter-rouge">query</code>可以跨过多个基因。
+ In these cases, the default of reporting the 25 best overall hits could cause hits to a lower scoring gene to be overshadowed. But just increasing the number of alignments reported will bloat the output size and reduce performance.
+Using this feature along with -k 25 (default), a hit will only be deleted if at least 50% of its query range is spanned by at least 25 higher or equal scoring hits.
+Using this feature along with –top 10, a hit will only be deleted if its score is more than 10% lower than that of a higher scoring hit over at least 50% of its query range.
+The percentage is configurable using –range-cover. Note that this feature is currently only available in frameshift alignment mode.</p>
+
+<h2 id="比对本身的参数">比对本身的参数</h2>
+
+<p><code class="language-plaintext highlighter-rouge">--sensitive</code>: sensitive模式下，比对结果会比fast（默认）模式provides a lot higher sensitivity
+<code class="language-plaintext highlighter-rouge">--more-sensitive</code>：这个模式比sensitive模式会更sensitive一点
+<code class="language-plaintext highlighter-rouge">--gapopen #</code>: gap open 的罚分
+<code class="language-plaintext highlighter-rouge">--gapextend #</code>: gap extension 的罚分
+<code class="language-plaintext highlighter-rouge">--matrix &lt;matrix name&gt;</code>: 得分矩阵，默认为BLOSUM62，可支持的矩阵包括:
+Matrix	Supported values for (gap open)/(gap extend)	Default gap penalties
+BLOSUM45	(10-13)/3; (12-16)/2; (16-19)/1	14/2
+BLOSUM50	(9-13)/3; (12-16)/2; (15-19)/1	13/2
+BLOSUM62	(6-11)/2; (9-13)/1	11/1
+BLOSUM80	(6-9)/2; 13/2; 25/2; (9-11)/1	10/1
+BLOSUM90	(6-9)/2; (9-11)/1	10/1
+PAM250	(11-15)/3; (13-17)/2; (17-21)/1	14/2
+PAM70	(6-8)/2; (9-11)/1	10/1
+PAM30	(5-7)/2; (8-10)/1	9/1
+<code class="language-plaintext highlighter-rouge">--comp-based-stats (0, 1)</code>: 比对得分校正（compositional bias correction）。<code class="language-plaintext highlighter-rouge">0</code>代表不校正得分，<code class="language-plaintext highlighter-rouge">1</code>代表按照文章中的方法进行校正（Maria Hauser, Martin Steinegger, Johannes Söding; MMseqs software suite for fast and deep clustering and searching of large protein sequence sets, Bioinformatics, Volume 32, Issue 9, 1 May 2016, Pages 1323–1330）。Compositionally biased sequences 会导致false positive matches, 这样的情况会被这个算法过滤掉，有点像blast的模式。</p>
+
+<p><code class="language-plaintext highlighter-rouge">--algo (0, 1)</code>: seed search的算法，<code class="language-plaintext highlighter-rouge">0</code>代表double-indexed, <code class="language-plaintext highlighter-rouge">1</code>代表query-indexed。Double-indexed算法是这个program的主要算法，但是当<code class="language-plaintext highlighter-rouge">query</code>很小的时候，效率其实是不高的，这个时候应该使用query-indexed算法。
+默认时，会基于query和db的size自动选择一个算法。
+需要注意，虽然两种算法在各个模式下都提供了大致相同的<code class="language-plaintext highlighter-rouge">sentisivity</code>, 但是结果不会完全一致。</p>
+
+<h2 id="输出相关的参数">输出相关的参数</h2>
+<p><code class="language-plaintext highlighter-rouge">--out/-o &lt;file&gt;</code> 输出文件。不提供参数的时候就是stdout。
+<code class="language-plaintext highlighter-rouge">--outfmt/-f #</code>: 有很多种输出模式，6是输出tab-delimited格式
+<code class="language-plaintext highlighter-rouge">--salltitles</code>: 在DAA模式中，输出全长的id title, 默认只输出短的id（到第一个空格）
+<code class="language-plaintext highlighter-rouge">--sallseqid</code>: 把所有的db中的seq id 都包含到DAA文件中。比–salltitles更节省空间。说实话没看懂这一句解释
+<code class="language-plaintext highlighter-rouge">--compress(0, 1)</code>: 压缩输出结果与否。0代表不压缩，1代表gzip 压缩
+<code class="language-plaintext highlighter-rouge">--max-target-seqs/-k #</code>:  最大符合阈值的比对数量，默认为25，0代表report所有的合理比对。
+<code class="language-plaintext highlighter-rouge">--top #</code>: 输出比对最高分数的给定百分比内的alignments. (overrides –max-target-seqs/-k option). 例如设置为10，则输出所有得分低于最高得分的10%以内的alignments
+<code class="language-plaintext highlighter-rouge">--evalue/-e #</code>: Maximum expected value to report an alignment (default=0.001)
+<code class="language-plaintext highlighter-rouge">--min-score #</code>: 最小的bit score, 设置这个参数会override –evalue参数
+<code class="language-plaintext highlighter-rouge">--id #</code>: 最小identity阈值
+<code class="language-plaintext highlighter-rouge">--query-cover #</code>: 最小percentage of query cover
+<code class="language-plaintext highlighter-rouge">--subject-cover #</code>: 最小percentage of subject cover
+<code class="language-plaintext highlighter-rouge">--max-hsps #</code>: 针对每一个query, 输出单个subject的最大hsp。General 来说，在一个query/subject比对的时候完全有可能出现多个HSP. 程序默认输出所有的HSP（没有被其他的HSP覆盖的时候）。设置为1的时候，program只输出一个HSP for every qury/subject pair.
+<code class="language-plaintext highlighter-rouge">--unal (0, 1)</code>: 输出unaligned queries, 0 代表不输出，1代表输出。默认时 BLAST pairwise, BLAST XML, 以及SAM格式的时候为1， 其他时候为0
+<code class="language-plaintext highlighter-rouge">--no-self-hits</code>： 不输出identical self-hits between sequences</p>
+
+<p><code class="language-plaintext highlighter-rouge">--freq-sd #</code>: 在seed search过程中，忽略频率非常高的seed。这个参数这是的多少个单位的标准差为频率过高，fast mode 默认为50， sensitive mode 默认为10, more-sensitive mode 为200.
+<code class="language-plaintext highlighter-rouge">--band #</code>: 这个参数设置的在动态规划的过程中，seed延伸的band，两个方向都会scan.
+<code class="language-plaintext highlighter-rouge">--xml-blord-format</code>: Use gnlBL_ORD_ID style format for hit IDs in XML output.
+<code class="language-plaintext highlighter-rouge">--range-cover #</code>:  The minimum percentage of a hit’s query range that needs to be spanned by higher scoring hits for a hit to be deleted in range culling mode (default=50.0).
+<code class="language-plaintext highlighter-rouge">--culling-overlap #</code>: The minimum percentage of a hit’s query or target range that needs to be spanned by a higher scoring hit against the same target for a hit to be deleted. (default=50.0)</p>]]></content><author><name>Jie Li</name></author><category term="bioinformatics" /><category term="alignment" /><category term="protein sequence alignment" /><category term="alignment" /><category term="annotation" /><summary type="html"><![CDATA[makedb建立数据库索引 除了常用的--in和--db参数之外，--taxonmap，--taxonnodes，和--taxonnames这三个参数也可以在makedb的时候提供。这样在比对的时候可以选择性的对比特定的reference。例如只比对属于Bacteria的reference。如需实现此功能，则在makedb的时候，必须至少加上--taxonmap和--taxonnodes两个参数。 注意：diamond blast的reference必须由同一个版本的makedb建立的索引才能使用。 命令行： diamond makedb --in $ot/uniprot_sprot.fasta -d $ot/uniprot_sprot.fasta --taxonmap $ot/prot.accession2taxid.gz --taxonnodes $ot/taxdmp.zip --taxonnames $ot/taxdmp -p 10]]></summary></entry></feed>

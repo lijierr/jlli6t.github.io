@@ -1,14 +1,29 @@
 # main links
 main:
+  - title: <u>About</u>
+    url: /about/index.html
+  - title: <u>Blogs</u>
+    url: /index.html
   - title: <u>Projects</u>
     url: /projects/index.html
-  - title: <u>Blogs</u>
-    url: /home/index.html
-  - title: <u>Categories</u>
-    url: /categories/index.html
-  - title: <u>Tags</u>
-    url: /tags/index.html
-  - title: <u>Years</u>
-    url: /years/index.html
   - title: <u>CV</u>
     url: /cv/index.html
+
+# sidebar navigation list sample
+sidebar-sample:
+  - title: "Collection"
+    children:
+      - title: "Project"
+        url: /projects/
+  - title: "Parent Page B"
+    children:
+      - title: "Child Page B1"
+        url: /child-page-b1/
+      - title: "Child Page B2"
+        url: /child-page-b2/
+      - title: "Child Page B3"
+        url: /child-page-b3/
+      - title: "Child Page B4"
+        url: /child-page-b4/
+      - title: "Child Page B5"
+        url: /child-page-b5/

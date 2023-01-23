@@ -1,0 +1,22 @@
+# Authors
+
+Jie Li:
+  name        : "Jie Li"
+  bio         : "Just a bioinformatician in microbial ecology."
+  avatar      : "/assets/prof_pic2.jpg"
+  links:
+    - label: "Google scholar"
+      icon: "fab fa-google"
+      url: "https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ"
+    - label: "Github"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/jlli6t"
+    - label: "Linkedin"
+      icon: "fab fa-linkedin"
+      url: "https://www.linkedin.com/in/jie-li-3201a57b/"
+    - label: "ORCID"
+      icon: "fa-brands fa-orcid"
+      url: "https://orcid.org/0000-0002-9623-9213"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/jlli6t"

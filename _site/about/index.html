@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title><font color=pink>❤️</font> Jie Li (She/Her) <font color=pink>❤️</font></title>
+<!-- begin _includes/seo.html --><title>Jie Li (She/Her)</title>
 <meta name="description" content="Passion can outweight the long years ❤ 热爱可抵岁月漫长">
 
 
@@ -19,8 +19,8 @@
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_AU">
-<meta property="og:site_name" content="<font color=pink>❤️</font> Jie Li (She/Her) <font color=pink>❤️</font>">
-<meta property="og:title" content="❤️Jie Li (She/Her) ❤️">
+<meta property="og:site_name" content="Jie Li (She/Her)">
+<meta property="og:title" content="Jie Li (She/Her)">
 <meta property="og:url" content="http://localhost:3080/about/">
 
 
@@ -51,7 +51,7 @@
     "@context": "https://schema.org",
     
       "@type": "Person",
-      "name": "Jie Li (She/Her)",
+      "name": "Jie Li",
       "url": "http://localhost:3080/"
     
   }
@@ -66,8 +66,6 @@
 <!-- end _includes/seo.html -->
 
 
-
-  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="<font color=pink>❤️</font> Jie Li (She/Her) <font color=pink>❤️</font> Feed">
 
 
 <!-- https://t.co/dKP3o1e -->
@@ -109,22 +107,23 @@
       <nav id="site-nav" class="greedy-nav">
         
         <a class="site-title" href="/">
-          <font color=pink>❤️</font> Jie Li (She/Her) <font color=pink>❤️</font>
-          
+          Jie Li (She/Her)
+          <span class="site-subtitle">Passion can outweight the long years❤️热爱可抵岁月漫长</span>
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/index.html"><u>About</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/index.html"><u>Blogs</u></a>
+            </li><li class="masthead__menu-item">
               <a href="/projects/index.html"><u>Projects</u></a>
-            </li><li class="masthead__menu-item">
-              <a href="/home/index.html"><u>Blogs</u></a>
-            </li><li class="masthead__menu-item">
-              <a href="/categories/index.html"><u>Categories</u></a>
-            </li><li class="masthead__menu-item">
-              <a href="/tags/index.html"><u>Tags</u></a>
-            </li><li class="masthead__menu-item">
-              <a href="/years/index.html"><u>Years</u></a>
             </li><li class="masthead__menu-item">
               <a href="/cv/index.html"><u>CV</u></a>
             </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
         
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">Toggle menu</span>
@@ -166,17 +165,17 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <h1 id="about-me"><center>About me</center></h1>
+        <h1 id="about-jie"><center>About Jie</center></h1>
 
-<p>Hi there! This is Jie!</p>
+<p>Warmly welcome your visit.</p>
+
+<p>Jie did her PhD with Jianhua Guo and Gene Tyson with focus on microbial ecology and bioinformatics.</p>
+
+<p>With passion on <strong>microbial ecology</strong>, Jie has contributed to <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=s_Uga6sAAAAJ"><strong>publications</strong></a>. The passion extends to coding as well. Jie has led the development of <a href="https://jlli6t.github.io/projects/index.html"><strong>pipelines</strong></a>.</p>
+
+<p>Jie has worked in a wide range of different environments from molecular biology science to bioinformatics. The wet lab experience of molecular biology aids in data analysis a lots. It’s exciting to work with different people and to learn from different professionals. These experiences largely diversified her skillset and enabled a solid foundation for her as an independent researcher.</p>
 
 <p><img src="/assets/picbed/cover/cover4.jpg" alt="" /></p>
-
-<p>Jie is currently pursuing a PhD with advisors of <a href="https://researchers.uq.edu.au/researcher/3045"><strong><u>Associate Professor Jianhua Guo</u></strong></a> and <a href="https://www.qut.edu.au/about/our-people/academic-profiles/gene.tyson"><strong><u>Professor Gene Tyson</u></strong></a> with focus on microbial ecology in engineered systems with financial support of UQ Research Training Scholarship.</p>
-
-<p>With passion on <strong>microbial ecology</strong>, Jie has contributed to <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=s_Uga6sAAAAJ"><strong><u>publications</u></strong></a>. The passion extends to coding as well. Jie has led the development of <a href="https://jlli6t.github.io/projects/index.html"><strong><u>pipelines</u></strong></a> with Python.</p>
-
-<p>Jie has worked in a wide range of different environments from molecular biology science to bioinformatics. The wet lab experience of molecular biology aids in data analysis a lots. It’s exciting to work with different people and to learn different stuff, these experiences largely diversified her background and enabled a solid foundation for her as an independent researcher.</p>
 
         
       </section>
@@ -205,6 +204,17 @@
     </div>
 
     
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
 
     <div id="footer" class="page__footer">
       <footer>
@@ -224,11 +234,11 @@
         
       
         
-          <li><a href="https://github.com/jlli6t" title="GitHub"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a></li>
+          <li><a href="https://github.com/jlli6t" title="Github"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a></li>
         
       
         
-          <li><a href="https://www.linkedin.com/in/jie-li-3201a57b/" title="linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/jie-li-3201a57b/" title="Linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
         
       
         
@@ -242,12 +252,10 @@
     
 
     
-      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
-    
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2023 Jie Li (She/Her). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2023 Jie Li. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
@@ -257,6 +265,10 @@
 
 
 
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
 
 
 
