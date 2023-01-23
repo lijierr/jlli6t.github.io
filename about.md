@@ -2,10 +2,10 @@
 layout: single
 permalink: /about/index.html
 classes: wide
+title: About Jie
 ---
-# <center>About Jie</center>
 
-Jie did her PhD with Jianhua Guo and Gene Tyson with focus on microbial ecology and bioinformatics.
+Jie did her PhD with professor Jianhua Guo and professor Gene Tyson with focus on microbial ecology and bioinformatics.
 
 With passion on **microbial ecology**, Jie has contributed to [**publications**](https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ). The passion extends to coding as well. Jie has led the development of [**pipelines**](https://jlli6t.github.io/projects/index.html).
 
