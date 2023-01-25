@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:3080/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3080/" rel="alternate" type="text/html" /><updated>2023-01-23T23:57:28+10:00</updated><id>http://localhost:3080/feed.xml</id><title type="html">Jie Li (She/Her)</title><subtitle>Passion can outweight the long years &lt;font color=F08F8F&gt;❤&lt;/font&gt; 热爱可抵岁月漫长</subtitle><author><name>Jie Li</name></author><entry><title type="html">markdown tutorial</title><link href="http://localhost:3080/tutorial/git/markdown-tutorial/" rel="alternate" type="text/html" title="markdown tutorial" /><published>2022-02-09T00:00:00+10:00</published><updated>2022-03-23T02:04:00+10:00</updated><id>http://localhost:3080/tutorial/git/markdown-tutorial</id><content type="html" xml:base="http://localhost:3080/tutorial/git/markdown-tutorial/"><![CDATA[<p><strong>Howdy!</strong> This is an example blog post that shows several types of HTML content supported in this theme.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:3080/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3080/" rel="alternate" type="text/html" /><updated>2023-01-25T11:35:59+10:00</updated><id>http://localhost:3080/feed.xml</id><title type="html">Jie Li (She/Her)</title><subtitle>Passion can outweight the long years &lt;font color=F08F8F&gt;❤&lt;/font&gt; 热爱可抵岁月漫长</subtitle><author><name>Jie Li</name></author><entry><title type="html">markdown tutorial</title><link href="http://localhost:3080/tutorial/git/markdown-tutorial/" rel="alternate" type="text/html" title="markdown tutorial" /><published>2022-02-09T00:00:00+10:00</published><updated>2022-03-23T02:04:00+10:00</updated><id>http://localhost:3080/tutorial/git/markdown-tutorial</id><content type="html" xml:base="http://localhost:3080/tutorial/git/markdown-tutorial/"><![CDATA[<p><strong>Howdy!</strong> This is an example blog post that shows several types of HTML content supported in this theme.</p>
 
 <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. <em>Aenean eu leo quam.</em> Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
 
@@ -185,7 +185,11 @@
       <p>Handy! Now click the return link to go back. <a href="#fnref:fn-sample_footnote" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name>Jie Li</name></author><category term="tutorial" /><category term="git" /><category term="markdown" /><category term="tutorials" /><summary type="html"><![CDATA[Howdy! This is an example blog post that shows several types of HTML content supported in this theme.]]></summary></entry><entry><title type="html">上传数据到SRA</title><link href="http://localhost:3080/linux/bash/Upload_SRA/" rel="alternate" type="text/html" title="上传数据到SRA" /><published>2021-01-01T00:00:00+10:00</published><updated>2021-01-01T00:00:00+10:00</updated><id>http://localhost:3080/linux/bash/Upload_SRA</id><content type="html" xml:base="http://localhost:3080/linux/bash/Upload_SRA/"><![CDATA[<h2 id="说明">说明</h2>
+</div>]]></content><author><name>Jie Li</name></author><category term="tutorial" /><category term="git" /><category term="markdown" /><category term="tutorials" /><summary type="html"><![CDATA[Howdy! This is an example blog post that shows several types of HTML content supported in this theme.]]></summary></entry><entry><title type="html">sratoolkit下载测序数据</title><link href="http://localhost:3080/linux/bash/sratoolkit/" rel="alternate" type="text/html" title="sratoolkit下载测序数据" /><published>2021-10-29T00:00:00+10:00</published><updated>2021-10-29T00:00:00+10:00</updated><id>http://localhost:3080/linux/bash/sratoolkit</id><content type="html" xml:base="http://localhost:3080/linux/bash/sratoolkit/"><![CDATA[<h2 id="说明">说明</h2>
+<p><code class="language-plaintext highlighter-rouge">sratoolkit</code>默认配置的下载数据目录是在<code class="language-plaintext highlighter-rouge">HOME</code>，这显然是不友好的，因为一般的集群给每个<code class="language-plaintext highlighter-rouge">account</code>的<code class="language-plaintext highlighter-rouge">HOME</code>目录下的存储是非常有限的，例如50Gb，所以最好把<code class="language-plaintext highlighter-rouge">cache</code>的目录设置到拥有大量存储可供写入的目录。</p>
+
+<p>具体操作方式：更改文件 <code class="language-plaintext highlighter-rouge">.ncbi/user-settings.mkfg</code>里的<code class="language-plaintext highlighter-rouge">/repository/user/main/public/root</code>的目录为你想要存放的目录即可。
+<img src="/assets/picbed/post/sratoolkit_path_set.png" alt="" /></p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="bash" /><category term="bash" /><category term="linux" /><summary type="html"><![CDATA[说明 sratoolkit默认配置的下载数据目录是在HOME，这显然是不友好的，因为一般的集群给每个account的HOME目录下的存储是非常有限的，例如50Gb，所以最好把cache的目录设置到拥有大量存储可供写入的目录。]]></summary></entry><entry><title type="html">上传数据到SRA</title><link href="http://localhost:3080/linux/bash/Upload_SRA/" rel="alternate" type="text/html" title="上传数据到SRA" /><published>2021-01-01T00:00:00+10:00</published><updated>2021-01-01T00:00:00+10:00</updated><id>http://localhost:3080/linux/bash/Upload_SRA</id><content type="html" xml:base="http://localhost:3080/linux/bash/Upload_SRA/"><![CDATA[<h2 id="说明">说明</h2>
 <p>数据分析结束之后，通常需要将原始数据上传到公共数据库进行分享。例如测序数据通常上传至NCBI的SRA库。当样本数目比较小的时候，通过网页上传是非常方便的。但是当样本数量庞大的时候，通过网页上传数据就非常麻烦了，因为需要手动依次上传每一个样本。所以最直接的方法是从服务器往NCBI传，例如是用<code class="language-plaintext highlighter-rouge">aspera</code>：</p>
 
 <p><code class="language-plaintext highlighter-rouge">aspera</code>的下载链接<code class="language-plaintext highlighter-rouge">https://www.ibm.com/products/aspera/downloads</code>
@@ -224,7 +228,42 @@
 
 <p>数据库已经在线<code class="language-plaintext highlighter-rouge">13</code>年。目前收录了<code class="language-plaintext highlighter-rouge">11419</code>条序列，包括<code class="language-plaintext highlighter-rouge">7174</code>个不同的物种，版本号<code class="language-plaintext highlighter-rouge">17</code>。</p>
 
-<p><code class="language-plaintext highlighter-rouge">Taxon</code>分类包括<code class="language-plaintext highlighter-rouge">Archaea</code>， <code class="language-plaintext highlighter-rouge">Bacteria</code>， <code class="language-plaintext highlighter-rouge">Eukaryota</code>，<code class="language-plaintext highlighter-rouge">Plastids</code>，和<code class="language-plaintext highlighter-rouge">Mitochondria</code>。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction 除了从NCBI，Rfam等这样的大库中分离5S rRNA序列之外，发现有人在收集相应的序列：http://www.combio.pl/rrna/。]]></summary></entry><entry><title type="html">git绑定github账户远端仓库</title><link href="http://localhost:3080/linux/git/git_remote_repo/" rel="alternate" type="text/html" title="git绑定github账户远端仓库" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/linux/git/git_remote_repo</id><content type="html" xml:base="http://localhost:3080/linux/git/git_remote_repo/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p><code class="language-plaintext highlighter-rouge">Taxon</code>分类包括<code class="language-plaintext highlighter-rouge">Archaea</code>， <code class="language-plaintext highlighter-rouge">Bacteria</code>， <code class="language-plaintext highlighter-rouge">Eukaryota</code>，<code class="language-plaintext highlighter-rouge">Plastids</code>，和<code class="language-plaintext highlighter-rouge">Mitochondria</code>。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction 除了从NCBI，Rfam等这样的大库中分离5S rRNA序列之外，发现有人在收集相应的序列：http://www.combio.pl/rrna/。]]></summary></entry><entry><title type="html">Silva updates to 138</title><link href="http://localhost:3080/database/rrna/Silva_138/" rel="alternate" type="text/html" title="Silva updates to 138" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/database/rrna/Silva_138</id><content type="html" xml:base="http://localhost:3080/database/rrna/Silva_138/"><![CDATA[<h3 id="introduction">Introduction</h3>
+<p>SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。</p>
+
+<p>数据集的快速增长极大的增加了硬件需求，数据库越大，则越需要更多的资源例如内存来加载数据库。目前有两种策略解决此问题：1）升级硬件满足需求。2）减小数据库中的序列数。出于多种原因，只要结果数据集仍然具有<strong>代表性</strong>（这是环境微生物学中的一个非常重要的参数），第二种方法会更具性价比。SILVA项目选择了99% identity作为标准对SSU Ref进行去冗余构建了SSU Ref NR数据集。</p>
+
+<p><strong>这次138版本目前只更新了SSU库</strong>，LSU库还在进行中。taxonomy信息加入了GTDB的分类信息，138以前的版本中还有greengenes数据库的信息。GTDB项目的负责人是昆士兰大学的Prof. Phil Hugenholtz，他同时也参与了greengenes数据库的构建。</p>
+
+<h3 id="简介">简介：</h3>
+<p>silva是一个全面的比对的核糖体RNA序列数据的在线资源，由德国Microbial Genomics and Bioinformatics Research Group开发及维护。SILVA提供了三个域（细菌，古菌，真核生物）的对齐的小亚基（16S/18S，SSU）和大亚基（23S/28S，LSU）rRNA序列的全面、质量检查过并定期更新的数据集。且SILVA是软件包ARB的官方数据库。<br />
+SSU：核糖体小亚基库，包含了细菌和古菌的16S序列，以及真核生物的18S序列。<br />
+LSU：核糖体大亚基库，包含了细菌和古菌的23S序列，以及真核生物的28S序列</p>
+
+<h3 id="文件描述">文件描述：</h3>
+<p><strong>_tax_silva.fasta.gz</strong>
+SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息。
+标注：这些文件里包含的是原始的存储在公共数据库（ENA/GenBank/DDBJ）中的序列，没有对序列进行修剪。<br />
+<strong>_tax_silva_full_align_trunc.fasta.gz</strong>
+SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息，同时还包含了比对信息。
+标注：这些文件里的序列是修剪过的，数据库中没有被比对的序列皆被去除了。<br />
+<strong>_tax_silva_trunc.fasta.gz</strong>
+SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息。
+标注：这些文件里的序列是修剪过的，数据库中没有被比对的序列皆被去除了。</p>
+
+<h3 id="库构建方法">库构建方法：</h3>
+<p><strong>SSU Parc库：</strong><br />
+包含所有比对identity&gt;=50，比对质量值&gt;=40，碱基对分数或序列质量值&gt;30的序列。Pintail值&lt;50或比对质量值&lt;75的所有序列在ARB中指定为红色。而ALL-&gt;Living Tree Project 或 StrainInfo中的typestrans在ARB中指定为浅蓝色。</p>
+
+<p><strong>SSU Ref库：</strong><br />
+细菌和真核生物序列&lt;1200bp，古菌序列&lt;900bp，比对identity&lt;70，或比对质量值&lt;50的序列被去除。而ALL-&gt;Living Tree Project 或 StrainInfo中的typestrans在ARB中指定为浅蓝色。</p>
+
+<p><strong>SSU Ref NR库：</strong><br />
+基于最后发行的Ref NR 99版本的数据库里自定义的序列顺序结合序列长度（加权两倍）和质量，以99%的identity标准，来去除高度相似相同的序列。而对于排序，序列的质量由ambiguties（50%），总体比对质量（45%）以及均聚物（5%）进行定义。序列的总体比对质量是根据其比对得分，比对identity，以及比对的百分比（相等的权重）计算得来。已可培养物种的序列在所有的情况下都进行保留。</p>
+
+<p>标注：<strong>138版本的SSU Ref NR 99比之前的版本包含更少的序列</strong>。因为团队把序列比对的工具从USEARCH中整合的UCLUST (1.0.50) 换到VSEARCH (2.13)，提升了聚类的性能，且有望使团队可以在将来提供更稳定的Ref NR库。</p>
+
+<p>Ref NR库减小是由于这两个工具使用不同的序列/比对identity的定义差异导致。团队还使用了第三方工具CD-HIT（v4.8）交叉检查了比对的结果。在使用同样的identity阈值条件下，VSEARCH和CD-HIT返回了相似的聚类簇，而UCLUST返回了<strong>显著更大数目</strong>的聚类簇。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="tutorial" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。]]></summary></entry><entry><title type="html">git绑定github账户远端仓库</title><link href="http://localhost:3080/linux/git/git_remote_repo/" rel="alternate" type="text/html" title="git绑定github账户远端仓库" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/linux/git/git_remote_repo</id><content type="html" xml:base="http://localhost:3080/linux/git/git_remote_repo/"><![CDATA[<h2 id="introduction">Introduction</h2>
 <h3 id="确认ssh-key">确认SSH key</h3>
 <p>第一步，首先确实自己的目录下是否已经有<code class="language-plaintext highlighter-rouge">SSH key</code>。这个一般在<code class="language-plaintext highlighter-rouge">~/.ssh</code>目录下，可查看目录是否有</p>
 
@@ -280,42 +319,7 @@ git remote rm NAME
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">git pull 远端仓库</code></pre></figure>
 
 <h3 id="ref">ref</h3>
-<p>https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5</p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="git" /><category term="tutorial" /><category term="git" /><summary type="html"><![CDATA[Introduction 确认SSH key 第一步，首先确实自己的目录下是否已经有SSH key。这个一般在~/.ssh目录下，可查看目录是否有 ls ~/.ssh/ a b id_rsa id_rsa.pub known_hosts]]></summary></entry><entry><title type="html">Silva updates to 138</title><link href="http://localhost:3080/database/rrna/Silva_138/" rel="alternate" type="text/html" title="Silva updates to 138" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/database/rrna/Silva_138</id><content type="html" xml:base="http://localhost:3080/database/rrna/Silva_138/"><![CDATA[<h3 id="introduction">Introduction</h3>
-<p>SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。</p>
-
-<p>数据集的快速增长极大的增加了硬件需求，数据库越大，则越需要更多的资源例如内存来加载数据库。目前有两种策略解决此问题：1）升级硬件满足需求。2）减小数据库中的序列数。出于多种原因，只要结果数据集仍然具有<strong>代表性</strong>（这是环境微生物学中的一个非常重要的参数），第二种方法会更具性价比。SILVA项目选择了99% identity作为标准对SSU Ref进行去冗余构建了SSU Ref NR数据集。</p>
-
-<p><strong>这次138版本目前只更新了SSU库</strong>，LSU库还在进行中。taxonomy信息加入了GTDB的分类信息，138以前的版本中还有greengenes数据库的信息。GTDB项目的负责人是昆士兰大学的Prof. Phil Hugenholtz，他同时也参与了greengenes数据库的构建。</p>
-
-<h3 id="简介">简介：</h3>
-<p>silva是一个全面的比对的核糖体RNA序列数据的在线资源，由德国Microbial Genomics and Bioinformatics Research Group开发及维护。SILVA提供了三个域（细菌，古菌，真核生物）的对齐的小亚基（16S/18S，SSU）和大亚基（23S/28S，LSU）rRNA序列的全面、质量检查过并定期更新的数据集。且SILVA是软件包ARB的官方数据库。<br />
-SSU：核糖体小亚基库，包含了细菌和古菌的16S序列，以及真核生物的18S序列。<br />
-LSU：核糖体大亚基库，包含了细菌和古菌的23S序列，以及真核生物的28S序列</p>
-
-<h3 id="文件描述">文件描述：</h3>
-<p><strong>_tax_silva.fasta.gz</strong>
-SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息。
-标注：这些文件里包含的是原始的存储在公共数据库（ENA/GenBank/DDBJ）中的序列，没有对序列进行修剪。<br />
-<strong>_tax_silva_full_align_trunc.fasta.gz</strong>
-SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息，同时还包含了比对信息。
-标注：这些文件里的序列是修剪过的，数据库中没有被比对的序列皆被去除了。<br />
-<strong>_tax_silva_trunc.fasta.gz</strong>
-SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息。
-标注：这些文件里的序列是修剪过的，数据库中没有被比对的序列皆被去除了。</p>
-
-<h3 id="库构建方法">库构建方法：</h3>
-<p><strong>SSU Parc库：</strong><br />
-包含所有比对identity&gt;=50，比对质量值&gt;=40，碱基对分数或序列质量值&gt;30的序列。Pintail值&lt;50或比对质量值&lt;75的所有序列在ARB中指定为红色。而ALL-&gt;Living Tree Project 或 StrainInfo中的typestrans在ARB中指定为浅蓝色。</p>
-
-<p><strong>SSU Ref库：</strong><br />
-细菌和真核生物序列&lt;1200bp，古菌序列&lt;900bp，比对identity&lt;70，或比对质量值&lt;50的序列被去除。而ALL-&gt;Living Tree Project 或 StrainInfo中的typestrans在ARB中指定为浅蓝色。</p>
-
-<p><strong>SSU Ref NR库：</strong><br />
-基于最后发行的Ref NR 99版本的数据库里自定义的序列顺序结合序列长度（加权两倍）和质量，以99%的identity标准，来去除高度相似相同的序列。而对于排序，序列的质量由ambiguties（50%），总体比对质量（45%）以及均聚物（5%）进行定义。序列的总体比对质量是根据其比对得分，比对identity，以及比对的百分比（相等的权重）计算得来。已可培养物种的序列在所有的情况下都进行保留。</p>
-
-<p>标注：<strong>138版本的SSU Ref NR 99比之前的版本包含更少的序列</strong>。因为团队把序列比对的工具从USEARCH中整合的UCLUST (1.0.50) 换到VSEARCH (2.13)，提升了聚类的性能，且有望使团队可以在将来提供更稳定的Ref NR库。</p>
-
-<p>Ref NR库减小是由于这两个工具使用不同的序列/比对identity的定义差异导致。团队还使用了第三方工具CD-HIT（v4.8）交叉检查了比对的结果。在使用同样的identity阈值条件下，VSEARCH和CD-HIT返回了相似的聚类簇，而UCLUST返回了<strong>显著更大数目</strong>的聚类簇。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="tutorial" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。]]></summary></entry><entry><title type="html">git操作本地仓库</title><link href="http://localhost:3080/linux/git/git_local_repo/" rel="alternate" type="text/html" title="git操作本地仓库" /><published>2020-06-17T00:00:00+10:00</published><updated>2020-06-17T00:00:00+10:00</updated><id>http://localhost:3080/linux/git/git_local_repo</id><content type="html" xml:base="http://localhost:3080/linux/git/git_local_repo/"><![CDATA[<h3 id="git-工具">git 工具</h3>
+<p>https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5</p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="git" /><category term="tutorial" /><category term="git" /><summary type="html"><![CDATA[Introduction 确认SSH key 第一步，首先确实自己的目录下是否已经有SSH key。这个一般在~/.ssh目录下，可查看目录是否有 ls ~/.ssh/ a b id_rsa id_rsa.pub known_hosts]]></summary></entry><entry><title type="html">git操作本地仓库</title><link href="http://localhost:3080/linux/git/git_local_repo/" rel="alternate" type="text/html" title="git操作本地仓库" /><published>2020-06-17T00:00:00+10:00</published><updated>2020-06-17T00:00:00+10:00</updated><id>http://localhost:3080/linux/git/git_local_repo</id><content type="html" xml:base="http://localhost:3080/linux/git/git_local_repo/"><![CDATA[<h3 id="git-工具">git 工具</h3>
 <p>查看服务器上是否已经安装好<code class="language-plaintext highlighter-rouge">git</code>。服务器上有自带的<code class="language-plaintext highlighter-rouge">git</code>，直接使用即可，不需要另外安装了。</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">which git
@@ -486,79 +490,4 @@ make <span class="nb">test
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s1">'eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)'</span> <span class="o">&gt;&gt;</span>~/.bashrc
 <span class="nb">source</span> ~/.bashrc</code></pre></figure>
 
-<p>最后需要解决pfam_scan检索目录的问题。需要把安装好的包所在的目录加入到pfam_scan的检索目录中就可以成功导入需要的依赖包并运行了。</p>]]></content><author><name>Jie Li</name></author><category term="coding" /><category term="perl" /><category term="annotation" /><category term="perl" /><category term="linux" /><summary type="html"><![CDATA[Notes]]></summary></entry><entry><title type="html">Diamond比对</title><link href="http://localhost:3080/bioinformatics/alignment/Diamond/" rel="alternate" type="text/html" title="Diamond比对" /><published>2020-03-10T00:00:00+10:00</published><updated>2020-03-10T00:00:00+10:00</updated><id>http://localhost:3080/bioinformatics/alignment/Diamond</id><content type="html" xml:base="http://localhost:3080/bioinformatics/alignment/Diamond/"><![CDATA[<h2 id="makedb建立数据库索引">makedb建立数据库索引</h2>
-<p>除了常用的<code class="language-plaintext highlighter-rouge">--in</code>和<code class="language-plaintext highlighter-rouge">--db</code>参数之外，<code class="language-plaintext highlighter-rouge">--taxonmap</code>，<code class="language-plaintext highlighter-rouge">--taxonnodes</code>，和<code class="language-plaintext highlighter-rouge">--taxonnames</code>这三个参数也可以在<code class="language-plaintext highlighter-rouge">makedb</code>的时候提供。这样在比对的时候可以选择性的对比特定的<code class="language-plaintext highlighter-rouge">reference</code>。例如只比对属于<code class="language-plaintext highlighter-rouge">Bacteria</code>的<code class="language-plaintext highlighter-rouge">reference</code>。如需实现此功能，则在<code class="language-plaintext highlighter-rouge">makedb</code>的时候，必须至少加上<code class="language-plaintext highlighter-rouge">--taxonmap</code>和<code class="language-plaintext highlighter-rouge">--taxonnodes</code>两个参数。
-注意：<code class="language-plaintext highlighter-rouge">diamond blast</code>的<code class="language-plaintext highlighter-rouge">reference</code>必须由同一个版本的<code class="language-plaintext highlighter-rouge">makedb</code>建立的索引才能使用。
-命令行：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">diamond makedb <span class="nt">--in</span> <span class="nv">$ot</span>/uniprot_sprot.fasta <span class="nt">-d</span> <span class="nv">$ot</span>/uniprot_sprot.fasta <span class="nt">--taxonmap</span> <span class="nv">$ot</span>/prot.accession2taxid.gz <span class="nt">--taxonnodes</span> <span class="nv">$ot</span>/taxdmp.zip <span class="nt">--taxonnames</span> <span class="nv">$ot</span>/taxdmp <span class="nt">-p</span> 10</code></pre></figure>
-
-<h2 id="关键参数">关键参数</h2>
-
-<p><code class="language-plaintext highlighter-rouge">--taxonlist</code> 参数可以提供<code class="language-plaintext highlighter-rouge">taxid list</code>。例如细菌的<code class="language-plaintext highlighter-rouge">taxid</code>为<code class="language-plaintext highlighter-rouge">2</code>, <code class="language-plaintext highlighter-rouge">archaea</code>的<code class="language-plaintext highlighter-rouge">taxid</code>为<code class="language-plaintext highlighter-rouge">2157</code>。若想比对多个<code class="language-plaintext highlighter-rouge">tax</code>, 将多个<code class="language-plaintext highlighter-rouge">tax id</code>用’,’隔开即可。</p>
-
-<p>测试的结果上看，
-我用SM1A02的MAG做测试，分别将–taxonlist参数设置为2 (bacteria), 203682(phylum Planctomycetota), 666505 (class Phycisphaerae), 666506 (order Phycisphaerales)，到class那一级时就已经注释不到蛋白了，可能的因素有1.数据库信息量有限，我使用的只是swiss-prot的序列, 这个物种可能并没有很多已知的蛋白。</p>
-
-<p><code class="language-plaintext highlighter-rouge">--threads/-p #int</code>:  需要使用的CPU线程数量。默认时使用所有可以获取的资源，所以针对需要投递上计算几点的任务的话，投递任务时指定了几个线程就会使用几个。
-<code class="language-plaintext highlighter-rouge">--db/-d &lt;file&gt;</code>: 数据库文件，不需要后缀.dmnd字符
-<code class="language-plaintext highlighter-rouge">--query/-q &lt;file&gt;</code>: <code class="language-plaintext highlighter-rouge">fasta/fastq</code>文件，可以为<code class="language-plaintext highlighter-rouge">gz</code>压缩文件，不提供参数的时候就读取<code class="language-plaintext highlighter-rouge">stdin</code>.
-<code class="language-plaintext highlighter-rouge">--taxonlist &lt;list&gt;</code>: 逗号分隔的<code class="language-plaintext highlighter-rouge">NCBI taxonomic IDs</code>, 任何一个level的id都可以，例如<code class="language-plaintext highlighter-rouge">bateria</code>为<code class="language-plaintext highlighter-rouge">2</code>.</p>
-
-<h2 id="blastx-输入及比对有关的参数">blastx 输入及比对有关的参数</h2>
-
-<p><code class="language-plaintext highlighter-rouge">--query-gencode #</code>: blastX 时使用的<code class="language-plaintext highlighter-rouge">translation genetic code</code>, 默认为标准<code class="language-plaintext highlighter-rouge">code(1)</code>。 如果要输出<code class="language-plaintext highlighter-rouge">DAA</code>格式，则部分的<code class="language-plaintext highlighter-rouge">genetic code</code>不支持。ps: <code class="language-plaintext highlighter-rouge">bacterial</code>, <code class="language-plaintext highlighter-rouge">archaeal</code> and <code class="language-plaintext highlighter-rouge">plant plastid</code> code 为 <code class="language-plaintext highlighter-rouge">11</code>.
-<code class="language-plaintext highlighter-rouge">--strand {both, plus, minus}</code>: 设置需要搜索的<code class="language-plaintext highlighter-rouge">strand for translated searches</code>. 默认<code class="language-plaintext highlighter-rouge">both strand</code>都会搜索
-<code class="language-plaintext highlighter-rouge">--min-orf/-l #</code>: 忽略翻译的<code class="language-plaintext highlighter-rouge">ORF</code>段于这个参数的序列。若设置为<code class="language-plaintext highlighter-rouge">1</code>，不执行此功能。默认是如果<code class="language-plaintext highlighter-rouge">ORF</code>短于<code class="language-plaintext highlighter-rouge">30</code>则不进行比对。
-<code class="language-plaintext highlighter-rouge">--frameshift/-F #</code>: 在<code class="language-plaintext highlighter-rouge">DNA-vs-proteins</code>比对的时候，<code class="language-plaintext highlighter-rouge">frameshifts</code>的罚分。参数设置<code class="language-plaintext highlighter-rouge">15</code>左右是比较reasonbable的。enabling这个参数意味着在比对的时候，<code class="language-plaintext highlighter-rouge">diamond</code>允许比对时DNA序列的缺失，所以更推荐在长度长及易高错误率时使用例如<code class="language-plaintext highlighter-rouge">MinION reads</code>.
-在<code class="language-plaintext highlighter-rouge">pairwise</code>的输出模式中（我理解的是<code class="language-plaintext highlighter-rouge">pairwise</code>的详细比对细节模式），用\和/代表正链/负链上的<code class="language-plaintext highlighter-rouge">frameshift</code>
-<code class="language-plaintext highlighter-rouge">--range-culling</code>: 允许<code class="language-plaintext highlighter-rouge">query</code>的重叠。这个参数是为长<code class="language-plaintext highlighter-rouge">query</code>设计的，这样<code class="language-plaintext highlighter-rouge">query</code>可以跨过多个基因。
- In these cases, the default of reporting the 25 best overall hits could cause hits to a lower scoring gene to be overshadowed. But just increasing the number of alignments reported will bloat the output size and reduce performance.
-Using this feature along with -k 25 (default), a hit will only be deleted if at least 50% of its query range is spanned by at least 25 higher or equal scoring hits.
-Using this feature along with –top 10, a hit will only be deleted if its score is more than 10% lower than that of a higher scoring hit over at least 50% of its query range.
-The percentage is configurable using –range-cover. Note that this feature is currently only available in frameshift alignment mode.</p>
-
-<h2 id="比对本身的参数">比对本身的参数</h2>
-
-<p><code class="language-plaintext highlighter-rouge">--sensitive</code>: sensitive模式下，比对结果会比fast（默认）模式provides a lot higher sensitivity
-<code class="language-plaintext highlighter-rouge">--more-sensitive</code>：这个模式比sensitive模式会更sensitive一点
-<code class="language-plaintext highlighter-rouge">--gapopen #</code>: gap open 的罚分
-<code class="language-plaintext highlighter-rouge">--gapextend #</code>: gap extension 的罚分
-<code class="language-plaintext highlighter-rouge">--matrix &lt;matrix name&gt;</code>: 得分矩阵，默认为BLOSUM62，可支持的矩阵包括:
-Matrix	Supported values for (gap open)/(gap extend)	Default gap penalties
-BLOSUM45	(10-13)/3; (12-16)/2; (16-19)/1	14/2
-BLOSUM50	(9-13)/3; (12-16)/2; (15-19)/1	13/2
-BLOSUM62	(6-11)/2; (9-13)/1	11/1
-BLOSUM80	(6-9)/2; 13/2; 25/2; (9-11)/1	10/1
-BLOSUM90	(6-9)/2; (9-11)/1	10/1
-PAM250	(11-15)/3; (13-17)/2; (17-21)/1	14/2
-PAM70	(6-8)/2; (9-11)/1	10/1
-PAM30	(5-7)/2; (8-10)/1	9/1
-<code class="language-plaintext highlighter-rouge">--comp-based-stats (0, 1)</code>: 比对得分校正（compositional bias correction）。<code class="language-plaintext highlighter-rouge">0</code>代表不校正得分，<code class="language-plaintext highlighter-rouge">1</code>代表按照文章中的方法进行校正（Maria Hauser, Martin Steinegger, Johannes Söding; MMseqs software suite for fast and deep clustering and searching of large protein sequence sets, Bioinformatics, Volume 32, Issue 9, 1 May 2016, Pages 1323–1330）。Compositionally biased sequences 会导致false positive matches, 这样的情况会被这个算法过滤掉，有点像blast的模式。</p>
-
-<p><code class="language-plaintext highlighter-rouge">--algo (0, 1)</code>: seed search的算法，<code class="language-plaintext highlighter-rouge">0</code>代表double-indexed, <code class="language-plaintext highlighter-rouge">1</code>代表query-indexed。Double-indexed算法是这个program的主要算法，但是当<code class="language-plaintext highlighter-rouge">query</code>很小的时候，效率其实是不高的，这个时候应该使用query-indexed算法。
-默认时，会基于query和db的size自动选择一个算法。
-需要注意，虽然两种算法在各个模式下都提供了大致相同的<code class="language-plaintext highlighter-rouge">sentisivity</code>, 但是结果不会完全一致。</p>
-
-<h2 id="输出相关的参数">输出相关的参数</h2>
-<p><code class="language-plaintext highlighter-rouge">--out/-o &lt;file&gt;</code> 输出文件。不提供参数的时候就是stdout。
-<code class="language-plaintext highlighter-rouge">--outfmt/-f #</code>: 有很多种输出模式，6是输出tab-delimited格式
-<code class="language-plaintext highlighter-rouge">--salltitles</code>: 在DAA模式中，输出全长的id title, 默认只输出短的id（到第一个空格）
-<code class="language-plaintext highlighter-rouge">--sallseqid</code>: 把所有的db中的seq id 都包含到DAA文件中。比–salltitles更节省空间。说实话没看懂这一句解释
-<code class="language-plaintext highlighter-rouge">--compress(0, 1)</code>: 压缩输出结果与否。0代表不压缩，1代表gzip 压缩
-<code class="language-plaintext highlighter-rouge">--max-target-seqs/-k #</code>:  最大符合阈值的比对数量，默认为25，0代表report所有的合理比对。
-<code class="language-plaintext highlighter-rouge">--top #</code>: 输出比对最高分数的给定百分比内的alignments. (overrides –max-target-seqs/-k option). 例如设置为10，则输出所有得分低于最高得分的10%以内的alignments
-<code class="language-plaintext highlighter-rouge">--evalue/-e #</code>: Maximum expected value to report an alignment (default=0.001)
-<code class="language-plaintext highlighter-rouge">--min-score #</code>: 最小的bit score, 设置这个参数会override –evalue参数
-<code class="language-plaintext highlighter-rouge">--id #</code>: 最小identity阈值
-<code class="language-plaintext highlighter-rouge">--query-cover #</code>: 最小percentage of query cover
-<code class="language-plaintext highlighter-rouge">--subject-cover #</code>: 最小percentage of subject cover
-<code class="language-plaintext highlighter-rouge">--max-hsps #</code>: 针对每一个query, 输出单个subject的最大hsp。General 来说，在一个query/subject比对的时候完全有可能出现多个HSP. 程序默认输出所有的HSP（没有被其他的HSP覆盖的时候）。设置为1的时候，program只输出一个HSP for every qury/subject pair.
-<code class="language-plaintext highlighter-rouge">--unal (0, 1)</code>: 输出unaligned queries, 0 代表不输出，1代表输出。默认时 BLAST pairwise, BLAST XML, 以及SAM格式的时候为1， 其他时候为0
-<code class="language-plaintext highlighter-rouge">--no-self-hits</code>： 不输出identical self-hits between sequences</p>
-
-<p><code class="language-plaintext highlighter-rouge">--freq-sd #</code>: 在seed search过程中，忽略频率非常高的seed。这个参数这是的多少个单位的标准差为频率过高，fast mode 默认为50， sensitive mode 默认为10, more-sensitive mode 为200.
-<code class="language-plaintext highlighter-rouge">--band #</code>: 这个参数设置的在动态规划的过程中，seed延伸的band，两个方向都会scan.
-<code class="language-plaintext highlighter-rouge">--xml-blord-format</code>: Use gnlBL_ORD_ID style format for hit IDs in XML output.
-<code class="language-plaintext highlighter-rouge">--range-cover #</code>:  The minimum percentage of a hit’s query range that needs to be spanned by higher scoring hits for a hit to be deleted in range culling mode (default=50.0).
-<code class="language-plaintext highlighter-rouge">--culling-overlap #</code>: The minimum percentage of a hit’s query or target range that needs to be spanned by a higher scoring hit against the same target for a hit to be deleted. (default=50.0)</p>]]></content><author><name>Jie Li</name></author><category term="bioinformatics" /><category term="alignment" /><category term="protein sequence alignment" /><category term="alignment" /><category term="annotation" /><summary type="html"><![CDATA[makedb建立数据库索引 除了常用的--in和--db参数之外，--taxonmap，--taxonnodes，和--taxonnames这三个参数也可以在makedb的时候提供。这样在比对的时候可以选择性的对比特定的reference。例如只比对属于Bacteria的reference。如需实现此功能，则在makedb的时候，必须至少加上--taxonmap和--taxonnodes两个参数。 注意：diamond blast的reference必须由同一个版本的makedb建立的索引才能使用。 命令行： diamond makedb --in $ot/uniprot_sprot.fasta -d $ot/uniprot_sprot.fasta --taxonmap $ot/prot.accession2taxid.gz --taxonnodes $ot/taxdmp.zip --taxonnames $ot/taxdmp -p 10]]></summary></entry></feed>
+<p>最后需要解决pfam_scan检索目录的问题。需要把安装好的包所在的目录加入到pfam_scan的检索目录中就可以成功导入需要的依赖包并运行了。</p>]]></content><author><name>Jie Li</name></author><category term="coding" /><category term="perl" /><category term="annotation" /><category term="perl" /><category term="linux" /><summary type="html"><![CDATA[Notes]]></summary></entry></feed>
