@@ -81,7 +81,7 @@ baidu_site_verification  :
 
 # Social Sharing
 twitter                  : 
-  username               :
+  username               : &twitter "jlli6t"
 facebook                 :
   username               :
   app_id                 :
@@ -93,6 +93,7 @@ social:
   type                   : # Person or Organization (defaults to Person)
   name                   : # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
+    - "https://twitter.com/jlli6t"
 
 # Analytics
 analytics:
@@ -100,7 +101,6 @@ analytics:
   google:
     tracking_id          :
     anonymize_ip         : # true, false (default)
-
 
 # Site Author
 author:

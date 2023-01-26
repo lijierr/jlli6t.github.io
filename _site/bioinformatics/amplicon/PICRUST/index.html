@@ -32,6 +32,18 @@
 
 
 
+  <meta name="twitter:site" content="@jlli6t">
+  <meta name="twitter:title" content="Notes of PICRUST">
+  <meta name="twitter:description" content="Introduction picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。 picrust是基于已经计算好的数据库进行预测，数据库下载地址。 下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库">
+  <meta name="twitter:url" content="http://localhost:3080/bioinformatics/amplicon/PICRUST/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
 
 
   <meta property="article:published_time" content="2018-04-20T00:00:00+10:00">
@@ -56,7 +68,8 @@
     
       "@type": "Person",
       "name": "Jie Li",
-      "url": "http://localhost:3080/"
+      "url": "http://localhost:3080/",
+      "sameAs": ["https://twitter.com/jlli6t"]
     
   }
 </script>
@@ -292,7 +305,59 @@ pick_closed_reference_otus.py <span class="nt">-i</span> OTU_final.fasta <span c
 <p><strong>step 2</strong><br />
 使用命令<code class="language-plaintext highlighter-rouge">biom convert -i ucrC972/otu_table.biom -o ucrC972/otu_table.biom.tsv --to-tsv</code>
 tsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个0 1矩阵
-<img src="/assets/_imgs/" alt="" /></p>
+<img src="/assets/picbed/post/picrust_biom2matrix.png" alt="" /></p>
+
+<h2 id="2020-04-02-测试picrust-113">2020-04-02-测试PICRUST 1.1.3</h2>
+
+<h4 id="介绍">介绍</h4>
+<p>根据16S的测序数据，对样本的现在通路进行预测。picrust只能基于greengenes database进行预测，并且只有13_5和12_8两个版本。picrust是基于已经计算好的数据库进行预测，数据库<a href="http://picrust.github.io/picrust/picrust_precalculated_files.html">下载地址</a></p>
+
+<p>下载的数据库需要放到<code class="language-plaintext highlighter-rouge">Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/</code>目录下；因为<code class="language-plaintext highlighter-rouge">picrust</code>软件默认是访问这个目录来找数据库</p>
+
+<h4 id="测试过程">测试过程</h4>
+<p><strong>第一步：安装<code class="language-plaintext highlighter-rouge">picrust</code></strong>
+基于<code class="language-plaintext highlighter-rouge">python2.7</code>版本(用的<code class="language-plaintext highlighter-rouge">2.7.12</code>)， 其他版本的<code class="language-plaintext highlighter-rouge">python</code>会报错例如<code class="language-plaintext highlighter-rouge">python3.5.2</code>。
+<strong>第二步：</strong>
+因为<code class="language-plaintext highlighter-rouge">picrust</code>是读入<code class="language-plaintext highlighter-rouge">biom</code>文件，所以先要生成<code class="language-plaintext highlighter-rouge">biom</code>格式的文件。其中<code class="language-plaintext highlighter-rouge">biom</code>需要包含的信息有每个样品注释上的物种信息及对应的丰度，生成<code class="language-plaintext highlighter-rouge">biom</code>的格式方法有两种：
+        a)  通过利用<code class="language-plaintext highlighter-rouge">qiime1</code>的命令先挑选otu比对的<code class="language-plaintext highlighter-rouge">ref</code>, 这里相当于重新比对分类一次，默认方法是<code class="language-plaintext highlighter-rouge">uclust</code>(其他还有<code class="language-plaintext highlighter-rouge">usearch_ref</code>， <code class="language-plaintext highlighter-rouge">sortmerna</code>)。所以挑出来的<code class="language-plaintext highlighter-rouge">otu</code>比<code class="language-plaintext highlighter-rouge">OTU_final.fasta</code>里的序列要少, 整体预测的通路的矩阵里的值会小一些，通路数量上可能也小一些。这里好像不支持<code class="language-plaintext highlighter-rouge">rdp</code>的结果，因为<code class="language-plaintext highlighter-rouge">rdp</code>基于贝叶斯的概率方法，最后没有给出具体比对的哪个<code class="language-plaintext highlighter-rouge">id</code>, 而是只给出一个分类<code class="language-plaintext highlighter-rouge">taxonomy</code>信息。
+            （1）首先用<code class="language-plaintext highlighter-rouge">qiime1</code>里的<code class="language-plaintext highlighter-rouge">pick_closed_reference_otus.py</code>命令挑选<code class="language-plaintext highlighter-rouge">ref</code>：(可以使用<code class="language-plaintext highlighter-rouge">97</code>，也可以使用<code class="language-plaintext highlighter-rouge">90</code>，<code class="language-plaintext highlighter-rouge">99</code>或者其他的)</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"pick_otus:enable_rev_strand_match True"</span><span class="o">&gt;&gt;</span>otu_picking_params_97.txt
+<span class="nb">echo</span> <span class="s2">"pick_otus:similarity 0.97"</span><span class="o">&gt;&gt;</span>otu_picking_params_97.txt
+pick_closed_reference_otus.py <span class="nt">-i</span> OTU_final.fasta <span class="nt">-o</span> <span class="nv">$PWD</span>/ucrC972/ <span class="nt">-p</span> <span class="nv">$PWD</span>/otu_picking_params_97.txt <span class="nt">-r</span> ./gg_13_5_otus/rep_set/97_otus.fasta <span class="nt">-t</span> ./gg_13_5_otus/taxonomy/97_otu_taxonomy.txt <span class="nt">-a</span> <span class="nt">-O</span> 8</code></pre></figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        (2) biom convert -i ucrC972/otu_table.biom -o ucrC972/otu_table.biom.tsv --to-tsv tsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个0 1矩阵 ![](/assets/picbed/post/picrust_biom2matrix.png)
+        (3) 结合OTU_shared_final.xls 的每个样品的每个otu的绝对丰度文件， perl -e 'open(IN,"ucrC972/otu_table.biom.tsv");$t=&lt;IN&gt;;print"$t";%hash;$t=&lt;IN&gt;;chop($t);@t=split/\t/,$t;while(&lt;IN&gt;){chomp;@a=split;for($i=1;$i&lt;@a;$i++){if($a[$i]==1){$hash{$t[$i]}=$a[0];}}}close IN;$t=&lt;&gt;;chomp($t);print"#OTU ID$t\ttaxonomy\n";@t=split/\s+/,$t;%out;while(&lt;&gt;){chomp;@a=split;next if(not exists $hash{$a[0]});for($i=1;$i&lt;@a;$i++){$out{$hash{$a[0]}}{$t[$i]}+=$a[$i];}}foreach $k(sort keys %out){print"$k";for($i=1;$i&lt;@t;$i++){print"\t$out{$k}{$t[$i]}";}print"\n";}' ../../OTU_shared_final.xls &gt;otu_table.biom.txt 生成的otu_table.biom.txt 文件如下格式： ![](/assets/picbed/post/picrust_otu_table.png)
+        (4) 将文件convert 为biom格式： biom convert -i otu_table.biom.txt -o otu_table.biom --to-hdf5
+
+    (b) 利用mothur软件的make.biom命令生成biom文件，直接将注释的结果转换成如上格式，需要用到otu的丰度值以及具体的greengenes数据库的注释信息，需要利用到注释的中间其他文件例如将otu id与ref id对应的文件。因为没有pick的过程，所以otu有多少，就有多少注释结果，通路上可能比第一种方法要多。
+
+    而且这种方法要求必须有greengenes的注释结果，通常我们不会用greengenes进行注释，所以如果肯定不会使用greengenes的数据库注释结果，可以采用第一种方法生成biom文件；
+
+3. 利用预先计算好好的16s 拷贝数数据库，对otu的物种注释信息进行16s拷贝数的标准化： normalize_by_copy_number.py -i otu_table.biom -o normalized_otus.biom predict_metagenomes.py -t ko -i normalized_otus.biom -o metagenome_predictions.biom -a KEGG_predict_traits.tab
+
+4. 利用`predict_metagenomes.py`命令对标准化后的`otu`丰度进行功能预测；这里包括`kegg`, `cog`, 和`pfam`3个数据库进行预测，`-t cog` 或者 `-t rfam` predict_metagenomes.py -t ko -i normalized_otus.biom -o metagenome_predictions.biom -a KEGG_predict_traits.tab 其次，加入-f 参数， predict_metagenomes.py -f -t ko -i normalized_otus.biom -o metagenome_predictions.txt -a KEGG_predict_traits.tab 生成tab键隔开的文件 得到的是每个样品中KO酶的丰度 ![](/assets/picbed/post/picrust_ko_table.png)
+
+5. 将预测到的值进行map的划分，则KO的信息也是很重要，因为很多KO是不存在在map中的； categorize_by_function.py -f -i metagenome_predictions.biom -c KEGG_Pathways -l 3 -o KEGG_Pathways.L3.txt
+</code></pre></div></div>
+
+<h4 id="是否可以用每一个通路基因在各个样品之间的值来做标准化">是否可以用每一个通路/基因在各个样品之间的值来做标准化。</h4>
+<p>即例如K01361在样品MFC.1中，标准化之后为20/(20+24+21+24)。测试如下：
+在挑选了ref 序列之后，在生成biom文件前身的时候，由输入OTU_shared_final.xls文件改为输入其相对丰度文件，在predict_metagenome.py的过程中，会出现报错：</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">predict_metagenomes.py:371: RuntimeWarning: invalid value encountered <span class="k">in </span>true_divide
+
+    <span class="nv">result</span><span class="o">=</span>total/n</code></pre></figure>
+
+<p>预测的结果文件能正常生成，但是和之前的结果不一致。推测，可能在前边输入OTU的相对丰度的时候导致在16S拷贝数的标准化等等过程中有四舍五入的过程，因为虽然不一致，但是最后预测的结果是整数, 并且很多原来用绝对值去预测的时候能得到很小的值，但是换成相对丰度之后就变为了0， 有四舍五入的可能性更大了。
+<img src="/assets/picbed/post/picrust_ko_table2.png" alt="" /></p>
+
+<p>且最后预测到的值，每个样品的总和是不一致的。有三种可能性，第一种是标准化之后的输入文件，在分析过程中有四舍五入的嫌疑，第二种是虽然做了标准化，但是不是每个样品的OTU都能全部被挑到，这里去掉了一些OTU, 导致了丰度的不一致，这个是肯定的，第三种是1，2两种情况同时存在。 暂时我的理解是如果输入绝对丰度文件，对最后的输出结果做标准化，就相当于将所有的unclassified去掉之后对能注释上的物种做了一次标准化, 但因为不确定中间是否有四舍五入或者其他简略过程，需要更多的测试</p>
+
+<h4 id="待测试">待测试</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 可以将pick到ref的otu 的丰度再做一次标准化，然后作为输入进行预测，计算每个样品的总和
+2. Module没有预测出来，待解决，原文中有提到Module的信息，最好能预测到module的信息
+</code></pre></div></div>
 
 
 <ul class="taxonomy__index">
@@ -1092,7 +1157,7 @@ More and more projects are migrating from Python2 to Python3. On the one hand, P
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          less than 1 minute read
+          1 minute read
         
       </span>
     
