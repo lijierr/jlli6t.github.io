@@ -2,6 +2,10 @@
 layout: posts
 title: SortMeRNA-Burst trie结合查找表，Levenshtein自动机搜索快速鉴定rRNA
 author: Jie Li
+toc: true
+toc_label: "SortMeRNA"
+toc_icon: "heart"
+excerpt_separator: "<!--more-->"
 categories: [bioinformatics, metatranscriptomic]
 tags: [tutorials, RNA, mapping]
 math: false
@@ -10,6 +14,8 @@ math: false
 ![]({{ 'assets/picbed/post/sortmerna_title.png' | relative_url}})
 ## 1. Introduction
 SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。
+
+<!--more-->
 
 ## 2. 算法基本原理
 底层算法与seed策略类似，主要是寻找rRNA数据库和read之间的一定数量的相似短区域。对rRNA序列建立索引的时候，与HMM一样，利用同源序列之间的冗余，建立所有rRNA序列的压缩模型。

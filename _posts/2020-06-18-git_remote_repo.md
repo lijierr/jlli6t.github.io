@@ -1,8 +1,12 @@
 ---
 layout: posts
-title: git绑定github账户远端仓库
+title: git操作远端仓库
 subtitle: ""
 author: Jie Li
+toc: true
+toc_label: "git操作远端仓库"
+toc_icon: "heart"
+excerpt_separator: "<!--more-->"
 categories: [linux, git]
 tags: [tutorial, git]
 ---
@@ -14,6 +18,8 @@ tags: [tutorial, git]
 ls ~/.ssh/
 a  b  id_rsa  id_rsa.pub  known_hosts
 {% endhighlight %}
+
+<!--more-->
 
 需要的文件是一对以`id_rsa`或`id_dsa`命名的文件。例如上边我的目录中是`id_rsa`文件和`id_rsa.pub`文件，其中一个文件以`id_rsa.pub`文件是公钥，`id_rsa`是私钥。
 如果没有这样的文件，或者甚至都没有.ssh目录的话，那么需要自己生成`SSH`公钥：

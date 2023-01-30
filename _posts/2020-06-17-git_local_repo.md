@@ -3,6 +3,10 @@ layout: posts
 title: git操作本地仓库
 subtitle: ""
 author: Jie Li
+toc: true
+toc_label: "git操作本地仓库"
+toc_icon: "heart"
+excerpt_separator: "<!--more-->"
 categories: [linux, git]
 tags: [tutorial, git]
 ---
@@ -13,6 +17,8 @@ tags: [tutorial, git]
 which git
 /opt/rocks/bin/git
 {% endhighlight %}
+
+<!--more-->
 
 ### 初始化仓库
 进入到对应的目录，执行`git init`命令。

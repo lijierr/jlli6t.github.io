@@ -2,13 +2,12 @@
 layout: posts
 title: Perl包安装
 author: Jie Li
-categories:
-    - coding
-    - perl
-tags: 
-    - annotation
-    - perl
-    - linux
+toc: true
+toc_label: "Perl包安装"
+toc_icon: "heart"
+excerpt_separator: "<!--more-->"
+categories: [coding, perl]
+tags: [annotation, perl, linux]
 math: false
 ---
 
@@ -19,6 +18,8 @@ math: false
 /path/to/cpan # 启动
 >>> install PackageName
 {% endhighlight %}
+
+<!--more-->
 
 ## 当你没有root权限
 

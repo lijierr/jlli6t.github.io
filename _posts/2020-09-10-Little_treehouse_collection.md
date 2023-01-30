@@ -2,13 +2,21 @@
 layout: posts
 title: little treehouse collection - estimation
 author: Jie Li
+toc: true
+toc_label: "little treehouse collection - estimation"
+toc_icon: "heart"
+excerpt_separator: "<!--more-->"
 categories: [statistics, estimation]
 tags: [estimation]
 math: false
 ---
 
 ### 1. Introduction
-Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below). However, every redeemed book is **wrapped with cover**, thus, you won't be able to know which number you get until you uncover it.
+Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below). 
+
+<!--more-->
+
+However, every redeemed book is **wrapped with cover**, thus, you won't be able to know which number you get until you uncover it.
 ![photo]( {{'assets/picbed/post/little_treehouse.png' | relative_url }})
 
 I am curious about roughly how much you gonna spend at Coles to collect a full set of LITTLE TREEHOUSE book (a single transaction of $30 or more but less than $60 is calculated as $30).

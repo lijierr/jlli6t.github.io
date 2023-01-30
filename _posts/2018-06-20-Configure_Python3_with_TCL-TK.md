@@ -2,6 +2,10 @@
 layout: posts
 title: Configure Python3 with TCL-TK
 author: Jie Li
+toc: true
+toc_label: "Configure Python3 with TCL-TK"
+toc_icon: "heart"
+excerpt_separator: "<!--more-->"
 categories: [coding, python]
 tags: [TCK-TK, environment, linux]
 ---
@@ -9,6 +13,8 @@ tags: [TCK-TK, environment, linux]
 ### Introduction
 More and more projects are migrating from Python2 to Python3. On the one hand, Python3 has more features available, and secondly, the more important reason should be that with the development of Python3 and its community, Python2 will gradually no longer be maintained.
 Due to the needs of the work, my working python have to be configured with tk and tcl. The details are as follows:
+
+<!--more-->
 
 很多项目在陆陆续续的往Python3迁移，一方面是Python3有更多的feature可用，其次更重要的原因应该是，随着Python3和社区的发展，Python2慢慢会不再维护了。
 因工作内容需要，Python需要配置tk及tcl，细节如下：

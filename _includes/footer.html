@@ -7,18 +7,19 @@
     {% if site.footer.links %}
       {% for link in site.footer.links %}
         {% if link.label and link.url %}
-          <center><li><a href="{{ link.url }}" title="{{ link.label }}"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i></a></li></center>
+          <li><a href="{{ link.url }}" title="{{ link.label }}"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i></a></li>
         {% endif %}
       {% endfor %}
     {% endif %}
 
     {% unless site.atom_feed.hide %}
-      <center><li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li></center>
+      <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
     {% endunless %}
   </ul>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <span id="busuanzi_container_site_pv">
-<center><div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }}<font color=F08F8F> ❤ </font>{{ site.name | default: site.title }}<font color=F08F8F> ❤ </font><span id="busuanzi_value_site_pv"> visits</span>. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div></center>
-  </span>
+<div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }}<font color=F08F8F> ❤ </font>{{ site.name | default: site.title }}<font color=F08F8F> ❤ </font><span id="busuanzi_value_site_pv"></span> visits.</div>
+<div class="page__footer-copyright">&copy; {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes.</a></div>
+</span>

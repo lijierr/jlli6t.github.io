@@ -2,6 +2,10 @@
 layout: posts
 title: markdown tutorial
 author: Jie Li
+toc: true
+toc_label: "markdown tutorial"
+toc_icon: "heart"
+excerpt_separator: "<!--more-->"
 categories: [tutorial, git]
 tags: [markdown, tutorials]
 math: true
@@ -11,6 +15,9 @@ last_modified_at: 2022-03-23 00:04:00 +0800
 **Howdy!** This is an example blog post that shows several types of HTML content supported in this theme.
 
 Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. *Aenean eu leo quam.* Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
+
+
+<!--more-->
 
 > Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
 
