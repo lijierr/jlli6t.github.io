@@ -14,7 +14,7 @@ sidebar-sample:
   - title: "Collection"
     children:
       - title: "Project"
-        url: /projects/
+        url: /projects/index.html
   - title: "Parent Page B"
     children:
       - title: "Child Page B1"

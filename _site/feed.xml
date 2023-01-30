@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:3080/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3080/" rel="alternate" type="text/html" /><updated>2023-01-29T19:08:55+10:00</updated><id>http://localhost:3080/feed.xml</id><title type="html">Jie Li (She/Her)</title><subtitle>Passion can outweight the long years &lt;font color=F08F8F&gt;❤&lt;/font&gt; 热爱可抵岁月漫长</subtitle><author><name>Jie Li</name></author><entry><title type="html">markdown tutorial</title><link href="http://localhost:3080/tutorial/git/markdown-tutorial/" rel="alternate" type="text/html" title="markdown tutorial" /><published>2022-02-09T00:00:00+10:00</published><updated>2022-03-23T02:04:00+10:00</updated><id>http://localhost:3080/tutorial/git/markdown-tutorial</id><content type="html" xml:base="http://localhost:3080/tutorial/git/markdown-tutorial/"><![CDATA[<p><strong>Howdy!</strong> This is an example blog post that shows several types of HTML content supported in this theme.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:3080/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3080/" rel="alternate" type="text/html" /><updated>2023-01-30T21:20:34+10:00</updated><id>http://localhost:3080/feed.xml</id><title type="html">Jie Li (She/Her)</title><subtitle>Passion can outweight the long years &lt;font color=F08F8F&gt;❤&lt;/font&gt; 热爱可抵岁月漫长</subtitle><author><name>Jie Li</name></author><entry><title type="html">markdown tutorial</title><link href="http://localhost:3080/tutorial/git/markdown-tutorial/" rel="alternate" type="text/html" title="markdown tutorial" /><published>2022-02-09T00:00:00+10:00</published><updated>2022-03-23T02:04:00+10:00</updated><id>http://localhost:3080/tutorial/git/markdown-tutorial</id><content type="html" xml:base="http://localhost:3080/tutorial/git/markdown-tutorial/"><![CDATA[<p><strong>Howdy!</strong> This is an example blog post that shows several types of HTML content supported in this theme.</p>
 
 <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. <em>Aenean eu leo quam.</em> Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
 
@@ -240,44 +240,7 @@
 
 <p>数据库已经在线<code class="language-plaintext highlighter-rouge">13</code>年。目前收录了<code class="language-plaintext highlighter-rouge">11419</code>条序列，包括<code class="language-plaintext highlighter-rouge">7174</code>个不同的物种，版本号<code class="language-plaintext highlighter-rouge">17</code>。</p>
 
-<p><code class="language-plaintext highlighter-rouge">Taxon</code>分类包括<code class="language-plaintext highlighter-rouge">Archaea</code>， <code class="language-plaintext highlighter-rouge">Bacteria</code>， <code class="language-plaintext highlighter-rouge">Eukaryota</code>，<code class="language-plaintext highlighter-rouge">Plastids</code>，和<code class="language-plaintext highlighter-rouge">Mitochondria</code>。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction 除了从NCBI，Rfam等这样的大库中分离5S rRNA序列之外，发现有人在收集相应的序列：http://www.combio.pl/rrna/。]]></summary></entry><entry><title type="html">Silva updates to 138</title><link href="http://localhost:3080/database/rrna/Silva_138/" rel="alternate" type="text/html" title="Silva updates to 138" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/database/rrna/Silva_138</id><content type="html" xml:base="http://localhost:3080/database/rrna/Silva_138/"><![CDATA[<h3 id="introduction">Introduction</h3>
-<p>SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。</p>
-
-<!--more-->
-
-<p>数据集的快速增长极大的增加了硬件需求，数据库越大，则越需要更多的资源例如内存来加载数据库。目前有两种策略解决此问题：1）升级硬件满足需求。2）减小数据库中的序列数。出于多种原因，只要结果数据集仍然具有<strong>代表性</strong>（这是环境微生物学中的一个非常重要的参数），第二种方法会更具性价比。SILVA项目选择了99% identity作为标准对SSU Ref进行去冗余构建了SSU Ref NR数据集。</p>
-
-<p><strong>这次138版本目前只更新了SSU库</strong>，LSU库还在进行中。taxonomy信息加入了GTDB的分类信息，138以前的版本中还有greengenes数据库的信息。GTDB项目的负责人是昆士兰大学的Prof. Phil Hugenholtz，他同时也参与了greengenes数据库的构建。</p>
-
-<h3 id="简介">简介：</h3>
-<p>silva是一个全面的比对的核糖体RNA序列数据的在线资源，由德国Microbial Genomics and Bioinformatics Research Group开发及维护。SILVA提供了三个域（细菌，古菌，真核生物）的对齐的小亚基（16S/18S，SSU）和大亚基（23S/28S，LSU）rRNA序列的全面、质量检查过并定期更新的数据集。且SILVA是软件包ARB的官方数据库。<br />
-SSU：核糖体小亚基库，包含了细菌和古菌的16S序列，以及真核生物的18S序列。<br />
-LSU：核糖体大亚基库，包含了细菌和古菌的23S序列，以及真核生物的28S序列</p>
-
-<h3 id="文件描述">文件描述：</h3>
-<p><strong>_tax_silva.fasta.gz</strong>
-SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息。
-标注：这些文件里包含的是原始的存储在公共数据库（ENA/GenBank/DDBJ）中的序列，没有对序列进行修剪。<br />
-<strong>_tax_silva_full_align_trunc.fasta.gz</strong>
-SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息，同时还包含了比对信息。
-标注：这些文件里的序列是修剪过的，数据库中没有被比对的序列皆被去除了。<br />
-<strong>_tax_silva_trunc.fasta.gz</strong>
-SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息。
-标注：这些文件里的序列是修剪过的，数据库中没有被比对的序列皆被去除了。</p>
-
-<h3 id="库构建方法">库构建方法：</h3>
-<p><strong>SSU Parc库：</strong><br />
-包含所有比对identity&gt;=50，比对质量值&gt;=40，碱基对分数或序列质量值&gt;30的序列。Pintail值&lt;50或比对质量值&lt;75的所有序列在ARB中指定为红色。而ALL-&gt;Living Tree Project 或 StrainInfo中的typestrans在ARB中指定为浅蓝色。</p>
-
-<p><strong>SSU Ref库：</strong><br />
-细菌和真核生物序列&lt;1200bp，古菌序列&lt;900bp，比对identity&lt;70，或比对质量值&lt;50的序列被去除。而ALL-&gt;Living Tree Project 或 StrainInfo中的typestrans在ARB中指定为浅蓝色。</p>
-
-<p><strong>SSU Ref NR库：</strong><br />
-基于最后发行的Ref NR 99版本的数据库里自定义的序列顺序结合序列长度（加权两倍）和质量，以99%的identity标准，来去除高度相似相同的序列。而对于排序，序列的质量由ambiguties（50%），总体比对质量（45%）以及均聚物（5%）进行定义。序列的总体比对质量是根据其比对得分，比对identity，以及比对的百分比（相等的权重）计算得来。已可培养物种的序列在所有的情况下都进行保留。</p>
-
-<p>标注：<strong>138版本的SSU Ref NR 99比之前的版本包含更少的序列</strong>。因为团队把序列比对的工具从USEARCH中整合的UCLUST (1.0.50) 换到VSEARCH (2.13)，提升了聚类的性能，且有望使团队可以在将来提供更稳定的Ref NR库。</p>
-
-<p>Ref NR库减小是由于这两个工具使用不同的序列/比对identity的定义差异导致。团队还使用了第三方工具CD-HIT（v4.8）交叉检查了比对的结果。在使用同样的identity阈值条件下，VSEARCH和CD-HIT返回了相似的聚类簇，而UCLUST返回了<strong>显著更大数目</strong>的聚类簇。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="tutorial" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。]]></summary></entry><entry><title type="html">git操作远端仓库</title><link href="http://localhost:3080/linux/git/git_remote_repo/" rel="alternate" type="text/html" title="git操作远端仓库" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/linux/git/git_remote_repo</id><content type="html" xml:base="http://localhost:3080/linux/git/git_remote_repo/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p><code class="language-plaintext highlighter-rouge">Taxon</code>分类包括<code class="language-plaintext highlighter-rouge">Archaea</code>， <code class="language-plaintext highlighter-rouge">Bacteria</code>， <code class="language-plaintext highlighter-rouge">Eukaryota</code>，<code class="language-plaintext highlighter-rouge">Plastids</code>，和<code class="language-plaintext highlighter-rouge">Mitochondria</code>。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction 除了从NCBI，Rfam等这样的大库中分离5S rRNA序列之外，发现有人在收集相应的序列：http://www.combio.pl/rrna/。]]></summary></entry><entry><title type="html">git操作远端仓库</title><link href="http://localhost:3080/linux/git/git_remote_repo/" rel="alternate" type="text/html" title="git操作远端仓库" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/linux/git/git_remote_repo</id><content type="html" xml:base="http://localhost:3080/linux/git/git_remote_repo/"><![CDATA[<h2 id="introduction">Introduction</h2>
 <h3 id="确认ssh-key">确认SSH key</h3>
 <p>第一步，首先确实自己的目录下是否已经有<code class="language-plaintext highlighter-rouge">SSH key</code>。这个一般在<code class="language-plaintext highlighter-rouge">~/.ssh</code>目录下，可查看目录是否有</p>
 
@@ -335,7 +298,44 @@ git remote rm NAME
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">git pull 远端仓库</code></pre></figure>
 
 <h3 id="ref">ref</h3>
-<p>https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5</p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="git" /><category term="tutorial" /><category term="git" /><summary type="html"><![CDATA[Introduction 确认SSH key 第一步，首先确实自己的目录下是否已经有SSH key。这个一般在~/.ssh目录下，可查看目录是否有 ls ~/.ssh/ a b id_rsa id_rsa.pub known_hosts]]></summary></entry><entry><title type="html">git操作本地仓库</title><link href="http://localhost:3080/linux/git/git_local_repo/" rel="alternate" type="text/html" title="git操作本地仓库" /><published>2020-06-17T00:00:00+10:00</published><updated>2020-06-17T00:00:00+10:00</updated><id>http://localhost:3080/linux/git/git_local_repo</id><content type="html" xml:base="http://localhost:3080/linux/git/git_local_repo/"><![CDATA[<h3 id="git-工具">git 工具</h3>
+<p>https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5</p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="git" /><category term="tutorial" /><category term="git" /><summary type="html"><![CDATA[Introduction 确认SSH key 第一步，首先确实自己的目录下是否已经有SSH key。这个一般在~/.ssh目录下，可查看目录是否有 ls ~/.ssh/ a b id_rsa id_rsa.pub known_hosts]]></summary></entry><entry><title type="html">Silva updates to 138</title><link href="http://localhost:3080/database/rrna/Silva_138/" rel="alternate" type="text/html" title="Silva updates to 138" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/database/rrna/Silva_138</id><content type="html" xml:base="http://localhost:3080/database/rrna/Silva_138/"><![CDATA[<h3 id="introduction">Introduction</h3>
+<p>SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。</p>
+
+<!--more-->
+
+<p>数据集的快速增长极大的增加了硬件需求，数据库越大，则越需要更多的资源例如内存来加载数据库。目前有两种策略解决此问题：1）升级硬件满足需求。2）减小数据库中的序列数。出于多种原因，只要结果数据集仍然具有<strong>代表性</strong>（这是环境微生物学中的一个非常重要的参数），第二种方法会更具性价比。SILVA项目选择了99% identity作为标准对SSU Ref进行去冗余构建了SSU Ref NR数据集。</p>
+
+<p><strong>这次138版本目前只更新了SSU库</strong>，LSU库还在进行中。taxonomy信息加入了GTDB的分类信息，138以前的版本中还有greengenes数据库的信息。GTDB项目的负责人是昆士兰大学的Prof. Phil Hugenholtz，他同时也参与了greengenes数据库的构建。</p>
+
+<h3 id="简介">简介：</h3>
+<p>silva是一个全面的比对的核糖体RNA序列数据的在线资源，由德国Microbial Genomics and Bioinformatics Research Group开发及维护。SILVA提供了三个域（细菌，古菌，真核生物）的对齐的小亚基（16S/18S，SSU）和大亚基（23S/28S，LSU）rRNA序列的全面、质量检查过并定期更新的数据集。且SILVA是软件包ARB的官方数据库。<br />
+SSU：核糖体小亚基库，包含了细菌和古菌的16S序列，以及真核生物的18S序列。<br />
+LSU：核糖体大亚基库，包含了细菌和古菌的23S序列，以及真核生物的28S序列</p>
+
+<h3 id="文件描述">文件描述：</h3>
+<p><strong>_tax_silva.fasta.gz</strong>
+SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息。
+标注：这些文件里包含的是原始的存储在公共数据库（ENA/GenBank/DDBJ）中的序列，没有对序列进行修剪。<br />
+<strong>_tax_silva_full_align_trunc.fasta.gz</strong>
+SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息，同时还包含了比对信息。
+标注：这些文件里的序列是修剪过的，数据库中没有被比对的序列皆被去除了。<br />
+<strong>_tax_silva_trunc.fasta.gz</strong>
+SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息。
+标注：这些文件里的序列是修剪过的，数据库中没有被比对的序列皆被去除了。</p>
+
+<h3 id="库构建方法">库构建方法：</h3>
+<p><strong>SSU Parc库：</strong><br />
+包含所有比对identity&gt;=50，比对质量值&gt;=40，碱基对分数或序列质量值&gt;30的序列。Pintail值&lt;50或比对质量值&lt;75的所有序列在ARB中指定为红色。而ALL-&gt;Living Tree Project 或 StrainInfo中的typestrans在ARB中指定为浅蓝色。</p>
+
+<p><strong>SSU Ref库：</strong><br />
+细菌和真核生物序列&lt;1200bp，古菌序列&lt;900bp，比对identity&lt;70，或比对质量值&lt;50的序列被去除。而ALL-&gt;Living Tree Project 或 StrainInfo中的typestrans在ARB中指定为浅蓝色。</p>
+
+<p><strong>SSU Ref NR库：</strong><br />
+基于最后发行的Ref NR 99版本的数据库里自定义的序列顺序结合序列长度（加权两倍）和质量，以99%的identity标准，来去除高度相似相同的序列。而对于排序，序列的质量由ambiguties（50%），总体比对质量（45%）以及均聚物（5%）进行定义。序列的总体比对质量是根据其比对得分，比对identity，以及比对的百分比（相等的权重）计算得来。已可培养物种的序列在所有的情况下都进行保留。</p>
+
+<p>标注：<strong>138版本的SSU Ref NR 99比之前的版本包含更少的序列</strong>。因为团队把序列比对的工具从USEARCH中整合的UCLUST (1.0.50) 换到VSEARCH (2.13)，提升了聚类的性能，且有望使团队可以在将来提供更稳定的Ref NR库。</p>
+
+<p>Ref NR库减小是由于这两个工具使用不同的序列/比对identity的定义差异导致。团队还使用了第三方工具CD-HIT（v4.8）交叉检查了比对的结果。在使用同样的identity阈值条件下，VSEARCH和CD-HIT返回了相似的聚类簇，而UCLUST返回了<strong>显著更大数目</strong>的聚类簇。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="tutorial" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。]]></summary></entry><entry><title type="html">git操作本地仓库</title><link href="http://localhost:3080/linux/git/git_local_repo/" rel="alternate" type="text/html" title="git操作本地仓库" /><published>2020-06-17T00:00:00+10:00</published><updated>2020-06-17T00:00:00+10:00</updated><id>http://localhost:3080/linux/git/git_local_repo</id><content type="html" xml:base="http://localhost:3080/linux/git/git_local_repo/"><![CDATA[<h3 id="git-工具">git 工具</h3>
 <p>查看服务器上是否已经安装好<code class="language-plaintext highlighter-rouge">git</code>。服务器上有自带的<code class="language-plaintext highlighter-rouge">git</code>，直接使用即可，不需要另外安装了。</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">which git
@@ -474,42 +474,8 @@ D       rdetrfq.py</code></pre></figure>
 <p>这里关注到GTDB有issues提到了类似的问题，想说有参考价值，如下:</p>
 
 <p><a href="https://github.com/Ecogenomics/GTDBTk/issues/193">关于gtdbtk的result能否说明是一个new species</a>
-<a href="https://github.com/Ecogenomics/GTDBTk/issues/43">关于ANI的大小如何infer a new species</a></p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="genome" /><category term="genome" /><category term="taxonomy" /><summary type="html"><![CDATA[GTDB数据库介绍 GTDB的下载地址]]></summary></entry><entry><title type="html">Perl包安装</title><link href="http://localhost:3080/coding/perl/Perl_package_installation_to_fix_Pfam_scan/" rel="alternate" type="text/html" title="Perl包安装" /><published>2020-03-13T00:00:00+10:00</published><updated>2020-03-13T00:00:00+10:00</updated><id>http://localhost:3080/coding/perl/Perl_package_installation_to_fix_Pfam_scan</id><content type="html" xml:base="http://localhost:3080/coding/perl/Perl_package_installation_to_fix_Pfam_scan/"><![CDATA[<h2 id="notes">Notes</h2>
+<a href="https://github.com/Ecogenomics/GTDBTk/issues/43">关于ANI的大小如何infer a new species</a></p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="genome" /><category term="genome" /><category term="taxonomy" /><summary type="html"><![CDATA[GTDB数据库介绍 GTDB的下载地址]]></summary></entry><entry><title type="html">hmm vertibe 过程</title><link href="http://localhost:3080/statistics/probability/hmm_vertibe/" rel="alternate" type="text/html" title="hmm vertibe 过程" /><published>2020-04-01T00:00:00+10:00</published><updated>2020-04-01T00:00:00+10:00</updated><id>http://localhost:3080/statistics/probability/hmm_vertibe</id><content type="html" xml:base="http://localhost:3080/statistics/probability/hmm_vertibe/"><![CDATA[<p><img src="/assets/picbed/post/hmm_vertibe1.png" alt="" /></p>
 
-<p><code class="language-plaintext highlighter-rouge">CPAN</code>自动安装<code class="language-plaintext highlighter-rouge">Perl</code>包，这个最常用：</p>
+<p><br /></p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">/path/to/cpan <span class="c"># 启动</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">install </span>PackageName</code></pre></figure>
-
-<!--more-->
-
-<h2 id="当你没有root权限">当你没有root权限</h2>
-
-<p>假如你没有<code class="language-plaintext highlighter-rouge">root</code>权限，则你需要将包安装到你有写入权限的目录：
-首先安装<code class="language-plaintext highlighter-rouge">local::lib</code>
-https://metacpan.org/pod/local::lib
-使用的命令如下：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">wget https://cpan.metacpan.org/authors/id/H/HA/HAARG/local-lib-2.000024.tar.gz
-<span class="nb">tar</span> <span class="nt">-xvf</span> local-lib-2.000024.tar.gz
-<span class="nb">cd </span>local-lib-2.000024
-perl Makefile.PL <span class="nt">--bootstrap</span><span class="o">=</span>YOURPATH
-make <span class="nb">test
-</span>make <span class="nb">install</span></code></pre></figure>
-
-<h2 id="当安装的时候报错需要解决依赖包的问题">当安装的时候报错，需要解决依赖包的问题</h2>
-
-<p>例如，需要安装<code class="language-plaintext highlighter-rouge">Moose</code>，<code class="language-plaintext highlighter-rouge">CPAN</code>安装的时候报错退出。提示此包的依赖包括:
-<code class="language-plaintext highlighter-rouge">Package::DeprecationManager,Package::Stash::XS,Test::CleanNamespaces,Sub::Exporter,Params::Util,Devel::OverloadInfo,Class::Load::XS,Package::Stash,Class::Load,Sub::Name,Data::OptList,Sub::Identify</code>
-那么，需要依次安装这些包：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">perl <span class="nt">-MCPAN</span> <span class="nt">-Mlocal</span>::lib <span class="nt">-e</span> <span class="s1">'CPAN::install(包名)'</span></code></pre></figure>
-
-<p>把所有的依赖都准备好之后，安装Moose就成功了。</p>
-
-<p>接下来安装<code class="language-plaintext highlighter-rouge">IPC:Run</code>包</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s1">'eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)'</span> <span class="o">&gt;&gt;</span>~/.bashrc
-<span class="nb">source</span> ~/.bashrc</code></pre></figure>
-
-<p>最后需要解决pfam_scan检索目录的问题。需要把安装好的包所在的目录加入到pfam_scan的检索目录中就可以成功导入需要的依赖包并运行了。</p>]]></content><author><name>Jie Li</name></author><category term="coding" /><category term="perl" /><category term="annotation" /><category term="perl" /><category term="linux" /><summary type="html"><![CDATA[Notes CPAN自动安装Perl包，这个最常用： /path/to/cpan # 启动 &gt;&gt;&gt; install PackageName]]></summary></entry></feed>
+<p><img src="/assets/picbed/post/hmm_vertibe2.png" alt="" /></p>]]></content><author><name>Jie Li</name></author><category term="statistics" /><category term="probability" /><category term="probability" /><summary type="html"><![CDATA[]]></summary></entry></feed>

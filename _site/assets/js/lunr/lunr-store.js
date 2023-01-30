@@ -71,6 +71,12 @@ var store = [{
         "url": "/coding/perl/Perl_package_installation_to_fix_Pfam_scan/",
         "teaser": null
       },{
+        "title": "hmm vertibe 过程",
+        "excerpt":"         ","categories": ["statistics","probability"],
+        "tags": ["probability"],
+        "url": "/statistics/probability/hmm_vertibe/",
+        "teaser": null
+      },{
         "title": "GTDB数据库",
         "excerpt":"GTDB数据库介绍  GTDB的下载地址     关于GTDB taxonomy信息与NCBI的不一致问题  因为GTDB的taxonomy是最新提出的，与传统已有的taxonomy的信息是有差异的。但是我们在处理数据的时候，经常会结合例如Silva等的数据结果，那么就会出现多个结果之间taxonomy不一致的情况。我们可以将GTDB的taxonomy的结果转换成NCBI的taxonomy的结果。具体可以参考整理的issues：   关于phylum命名规则的问题   关于gtdb_to_ncbi_majority_vote.py的使用   整个taxonomy的问题 关于Desulfovibrionia等四个具体的菌的classification的信息   关于如何transfer GTDB的taxonomy信息到NCBI的taxonomy信息，作者介绍了部分内容，且网友提供了一个工具   关于GTDB的taxa与NCBI的taxa信息不是1:1的问题  他们的数据库里有两个文件：文件包含了每一个NCBI的taxa在GTDB中被分到的taxa所占的比例： Bacteria Archaea   例如Cyanobacteria， 这个是GTDB给的新的分类，但是在对应回到NCBI的信息时候，会发现有p__Candidatus Melainabacteria的，p__Proteobacteria的，p__Firmicutes，p__Actinobacteria，p__Spirochaetes等的，   或者还有关于每一个GTDB序列对应的NCBI序列的metadata文件: Bacteria Archaea   但是有一个问题就是在GTDBtk进行分类的时候，并不是每一条genome都能匹配上一个reference。匹配不到reference的时候，它会采用pplacer placement在topology上决定genome上的分类，或者计算RED value的方法来novelly决定genome的分类。   GTDB的配套工具GTDBTk  使用建议  作者推荐，这个工具用于contamination &lt; 10%，completeness &gt; 50%的genomes: https://github.com/Ecogenomics/GTDBTk/issues/184   关于使用GTDBTk鉴定新物种  这里关注到GTDB有issues提到了类似的问题，想说有参考价值，如下:   关于gtdbtk的result能否说明是一个new species 关于ANI的大小如何infer a new species   ","categories": ["database","genome"],
         "tags": ["genome","taxonomy"],
