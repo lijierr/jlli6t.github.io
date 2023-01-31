@@ -71,6 +71,12 @@ var store = [{
         "url": "/coding/perl/Perl_package_installation_to_fix_Pfam_scan/",
         "teaser": null
       },{
+        "title": "Needleman Wunsch alignment DP",
+        "excerpt":"         ","categories": ["statistics","alignment"],
+        "tags": ["alignment"],
+        "url": "/statistics/alignment/Needleman_Wunsch_alignment/",
+        "teaser": null
+      },{
         "title": "hmm vertibe 过程",
         "excerpt":"         ","categories": ["statistics","probability"],
         "tags": ["probability"],

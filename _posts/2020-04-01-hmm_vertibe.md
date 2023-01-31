@@ -11,8 +11,8 @@ tags: [probability]
 math: false
 ---
 
-![]({{ 'assets/picbed/post/hmm_vertibe1.png' | relative_url}})
+![]({{ 'assets/picbed/statistics/hmm_vertibe1.png' | relative_url}})
 
 <br>
 
-![]({{ 'assets/picbed/post/hmm_vertibe2.png' | relative_url}})
+![]({{ 'assets/picbed/statistics/hmm_vertibe2.png' | relative_url}})
