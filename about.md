@@ -2,9 +2,11 @@
 layout: single
 permalink: /about/index.html
 classes: wide
-title: About Jie
+title: ""
 author_profile: true
 toc: true
+toc_label: "About Jie"
+toc_icon: "heart"
 ---
 
 Jie did her PhD with professor Jianhua Guo and professor Gene Tyson with focus on microbial ecology and bioinformatics.
