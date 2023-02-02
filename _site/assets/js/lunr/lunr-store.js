@@ -143,6 +143,12 @@ var store = [{
         "url": "/tutorial/git/markdown-tutorial/",
         "teaser": null
       },{
+        "title": "pmoA基因序列数据库",
+        "excerpt":"Introduction  想找pmoA的序列构建数据库，找到了这个网站. \t里边包括核酸序列，以及序列对应的tax的信息。  ","categories": ["database","gene"],
+        "tags": ["protein","gene"],
+        "url": "/database/gene/pmoA_database/",
+        "teaser": null
+      },{
     "title": null,
     "excerpt":"     404     Page not found :(    The requested page could not be found.   ","url": "http://localhost:3080/404.html"
   },{
