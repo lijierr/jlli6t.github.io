@@ -512,7 +512,7 @@
   
     <li>
       <a href="#2018">
-        <strong>2018</strong> <span class="taxonomy__count">6</span>
+        <strong>2018</strong> <span class="taxonomy__count">7</span>
       </a>
     </li>
   
@@ -1657,6 +1657,56 @@ picrust是基于已经计算好的数据库进行预测，数据库下载地址�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/database/genome/NCBI_genomes_download/" rel="permalink">NCBI genomes下载
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2018-04-10T00:00:00+10:00">April 10, 2018</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">NCBI的这个genome reports的FTP site下，
+ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/
+有真核：
+ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/eukaryotes.txt
+原核：...</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/database/protein/UniProtKB/" rel="permalink">Introduction to UniprotKB
 </a>
       
@@ -1860,10 +1910,30 @@ Mark a mark. The first day in Brisbane.
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <span id="busuanzi_container_site_pv">
 <center>
-  <div class="page__footer-copyright">&copy; 2023<font color=F08F8F> ❤ </font>Jie Li. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes.
-    <br> Today is 02-02-2023, and this is the <span id="busuanzi_value_site_pv"></span>th visit<font color=F08F8F> ❤</font>.      
-  </a></div></center>
-</span>
+  <div class="page__footer-copyright">&copy; 2023 Jie Li. This is the <span id="busuanzi_value_site_pv"></span>th visit<font color=F08F8F> ❤</font>.
+    <div id="div1"></div>
+    <script>
+        function time() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            var arr_week = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+            var week = arr_week[date.getDay()];
+            var str = day + "-" + month + "-" + year + " " + week + " " + hour + ":" + minutes + ":" + seconds;
+            var div1 = document.getElementById("div1");
+            div1.innerHTML = str;
+        }
+        setInterval(time,1000);
+    </script>
+
+  </div></center>
+  <center><div class="page__footer-copyright">&copy; Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes.</a></div></center>
+
+
       </footer>
     </div>
 

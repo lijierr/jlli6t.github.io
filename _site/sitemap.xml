@@ -13,6 +13,10 @@
 <lastmod>2018-04-02T00:00:00+10:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:3080/database/genome/NCBI_genomes_download/</loc>
+<lastmod>2018-04-10T00:00:00+10:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:3080/bioinformatics/amplicon/PICRUST/</loc>
 <lastmod>2023-01-23T00:00:00+10:00</lastmod>
 </url>
@@ -123,5 +127,8 @@
 </url>
 <url>
 <loc>http://localhost:3080/page5/</loc>
+</url>
+<url>
+<loc>http://localhost:3080/page6/</loc>
 </url>
 </urlset>

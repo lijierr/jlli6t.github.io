@@ -404,10 +404,30 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <span id="busuanzi_container_site_pv">
 <center>
-  <div class="page__footer-copyright">&copy; 2023<font color=F08F8F> ❤ </font>Jie Li. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes.
-    <br> Today is 02-02-2023, and this is the <span id="busuanzi_value_site_pv"></span>th visit<font color=F08F8F> ❤</font>.      
-  </a></div></center>
-</span>
+  <div class="page__footer-copyright">&copy; 2023 Jie Li. This is the <span id="busuanzi_value_site_pv"></span>th visit<font color=F08F8F> ❤</font>.
+    <div id="div1"></div>
+    <script>
+        function time() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            var arr_week = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+            var week = arr_week[date.getDay()];
+            var str = day + "-" + month + "-" + year + " " + week + " " + hour + ":" + minutes + ":" + seconds;
+            var div1 = document.getElementById("div1");
+            div1.innerHTML = str;
+        }
+        setInterval(time,1000);
+    </script>
+
+  </div></center>
+  <center><div class="page__footer-copyright">&copy; Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes.</a></div></center>
+
+
       </footer>
     </div>
 
