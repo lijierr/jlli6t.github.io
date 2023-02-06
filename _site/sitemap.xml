@@ -111,6 +111,9 @@
 <loc>http://localhost:3080/</loc>
 </url>
 <url>
+<loc>http://localhost:3080/media/</loc>
+</url>
+<url>
 <loc>http://localhost:3080/projects/</loc>
 </url>
 <url>

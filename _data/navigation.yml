@@ -8,6 +8,8 @@ main:
     url: /projects/index.html
   - title: <u>Publications</u>
     url: /publications/index.html
+  - title: <u>Media</u>
+    url: /media/index.html
     
 # sidebar navigation list sample
 sidebar-sample:

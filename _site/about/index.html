@@ -131,6 +131,8 @@
               <a href="/projects/index.html"><u>Projects</u></a>
             </li><li class="masthead__menu-item">
               <a href="/publications/index.html"><u>Publications</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/media/index.html"><u>Media</u></a>
             </li></ul>
         
         <button class="search__toggle" type="button">
@@ -397,29 +399,26 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <span id="busuanzi_container_site_pv">
-<center>
-  <div class="page__footer-copyright">&copy; 2023 Jie Li. This is the <span id="busuanzi_value_site_pv"></span>th visit<font color=F08F8F> ❤</font>.
-    <div id="div1"></div>
-    <script>
-        function time() {
-            var date = new Date();
-            var year = date.getFullYear();
-            var month = date.getMonth() + 1;
-            var day = date.getDate();
-            var hour = date.getHours();
-            var minutes = date.getMinutes();
-            var seconds = date.getSeconds();
-            var arr_week = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
-            var week = arr_week[date.getDay()];
-            var str = day + "-" + month + "-" + year + " " + week + " " + hour + ":" + minutes + ":" + seconds;
-            var div1 = document.getElementById("div1");
-            div1.innerHTML = str;
-        }
-        setInterval(time,1000);
-    </script>
-
-  </div></center>
-  <center><div class="page__footer-copyright">&copy; Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes.</a></div></center>
+<script>
+  function time() {
+    var date = new Date();
+    var year = date.getFullYear();
+    var arr_month = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+    var month = arr_month[date.getMonth() + 1];
+    var day = date.getDate();
+    var hour = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    var arr_week = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+    var week = arr_week[date.getDay()]; 
+    var str = day + " " + month + " " + year + " | " + week + " | " + hour + ":" + minutes + ":" + seconds;
+    var div1 = document.getElementById("div1");
+    div1.innerHTML = str;
+    }
+  setInterval(time,1000);
+</script>
+<center><div class="page__footer-copyright"><span id="div1"></span> <font color=F08F8F> ❤</font> the <span id="busuanzi_value_site_pv"></span>th visit </div></center>
+  <center><div class="page__footer-copyright">&copy; 2023 Jie Li. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes.</a></div></center>
 
 
       </footer>
