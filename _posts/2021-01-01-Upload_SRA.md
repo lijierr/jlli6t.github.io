@@ -6,8 +6,12 @@ toc: true
 toc_label: "上传数据库到SRA"
 toc_icon: "heart"
 excerpt_separator: "<!--more-->"
-categories: [linux, bash]
-tags: [bash, linux]
+categories:
+    - linux
+    - bash
+tags:
+    - bash
+    - linux
 math: false
 ---
 

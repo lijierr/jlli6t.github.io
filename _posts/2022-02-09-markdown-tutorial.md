@@ -6,8 +6,12 @@ toc: true
 toc_label: "markdown tutorial"
 toc_icon: "heart"
 excerpt_separator: "<!--more-->"
-categories: [tutorial, git]
-tags: [markdown, tutorials]
+categories:
+  - tutorial
+  - git
+tags:
+  - markdown
+  - tutorials
 math: true
 last_modified_at: 2022-03-23 00:04:00 +0800
 ---

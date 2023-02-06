@@ -6,8 +6,13 @@ toc: true
 toc_label: "SortMeRNA"
 toc_icon: "heart"
 excerpt_separator: "<!--more-->"
-categories: [bioinformatics, metatranscriptomic]
-tags: [tutorials, RNA, mapping]
+categories:
+    - bioinformatics
+    - metatranscriptomic
+tags:
+    - tutorials
+    - RNA
+    - mapping
 math: false
 ---
 

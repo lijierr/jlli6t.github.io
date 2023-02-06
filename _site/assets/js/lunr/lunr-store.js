@@ -47,12 +47,6 @@ var store = [{
         "url": "/bioinformatics/metatranscriptomic/Sortmerna/",
         "teaser": null
       },{
-        "title": "Comparison of Seqs iterator",
-        "excerpt":"Introduction  做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。 需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。     Bio.SeqIO.QualityIO.FastqGeneralIterator同Bio.SeqIO.parse一样也是一个迭代器，只不过不生成对象record，而是生成序列id、序列、以及质量值本身，遍历的时候调用语法为   For title, seq, qual in FastqGeneralIterator(fh): \tDo something  FastqGeneralIterator速度很快了，但我偶然又看到大神Heng Li 12年写的一个小代码readfq，相信不少同学有看过源码（我看到不少项目都嵌了这段代码），也是一个序列遍历器，且居然还在活跃，还有人在提issue和pr。   测试文件为一个36,518,870条序列的fastq.gz文件，这个序列数量已经是人肠道微生物基因集的几倍了，大多数情况下都不会需要频繁迭代这么多的序列量。我测试迭代然后统计序列数，碱基数，及质量字符数。 考虑到服务器上其他用户的状态可能也会影响测试效果，所以做了多次测试，Bio版本为1.76，测试平台为x86_64 GNU/Linux：   通过5次单独的测试，总的来说readfq速度上比Bio慢一点点，不会超过20%，其中第四次测试readfq的速度超过了Bio，可能测试环境也有一定的影响。 强推大神代码的原因： \t1. 代码非常简洁，仅仅31行！相比于Bio来说，非常轻量。 \t2. 大神的代码同时兼容fasta和fastq！而FastqGeneralIterator只能处理fastq文件，如果要处理fasta格式的文件的话，需要调用Bio.SeqIO.FastaIO.SimpleFastaParser \t3. 本着代码的简洁性以及减少对library的依赖，readfq胜任。 \t4. 最后就是虽然在测试过程中，Bio略胜一筹，但是现实中大部分的情况我们不需要频繁遍历太大的数据，所以速度上可以认为readfq与Bio的FastqGeneralIterator不相上下。   测试代码：   print('start readfq', datetime.now()) n, slen, qlen = 0, 0, 0 for name, seq, qual in readfq(f): \tn+= 1 \tslen += len(seq) \tqlen += qual \tprint(n, '\\t', slen, '\\t', qlen) print('end readfq', datetime.now())  print('start Bio', datetime.now()) n, slen, qlen = 0, 0, 0 for name, seq, qual in FastqGeneralIterator(fh): \tn+=1 \tslen += len(seq) \tqlen += qual print(n, '\\t', slen, '\\t', qlen) print('end Bio', datetime.now())  附上测试结果供参考：  第一次测试: readfq比Bio: 118.88%   start readfq 2020-06-23 10:47:13.063023 end readfq 2020-06-23 10:51:32.138950 readfq用时：259.075927s start Bio 2020-06-23 10:51:35.854583 end Bio 2020-06-23 10:55:13.789172 Bio用时：217.934589s  第二次测试: readfq比Bio: 118.62%   start readfq 2020-06-23 10:55:58.999203 end readfq 2020-06-23 11:00:06.315406 readfq用时：247.316203s start Bio 2020-06-23 11:00:08.641087 end Bio 2020-06-23 11:03:37.140562 Bio用时：208.499475s  第三次测试: readfq比Bio: 15.51%   start readfq 2020-06-23 11:05:28.903198 end readfq 2020-06-23 11:09:53.790852 readfq用时：264.887654s start Bio 2020-06-23 11:09:53.912627 end Bio 2020-06-23 11:13:43.230618 Bio用时：229.317991s  第四次测试: readfq比Bio: 96.91%   start readfq 2020-06-23 11:13:52.750406 end readfq 2020-06-23 11:18:23.449189 readfq用时：270.698783s start Bio 2020-06-23 11:18:23.554306 end Bio 2020-06-23 11:23:02.897335 Bio用时：279.343029s  第五次测试: readfq比Bio: 116.17%   start readfq 2020-06-23 11:24:57.625076 end readfq 2020-06-23 11:28:58.973375 readfq用时：241.348299s start Bio 2020-06-23 11:28:59.101057 end Bio 2020-06-23 11:32:26.855097 Bio用时：207.754040s  附大神代码地址  地址  ","categories": ["coding","python"],
-        "tags": ["fastq","fasta","sequence"],
-        "url": "/coding/python/Comparison_of_Seqs_iterator/",
-        "teaser": null
-      },{
         "title": "Pfam数据库",
         "excerpt":"ebi.ac.uk 蛋白序列通常会包含一个至多个domains。不同domains的组合会得到不同的功能，导致了自然界中proteins的多样性。于是鉴定蛋白序列中的domains可以合理推测该蛋白潜在的功能。Pfam就是 这些保守的进化单元的集合。    我们生产数据的能力已经远远超过了我们实验上能确定序列功能的能力，因此急需计算方法来辅助鉴定序列之间regions的相似性。 将序列match到Pfam数据库可以帮助我们鉴定未知功能的序列的功能作用，Pfam可以提供全面的注释信息   Pfam数据库收集了protein domain families, 以多序列比对以及HMM模型的形式存在。  ","categories": ["database","protein"],
         "tags": ["protein","annotation"],
@@ -87,18 +81,6 @@ var store = [{
         "excerpt":"GTDB数据库介绍  GTDB的下载地址     关于GTDB taxonomy信息与NCBI的不一致问题  因为GTDB的taxonomy是最新提出的，与传统已有的taxonomy的信息是有差异的。但是我们在处理数据的时候，经常会结合例如Silva等的数据结果，那么就会出现多个结果之间taxonomy不一致的情况。我们可以将GTDB的taxonomy的结果转换成NCBI的taxonomy的结果。具体可以参考整理的issues：   关于phylum命名规则的问题   关于gtdb_to_ncbi_majority_vote.py的使用   整个taxonomy的问题 关于Desulfovibrionia等四个具体的菌的classification的信息   关于如何transfer GTDB的taxonomy信息到NCBI的taxonomy信息，作者介绍了部分内容，且网友提供了一个工具   关于GTDB的taxa与NCBI的taxa信息不是1:1的问题  他们的数据库里有两个文件：文件包含了每一个NCBI的taxa在GTDB中被分到的taxa所占的比例： Bacteria Archaea   例如Cyanobacteria， 这个是GTDB给的新的分类，但是在对应回到NCBI的信息时候，会发现有p__Candidatus Melainabacteria的，p__Proteobacteria的，p__Firmicutes，p__Actinobacteria，p__Spirochaetes等的，   或者还有关于每一个GTDB序列对应的NCBI序列的metadata文件: Bacteria Archaea   但是有一个问题就是在GTDBtk进行分类的时候，并不是每一条genome都能匹配上一个reference。匹配不到reference的时候，它会采用pplacer placement在topology上决定genome上的分类，或者计算RED value的方法来novelly决定genome的分类。   GTDB的配套工具GTDBTk  使用建议  作者推荐，这个工具用于contamination &lt; 10%，completeness &gt; 50%的genomes: https://github.com/Ecogenomics/GTDBTk/issues/184   关于使用GTDBTk鉴定新物种  这里关注到GTDB有issues提到了类似的问题，想说有参考价值，如下:   关于gtdbtk的result能否说明是一个new species 关于ANI的大小如何infer a new species  ","categories": ["database","genome"],
         "tags": ["genome","taxonomy"],
         "url": "/database/genome/GTDB/",
-        "teaser": null
-      },{
-        "title": "Needleman Wunsch alignment DP",
-        "excerpt":"         ","categories": ["statistics","alignment"],
-        "tags": ["alignment"],
-        "url": "/statistics/alignment/Needleman_Wunsch_alignment/",
-        "teaser": null
-      },{
-        "title": "Smith Waterman alignment DP",
-        "excerpt":"         ","categories": ["statistics","alignment"],
-        "tags": ["alignment"],
-        "url": "/statistics/alignment/Smith-Waterman_algorithm/",
         "teaser": null
       },{
         "title": "git操作本地仓库",
@@ -153,6 +135,24 @@ var store = [{
         "excerpt":"Introduction  想找pmoA的序列构建数据库，找到了这个网站. \t里边包括核酸序列，以及序列对应的tax的信息。  ","categories": ["database","gene"],
         "tags": ["protein","gene"],
         "url": "/database/gene/pmoA_database/",
+        "teaser": null
+      },{
+        "title": "Needleman Wunsch alignment DP",
+        "excerpt":"         ","categories": ["statistics","alignment"],
+        "tags": ["alignment"],
+        "url": "/statistics/alignment/Needleman_Wunsch_alignment/",
+        "teaser": null
+      },{
+        "title": "Smith Waterman alignment DP",
+        "excerpt":"         ","categories": ["statistics","alignment"],
+        "tags": ["alignment"],
+        "url": "/statistics/alignment/Smith-Waterman_algorithm/",
+        "teaser": null
+      },{
+        "title": null,
+        "excerpt":"Introduction  做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。 需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。     Bio.SeqIO.QualityIO.FastqGeneralIterator同Bio.SeqIO.parse一样也是一个迭代器，只不过不生成对象record，而是生成序列id、序列、以及质量值本身，遍历的时候调用语法为   For title, seq, qual in FastqGeneralIterator(fh): \tDo something  FastqGeneralIterator速度很快了，但我偶然又看到大神Heng Li 12年写的一个小代码readfq，相信不少同学有看过源码（我看到不少项目都嵌了这段代码），也是一个序列遍历器，且居然还在活跃，还有人在提issue和pr。   测试文件为一个36,518,870条序列的fastq.gz文件，这个序列数量已经是人肠道微生物基因集的几倍了，大多数情况下都不会需要频繁迭代这么多的序列量。我测试迭代然后统计序列数，碱基数，及质量字符数。 考虑到服务器上其他用户的状态可能也会影响测试效果，所以做了多次测试，Bio版本为1.76，测试平台为x86_64 GNU/Linux：   通过5次单独的测试，总的来说readfq速度上比Bio慢一点点，不会超过20%，其中第四次测试readfq的速度超过了Bio，可能测试环境也有一定的影响。 强推大神代码的原因： \t1. 代码非常简洁，仅仅31行！相比于Bio来说，非常轻量。 \t2. 大神的代码同时兼容fasta和fastq！而FastqGeneralIterator只能处理fastq文件，如果要处理fasta格式的文件的话，需要调用Bio.SeqIO.FastaIO.SimpleFastaParser \t3. 本着代码的简洁性以及减少对library的依赖，readfq胜任。 \t4. 最后就是虽然在测试过程中，Bio略胜一筹，但是现实中大部分的情况我们不需要频繁遍历太大的数据，所以速度上可以认为readfq与Bio的FastqGeneralIterator不相上下。   测试代码：   print('start readfq', datetime.now()) n, slen, qlen = 0, 0, 0 for name, seq, qual in readfq(f): \tn+= 1 \tslen += len(seq) \tqlen += qual \tprint(n, '\\t', slen, '\\t', qlen) print('end readfq', datetime.now())  print('start Bio', datetime.now()) n, slen, qlen = 0, 0, 0 for name, seq, qual in FastqGeneralIterator(fh): \tn+=1 \tslen += len(seq) \tqlen += qual print(n, '\\t', slen, '\\t', qlen) print('end Bio', datetime.now())  附上测试结果供参考：  第一次测试: readfq比Bio: 118.88%   start readfq 2020-06-23 10:47:13.063023 end readfq 2020-06-23 10:51:32.138950 readfq用时：259.075927s start Bio 2020-06-23 10:51:35.854583 end Bio 2020-06-23 10:55:13.789172 Bio用时：217.934589s  第二次测试: readfq比Bio: 118.62%   start readfq 2020-06-23 10:55:58.999203 end readfq 2020-06-23 11:00:06.315406 readfq用时：247.316203s start Bio 2020-06-23 11:00:08.641087 end Bio 2020-06-23 11:03:37.140562 Bio用时：208.499475s  第三次测试: readfq比Bio: 15.51%   start readfq 2020-06-23 11:05:28.903198 end readfq 2020-06-23 11:09:53.790852 readfq用时：264.887654s start Bio 2020-06-23 11:09:53.912627 end Bio 2020-06-23 11:13:43.230618 Bio用时：229.317991s  第四次测试: readfq比Bio: 96.91%   start readfq 2020-06-23 11:13:52.750406 end readfq 2020-06-23 11:18:23.449189 readfq用时：270.698783s start Bio 2020-06-23 11:18:23.554306 end Bio 2020-06-23 11:23:02.897335 Bio用时：279.343029s  第五次测试: readfq比Bio: 116.17%   start readfq 2020-06-23 11:24:57.625076 end readfq 2020-06-23 11:28:58.973375 readfq用时：241.348299s start Bio 2020-06-23 11:28:59.101057 end Bio 2020-06-23 11:32:26.855097 Bio用时：207.754040s  附大神代码地址  地址  ","categories": [],
+        "tags": null,
+        "url": "/2019-07-21-Comparison_of_Seqs_iterator/",
         "teaser": null
       },{
     "title": null,

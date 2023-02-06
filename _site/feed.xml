@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:3080/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3080/" rel="alternate" type="text/html" /><updated>2023-02-06T15:06:06+10:00</updated><id>http://localhost:3080/feed.xml</id><title type="html">Jie Li (She/Her)</title><subtitle>Passion can outweight the long years &lt;font color=F08F8F&gt;❤&lt;/font&gt; 热爱可抵岁月漫长</subtitle><author><name>Jie Li</name></author><entry><title type="html">pmoA基因序列数据库</title><link href="http://localhost:3080/database/gene/pmoA_database/" rel="alternate" type="text/html" title="pmoA基因序列数据库" /><published>2023-02-02T00:00:00+10:00</published><updated>2023-02-02T00:00:00+10:00</updated><id>http://localhost:3080/database/gene/pmoA_database</id><content type="html" xml:base="http://localhost:3080/database/gene/pmoA_database/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:3080/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3080/" rel="alternate" type="text/html" /><updated>2023-02-06T15:40:14+10:00</updated><id>http://localhost:3080/feed.xml</id><title type="html">Jie Li (She/Her)</title><subtitle>Passion can outweight the long years &lt;font color=F08F8F&gt;❤&lt;/font&gt; 热爱可抵岁月漫长</subtitle><author><name>Jie Li</name></author><entry><title type="html"></title><link href="http://localhost:3080/2019-07-21-Comparison_of_Seqs_iterator/" rel="alternate" type="text/html" title="" /><published>2023-02-06T15:40:14+10:00</published><updated>2023-02-06T15:40:14+10:00</updated><id>http://localhost:3080/2019-07-21-Comparison_of_Seqs_iterator</id><content type="html" xml:base="http://localhost:3080/2019-07-21-Comparison_of_Seqs_iterator/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。
+需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，<code class="language-plaintext highlighter-rouge">Biopython</code>除了提供<code class="language-plaintext highlighter-rouge">Bio.seqIO.parse</code>函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。</p>
+
+<!--more-->
+
+<p><code class="language-plaintext highlighter-rouge">Bio.SeqIO.QualityIO.FastqGeneralIterator</code>同<code class="language-plaintext highlighter-rouge">Bio.SeqIO.parse</code>一样也是一个迭代器，只不过不生成对象<code class="language-plaintext highlighter-rouge">record</code>，而是生成序列id、序列、以及质量值本身，遍历的时候调用语法为</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">For</span> <span class="n">title</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="n">qual</span> <span class="ow">in</span> <span class="n">FastqGeneralIterator</span><span class="p">(</span><span class="n">fh</span><span class="p">):</span>
+	<span class="n">Do</span> <span class="n">something</span></code></pre></figure>
+
+<p><code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>速度很快了，但我偶然又看到大神Heng Li 12年写的一个小代码<code class="language-plaintext highlighter-rouge">readfq</code>，相信不少同学有看过源码（我看到不少项目都嵌了这段代码），也是一个序列遍历器，且居然还在活跃，还有人在提issue和pr。</p>
+
+<p>测试文件为一个<code class="language-plaintext highlighter-rouge">36,518,870</code>条序列的fastq.gz文件，这个序列数量已经是人肠道微生物基因集的几倍了，大多数情况下都不会需要频繁迭代这么多的序列量。我测试迭代然后统计序列数，碱基数，及质量字符数。
+考虑到服务器上其他用户的状态可能也会影响测试效果，所以做了多次测试，<code class="language-plaintext highlighter-rouge">Bio</code>版本为<code class="language-plaintext highlighter-rouge">1.76</code>，测试平台为<code class="language-plaintext highlighter-rouge">x86_64 GNU/Linux</code>：</p>
+
+<p>通过5次单独的测试，总的来说<code class="language-plaintext highlighter-rouge">readfq</code>速度上比<code class="language-plaintext highlighter-rouge">Bio</code>慢一点点，不会超过<code class="language-plaintext highlighter-rouge">20%</code>，其中第四次测试<code class="language-plaintext highlighter-rouge">readfq</code>的速度超过了<code class="language-plaintext highlighter-rouge">Bio</code>，可能测试环境也有一定的影响。
+强推大神代码的原因：
+	1. 代码非常简洁，仅仅31行！相比于Bio来说，非常轻量。
+	2. 大神的代码同时兼容<code class="language-plaintext highlighter-rouge">fasta</code>和<code class="language-plaintext highlighter-rouge">fastq</code>！而<code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>只能处理<code class="language-plaintext highlighter-rouge">fastq</code>文件，如果要处理<code class="language-plaintext highlighter-rouge">fasta</code>格式的文件的话，需要调用<code class="language-plaintext highlighter-rouge">Bio.SeqIO.FastaIO.SimpleFastaParser</code>
+	3. 本着代码的简洁性以及减少对<code class="language-plaintext highlighter-rouge">library</code>的依赖，<code class="language-plaintext highlighter-rouge">readfq</code>胜任。
+	4. 最后就是虽然在测试过程中，<code class="language-plaintext highlighter-rouge">Bio</code>略胜一筹，但是现实中大部分的情况我们不需要频繁遍历太大的数据，所以速度上可以认为<code class="language-plaintext highlighter-rouge">readfq</code>与<code class="language-plaintext highlighter-rouge">Bio</code>的<code class="language-plaintext highlighter-rouge">FastqGeneralIterator</code>不相上下。</p>
+
+<p>测试代码：</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">'start readfq'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="n">qlen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="n">qual</span> <span class="ow">in</span> <span class="n">readfq</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+	<span class="n">n</span><span class="o">+=</span> <span class="mi">1</span>
+	<span class="n">slen</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+	<span class="n">qlen</span> <span class="o">+=</span> <span class="n">qual</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">qlen</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'end readfq'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'start Bio'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="n">qlen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="n">qual</span> <span class="ow">in</span> <span class="n">FastqGeneralIterator</span><span class="p">(</span><span class="n">fh</span><span class="p">):</span>
+	<span class="n">n</span><span class="o">+=</span><span class="mi">1</span>
+	<span class="n">slen</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+	<span class="n">qlen</span> <span class="o">+=</span> <span class="n">qual</span>
+<span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">qlen</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'end Bio'</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span></code></pre></figure>
+
+<h2 id="附上测试结果供参考">附上测试结果供参考：</h2>
+<p><strong>第一次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>118.88%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mf">13.063023</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mf">32.138950</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">259.075927</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mf">35.854583</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mf">13.789172</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">217.934589</span><span class="n">s</span></code></pre></figure>
+
+<p><strong>第二次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>118.62%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mf">58.999203</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mf">06.315406</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">247.316203</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mf">08.641087</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mf">37.140562</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">208.499475</span><span class="n">s</span></code></pre></figure>
+
+<p><strong>第三次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>15.51%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mf">28.903198</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mf">53.790852</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">264.887654</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mf">53.912627</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mf">43.230618</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">229.317991</span><span class="n">s</span></code></pre></figure>
+
+<p><strong>第四次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>96.91%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mf">52.750406</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">23.449189</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">270.698783</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">23.554306</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mf">02.897335</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">279.343029</span><span class="n">s</span></code></pre></figure>
+
+<p><strong>第五次测试</strong>: <code class="language-plaintext highlighter-rouge">readfq</code>比<code class="language-plaintext highlighter-rouge">Bio</code>: <strong>116.17%</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">start</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mf">57.625076</span>
+<span class="n">end</span> <span class="n">readfq</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">58.973375</span>
+<span class="n">readfq用时</span><span class="err">：</span><span class="mf">241.348299</span><span class="n">s</span>
+<span class="n">start</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mf">59.101057</span>
+<span class="n">end</span> <span class="n">Bio</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">23</span> <span class="mi">11</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mf">26.855097</span>
+<span class="n">Bio用时</span><span class="err">：</span><span class="mf">207.754040</span><span class="n">s</span></code></pre></figure>
+
+<h2 id="附大神代码地址">附大神代码地址</h2>
+<p><a href="https://github.com/lh3/readfq/blob/master/readfq.py">地址</a></p>]]></content><author><name>Jie Li</name></author></entry><entry><title type="html">Smith Waterman alignment DP</title><link href="http://localhost:3080/statistics/alignment/Smith-Waterman_algorithm/" rel="alternate" type="text/html" title="Smith Waterman alignment DP" /><published>2023-02-05T00:00:00+10:00</published><updated>2023-02-05T00:00:00+10:00</updated><id>http://localhost:3080/statistics/alignment/Smith%E2%80%93Waterman_algorithm</id><content type="html" xml:base="http://localhost:3080/statistics/alignment/Smith-Waterman_algorithm/"><![CDATA[<p><img src="/assets/picbed/statistics/Smith%E2%80%93Waterman_algorithm1.jpg" alt="" /></p>
+
+<p><br /></p>
+
+<p><img src="/assets/picbed/statistics/Smith%E2%80%93Waterman_algorithm2.jpg" alt="" /></p>]]></content><author><name>Jie Li</name></author><category term="statistics" /><category term="alignment" /><category term="alignment" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Needleman Wunsch alignment DP</title><link href="http://localhost:3080/statistics/alignment/Needleman_Wunsch_alignment/" rel="alternate" type="text/html" title="Needleman Wunsch alignment DP" /><published>2023-02-04T00:00:00+10:00</published><updated>2023-02-04T00:00:00+10:00</updated><id>http://localhost:3080/statistics/alignment/Needleman_Wunsch_alignment</id><content type="html" xml:base="http://localhost:3080/statistics/alignment/Needleman_Wunsch_alignment/"><![CDATA[<p><img src="/assets/picbed/statistics/Needleman%E2%80%93Wunsch_algorithm1.jpg" alt="" /></p>
+
+<p><br /></p>
+
+<p><img src="/assets/picbed/statistics/Needleman%E2%80%93Wunsch_algorithm2.jpg" alt="" /></p>]]></content><author><name>Jie Li</name></author><category term="statistics" /><category term="alignment" /><category term="alignment" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">pmoA基因序列数据库</title><link href="http://localhost:3080/database/gene/pmoA_database/" rel="alternate" type="text/html" title="pmoA基因序列数据库" /><published>2023-02-02T00:00:00+10:00</published><updated>2023-02-02T00:00:00+10:00</updated><id>http://localhost:3080/database/gene/pmoA_database</id><content type="html" xml:base="http://localhost:3080/database/gene/pmoA_database/"><![CDATA[<h2 id="introduction">Introduction</h2>
 <p>想找pmoA的序列构建数据库，找到了这个<a href="https://dataservices.gfz-potsdam.de/panmetaworks/showshort.php?id=escidoc:1423157">网站</a>. 	里边包括核酸序列，以及序列对应的tax的信息。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="gene" /><category term="protein" /><category term="gene" /><summary type="html"><![CDATA[Introduction 想找pmoA的序列构建数据库，找到了这个网站. 里边包括核酸序列，以及序列对应的tax的信息。]]></summary></entry><entry><title type="html">markdown tutorial</title><link href="http://localhost:3080/tutorial/git/markdown-tutorial/" rel="alternate" type="text/html" title="markdown tutorial" /><published>2022-02-09T00:00:00+10:00</published><updated>2022-03-23T02:04:00+10:00</updated><id>http://localhost:3080/tutorial/git/markdown-tutorial</id><content type="html" xml:base="http://localhost:3080/tutorial/git/markdown-tutorial/"><![CDATA[<p><strong>Howdy!</strong> This is an example blog post that shows several types of HTML content supported in this theme.</p>
 
 <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. <em>Aenean eu leo quam.</em> Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
@@ -241,65 +339,7 @@
 
 <p>数据库已经在线<code class="language-plaintext highlighter-rouge">13</code>年。目前收录了<code class="language-plaintext highlighter-rouge">11419</code>条序列，包括<code class="language-plaintext highlighter-rouge">7174</code>个不同的物种，版本号<code class="language-plaintext highlighter-rouge">17</code>。</p>
 
-<p><code class="language-plaintext highlighter-rouge">Taxon</code>分类包括<code class="language-plaintext highlighter-rouge">Archaea</code>， <code class="language-plaintext highlighter-rouge">Bacteria</code>， <code class="language-plaintext highlighter-rouge">Eukaryota</code>，<code class="language-plaintext highlighter-rouge">Plastids</code>，和<code class="language-plaintext highlighter-rouge">Mitochondria</code>。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction 除了从NCBI，Rfam等这样的大库中分离5S rRNA序列之外，发现有人在收集相应的序列：http://www.combio.pl/rrna/。]]></summary></entry><entry><title type="html">git操作远端仓库</title><link href="http://localhost:3080/linux/git/git_remote_repo/" rel="alternate" type="text/html" title="git操作远端仓库" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/linux/git/git_remote_repo</id><content type="html" xml:base="http://localhost:3080/linux/git/git_remote_repo/"><![CDATA[<h2 id="introduction">Introduction</h2>
-<h3 id="确认ssh-key">确认SSH key</h3>
-<p>第一步，首先确实自己的目录下是否已经有<code class="language-plaintext highlighter-rouge">SSH key</code>。这个一般在<code class="language-plaintext highlighter-rouge">~/.ssh</code>目录下，可查看目录是否有</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">ls</span> ~/.ssh/
-a  b  id_rsa  id_rsa.pub  known_hosts</code></pre></figure>
-
-<!--more-->
-
-<p>需要的文件是一对以<code class="language-plaintext highlighter-rouge">id_rsa</code>或<code class="language-plaintext highlighter-rouge">id_dsa</code>命名的文件。例如上边我的目录中是<code class="language-plaintext highlighter-rouge">id_rsa</code>文件和<code class="language-plaintext highlighter-rouge">id_rsa.pub</code>文件，其中一个文件以<code class="language-plaintext highlighter-rouge">id_rsa.pub</code>文件是公钥，<code class="language-plaintext highlighter-rouge">id_rsa</code>是私钥。
-如果没有这样的文件，或者甚至都没有.ssh目录的话，那么需要自己生成<code class="language-plaintext highlighter-rouge">SSH</code>公钥：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ssh-keygen <span class="nt">-o</span></code></pre></figure>
-
-<p>然后将生成的<code class="language-plaintext highlighter-rouge">id_rsa.pub</code>里的内容复制粘贴给<code class="language-plaintext highlighter-rouge">github</code>自己的账号中的<code class="language-plaintext highlighter-rouge">SSH key</code>。<code class="language-plaintext highlighter-rouge">SSH keys</code>的目的是为了保证推送的提交是你本人推送的，而不是别人冒充的。<code class="language-plaintext highlighter-rouge">git</code>支持<code class="language-plaintext highlighter-rouge">SSH</code>协议，并允许你添加多个<code class="language-plaintext highlighter-rouge">KEY</code>, 这样即使你有N台电脑并都会进行提交的时候，只需要把每一台电脑的<code class="language-plaintext highlighter-rouge">SSH key</code>都添加进去，<code class="language-plaintext highlighter-rouge">github</code>就允许每一台key被添加的都电脑都推送过来啦!
-<img src="/assets/picbed/post/ssh_key.png" alt="" /></p>
-
-<h3 id="绑定用户名和邮箱">绑定用户名和邮箱</h3>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git config <span class="nt">--global</span> user.name 用户名
-git config <span class="nt">--global</span> user.email 邮箱</code></pre></figure>
-
-<p>测试查看自己的用户名和email</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git config user.name
-git config user.email</code></pre></figure>
-
-<h3 id="创建远端仓库">创建远端仓库</h3>
-<p>如果该项目在远端仓库还没有对应的项目仓库，那么需要先在远端建立一个新仓库，例如github的网页操作。例如创建仓库名称为test的公开项目仓库。
-<img src="/assets/picbed/post/create_remote_repo.png" alt="" /></p>
-
-<h3 id="关联仓库">关联仓库</h3>
-<p>项目仓库创建好之后，进入到本地的仓库，将项目仓库与本地仓库进行关联。</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git remote add <span class="nb">test </span>https://github.com/username/test.git</code></pre></figure>
-
-<h3 id="推送本地仓库">推送本地仓库</h3>
-<p>关联好之后，就可以开始推送啦, 因为是第一次推送这个仓库，所以加入-u参数，把当前分支master所有内容推送到远程，并且会将本地的master分支和远程的master分支关联起来，这样以后推送或者拉取时就可以简化命令
-首次推送：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git push <span class="nt">-u</span> <span class="nb">test </span>master</code></pre></figure>
-
-<p>其他推送：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git push <span class="nb">test </span>master</code></pre></figure>
-
-<h3 id="其他命令">其他命令</h3>
-<p>查看本地已关联的远端仓库：
-git remote -v
-删除某个远端仓库的关联：
-git remote rm NAME
-如果推送远端被拒，有可能是<code class="language-plaintext highlighter-rouge">ssh keys</code>的问题，可以尝试在<code class="language-plaintext highlighter-rouge">command line</code>输入<code class="language-plaintext highlighter-rouge">unset SSH_ASKPASS</code>，问题可解决。</p>
-
-<p>当远端仓库里有1个或多个文件是本地仓库里没有的的时候，需要先将远端仓库<code class="language-plaintext highlighter-rouge">pull</code>到本地:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git pull 远端仓库</code></pre></figure>
-
-<h3 id="ref">ref</h3>
-<p>https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5</p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="git" /><category term="tutorial" /><category term="git" /><summary type="html"><![CDATA[Introduction 确认SSH key 第一步，首先确实自己的目录下是否已经有SSH key。这个一般在~/.ssh目录下，可查看目录是否有 ls ~/.ssh/ a b id_rsa id_rsa.pub known_hosts]]></summary></entry><entry><title type="html">Silva updates to 138</title><link href="http://localhost:3080/database/rrna/Silva_138/" rel="alternate" type="text/html" title="Silva updates to 138" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/database/rrna/Silva_138</id><content type="html" xml:base="http://localhost:3080/database/rrna/Silva_138/"><![CDATA[<h3 id="introduction">Introduction</h3>
+<p><code class="language-plaintext highlighter-rouge">Taxon</code>分类包括<code class="language-plaintext highlighter-rouge">Archaea</code>， <code class="language-plaintext highlighter-rouge">Bacteria</code>， <code class="language-plaintext highlighter-rouge">Eukaryota</code>，<code class="language-plaintext highlighter-rouge">Plastids</code>，和<code class="language-plaintext highlighter-rouge">Mitochondria</code>。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction 除了从NCBI，Rfam等这样的大库中分离5S rRNA序列之外，发现有人在收集相应的序列：http://www.combio.pl/rrna/。]]></summary></entry><entry><title type="html">Silva updates to 138</title><link href="http://localhost:3080/database/rrna/Silva_138/" rel="alternate" type="text/html" title="Silva updates to 138" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/database/rrna/Silva_138</id><content type="html" xml:base="http://localhost:3080/database/rrna/Silva_138/"><![CDATA[<h3 id="introduction">Introduction</h3>
 <p>SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。</p>
 
 <!--more-->
@@ -336,108 +376,4 @@ SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和�
 
 <p>标注：<strong>138版本的SSU Ref NR 99比之前的版本包含更少的序列</strong>。因为团队把序列比对的工具从USEARCH中整合的UCLUST (1.0.50) 换到VSEARCH (2.13)，提升了聚类的性能，且有望使团队可以在将来提供更稳定的Ref NR库。</p>
 
-<p>Ref NR库减小是由于这两个工具使用不同的序列/比对identity的定义差异导致。团队还使用了第三方工具CD-HIT（v4.8）交叉检查了比对的结果。在使用同样的identity阈值条件下，VSEARCH和CD-HIT返回了相似的聚类簇，而UCLUST返回了<strong>显著更大数目</strong>的聚类簇。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="tutorial" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。]]></summary></entry><entry><title type="html">git操作本地仓库</title><link href="http://localhost:3080/linux/git/git_local_repo/" rel="alternate" type="text/html" title="git操作本地仓库" /><published>2020-06-17T00:00:00+10:00</published><updated>2020-06-17T00:00:00+10:00</updated><id>http://localhost:3080/linux/git/git_local_repo</id><content type="html" xml:base="http://localhost:3080/linux/git/git_local_repo/"><![CDATA[<h3 id="git-工具">git 工具</h3>
-<p>查看服务器上是否已经安装好<code class="language-plaintext highlighter-rouge">git</code>。服务器上有自带的<code class="language-plaintext highlighter-rouge">git</code>，直接使用即可，不需要另外安装了。</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">which git
-/opt/rocks/bin/git</code></pre></figure>
-
-<!--more-->
-
-<h3 id="初始化仓库">初始化仓库</h3>
-<p>进入到对应的目录，执行<code class="language-plaintext highlighter-rouge">git init</code>命令。</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git init</code></pre></figure>
-
-<h3 id="查看工作状态">查看工作状态</h3>
-<p>查看工作目录<code class="language-plaintext highlighter-rouge">+stage+HEAD</code>的状态，发现工作目录有一个<code class="language-plaintext highlighter-rouge">rdetfq.py</code>文件，但是没有被<code class="language-plaintext highlighter-rouge">stage</code>，也没有<code class="language-plaintext highlighter-rouge">commit</code>到<code class="language-plaintext highlighter-rouge">HEAD</code>过。</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git status
-On branch master
-
-Initial commit
-
-Untracked files:
-    <span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to include <span class="k">in </span>what will be committed<span class="o">)</span>
-
-        rdetfq.py
-
-nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">"git add"</span> to track<span class="o">)</span></code></pre></figure>
-
-<h3 id="对目录下的文件进行stage">对目录下的文件进行stage</h3>
-<p>所以需要先<code class="language-plaintext highlighter-rouge">stage rdetrfq.py</code>。没有任何信息输出，Linux的核心，没有消息就是好消息之一。</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git add rdetrfq.fy</code></pre></figure>
-
-<h3 id="再次查看工作状态">再次查看工作状态</h3>
-<p>再次查看<code class="language-plaintext highlighter-rouge">status</code>，提示<code class="language-plaintext highlighter-rouge">rdetrfq.py</code>已经被<code class="language-plaintext highlighter-rouge">stage</code>，在等待被<code class="language-plaintext highlighter-rouge">commit</code>到<code class="language-plaintext highlighter-rouge">HEAD</code>。</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git status
-On branch master
-
-Initial commit
-
-Changes to be committed:
-    <span class="o">(</span>use <span class="s2">"git rm --cached &lt;file&gt;..."</span> to unstage<span class="o">)</span>
-
-        new file:     rdetfq.py</code></pre></figure>
-
-<h3 id="commit-stage的内容到head">commit stage的内容到HEAD</h3>
-<p>将<code class="language-plaintext highlighter-rouge">stage</code>中的所有内容<code class="language-plaintext highlighter-rouge">commit</code>到<code class="language-plaintext highlighter-rouge">HEAD</code>区， <code class="language-plaintext highlighter-rouge">-m</code>是注释信息，注明本次<code class="language-plaintext highlighter-rouge">commit</code>所做的改变。</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git commit <span class="nt">-m</span> <span class="s2">"add code of randomly extracting fq"</span></code></pre></figure>
-
-<h3 id="再次查看工作状态-1">再次查看工作状态</h3>
-<p>再次查看工作区的状态，显示<code class="language-plaintext highlighter-rouge">working tree clean</code>, 工作区的东西在<code class="language-plaintext highlighter-rouge">HEAD</code>区中都有，版本一致。</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git status
-On branch master
-nothing to commit, working tree clean</code></pre></figure>
-
-<h3 id="其他操作">其他操作</h3>
-<h4 id="tip-0">tip 0</h4>
-<p>如果已经<code class="language-plaintext highlighter-rouge">commit</code>多个不同的版本到<code class="language-plaintext highlighter-rouge">HEAD</code>，想回到以前<code class="language-plaintext highlighter-rouge">commit</code>的版本，例如回退一个版本：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git reset <span class="nt">--hard</span> HEAD~1
-HEAD is now at e7b3364 add read_pars <span class="k">function</span></code></pre></figure>
-
-<h4 id="tip-1">tip 1</h4>
-<p>如果你想撤销<code class="language-plaintext highlighter-rouge">add</code>到<code class="language-plaintext highlighter-rouge">stage</code>区的文件，使用<code class="language-plaintext highlighter-rouge">git reset HEAD +文件</code>，这里的单独的<code class="language-plaintext highlighter-rouge">HEAD</code>指的是当前版本
-例如撤销<code class="language-plaintext highlighter-rouge">stage</code>区的<code class="language-plaintext highlighter-rouge">test</code>文件：(相当于撤销一次对<code class="language-plaintext highlighter-rouge">stage</code>区的操作):</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git reset HEAD <span class="nb">test
-</span>Unstaged changes after reset:
-M       <span class="nb">test</span></code></pre></figure>
-
-<h4 id="tip-2">tip 2</h4>
-<p>如果在工作区中对<code class="language-plaintext highlighter-rouge">test</code>文件进行了修改，但是并不想保留修改，则使用<code class="language-plaintext highlighter-rouge">git checkout</code>撤销在工作区中对文件<code class="language-plaintext highlighter-rouge">test</code>进行的修改，相当于从<code class="language-plaintext highlighter-rouge">HEAD</code>中把当前版本的<code class="language-plaintext highlighter-rouge">test</code> <code class="language-plaintext highlighter-rouge">copy</code>出来，<code class="language-plaintext highlighter-rouge">--</code> 是指定在当前<code class="language-plaintext highlighter-rouge">branch</code>。如果不加<code class="language-plaintext highlighter-rouge">--</code>，在多<code class="language-plaintext highlighter-rouge">branch</code>的情况下会切换到其他的<code class="language-plaintext highlighter-rouge">branch</code>进行操作，而不是对<code class="language-plaintext highlighter-rouge">test</code>这个文件进行操作。</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git checkout <span class="nt">--</span> <span class="nb">test</span></code></pre></figure>
-
-<h4 id="tip-3">tip 3</h4>
-<p>如果你想从<code class="language-plaintext highlighter-rouge">HEAD</code>中删除某个文件: 则使用<code class="language-plaintext highlighter-rouge">git rm file</code>来对<code class="language-plaintext highlighter-rouge">file</code>进行删除， 然后需要<code class="language-plaintext highlighter-rouge">git commit</code>此次操作到<code class="language-plaintext highlighter-rouge">HEAD</code></p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git <span class="nb">rm </span>rdetrfq.py
-<span class="nb">rm</span> <span class="s1">'rdetrfq.py'</span></code></pre></figure>
-
-<h4 id="tip-4">tip 4</h4>
-<p>但是如果还没有进行<code class="language-plaintext highlighter-rouge">commit</code>到<code class="language-plaintext highlighter-rouge">HEAD</code>, 又想恢复文件的话，则需要先撤销一次对<code class="language-plaintext highlighter-rouge">stage</code>的操作。<code class="language-plaintext highlighter-rouge">git reset HEAD file</code>，这是把指针指回当前<code class="language-plaintext highlighter-rouge">HEAD</code>， 相当于忽略<code class="language-plaintext highlighter-rouge">git rm file</code>这一步操作。</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git reset HEAD rdetrfq.py
-Unstaged changes after reset:
-D       rdetrfq.py</code></pre></figure>
-
-<h4 id="tip-5">tip 5</h4>
-<p>通过<code class="language-plaintext highlighter-rouge">tip 4</code>指针指回当前<code class="language-plaintext highlighter-rouge">HEAD</code>之后，再<code class="language-plaintext highlighter-rouge">checkout</code>从<code class="language-plaintext highlighter-rouge">HEAD</code>区<code class="language-plaintext highlighter-rouge">copy</code>来对应的文件，可以看到紫粉色文件已经恢复到工作区。
-<img src="/assets/picbed/post/git_checkout_recall_file1.png" alt="" /></p>
-
-<h4 id="tip-6">tip 6</h4>
-<p>如果只是<code class="language-plaintext highlighter-rouge">linux</code>命令<code class="language-plaintext highlighter-rouge">rm</code>误删了某个工作区的文件：则直接使用<code class="language-plaintext highlighter-rouge">git checkout</code>可从<code class="language-plaintext highlighter-rouge">HEAD</code>里召回当前版本的该文件。
-<img src="/assets/picbed/post/git_checkout_recall_file2.png" alt="" /></p>
-
-<h3 id="ref">ref</h3>
-<p>https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5</p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="git" /><category term="tutorial" /><category term="git" /><summary type="html"><![CDATA[git 工具 查看服务器上是否已经安装好git。服务器上有自带的git，直接使用即可，不需要另外安装了。 which git /opt/rocks/bin/git]]></summary></entry><entry><title type="html">Smith Waterman alignment DP</title><link href="http://localhost:3080/statistics/alignment/Smith-Waterman_algorithm/" rel="alternate" type="text/html" title="Smith Waterman alignment DP" /><published>2020-04-10T00:00:00+10:00</published><updated>2020-04-10T00:00:00+10:00</updated><id>http://localhost:3080/statistics/alignment/Smith%E2%80%93Waterman_algorithm</id><content type="html" xml:base="http://localhost:3080/statistics/alignment/Smith-Waterman_algorithm/"><![CDATA[<p><img src="/assets/picbed/statistics/Smith%E2%80%93Waterman_algorithm1.jpg" alt="" /></p>
-
-<p><br /></p>
-
-<p><img src="/assets/picbed/statistics/Smith%E2%80%93Waterman_algorithm2.jpg" alt="" /></p>]]></content><author><name>Jie Li</name></author><category term="statistics" /><category term="alignment" /><category term="alignment" /><summary type="html"><![CDATA[]]></summary></entry></feed>
+<p>Ref NR库减小是由于这两个工具使用不同的序列/比对identity的定义差异导致。团队还使用了第三方工具CD-HIT（v4.8）交叉检查了比对的结果。在使用同样的identity阈值条件下，VSEARCH和CD-HIT返回了相似的聚类簇，而UCLUST返回了<strong>显著更大数目</strong>的聚类簇。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="tutorial" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。]]></summary></entry></feed>

@@ -6,8 +6,13 @@ toc: true
 toc_label: "Configure Python3 with TCL-TK"
 toc_icon: "heart"
 excerpt_separator: "<!--more-->"
-categories: [coding, python]
-tags: [TCK-TK, environment, linux]
+categories:
+    - coding
+    - python
+tags:
+    - TCK-TK
+    - environment
+    - linux
 ---
 
 ### Introduction

@@ -6,8 +6,11 @@ toc: true
 toc_label: "Needleman Wunsch alignment DP"
 toc_icon: "heart"
 excerpt_separator: "<!--more-->"
-categories: [statistics, alignment]
-tags: [alignment]
+categories:
+    - statistics
+    - alignment
+tags:
+    - alignment
 math: false
 ---
 

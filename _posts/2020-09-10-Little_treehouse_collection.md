@@ -6,8 +6,11 @@ toc: true
 toc_label: "little treehouse collection - estimation"
 toc_icon: "heart"
 excerpt_separator: "<!--more-->"
-categories: [statistics, estimation]
-tags: [estimation]
+categories:
+    - statistics
+    - estimation
+tags:
+    - estimation
 math: false
 ---
 

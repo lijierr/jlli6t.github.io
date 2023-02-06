@@ -6,8 +6,13 @@ toc: true
 toc_label: "Comparison of Seqs iterator"
 toc_icon: "heart"
 excerpt_separator: "<!--more-->"
-categories: [coding, python]
-tags: [fastq, fasta, sequence]
+categories:
+	- coding
+	- python
+tags:
+	- fastq
+	- fasta
+	- sequence
 math: false
 ---
 

@@ -7,8 +7,12 @@ toc: true
 toc_label: "git操作本地仓库"
 toc_icon: "heart"
 excerpt_separator: "<!--more-->"
-categories: [linux, git]
-tags: [tutorial, git]
+categories: 
+    - linux
+    - git
+tags:
+    - tutorial
+    - git
 ---
 
 ### git 工具

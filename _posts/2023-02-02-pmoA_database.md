@@ -7,8 +7,12 @@ toc: true
 toc_label: "pmoA基因序列数据库"
 toc_icon: "heart"
 excerpt_separator: "<!--more-->"
-categories: [database, gene]
-tags: [protein, gene]
+categories:
+    - database
+    - gene
+tags: 
+    - protein
+    - gene
 ---
 
 ## Introduction

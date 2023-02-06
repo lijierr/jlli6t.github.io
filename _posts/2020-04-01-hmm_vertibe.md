@@ -6,8 +6,11 @@ toc: true
 toc_label: "hmm vertibe 过程"
 toc_icon: "heart"
 excerpt_separator: "<!--more-->"
-categories: [statistics, probability]
-tags: [probability]
+categories:
+    - statistics
+    - probability
+tags: 
+    - probability
 math: false
 ---
 

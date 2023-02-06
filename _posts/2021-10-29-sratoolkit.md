@@ -6,8 +6,12 @@ toc: true
 toc_label: "sratoolkit下载测序数据"
 toc_icon: "heart"
 excerpt_separator: "<!--more-->"
-categories: [linux, bash]
-tags: [bash, linux]
+categories:
+    - linux
+    - bash
+tags:
+    - bash
+    - linux
 math: false
 ---
 

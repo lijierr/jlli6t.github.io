@@ -6,8 +6,11 @@ toc: true
 toc_label: "NCBI genomes下载"
 toc_icon: "heart"
 excerpt_separator: "<!--more-->"
-categories: [database, genome]
-tags: [genome]
+categories:
+    - database
+    - genome
+tags:
+    - genome
 math: false
 ---
 

@@ -6,8 +6,13 @@ toc: true
 toc_label: "Perl包安装"
 toc_icon: "heart"
 excerpt_separator: "<!--more-->"
-categories: [coding, perl]
-tags: [annotation, perl, linux]
+categories: 
+    - coding
+    - perl
+tags:
+    - annotation
+    - perl
+    - linux
 math: false
 ---
 
