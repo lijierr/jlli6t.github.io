@@ -24,7 +24,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Notes of PICRUST",
-        "excerpt":"Introduction  picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。  picrust是基于已经计算好的数据库进行预测，数据库下载地址。  下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库     Installation  安装picrust, 这个中间没有遇到麻烦；注意picrsut是基于python2.7版本(用的2.7.12)， 其他版本的python会报错例如python3.5.2   Usage tips  因为picrust是读入biom文件 所以先要生成biom 格式的文件，其中biom需要包含的信息有每个样品注释上的物种信息及对应的丰度，生成biom的格式方法有两种：   way 1  通过利用qiime1的命令先挑选otu比对的ref, 这里相当于重新比对分类一次，默认方法是uclust(其他还有usearch_ref， sortmerna), 所以挑出来的otu 比OTU_final.fasta里的序列要少, 整体预测的通路的矩阵里的值会小一些，通路数量上可能也小一些. 这里好像不支持rdp的结果，因为rdp基于贝叶斯的概率方法，最后没有给出具体比对的哪个id, 而是只给出一个分类taxonomy信息。   step 1  首先用qiime1里的pick_closed_reference_otus.py 命令挑选ref：(可以使用97，也可以使用90，99或者其他的)   echo \"pick_otus:enable_rev_strand_match True\"&gt;&gt;otu_picking_params_97.txt echo \"pick_otus:similarity 0.97\"&gt;&gt;otu_picking_params_97.txt pick_closed_reference_otus.py -i OTU_final.fasta -o $PWD/ucrC972/ -p $PWD/otu_picking_params_97.txt -r ./gg_13_5_otus/rep_set/97_otus.fasta -t ./gg_13_5_otus/taxonomy/97_otu_taxonomy.txt -a -O 8  step 2  使用命令biom convert -i ucrC972/otu_table.biom -o ucrC972/otu_table.biom.tsv --to-tsv tsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个0 1矩阵    2020-04-02-测试PICRUST 1.1.3   介绍  根据16S的测序数据，对样本的现在通路进行预测。picrust只能基于greengenes database进行预测，并且只有13_5和12_8两个版本。picrust是基于已经计算好的数据库进行预测，数据库下载地址   下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库   测试过程  第一步：安装picrust 基于python2.7版本(用的2.7.12)， 其他版本的python会报错例如python3.5.2。 第二步： 因为picrust是读入biom文件，所以先要生成biom格式的文件。其中biom需要包含的信息有每个样品注释上的物种信息及对应的丰度，生成biom的格式方法有两种：         a)  通过利用qiime1的命令先挑选otu比对的ref, 这里相当于重新比对分类一次，默认方法是uclust(其他还有usearch_ref， sortmerna)。所以挑出来的otu比OTU_final.fasta里的序列要少, 整体预测的通路的矩阵里的值会小一些，通路数量上可能也小一些。这里好像不支持rdp的结果，因为rdp基于贝叶斯的概率方法，最后没有给出具体比对的哪个id, 而是只给出一个分类taxonomy信息。             （1）首先用qiime1里的pick_closed_reference_otus.py命令挑选ref：(可以使用97，也可以使用90，99或者其他的)   echo \"pick_otus:enable_rev_strand_match True\"&gt;&gt;otu_picking_params_97.txt echo \"pick_otus:similarity 0.97\"&gt;&gt;otu_picking_params_97.txt pick_closed_reference_otus.py -i OTU_final.fasta -o $PWD/ucrC972/ -p $PWD/otu_picking_params_97.txt -r ./gg_13_5_otus/rep_set/97_otus.fasta -t ./gg_13_5_otus/taxonomy/97_otu_taxonomy.txt -a -O 8          (2) biom convert -i ucrC972/otu_table.biom -o ucrC972/otu_table.biom.tsv --to-tsv tsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个0 1矩阵 ![](/assets/picbed/post/picrust_biom2matrix.png)         (3) 结合OTU_shared_final.xls 的每个样品的每个otu的绝对丰度文件， perl -e 'open(IN,\"ucrC972/otu_table.biom.tsv\");$t=&lt;IN&gt;;print\"$t\";%hash;$t=&lt;IN&gt;;chop($t);@t=split/\\t/,$t;while(&lt;IN&gt;){chomp;@a=split;for($i=1;$i&lt;@a;$i++){if($a[$i]==1){$hash{$t[$i]}=$a[0];}}}close IN;$t=&lt;&gt;;chomp($t);print\"#OTU ID$t\\ttaxonomy\\n\";@t=split/\\s+/,$t;%out;while(&lt;&gt;){chomp;@a=split;next if(not exists $hash{$a[0]});for($i=1;$i&lt;@a;$i++){$out{$hash{$a[0]}}{$t[$i]}+=$a[$i];}}foreach $k(sort keys %out){print\"$k\";for($i=1;$i&lt;@t;$i++){print\"\\t$out{$k}{$t[$i]}\";}print\"\\n\";}' ../../OTU_shared_final.xls &gt;otu_table.biom.txt 生成的otu_table.biom.txt 文件如下格式： ![](/assets/picbed/post/picrust_otu_table.png)         (4) 将文件convert 为biom格式： biom convert -i otu_table.biom.txt -o otu_table.biom --to-hdf5      (b) 利用mothur软件的make.biom命令生成biom文件，直接将注释的结果转换成如上格式，需要用到otu的丰度值以及具体的greengenes数据库的注释信息，需要利用到注释的中间其他文件例如将otu id与ref id对应的文件。因为没有pick的过程，所以otu有多少，就有多少注释结果，通路上可能比第一种方法要多。      而且这种方法要求必须有greengenes的注释结果，通常我们不会用greengenes进行注释，所以如果肯定不会使用greengenes的数据库注释结果，可以采用第一种方法生成biom文件；  3. 利用预先计算好好的16s 拷贝数数据库，对otu的物种注释信息进行16s拷贝数的标准化： normalize_by_copy_number.py -i otu_table.biom -o normalized_otus.biom predict_metagenomes.py -t ko -i normalized_otus.biom -o metagenome_predictions.biom -a KEGG_predict_traits.tab  4. 利用`predict_metagenomes.py`命令对标准化后的`otu`丰度进行功能预测；这里包括`kegg`, `cog`, 和`pfam`3个数据库进行预测，`-t cog` 或者 `-t rfam` predict_metagenomes.py -t ko -i normalized_otus.biom -o metagenome_predictions.biom -a KEGG_predict_traits.tab 其次，加入-f 参数， predict_metagenomes.py -f -t ko -i normalized_otus.biom -o metagenome_predictions.txt -a KEGG_predict_traits.tab 生成tab键隔开的文件 得到的是每个样品中KO酶的丰度 ![](/assets/picbed/post/picrust_ko_table.png)  5. 将预测到的值进行map的划分，则KO的信息也是很重要，因为很多KO是不存在在map中的； categorize_by_function.py -f -i metagenome_predictions.biom -c KEGG_Pathways -l 3 -o KEGG_Pathways.L3.txt   是否可以用每一个通路/基因在各个样品之间的值来做标准化。  即例如K01361在样品MFC.1中，标准化之后为20/(20+24+21+24)。测试如下： 在挑选了ref 序列之后，在生成biom文件前身的时候，由输入OTU_shared_final.xls文件改为输入其相对丰度文件，在predict_metagenome.py的过程中，会出现报错：   predict_metagenomes.py:371: RuntimeWarning: invalid value encountered in true_divide      result=total/n  预测的结果文件能正常生成，但是和之前的结果不一致。推测，可能在前边输入OTU的相对丰度的时候导致在16S拷贝数的标准化等等过程中有四舍五入的过程，因为虽然不一致，但是最后预测的结果是整数, 并且很多原来用绝对值去预测的时候能得到很小的值，但是换成相对丰度之后就变为了0， 有四舍五入的可能性更大了。    且最后预测到的值，每个样品的总和是不一致的。有三种可能性，第一种是标准化之后的输入文件，在分析过程中有四舍五入的嫌疑，第二种是虽然做了标准化，但是不是每个样品的OTU都能全部被挑到，这里去掉了一些OTU, 导致了丰度的不一致，这个是肯定的，第三种是1，2两种情况同时存在。 暂时我的理解是如果输入绝对丰度文件，对最后的输出结果做标准化，就相当于将所有的unclassified去掉之后对能注释上的物种做了一次标准化, 但因为不确定中间是否有四舍五入或者其他简略过程，需要更多的测试   待测试  1. 可以将pick到ref的otu 的丰度再做一次标准化，然后作为输入进行预测，计算每个样品的总和 2. Module没有预测出来，待解决，原文中有提到Module的信息，最好能预测到module的信息  ","categories": ["bioinformatics","amplicon"],
+        "excerpt":"Introduction  Picrust是一款基于16S rRNA gene数据库对amplicon测序的群落进行功能预测的工具。目前16S rRNA gene有并且只有 13_5和 12_8两个版本。  picrust是基于已经计算好的数据库进行预测，数据库下载地址。  下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库     Installation  安装picrust, 这个中间没有遇到麻烦；注意picrsut是基于python2.7版本(用的2.7.12)， 其他版本的python会报错例如python3.5.2   Usage tips  因为picrust是读入biom文件 所以先要生成biom 格式的文件，其中biom需要包含的信息有每个样品注释上的物种信息及对应的丰度，生成biom的格式方法有两种：   way 1  通过利用qiime1的命令先挑选otu比对的ref, 这里相当于重新比对分类一次，默认方法是uclust(其他还有usearch_ref， sortmerna), 所以挑出来的otu 比OTU_final.fasta里的序列要少, 整体预测的通路的矩阵里的值会小一些，通路数量上可能也小一些. 这里好像不支持rdp的结果，因为rdp基于贝叶斯的概率方法，最后没有给出具体比对的哪个id, 而是只给出一个分类taxonomy信息。   step 1  首先用qiime1里的pick_closed_reference_otus.py 命令挑选ref：(可以使用97，也可以使用90，99或者其他的)   echo \"pick_otus:enable_rev_strand_match True\"&gt;&gt;otu_picking_params_97.txt echo \"pick_otus:similarity 0.97\"&gt;&gt;otu_picking_params_97.txt pick_closed_reference_otus.py -i OTU_final.fasta -o $PWD/ucrC972/ -p $PWD/otu_picking_params_97.txt -r ./gg_13_5_otus/rep_set/97_otus.fasta -t ./gg_13_5_otus/taxonomy/97_otu_taxonomy.txt -a -O 8  step 2  使用命令biom convert -i ucrC972/otu_table.biom -o ucrC972/otu_table.biom.tsv --to-tsv tsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个0 1矩阵    2020-04-02-测试PICRUST 1.1.3   介绍  根据16S的测序数据，对样本的现在通路进行预测。picrust只能基于greengenes database进行预测，并且只有13_5和12_8两个版本。picrust是基于已经计算好的数据库进行预测，数据库下载地址   下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库   测试过程  第一步：安装picrust 基于python2.7版本(用的2.7.12)， 其他版本的python会报错例如python3.5.2。 第二步： 因为picrust是读入biom文件，所以先要生成biom格式的文件。其中biom需要包含的信息有每个样品注释上的物种信息及对应的丰度，生成biom的格式方法有两种：         a)  通过利用qiime1的命令先挑选otu比对的ref, 这里相当于重新比对分类一次，默认方法是uclust(其他还有usearch_ref， sortmerna)。所以挑出来的otu比OTU_final.fasta里的序列要少, 整体预测的通路的矩阵里的值会小一些，通路数量上可能也小一些。这里好像不支持rdp的结果，因为rdp基于贝叶斯的概率方法，最后没有给出具体比对的哪个id, 而是只给出一个分类taxonomy信息。             （1）首先用qiime1里的pick_closed_reference_otus.py命令挑选ref：(可以使用97，也可以使用90，99或者其他的)   echo \"pick_otus:enable_rev_strand_match True\"&gt;&gt;otu_picking_params_97.txt echo \"pick_otus:similarity 0.97\"&gt;&gt;otu_picking_params_97.txt pick_closed_reference_otus.py -i OTU_final.fasta -o $PWD/ucrC972/ -p $PWD/otu_picking_params_97.txt -r ./gg_13_5_otus/rep_set/97_otus.fasta -t ./gg_13_5_otus/taxonomy/97_otu_taxonomy.txt -a -O 8          (2) biom convert -i ucrC972/otu_table.biom -o ucrC972/otu_table.biom.tsv --to-tsv tsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个0 1矩阵 ![](/assets/picbed/post/picrust_biom2matrix.png)         (3) 结合OTU_shared_final.xls 的每个样品的每个otu的绝对丰度文件， perl -e 'open(IN,\"ucrC972/otu_table.biom.tsv\");$t=&lt;IN&gt;;print\"$t\";%hash;$t=&lt;IN&gt;;chop($t);@t=split/\\t/,$t;while(&lt;IN&gt;){chomp;@a=split;for($i=1;$i&lt;@a;$i++){if($a[$i]==1){$hash{$t[$i]}=$a[0];}}}close IN;$t=&lt;&gt;;chomp($t);print\"#OTU ID$t\\ttaxonomy\\n\";@t=split/\\s+/,$t;%out;while(&lt;&gt;){chomp;@a=split;next if(not exists $hash{$a[0]});for($i=1;$i&lt;@a;$i++){$out{$hash{$a[0]}}{$t[$i]}+=$a[$i];}}foreach $k(sort keys %out){print\"$k\";for($i=1;$i&lt;@t;$i++){print\"\\t$out{$k}{$t[$i]}\";}print\"\\n\";}' ../../OTU_shared_final.xls &gt;otu_table.biom.txt 生成的otu_table.biom.txt 文件如下格式： ![](/assets/picbed/post/picrust_otu_table.png)         (4) 将文件convert 为biom格式： biom convert -i otu_table.biom.txt -o otu_table.biom --to-hdf5      (b) 利用mothur软件的make.biom命令生成biom文件，直接将注释的结果转换成如上格式，需要用到otu的丰度值以及具体的greengenes数据库的注释信息，需要利用到注释的中间其他文件例如将otu id与ref id对应的文件。因为没有pick的过程，所以otu有多少，就有多少注释结果，通路上可能比第一种方法要多。      而且这种方法要求必须有greengenes的注释结果，通常我们不会用greengenes进行注释，所以如果肯定不会使用greengenes的数据库注释结果，可以采用第一种方法生成biom文件；  3. 利用预先计算好好的16s 拷贝数数据库，对otu的物种注释信息进行16s拷贝数的标准化： normalize_by_copy_number.py -i otu_table.biom -o normalized_otus.biom predict_metagenomes.py -t ko -i normalized_otus.biom -o metagenome_predictions.biom -a KEGG_predict_traits.tab  4. 利用`predict_metagenomes.py`命令对标准化后的`otu`丰度进行功能预测；这里包括`kegg`, `cog`, 和`pfam`3个数据库进行预测，`-t cog` 或者 `-t rfam` predict_metagenomes.py -t ko -i normalized_otus.biom -o metagenome_predictions.biom -a KEGG_predict_traits.tab 其次，加入-f 参数， predict_metagenomes.py -f -t ko -i normalized_otus.biom -o metagenome_predictions.txt -a KEGG_predict_traits.tab 生成tab键隔开的文件 得到的是每个样品中KO酶的丰度 ![](/assets/picbed/post/picrust_ko_table.png)  5. 将预测到的值进行map的划分，则KO的信息也是很重要，因为很多KO是不存在在map中的； categorize_by_function.py -f -i metagenome_predictions.biom -c KEGG_Pathways -l 3 -o KEGG_Pathways.L3.txt   是否可以用每一个通路/基因在各个样品之间的值来做标准化。  即例如K01361在样品MFC.1中，标准化之后为20/(20+24+21+24)。测试如下： 在挑选了ref 序列之后，在生成biom文件前身的时候，由输入OTU_shared_final.xls文件改为输入其相对丰度文件，在predict_metagenome.py的过程中，会出现报错：   predict_metagenomes.py:371: RuntimeWarning: invalid value encountered in true_divide      result=total/n  预测的结果文件能正常生成，但是和之前的结果不一致。推测，可能在前边输入OTU的相对丰度的时候导致在16S拷贝数的标准化等等过程中有四舍五入的过程，因为虽然不一致，但是最后预测的结果是整数, 并且很多原来用绝对值去预测的时候能得到很小的值，但是换成相对丰度之后就变为了0， 有四舍五入的可能性更大了。    且最后预测到的值，每个样品的总和是不一致的。有三种可能性，第一种是标准化之后的输入文件，在分析过程中有四舍五入的嫌疑，第二种是虽然做了标准化，但是不是每个样品的OTU都能全部被挑到，这里去掉了一些OTU, 导致了丰度的不一致，这个是肯定的，第三种是1，2两种情况同时存在。 暂时我的理解是如果输入绝对丰度文件，对最后的输出结果做标准化，就相当于将所有的unclassified去掉之后对能注释上的物种做了一次标准化, 但因为不确定中间是否有四舍五入或者其他简略过程，需要更多的测试   待测试  1. 可以将pick到ref的otu 的丰度再做一次标准化，然后作为输入进行预测，计算每个样品的总和 2. Module没有预测出来，待解决，原文中有提到Module的信息，最好能预测到module的信息  ","categories": ["bioinformatics","amplicon"],
         "tags": ["annotation","prokaryotic","amplicon","pathway"],
         "url": "/bioinformatics/amplicon/PICRUST/",
         "teaser": null
@@ -108,7 +108,7 @@ var store = [{
         "teaser": null
       },{
         "title": "git操作远端仓库",
-        "excerpt":"Introduction  确认SSH key  第一步，首先确实自己的目录下是否已经有SSH key。这个一般在~/.ssh目录下，可查看目录是否有   ls ~/.ssh/ a  b  id_rsa  id_rsa.pub  known_hosts    需要的文件是一对以id_rsa或id_dsa命名的文件。例如上边我的目录中是id_rsa文件和id_rsa.pub文件，其中一个文件以id_rsa.pub文件是公钥，id_rsa是私钥。 如果没有这样的文件，或者甚至都没有.ssh目录的话，那么需要自己生成SSH公钥：   ssh-keygen -o  然后将生成的id_rsa.pub里的内容复制粘贴给github自己的账号中的SSH key。SSH keys的目的是为了保证推送的提交是你本人推送的，而不是别人冒充的。git支持SSH协议，并允许你添加多个KEY, 这样即使你有N台电脑并都会进行提交的时候，只需要把每一台电脑的SSH key都添加进去，github就允许每一台key被添加的都电脑都推送过来啦!    绑定用户名和邮箱   git config --global user.name 用户名 git config --global user.email 邮箱  测试查看自己的用户名和email   git config user.name git config user.email  创建远端仓库  如果该项目在远端仓库还没有对应的项目仓库，那么需要先在远端建立一个新仓库，例如github的网页操作。例如创建仓库名称为test的公开项目仓库。    关联仓库  项目仓库创建好之后，进入到本地的仓库，将项目仓库与本地仓库进行关联。   git remote add test https://github.com/username/test.git  推送本地仓库  关联好之后，就可以开始推送啦, 因为是第一次推送这个仓库，所以加入-u参数，把当前分支master所有内容推送到远程，并且会将本地的master分支和远程的master分支关联起来，这样以后推送或者拉取时就可以简化命令 首次推送：   git push -u test master  其他推送：   git push test master  其他命令  查看本地已关联的远端仓库： git remote -v 删除某个远端仓库的关联： git remote rm NAME 如果推送远端被拒，有可能是ssh keys的问题，可以尝试在command line输入unset SSH_ASKPASS，问题可解决。   当远端仓库里有1个或多个文件是本地仓库里没有的的时候，需要先将远端仓库pull到本地:   git pull 远端仓库  ref  https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5  ","categories": ["linux","git"],
+        "excerpt":"确认SSH key  第一步，首先确实自己的目录下是否已经有SSH key。这个一般在~/.ssh目录下，可查看目录是否有   ls ~/.ssh/ a  b  id_rsa  id_rsa.pub  known_hosts    需要的文件是一对以id_rsa或id_dsa命名的文件。例如上边我的目录中是id_rsa文件和id_rsa.pub文件，其中一个文件以id_rsa.pub文件是公钥，id_rsa是私钥。 如果没有这样的文件，或者甚至都没有.ssh目录的话，那么需要自己生成SSH公钥：   ssh-keygen -o  然后将生成的id_rsa.pub里的内容复制粘贴给github自己的账号中的SSH key。SSH keys的目的是为了保证推送的提交是你本人推送的，而不是别人冒充的。git支持SSH协议，并允许你添加多个KEY, 这样即使你有N台电脑并都会进行提交的时候，只需要把每一台电脑的SSH key都添加进去，github就允许每一台key被添加的都电脑都推送过来啦!    绑定用户名和邮箱   git config --global user.name 用户名 git config --global user.email 邮箱  测试查看自己的用户名和email   git config user.name git config user.email  创建远端仓库  如果该项目在远端仓库还没有对应的项目仓库，那么需要先在远端建立一个新仓库，例如github的网页操作。例如创建仓库名称为test的公开项目仓库。    关联仓库  项目仓库创建好之后，进入到本地的仓库，将项目仓库与本地仓库进行关联。   git remote add test https://github.com/username/test.git  推送本地仓库  关联好之后，就可以开始推送啦, 因为是第一次推送这个仓库，所以加入-u参数，把当前分支master所有内容推送到远程，并且会将本地的master分支和远程的master分支关联起来，这样以后推送或者拉取时就可以简化命令 首次推送：   git push -u test master  其他推送：   git push test master  其他命令  查看本地已关联的远端仓库： git remote -v 删除某个远端仓库的关联： git remote rm NAME 如果推送远端被拒，有可能是ssh keys的问题，可以尝试在command line输入unset SSH_ASKPASS，问题可解决。   当远端仓库里有1个或多个文件是本地仓库里没有的的时候，需要先将远端仓库pull到本地:   git pull 远端仓库  ref  https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5  ","categories": ["linux","git"],
         "tags": ["tutorial","git"],
         "url": "/linux/git/git_remote_repo/",
         "teaser": null
@@ -126,9 +126,9 @@ var store = [{
         "teaser": null
       },{
         "title": "上传数据到SRA",
-        "excerpt":"说明  数据分析结束之后，通常需要将原始数据上传到公共数据库进行分享。例如测序数据通常上传至NCBI的SRA库。当样本数目比较小的时候，通过网页上传是非常方便的。但是当样本数量庞大的时候，通过网页上传数据就非常麻烦了，因为需要手动依次上传每一个样本。所以最直接的方法是从服务器往NCBI传，例如是用aspera：     aspera的下载链接https://www.ibm.com/products/aspera/downloads 其安装操作手册可参考https://cloud.tencent.com/developer/article/1749467   上传的命令为：   ascp -i /home/.aspera/connect/aspera.openssh -QT -l100m -k1 -d DATA_PATH subasp@upload.ncbi.nlm.nih.gov:uploads/ACCOUNT_CODE  其他  这个命令应该是默认传到了root目录。此目录是一个暂存目录，时间为30天。30天过后自动移除文件。因此，整个数据submission的操作需要在30天之内完成。  ","categories": ["linux","bash"],
-        "tags": ["bash","linux"],
-        "url": "/linux/bash/Upload_SRA/",
+        "excerpt":"说明  数据分析结束之后，通常需要将原始数据上传到公共数据库进行分享。例如测序数据通常上传至NCBI的SRA库。当样本数目比较小的时候，通过网页上传是非常方便的。但是当样本数量庞大的时候，通过网页上传数据就非常麻烦了，因为需要手动依次上传每一个样本。所以最直接的方法是从服务器往NCBI传，例如是用aspera：     aspera的下载链接https://www.ibm.com/products/aspera/downloads 其安装操作手册可参考https://cloud.tencent.com/developer/article/1749467   上传的命令为：   ascp -i /home/.aspera/connect/aspera.openssh -QT -l100m -k1 -d DATA_PATH subasp@upload.ncbi.nlm.nih.gov:uploads/ACCOUNT_CODE  其他  这个命令应该是默认传到了root目录。此目录是一个暂存目录，时间为30天。30天过后自动移除文件。因此，整个数据submission的操作需要在30天之内完成。  ","categories": ["database","SRA"],
+        "tags": ["bash","linux","database","rawdate","SRA"],
+        "url": "/database/sra/Upload_SRA/",
         "teaser": null
       },{
         "title": "sratoolkit下载测序数据",
@@ -150,22 +150,22 @@ var store = [{
         "teaser": null
       },{
         "title": "Needleman Wunsch alignment DP",
-        "excerpt":"       ","categories": ["statistics","alignment"],
+        "excerpt":"The score matrix       The optimal path    ","categories": ["statistics","alignment"],
         "tags": ["alignment"],
         "url": "/statistics/alignment/Needleman_Wunsch_alignment/",
         "teaser": null
       },{
         "title": "Smith Waterman alignment DP",
-        "excerpt":"       ","categories": ["statistics","alignment"],
+        "excerpt":"The score matrix       The optimal path    ","categories": ["statistics","alignment"],
         "tags": ["alignment"],
         "url": "/statistics/alignment/Smith-Waterman_algorithm/",
         "teaser": null
-      },{
+      },,{
     "title": null,
     "excerpt":"     404     Page not found :(    The requested page could not be found.   ","url": "http://localhost:3080/404.html"
   },{
     "title": "",
-    "excerpt":"Jie did her PhD with professor Jianhua Guo and professor Gene Tyson with focus on microbial ecology and bioinformatics.   With passion on microbial ecology, Jie has contributed to publications. The passion extends to coding as well. Jie has led the development of pipelines.   Jie has worked in a wide range of different environments from molecular biology science to bioinformatics. The wet lab experience of molecular biology aids in data analysis a lots. It’s exciting to work with different people and to learn from different professionals. These experiences largely diversified her skillset and enabled a solid foundation for her as an independent researcher.     ","url": "http://localhost:3080/about/index.html"
+    "excerpt":"Jie did her PhD with Professor Jianhua Guo and Professor Gene Tyson with focus on microbial ecology and bioinformatics.   With passion on microbial ecology, Jie has contributed to publications. The passion extends to coding as well. Jie has led the development of pipelines.   Jie has worked in a wide range of different environments from molecular biology science to bioinformatics. The wet lab experience of molecular biology aids in data analysis a lots. It’s exciting to work with different people and to learn from different professionals. These experiences largely diversified her skillset and enabled a solid foundation for her as an independent researcher.     ","url": "http://localhost:3080/about/"
   },{
     "title": null,
     "excerpt":"","url": "http://localhost:3080/"
@@ -188,14 +188,182 @@ var store = [{
     "title": "",
     "excerpt":"## Book chapter [1]. Jianhua Guo, Yue Wang, Yunus Ahmed, Min Jin, **Jie Li**. [Control strategies to combat dissemination of antibiotic resistance in urban water systems. Antibiotic Resistance in the Environment: A Worldwide Overview](https://link.springer.com/chapter/10.1007/698_2020_474). The Handbook of Environmental Chemistry, Springer, 2020: 147-187.  ## Publications [11]. Mengxiong Wu#, **Jie Li#**, Andy O Leu, Dirk V Erler, Terra Stark, Gene W. Tyson, Zhiguo Yuan, Simon J. McIlroy*, Jianhua Guo\\* [Anaerobic oxidation of propane coupled to nitrate reduction by a novel lineage of the class Symbiobacteriia](https://www.nature.com/articles/s41467-022-33872-y). Nature Communications, 2022, 13(1): 6115. **(co-first author)**  [10]. Jing Zhao, Min Zheng*, Zicheng Su, Tao Liu, **Jie Li**, Jianhua Guo, Zhiguo Yuan, Shihu Hu. [Selective Enrichment of Comammox Nitrospira in a Moving Bed Biofilm Reactor with Sufficient Oxygen Supply](https://pubs.acs.org/doi/abs/10.1021/acs.est.2c03299). Environmental Science & Technology, 2022, 56(18): 13338-13346.  [9]. Jing Zhao, Gaofeng Ni, Maria Piculell, **Jie Li**, Zhetai Hu, Zhiyao Wang, Jianhua Guo, Zhiguo Yuan, Min Zheng*, Shihu Hu\\*. [Characterizing and comparing microbial community and biofilm structure in three nitrifying moving bed biofilm reactors](https://doi.org/10.1016/j.jenvman.2022.115883). Journal of Environmental Management, 2022, 320: 115883.  [8]. Yue Wang, Ji Lu, Shuai Zhang, **Jie Li**, Likai Mao, Zhiguo Yuan, Philip L. Bond, Jianhua Guo\\*. [Non-antibiotic pharmaceuticals promote the transmission of multidrug resistance plasmids through intra-and intergenera conjugation](https://www.nature.com/articles/s41396-021-00945-7). The ISME Journal, 2021, 15(9): 2493-2508.  [7]. Jiyun Li#, Zheng-Shuang Hua#, Tao Liu, Chengwen Wang\\*, **Jie Li**, Ge Bai, Sebastian Lucker, Mike SM Jetten, Min Zheng*, Jianhua Guo\\*. [Selective enrichment and metagenomic analysis of three novel comammox Nitrospira in a urine-fed membrane bioreactor](https://www.nature.com/articles/s43705-021-00005-3). ISME Communications, 2021, 1(1): 7.  [6]. Hui Chen, Tao Liu, **Jie Li**, Likai Mao, Jun Ye, Xiaoyu Han, Mike SM Jetten, Jianhua Guo\\*. [Larger anammox granules not only harbor higher species diversity but also support more functional diversity](https://pubs.acs.org/doi/full/10.1021/acs.est.0c02609). Environmental Science & Technology, 2020, 54(22): 14664-14673.  [5]. Tao Liu, **Jie Li**, Zhuan Khai Lim, Hui Chen, Shihu Hu, Zhiguo Yuan, Jianhua Guo\\*. [Simultaneous removal of dissolved methane and nitrogen from synthetic mainstream anaerobic effluent](https://pubs.acs.org/doi/full/10.1021/acs.est.0c00912). Environmental Science & Technology, 2020, 54(12): 7629-7638.  [4]. Yue Wang, Ji Lu, Likai Mao, **Jie Li**, Zhiguo Yuan, Philip L. Bond, Jianhua Guo\\*. [Antiepileptic drug carbamazepine promotes horizontal transfer of plasmid-borne multi-antibiotic resistance genes within and across bacterial genera](https://www.nature.com/articles/s41396-018-0275-x). The ISME Journal, 2019, 13(2): 509-522.  [3]. Ji Lu, Yue Wang, **Jie Li**, Likai Mao, Son Hoang Nguyen, Tania Duarte, Lachlan Coin, Philip L. Bond, Zhiguo Yuan, Jianhua Guo\\*. [Triclosan at environmentally relevant concentrations promotes horizontal transfer of multidrug resistance genes within and across bacterial genera](https://www.sciencedirect.com/science/article/pii/S0160412018317264). Environment international, 2018, 121: 1217-1226.  [2] Ji Lu, Min Jin, Son Hoang Nguyen, Likai Mao, **Jie Li**, Lachlan JM Coin, Zhiguo Yuan, Jianhua Guo\\*. [Non-antibiotic antimicrobial triclosan induces multiple antibiotic resistance through genetic mutation](https://www.sciencedirect.com/science/article/pii/S0160412018303672). Environment international, 2018, 118: 257-265.  [1] Jianhua Guo*, **Jie Li**, Hui Chen, Philip L. Bond, Zhiguo Yuan. [Metagenomic analysis reveals wastewater treatment plants as hotspots of antibiotic resistance genes and mobile genetic elements](https://www.sciencedirect.com/science/article/pii/S0043135417305651). Water research, 2017, 123: 468-478.  ## Categorize publications into research field ### Microbial ecology related publications [6]. Mengxiong Wu#, **Jie Li#**, Andy O Leu, Dirk V Erler, Terra Stark, Gene W. Tyson, Zhiguo Yuan, Simon J. McIlroy*, Jianhua Guo\\* [Anaerobic oxidation of propane coupled to nitrate reduction by a novel lineage of the class Symbiobacteriia](https://www.nature.com/articles/s41467-022-33872-y). Nature Communications, 2022, 13(1): 6115. **(co-first author)**  [5]. Jing Zhao, Min Zheng*, Zicheng Su, Tao Liu, **Jie Li**, Jianhua Guo, Zhiguo Yuan, Shihu Hu. [Selective Enrichment of Comammox Nitrospira in a Moving Bed Biofilm Reactor with Sufficient Oxygen Supply](https://pubs.acs.org/doi/abs/10.1021/acs.est.2c03299). Environmental Science & Technology, 2022, 56(18): 13338-13346.  [4]. Jing Zhao, Gaofeng Ni, Maria Piculell, **Jie Li**, Zhetai Hu, Zhiyao Wang, Jianhua Guo, Zhiguo Yuan, Min Zheng*, Shihu Hu\\*. [Characterizing and comparing microbial community and biofilm structure in three nitrifying moving bed biofilm reactors](https://doi.org/10.1016/j.jenvman.2022.115883). Journal of Environmental Management, 2022, 320: 115883.  [3]. Jiyun Li#, Zheng-Shuang Hua#, Tao Liu, Chengwen Wang\\*, **Jie Li**, Ge Bai, Sebastian Lucker, Mike SM Jetten, Min Zheng*, Jianhua Guo\\*. [Selective enrichment and metagenomic analysis of three novel comammox Nitrospira in a urine-fed membrane bioreactor](https://www.nature.com/articles/s43705-021-00005-3). ISME Communications, 2021, 1(1): 7.  [2]. Hui Chen, Tao Liu, **Jie Li**, Likai Mao, Jun Ye, Xiaoyu Han, Mike SM Jetten, Jianhua Guo\\*. [Larger anammox granules not only harbor higher species diversity but also support more functional diversity](https://pubs.acs.org/doi/full/10.1021/acs.est.0c02609). Environmental Science & Technology, 2020, 54(22): 14664-14673.  [1]. Tao Liu, **Jie Li**, Zhuan Khai Lim, Hui Chen, Shihu Hu, Zhiguo Yuan, Jianhua Guo\\*. [Simultaneous removal of dissolved methane and nitrogen from synthetic mainstream anaerobic effluent](https://pubs.acs.org/doi/full/10.1021/acs.est.0c00912). Environmental Science & Technology, 2020, 54(12): 7629-7638.  ### ARG related publications [5]. Yue Wang, Ji Lu, Shuai Zhang, **Jie Li**, Likai Mao, Zhiguo Yuan, Philip L. Bond, Jianhua Guo\\*. [Non-antibiotic pharmaceuticals promote the transmission of multidrug resistance plasmids through intra-and intergenera conjugation](https://www.nature.com/articles/s41396-021-00945-7). The ISME Journal, 2021, 15(9): 2493-2508.  [4]. Yue Wang, Ji Lu, Likai Mao, **Jie Li**, Zhiguo Yuan, Philip L. Bond, Jianhua Guo\\*. [Antiepileptic drug carbamazepine promotes horizontal transfer of plasmid-borne multi-antibiotic resistance genes within and across bacterial genera](https://www.nature.com/articles/s41396-018-0275-x). The ISME Journal, 2019, 13(2): 509-522.  [3]. Ji Lu, Yue Wang, **Jie Li**, Likai Mao, Son Hoang Nguyen, Tania Duarte, Lachlan Coin, Philip L. Bond, Zhiguo Yuan, Jianhua Guo\\*. [Triclosan at environmentally relevant concentrations promotes horizontal transfer of multidrug resistance genes within and across bacterial genera](https://www.sciencedirect.com/science/article/pii/S0160412018317264). Environment international, 2018, 121: 1217-1226.  [2] Ji Lu, Min Jin, Son Hoang Nguyen, Likai Mao, **Jie Li**, Lachlan JM Coin, Zhiguo Yuan, Jianhua Guo\\*. [Non-antibiotic antimicrobial triclosan induces multiple antibiotic resistance through genetic mutation](https://www.sciencedirect.com/science/article/pii/S0160412018303672). Environment international, 2018, 118: 257-265.  [1] Jianhua Guo*, **Jie Li**, Hui Chen, Philip L. Bond, Zhiguo Yuan. [Metagenomic analysis reveals wastewater treatment plants as hotspots of antibiotic resistance genes and mobile genetic elements](https://www.sciencedirect.com/science/article/pii/S0043135417305651). Water research, 2017, 123: 468-478.","url": "http://localhost:3080/publications/"
   },{
+    "title": "bash",
+    "excerpt":"","url": "http://localhost:3080/tags/bash/"
+  },{
+    "title": "linux",
+    "excerpt":"","url": "http://localhost:3080/tags/linux/"
+  },{
+    "title": "protein",
+    "excerpt":"","url": "http://localhost:3080/tags/protein/"
+  },{
+    "title": "annotation",
+    "excerpt":"","url": "http://localhost:3080/tags/annotation/"
+  },{
+    "title": "gene",
+    "excerpt":"","url": "http://localhost:3080/tags/gene/"
+  },{
+    "title": "genome",
+    "excerpt":"","url": "http://localhost:3080/tags/genome/"
+  },{
+    "title": "prokaryotic",
+    "excerpt":"","url": "http://localhost:3080/tags/prokaryotic/"
+  },{
+    "title": "amplicon",
+    "excerpt":"","url": "http://localhost:3080/tags/amplicon/"
+  },{
+    "title": "pathway",
+    "excerpt":"","url": "http://localhost:3080/tags/pathway/"
+  },{
+    "title": "dataQC",
+    "excerpt":"","url": "http://localhost:3080/tags/dataqc/"
+  },{
+    "title": "sequencing data",
+    "excerpt":"","url": "http://localhost:3080/tags/sequencing-data/"
+  },{
+    "title": "quality control",
+    "excerpt":"","url": "http://localhost:3080/tags/quality-control/"
+  },{
+    "title": "TCK-TK",
+    "excerpt":"","url": "http://localhost:3080/tags/tck-tk/"
+  },{
+    "title": "environment",
+    "excerpt":"","url": "http://localhost:3080/tags/environment/"
+  },{
+    "title": "fastq",
+    "excerpt":"","url": "http://localhost:3080/tags/fastq/"
+  },{
+    "title": "fasta",
+    "excerpt":"","url": "http://localhost:3080/tags/fasta/"
+  },{
+    "title": "sequence",
+    "excerpt":"","url": "http://localhost:3080/tags/sequence/"
+  },{
+    "title": "syntax",
+    "excerpt":"","url": "http://localhost:3080/tags/syntax/"
+  },{
+    "title": "tutorials",
+    "excerpt":"","url": "http://localhost:3080/tags/tutorials/"
+  },{
+    "title": "RNA",
+    "excerpt":"","url": "http://localhost:3080/tags/rna/"
+  },{
+    "title": "mapping",
+    "excerpt":"","url": "http://localhost:3080/tags/mapping/"
+  },{
+    "title": "protein sequence alignment",
+    "excerpt":"","url": "http://localhost:3080/tags/protein-sequence-alignment/"
+  },{
+    "title": "alignment",
+    "excerpt":"","url": "http://localhost:3080/tags/alignment/"
+  },{
+    "title": "perl",
+    "excerpt":"","url": "http://localhost:3080/tags/perl/"
+  },{
+    "title": "probability",
+    "excerpt":"","url": "http://localhost:3080/tags/probability/"
+  },{
+    "title": "taxonomy",
+    "excerpt":"","url": "http://localhost:3080/tags/taxonomy/"
+  },{
+    "title": "tutorial",
+    "excerpt":"","url": "http://localhost:3080/tags/tutorial/"
+  },{
+    "title": "git",
+    "excerpt":"","url": "http://localhost:3080/tags/git/"
+  },{
+    "title": "rRNA",
+    "excerpt":"","url": "http://localhost:3080/tags/rrna/"
+  },{
+    "title": "estimation",
+    "excerpt":"","url": "http://localhost:3080/tags/estimation/"
+  },{
+    "title": "database",
+    "excerpt":"","url": "http://localhost:3080/tags/database/"
+  },{
+    "title": "rawdate",
+    "excerpt":"","url": "http://localhost:3080/tags/rawdate/"
+  },{
+    "title": "SRA",
+    "excerpt":"","url": "http://localhost:3080/tags/sra/"
+  },{
+    "title": "markdown",
+    "excerpt":"","url": "http://localhost:3080/tags/markdown/"
+  },{
+    "title": "coding",
+    "excerpt":"","url": "http://localhost:3080/categories/coding/"
+  },{
+    "title": "bash",
+    "excerpt":"","url": "http://localhost:3080/categories/bash/"
+  },{
+    "title": "database",
+    "excerpt":"","url": "http://localhost:3080/categories/database/"
+  },{
+    "title": "protein",
+    "excerpt":"","url": "http://localhost:3080/categories/protein/"
+  },{
+    "title": "genome",
+    "excerpt":"","url": "http://localhost:3080/categories/genome/"
+  },{
+    "title": "bioinformatics",
+    "excerpt":"","url": "http://localhost:3080/categories/bioinformatics/"
+  },{
+    "title": "amplicon",
+    "excerpt":"","url": "http://localhost:3080/categories/amplicon/"
+  },{
+    "title": "dataQC",
+    "excerpt":"","url": "http://localhost:3080/categories/dataqc/"
+  },{
+    "title": "python",
+    "excerpt":"","url": "http://localhost:3080/categories/python/"
+  },{
+    "title": "metatranscriptomic",
+    "excerpt":"","url": "http://localhost:3080/categories/metatranscriptomic/"
+  },{
+    "title": "annotation",
+    "excerpt":"","url": "http://localhost:3080/categories/annotation/"
+  },{
+    "title": "alignment",
+    "excerpt":"","url": "http://localhost:3080/categories/alignment/"
+  },{
+    "title": "perl",
+    "excerpt":"","url": "http://localhost:3080/categories/perl/"
+  },{
+    "title": "statistics",
+    "excerpt":"","url": "http://localhost:3080/categories/statistics/"
+  },{
+    "title": "probability",
+    "excerpt":"","url": "http://localhost:3080/categories/probability/"
+  },{
+    "title": "linux",
+    "excerpt":"","url": "http://localhost:3080/categories/linux/"
+  },{
+    "title": "git",
+    "excerpt":"","url": "http://localhost:3080/categories/git/"
+  },{
+    "title": "rRNA",
+    "excerpt":"","url": "http://localhost:3080/categories/rrna/"
+  },{
+    "title": "estimation",
+    "excerpt":"","url": "http://localhost:3080/categories/estimation/"
+  },{
+    "title": "SRA",
+    "excerpt":"","url": "http://localhost:3080/categories/sra/"
+  },{
+    "title": "tutorial",
+    "excerpt":"","url": "http://localhost:3080/categories/tutorial/"
+  },{
+    "title": "gene",
+    "excerpt":"","url": "http://localhost:3080/categories/gene/"
+  },{
+    "title": null,
+    "excerpt":"{% if page.xsl %}{% endif %}Jekyll{{ site.time | date_to_xmlschema }}{{ page.url | absolute_url | xml_escape }}{% assign title = site.title | default: site.name %}{% if page.collection != \"posts\" %}{% assign collection = page.collection | capitalize %}{% assign title = title | append: \" | \" | append: collection %}{% endif %}{% if page.category %}{% assign category = page.category | capitalize %}{% assign title = title | append: \" | \" | append: category %}{% endif %}{% if title %}{{ title | smartify | xml_escape }}{% endif %}{% if site.description %}{{ site.description | xml_escape }}{% endif %}{% if site.author %}{{ site.author.name | default: site.author | xml_escape }}{% if site.author.email %}{{ site.author.email | xml_escape }}{% endif %}{% if site.author.uri %}{{ site.author.uri | xml_escape }}{% endif %}{% endif %}{% if page.tags %}{% assign posts = site.tags[page.tags] %}{% else %}{% assign posts = site[page.collection] %}{% endif %}{% if page.category %}{% assign posts = posts | where: \"categories\", page.category %}{% endif %}{% unless site.show_drafts %}{% assign posts = posts | where_exp: \"post\", \"post.draft != true\" %}{% endunless %}{% assign posts = posts | sort: \"date\" | reverse %}{% assign posts_limit = site.feed.posts_limit | default: 10 %}{% for post in posts limit: posts_limit %}{% assign post_title = post.title | smartify | strip_html | normalize_whitespace | xml_escape %}{{ post_title }}{{ post.date | date_to_xmlschema }}{{ post.last_modified_at | default: post.date | date_to_xmlschema }}{{ post.id | absolute_url | xml_escape }}{% assign excerpt_only = post.feed.excerpt_only | default: site.feed.excerpt_only %}{% unless excerpt_only %}{% endunless %}{% assign post_author = post.author | default: post.authors[0] | default: site.author %}{% assign post_author = site.data.authors[post_author] | default: post_author %}{% assign post_author_email = post_author.email | default: nil %}{% assign post_author_uri = post_author.uri | default: nil %}{% assign post_author_name = post_author.name | default: post_author %}{{ post_author_name | default: \"\" | xml_escape }}{% if post_author_email %}{{ post_author_email | xml_escape }}{% endif %}{% if post_author_uri %}{{ post_author_uri | xml_escape }}{% endif %}{% if post.category %}{% elsif post.categories %}{% for category in post.categories %}{% endfor %}{% endif %}{% for tag in post.tags %}{% endfor %}{% assign post_summary = post.description | default: post.excerpt %}{% if post_summary and post_summary != empty %}{% endif %}{% assign post_image = post.image.path | default: post.image %}{% if post_image %}{% unless post_image contains \"://\" %}{% assign post_image = post_image | absolute_url %}{% endunless %}{% endif %}{% endfor %}","url": "http://localhost:3080/feed.xml"
+  },{
     "title": null,
     "excerpt":" {% if page.xsl %} {% endif %} {% assign collections = site.collections | where_exp:'collection','collection.output != false' %}{% for collection in collections %}{% assign docs = collection.docs | where_exp:'doc','doc.sitemap != false' %}{% for doc in docs %} {{ doc.url | replace:'/index.html','/' | absolute_url | xml_escape }} {% if doc.last_modified_at or doc.date %}{{ doc.last_modified_at | default: doc.date | date_to_xmlschema }} {% endif %} {% endfor %}{% endfor %}{% assign pages = site.html_pages | where_exp:'doc','doc.sitemap != false' | where_exp:'doc','doc.url != \"/404.html\"' %}{% for page in pages %} {{ page.url | replace:'/index.html','/' | absolute_url | xml_escape }} {% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }} {% endif %} {% endfor %}{% assign static_files = page.static_files | where_exp:'page','page.sitemap != false' | where_exp:'page','page.name != \"404.html\"' %}{% for file in static_files %} {{ file.path | replace:'/index.html','/' | absolute_url | xml_escape }} {{ file.modified_time | date_to_xmlschema }}  {% endfor %} ","url": "http://localhost:3080/sitemap.xml"
   },{
     "title": null,
     "excerpt":"Sitemap: {{ \"sitemap.xml\" | absolute_url }} ","url": "http://localhost:3080/robots.txt"
-  },{
-    "title": null,
-    "excerpt":"{% if page.xsl %}{% endif %}Jekyll{{ site.time | date_to_xmlschema }}{{ page.url | absolute_url | xml_escape }}{% assign title = site.title | default: site.name %}{% if page.collection != \"posts\" %}{% assign collection = page.collection | capitalize %}{% assign title = title | append: \" | \" | append: collection %}{% endif %}{% if page.category %}{% assign category = page.category | capitalize %}{% assign title = title | append: \" | \" | append: category %}{% endif %}{% if title %}{{ title | smartify | xml_escape }}{% endif %}{% if site.description %}{{ site.description | xml_escape }}{% endif %}{% if site.author %}{{ site.author.name | default: site.author | xml_escape }}{% if site.author.email %}{{ site.author.email | xml_escape }}{% endif %}{% if site.author.uri %}{{ site.author.uri | xml_escape }}{% endif %}{% endif %}{% if page.tags %}{% assign posts = site.tags[page.tags] %}{% else %}{% assign posts = site[page.collection] %}{% endif %}{% if page.category %}{% assign posts = posts | where: \"categories\", page.category %}{% endif %}{% unless site.show_drafts %}{% assign posts = posts | where_exp: \"post\", \"post.draft != true\" %}{% endunless %}{% assign posts = posts | sort: \"date\" | reverse %}{% assign posts_limit = site.feed.posts_limit | default: 10 %}{% for post in posts limit: posts_limit %}{% assign post_title = post.title | smartify | strip_html | normalize_whitespace | xml_escape %}{{ post_title }}{{ post.date | date_to_xmlschema }}{{ post.last_modified_at | default: post.date | date_to_xmlschema }}{{ post.id | absolute_url | xml_escape }}{% assign excerpt_only = post.feed.excerpt_only | default: site.feed.excerpt_only %}{% unless excerpt_only %}{% endunless %}{% assign post_author = post.author | default: post.authors[0] | default: site.author %}{% assign post_author = site.data.authors[post_author] | default: post_author %}{% assign post_author_email = post_author.email | default: nil %}{% assign post_author_uri = post_author.uri | default: nil %}{% assign post_author_name = post_author.name | default: post_author %}{{ post_author_name | default: \"\" | xml_escape }}{% if post_author_email %}{{ post_author_email | xml_escape }}{% endif %}{% if post_author_uri %}{{ post_author_uri | xml_escape }}{% endif %}{% if post.category %}{% elsif post.categories %}{% for category in post.categories %}{% endfor %}{% endif %}{% for tag in post.tags %}{% endfor %}{% assign post_summary = post.description | default: post.excerpt %}{% if post_summary and post_summary != empty %}{% endif %}{% assign post_image = post.image.path | default: post.image %}{% if post_image %}{% unless post_image contains \"://\" %}{% assign post_image = post_image | absolute_url %}{% endunless %}{% endif %}{% endfor %}","url": "http://localhost:3080/feed.xml"
   },{
     "title": null,
     "excerpt":"","url": "http://localhost:3080/page2/"

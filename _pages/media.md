@@ -2,10 +2,7 @@
 layout: single
 permalink: /media/
 title: ""
-author_profile: true
-toc: true
 toc_label: "Media articles"
-toc_icon: "heart"
 ---
 
 **公众号数言微语(Math for Microbes)**

@@ -2,8 +2,9 @@
 
 Jie Li:
   name        : "Jie Li"
-  bio         : ""
+  bio         : " "
   avatar      : "/assets/prof_pic2.jpg"
+  location    : "Earth"
   links:
     - label: "Google scholar"
       icon: "fab fa-google"

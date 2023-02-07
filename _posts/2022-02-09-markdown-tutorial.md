@@ -1,11 +1,6 @@
 ---
-layout: posts
 title: "markdown tutorial"
-author: Jie Li
-toc: true
 toc_label: "markdown tutorial"
-toc_icon: "heart"
-excerpt_separator: "<!--more-->"
 categories:
   - tutorial
   - git

@@ -2,10 +2,7 @@
 layout: single
 permalink: /publications/
 title: ""
-author_profile: true
-toc: true
 toc_label: "Publication list"
-toc_icon: "heart"
 ---
 
 ## Book chapter

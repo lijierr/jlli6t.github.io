@@ -1,12 +1,6 @@
 ---
-layout: posts
 title: "git操作本地仓库"
-subtitle: ""
-author: Jie Li
-toc: true
 toc_label: "git操作本地仓库"
-toc_icon: "heart"
-excerpt_separator: "<!--more-->"
 categories: 
     - linux
     - git

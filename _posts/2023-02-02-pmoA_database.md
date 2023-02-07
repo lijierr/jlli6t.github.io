@@ -1,11 +1,6 @@
 ---
-layout: posts
 title: pmoA基因序列数据库
-author: Jie Li
-toc: true
 toc_label: "pmoA基因序列数据库"
-toc_icon: "heart"
-excerpt_separator: "<!--more-->"
 categories:
     - database
     - gene

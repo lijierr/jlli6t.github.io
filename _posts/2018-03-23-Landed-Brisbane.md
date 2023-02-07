@@ -1,5 +1,4 @@
 ---
-layout: posts
 title: "Landed brisbane"
 ---
 

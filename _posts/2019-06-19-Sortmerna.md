@@ -1,11 +1,6 @@
 ---
-layout: posts
 title: "SortMeRNA-Burst trie结合查找表，Levenshtein自动机搜索快速鉴定rRNA"
-author: Jie Li
-toc: true
 toc_label: "SortMeRNA"
-toc_icon: "heart"
-excerpt_separator: "<!--more-->"
 categories:
     - bioinformatics
     - metatranscriptomic
@@ -13,7 +8,6 @@ tags:
     - tutorials
     - RNA
     - mapping
-math: false
 ---
 
 ![]({{ 'assets/picbed/post/sortmerna_title.png' | relative_url}})

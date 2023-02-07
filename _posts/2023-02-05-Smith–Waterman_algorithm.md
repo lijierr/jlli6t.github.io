@@ -1,20 +1,16 @@
 ---
-layout: posts
 title: Smith Waterman alignment DP
-author: Jie Li
-toc: true
 toc_label: "Smith Waterman alignment DP"
-toc_icon: "heart"
-excerpt_separator: "<!--more-->"
 categories:
     - statistics
     - alignment
 tags:
     - alignment
-math: false
 ---
 
+## The score matrix
 ![]({{ 'assets/picbed/statistics/Smith–Waterman_algorithm1.jpg' | relative_url}})
 <br>
 
+## The optimal path
 ![]({{ 'assets/picbed/statistics/Smith–Waterman_algorithm2.jpg' | relative_url}})

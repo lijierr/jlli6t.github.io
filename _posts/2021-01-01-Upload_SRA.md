@@ -1,18 +1,15 @@
 ---
-layout: posts
 title: "上传数据到SRA"
-author: Jie Li
-toc: true
 toc_label: "上传数据库到SRA"
-toc_icon: "heart"
-excerpt_separator: "<!--more-->"
 categories:
-    - linux
-    - bash
+    - database
+    - SRA
 tags:
     - bash
     - linux
-math: false
+    - database
+    - rawdate
+    - SRA
 ---
 
 ## 说明

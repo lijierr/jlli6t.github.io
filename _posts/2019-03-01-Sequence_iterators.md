@@ -1,11 +1,6 @@
 ---
-layout: posts
 title: "序列迭代器"
-author: Jie Li
-toc: true
 toc_label: "序列迭代器"
-toc_icon: "heart"
-excerpt_separator: "<!--more-->"
 categories:
     - coding
     - python
@@ -13,7 +8,6 @@ tags:
     - fastq
     - fasta
     - sequence
-math: false
 ---
 
 ## Introduction

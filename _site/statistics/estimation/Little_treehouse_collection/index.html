@@ -67,9 +67,9 @@
     "@context": "https://schema.org",
     
       "@type": "Person",
-      "name": "Jie Li",
+      "name": "jie-li-3201a57b",
       "url": "http://localhost:3080/",
-      "sameAs": ["https://twitter.com/jlli6t","https://www.linkedin.com/in/jie-li-3201a57b/"]
+      "sameAs": ["https://twitter.com/jlli6t","https://www.linkedin.com/in/jie-li-3201a57b/","https://github.com/"]
     
   }
 </script>
@@ -107,7 +107,7 @@
 
   </head>
 
-  <body class="layout--posts">
+  <body class="layout--single">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -125,18 +125,18 @@
         
         <a class="site-title" href="/">
           Jie Li (She/Her)
-          <span class="site-subtitle">Just a bioinformatician in microbial ecology.</span>
+          <span class="site-subtitle"></span>
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about/index.html"><u>About</u></a>
+              <a href="/about/"><u>About</u></a>
             </li><li class="masthead__menu-item">
-              <a href="/index.html"><u>Blogs</u></a>
+              <a href="/index.html"><u>Posts</u></a>
             </li><li class="masthead__menu-item">
-              <a href="/projects/index.html"><u>Projects</u></a>
+              <a href="/projects/"><u>Projects</u></a>
             </li><li class="masthead__menu-item">
-              <a href="/publications/index.html"><u>Publications</u></a>
+              <a href="/publications/"><u>Publications</u></a>
             </li><li class="masthead__menu-item">
-              <a href="/media/index.html"><u>Media</u></a>
+              <a href="/media/"><u>Media</u></a>
             </li></ul>
         
         <button class="search__toggle" type="button">
@@ -158,6 +158,55 @@
     <div class="initial-content">
       
 
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/statistics" itemprop="item"><span itemprop="name">Statistics</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/estimation" itemprop="item"><span itemprop="name">Estimation</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">little treehouse collection - estimation</li>
+      
+    
+  </ol>
+</nav>
+
+  
 
 
 <div id="main" role="main">
@@ -191,6 +240,10 @@
   <div class="author__urls-wrapper">
     <button class="btn btn--inverse">Follow</button>
     <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Earth</span>
+        </li>
       
 
       
@@ -281,420 +334,20 @@
 
 
 
-  <div class="archive">
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="little treehouse collection - estimation">
+    <meta itemprop="description" content="1. IntroductionRecently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below).">
+    <meta itemprop="datePublished" content="2020-09-10T00:00:00+10:00">
     
-      <h1 id="page-title" class="page__title">little treehouse collection - estimation</h1>
-    
-    <h3 id="1-introduction">1. Introduction</h3>
-<p>Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below).</p>
 
-<!--more-->
-
-<p>However, every redeemed book is <strong>wrapped with cover</strong>, thus, you won’t be able to know which number you get until you uncover it.
-<img src="/assets/picbed/post/little_treehouse.png" alt="photo" /></p>
-
-<p>I am curious about roughly how much you gonna spend at Coles to collect a full set of LITTLE TREEHOUSE book (a single transaction of $30 or more but less than $60 is calculated as $30).</p>
-
-<h3 id="preparation">Preparation</h3>
-<p>Hypothesis: Same quantity of each book was packed and evenly mixed. Books redeemed for every $30 are independent from each other.</p>
-
-<p>Randomly generated 1,000,000 numbers between 0 and 9 as an array. For example:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">1, 3, 1, 4, 0, 0, 5, 3, 0, 6, 7, 8, 4, 6, 3, 2, 6, 6, 4, 1, 0, 2, 5, 5, 6, 2, 2, 7, 9, 1, 6, 3, 5, 9, 6, 4, 4, 9, 7, 1, 3, 1, 3, 3, 4, 9, 5, 7, 8, 7, 4, 9, 6, 8, 6, 2, 8, 8, 5, 2, 8, 9, 5, 4, 6, 0, 8, 4, 1, 1, 0, 4, 7, 5, 6, 7, 8, 7, 2, 1, 7, 2, 0, 4, 5, 1, 6, 0, 7, 3, 6, 9, 9, 0, 7, 8, 8, 3, 4, 9, 9, 0, 0, 3, 5, 0, 6, 8, 0, 8, 4, 3, 1, 2, 5, 1, 4, 6, 7, 1, 7, 0, 8, 3, 3, 3, 1, 4, 8, 8, 5, 7, 3, 4, 5, 6, 2, 2, 6, 1, 9, 9, 0, 9, 4, 4, 4, 7, 1, 8, 8, 4, 9, 7, 5, 5, 6, 7, 1, 0, 2, 3, 4, 0, 6, 4, 4, 7, 8, 9, 7, 6, 7, 5, 5, 4, 6, 0, 0, 4, 0, 4, 9, 1, 7, 4, 4, 1, 8, 3, 7, 1, 2, 3, 8, 4, 6, 1, 5, 5, 5, 1, 9, 2, 5, 6, 1, 6, 0, 9, 5, 3, 7, 7, 4, 5, 4, 9, 0, 7, 9, 1, 0, 4, 7, 1, 1, 5, 8, 8, 9, 2, 8, 2, 9, 0, 8, 3, 0, 4, 0, 3, 2, 3, 4, 7, 9, 5, 0, 8, 0, 0, 0, 4, 0, 1, 5, 5, 9, 7, 9, 2, 3, 4, 1, 3, 0, 4, 0, 4, 3, 7, 7, 6, 6, 5, 7, 1, 1, 3, 9, 0, 7, 3, 1, 5, 7, 3, 3, 8, 8, 3, 0, 0, 4, 1, 0, 8, 9, 3, 3, 3, 9, 6, 0, 5, 0, 8, 7, 1, 5, 1, 3, 3, 7, 7, 0, 7, 6, 4, 6, 8, 5, 2, 5, 0, 1, 1, 7, 0, 1, 3, 4, 5, 4, 3, 1, 0, 9, 8, 8, 4, 2, 1, 7, 9, 5, 9, 9, 6, 4, 9, 5, 6, 8, 6, 3, 8, 8, 7, 8, 6, 7, 3, 2, 0, 2, 0, 5, 8, 3, 7, 8, 1, 4, 2, 9, 6, 5, 6, 9, 5, 9, 1, 5, 5, 1, 2, 7, 5, 1, 1, 6, 6, 9, 7, 0, 6, 3, 2, 3, 3, 4, 0, 3, 2, 0, 0, 8, 3, 7, 6, 7, 7, 9, 2, 3, 2, 4, 6, 5, 9, 4, 7, 9, 4, 0, 2, 6, 4, 9, 5, 0, 0, 4, 3, 3, 9, 8, 4, 7, 4, 8, 3, 3, 6, 2, 9, 6, 3, 0, 0, 7, 8, 1, 0, 9, 3, 3, 6, 3, 6, 2, 6, 6, 7, 6, 3, 8, 9, 2, 5, 0, 2, 4, 0, 2, 7, 3, 9, 2, 7, 1, 7, 8, 8, 0, 7, 8, 3, 0, 3, 2, 6, 2, 2, 9, 5, 1, 7, 4, 2, 0, 0, 5, 3, 1, 9, 0, 3, 3, 5, 4, 4, 2, 1, 9, 4, 0, 9, 0, 1, 2, 0, 8, 3, 6, 6, 0, 5, 2, 1, 2, 6, 8, 2, 9, 3, 8, 4, 9, 1, 5, 2, 1, 1, 2, 2, 3, 5, 4, 0, 2, 9, 5, 2, 8, 7, 8, 5, 9, 4, 2, 2, 3, 1, 5, 6, 3, 4, 0, 5, 0, 5, 0, 3, 3, 9, 8, 6, 9, 1, 6, 1, 8, 4, 9, 9, 6, 4, 1, 8, 2, 4, 0, 0, 4, 5, 8, 7, 2, 8, 5, 1, 1, 5, 0, 2, 8, 9, 7, 3, 1, 2, 1, 0, 5, 2, 3, 7, 3, 6, 0, 3, 5, 8, 7, 7, 4, 9, 9, 4, 3, 1, 8, 4, 6, 2, 3, 9, 3, 5, 2, 1, 9, 1, 2, 1, 4, 8, 9, 3, 8, 1, 5, 2, 7, 1, 7, 8, 2, 9, 6, 8, 8, 7, 2, 3, 9, 0, 5, 7, 0, 6, 1, 8, 2, 1, 5, 0, 3, 1, 9, 4, 8, 6, 9, 1, 6, 7, 0, 4, 6, 8, 4, 6, 8, 7, 9, 4, 1, 9, 4, 9, 6, 9, 5, 2, 9, 9, 2, 2, 3, 8, 2, 8, 6, 7, 6, 2, 9, 6, 3, 0, 8, 4, 2, 6, 5, 5, 4, 1, 4, 4, 3, 9, 8, 9, 9, 2, 4, 7, 3, 4, 0, 2, 0, 4, 7, 2, 7, 9, 1, 5, 3, 5, 5, 4, 7, 4, 1, 9, 9, 5, 1, 6, 7, 3, 5, 4, 6, 0, 9, 3, 4, 4, 2, 9, 0, 9, 6, 5, 5, 7, 1, 5, 4, 9, 1, 0, 7, 0, 8, 6, 9, 4, 5, 7, 1, 0, 7, 3, 9, 1, 4, 0, 3, 6, 1, 9, 9, 6, 7, 1, 1, 3, 7, 1, 8, 5, 7, 9, 2, 2, 6, 8, 3, 9, 1, 0, 1, 4, 9, 1, 1, 6, 0, 6, 3, 0, 4, 4, 6, 1, 6, 5, 5, 5, 2, 0, 2, 8, 6, 5, 9, 8, 6, 0, 4, 9, 5, 7, 2, 5, 7, 1, 6, 6, 6, 5, 5, 9, 5, 4, 0, 8, 1, 7, 1, 2, 9, 4, 9, 3, 6, 8, 7, 0, 0, 4, 1, 5, 9, 8, 8, 7, 5, 3, 3, 4, 8, 3, 9, 2, 1, 3, 1, 2, 4, 4</code></pre></figure>
-
-<h3 id="experiment">Experiment</h3>
-<p>Sampling from left to right from this array, take two numbers at a time as a combination. Skip combinations of <code class="language-plaintext highlighter-rouge">00</code> or larger than <code class="language-plaintext highlighter-rouge">24</code>. Repeating the process until <code class="language-plaintext highlighter-rouge">24</code> different numbers are collected.</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mean: 88.9</code></pre></figure>
-
-<h3 id="conclusion">Conclusion</h3>
-<p><code class="language-plaintext highlighter-rouge">$30 * 89 = $2670</code>, theoretically, I may need spend $2670 to collect the full set of LITTLE TREEHOUSE book.</p>
-
-<p>After 1,000 independent trials, this value converges to a number close to $2670.</p>
-
-<p>Thus, I decided to give up collecting those books…</p>
-
-
-<ul class="taxonomy__index">
-  
-  
-    <li>
-      <a href="#2023">
-        <strong>2023</strong> <span class="taxonomy__count">3</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="#2022">
-        <strong>2022</strong> <span class="taxonomy__count">1</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="#2021">
-        <strong>2021</strong> <span class="taxonomy__count">2</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="#2020">
-        <strong>2020</strong> <span class="taxonomy__count">11</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="#2019">
-        <strong>2019</strong> <span class="taxonomy__count">3</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="#2018">
-        <strong>2018</strong> <span class="taxonomy__count">7</span>
-      </a>
-    </li>
-  
-</ul>
-
-
-
-
-  <section id="2023" class="taxonomy__section">
-    <h2 class="archive__subtitle">2023</h2>
-    <div class="entries-list">
+    <div class="page__inner-wrap">
       
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/statistics/alignment/Smith-Waterman_algorithm/" rel="permalink">Smith Waterman alignment DP
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:3080/statistics/estimation/Little_treehouse_collection/" class="u-url" itemprop="url">little treehouse collection - estimation
 </a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2023-02-05T00:00:00+10:00">February 5, 2023</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-
-
-
-</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/statistics/alignment/Needleman_Wunsch_alignment/" rel="permalink">Needleman Wunsch alignment DP
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2023-02-04T00:00:00+10:00">February 4, 2023</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-
-
-
-</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/database/gene/pmoA_database/" rel="permalink">pmoA基因序列数据库
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2023-02-02T00:00:00+10:00">February 2, 2023</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Introduction
-想找pmoA的序列构建数据库，找到了这个网站. 	里边包括核酸序列，以及序列对应的tax的信息。
-</p>
-  </article>
-</div>
-
-      
-    </div>
-    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
-  </section>
-
-  <section id="2022" class="taxonomy__section">
-    <h2 class="archive__subtitle">2022</h2>
-    <div class="entries-list">
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/tutorial/git/markdown-tutorial/" rel="permalink">markdown tutorial
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2022-02-09T00:00:00+10:00">February 9, 2022</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          4 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
-
-Cum sociis natoque penatibus et magnis dis parturient ...</p>
-  </article>
-</div>
-
-      
-    </div>
-    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
-  </section>
-
-  <section id="2021" class="taxonomy__section">
-    <h2 class="archive__subtitle">2021</h2>
-    <div class="entries-list">
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/bash/sratoolkit/" rel="permalink">sratoolkit下载测序数据
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-10-29T00:00:00+10:00">October 29, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">说明
-sratoolkit默认配置的下载数据目录是在HOME，这显然是不友好的，因为一般的集群给每个account的HOME目录下的存储是非常有限的，例如50Gb，所以最好把cache的目录设置到拥有大量存储可供写入的目录。
-
-</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/bash/Upload_SRA/" rel="permalink">上传数据到SRA
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2021-01-01T00:00:00+10:00">January 1, 2021</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">说明
-数据分析结束之后，通常需要将原始数据上传到公共数据库进行分享。例如测序数据通常上传至NCBI的SRA库。当样本数目比较小的时候，通过网页上传是非常方便的。但是当样本数量庞大的时候，通过网页上传数据就非常麻烦了，因为需要手动依次上传每一个样本。所以最直接的方法是从服务器往NCBI传，例如是用aspera：
-
-</p>
-  </article>
-</div>
-
-      
-    </div>
-    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
-  </section>
-
-  <section id="2020" class="taxonomy__section">
-    <h2 class="archive__subtitle">2020</h2>
-    <div class="entries-list">
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/statistics/estimation/Little_treehouse_collection/" rel="permalink">little treehouse collection - estimation
-</a>
-      
-    </h2>
-    
+          </h1>
+          
 
   <p class="page__meta">
     
@@ -715,1027 +368,135 @@ sratoolkit默认配置的下载数据目录是在HOME，这显然是不友好的
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          5 minute read
+          11 minute read
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">1. Introduction
-Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for ...</p>
-  </article>
-</div>
-
+        </header>
       
+
+      <section class="page__content e-content" itemprop="text">
         
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-heart"></i> little treehouse collection - estimation</h4></header>
+              <ul class="toc__menu"><li><a href="#1-introduction">1. Introduction</a></li><li><a href="#preparation">Preparation</a></li><li><a href="#experiment">Experiment</a></li><li><a href="#conclusion">Conclusion</a></li></ul>
 
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/database/rrna/5S_rRNA/" rel="permalink">5S rRNA 数据库
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            </nav>
+          </aside>
         
-        <time datetime="2020-06-29T00:00:00+10:00">June 29, 2020</time>
-      </span>
-    
+        <h2 id="1-introduction">1. Introduction</h2>
+<p>Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below).</p>
 
-    <span class="page__meta-sep"></span>
+<!--more-->
 
-    
-      
-      
+<p>However, every redeemed book is <strong>wrapped with cover</strong>, thus, you won’t be able to know which number you get until you uncover it.
+<img src="/assets/picbed/post/little_treehouse.png" alt="photo" /></p>
 
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
+<p>I am curious about roughly how much you gonna spend at Coles to collect a full set of LITTLE TREEHOUSE book (a single transaction of $30 or more but less than $60 is calculated as $30).</p>
+
+<h2 id="preparation">Preparation</h2>
+<p>Hypothesis: Same quantity of each book was packed and evenly mixed. Books redeemed for every $30 are independent from each other.</p>
+
+<p>Randomly generated 1,000,000 numbers between 0 and 9 as an array. For example:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">1, 3, 1, 4, 0, 0, 5, 3, 0, 6, 7, 8, 4, 6, 3, 2, 6, 6, 4, 1, 0, 2, 5, 5, 6, 2, 2, 7, 9, 1, 6, 3, 5, 9, 6, 4, 4, 9, 7, 1, 3, 1, 3, 3, 4, 9, 5, 7, 8, 7, 4, 9, 6, 8, 6, 2, 8, 8, 5, 2, 8, 9, 5, 4, 6, 0, 8, 4, 1, 1, 0, 4, 7, 5, 6, 7, 8, 7, 2, 1, 7, 2, 0, 4, 5, 1, 6, 0, 7, 3, 6, 9, 9, 0, 7, 8, 8, 3, 4, 9, 9, 0, 0, 3, 5, 0, 6, 8, 0, 8, 4, 3, 1, 2, 5, 1, 4, 6, 7, 1, 7, 0, 8, 3, 3, 3, 1, 4, 8, 8, 5, 7, 3, 4, 5, 6, 2, 2, 6, 1, 9, 9, 0, 9, 4, 4, 4, 7, 1, 8, 8, 4, 9, 7, 5, 5, 6, 7, 1, 0, 2, 3, 4, 0, 6, 4, 4, 7, 8, 9, 7, 6, 7, 5, 5, 4, 6, 0, 0, 4, 0, 4, 9, 1, 7, 4, 4, 1, 8, 3, 7, 1, 2, 3, 8, 4, 6, 1, 5, 5, 5, 1, 9, 2, 5, 6, 1, 6, 0, 9, 5, 3, 7, 7, 4, 5, 4, 9, 0, 7, 9, 1, 0, 4, 7, 1, 1, 5, 8, 8, 9, 2, 8, 2, 9, 0, 8, 3, 0, 4, 0, 3, 2, 3, 4, 7, 9, 5, 0, 8, 0, 0, 0, 4, 0, 1, 5, 5, 9, 7, 9, 2, 3, 4, 1, 3, 0, 4, 0, 4, 3, 7, 7, 6, 6, 5, 7, 1, 1, 3, 9, 0, 7, 3, 1, 5, 7, 3, 3, 8, 8, 3, 0, 0, 4, 1, 0, 8, 9, 3, 3, 3, 9, 6, 0, 5, 0, 8, 7, 1, 5, 1, 3, 3, 7, 7, 0, 7, 6, 4, 6, 8, 5, 2, 5, 0, 1, 1, 7, 0, 1, 3, 4, 5, 4, 3, 1, 0, 9, 8, 8, 4, 2, 1, 7, 9, 5, 9, 9, 6, 4, 9, 5, 6, 8, 6, 3, 8, 8, 7, 8, 6, 7, 3, 2, 0, 2, 0, 5, 8, 3, 7, 8, 1, 4, 2, 9, 6, 5, 6, 9, 5, 9, 1, 5, 5, 1, 2, 7, 5, 1, 1, 6, 6, 9, 7, 0, 6, 3, 2, 3, 3, 4, 0, 3, 2, 0, 0, 8, 3, 7, 6, 7, 7, 9, 2, 3, 2, 4, 6, 5, 9, 4, 7, 9, 4, 0, 2, 6, 4, 9, 5, 0, 0, 4, 3, 3, 9, 8, 4, 7, 4, 8, 3, 3, 6, 2, 9, 6, 3, 0, 0, 7, 8, 1, 0, 9, 3, 3, 6, 3, 6, 2, 6, 6, 7, 6, 3, 8, 9, 2, 5, 0, 2, 4, 0, 2, 7, 3, 9, 2, 7, 1, 7, 8, 8, 0, 7, 8, 3, 0, 3, 2, 6, 2, 2, 9, 5, 1, 7, 4, 2, 0, 0, 5, 3, 1, 9, 0, 3, 3, 5, 4, 4, 2, 1, 9, 4, 0, 9, 0, 1, 2, 0, 8, 3, 6, 6, 0, 5, 2, 1, 2, 6, 8, 2, 9, 3, 8, 4, 9, 1, 5, 2, 1, 1, 2, 2, 3, 5, 4, 0, 2, 9, 5, 2, 8, 7, 8, 5, 9, 4, 2, 2, 3, 1, 5, 6, 3, 4, 0, 5, 0, 5, 0, 3, 3, 9, 8, 6, 9, 1, 6, 1, 8, 4, 9, 9, 6, 4, 1, 8, 2, 4, 0, 0, 4, 5, 8, 7, 2, 8, 5, 1, 1, 5, 0, 2, 8, 9, 7, 3, 1, 2, 1, 0, 5, 2, 3, 7, 3, 6, 0, 3, 5, 8, 7, 7, 4, 9, 9, 4, 3, 1, 8, 4, 6, 2, 3, 9, 3, 5, 2, 1, 9, 1, 2, 1, 4, 8, 9, 3, 8, 1, 5, 2, 7, 1, 7, 8, 2, 9, 6, 8, 8, 7, 2, 3, 9, 0, 5, 7, 0, 6, 1, 8, 2, 1, 5, 0, 3, 1, 9, 4, 8, 6, 9, 1, 6, 7, 0, 4, 6, 8, 4, 6, 8, 7, 9, 4, 1, 9, 4, 9, 6, 9, 5, 2, 9, 9, 2, 2, 3, 8, 2, 8, 6, 7, 6, 2, 9, 6, 3, 0, 8, 4, 2, 6, 5, 5, 4, 1, 4, 4, 3, 9, 8, 9, 9, 2, 4, 7, 3, 4, 0, 2, 0, 4, 7, 2, 7, 9, 1, 5, 3, 5, 5, 4, 7, 4, 1, 9, 9, 5, 1, 6, 7, 3, 5, 4, 6, 0, 9, 3, 4, 4, 2, 9, 0, 9, 6, 5, 5, 7, 1, 5, 4, 9, 1, 0, 7, 0, 8, 6, 9, 4, 5, 7, 1, 0, 7, 3, 9, 1, 4, 0, 3, 6, 1, 9, 9, 6, 7, 1, 1, 3, 7, 1, 8, 5, 7, 9, 2, 2, 6, 8, 3, 9, 1, 0, 1, 4, 9, 1, 1, 6, 0, 6, 3, 0, 4, 4, 6, 1, 6, 5, 5, 5, 2, 0, 2, 8, 6, 5, 9, 8, 6, 0, 4, 9, 5, 7, 2, 5, 7, 1, 6, 6, 6, 5, 5, 9, 5, 4, 0, 8, 1, 7, 1, 2, 9, 4, 9, 3, 6, 8, 7, 0, 0, 4, 1, 5, 9, 8, 8, 7, 5, 3, 3, 4, 8, 3, 9, 2, 1, 3, 1, 2, 4, 4</code></pre></figure>
+
+<h2 id="experiment">Experiment</h2>
+<p>Sampling from left to right from this array, take two numbers at a time as a combination. Skip combinations of <code class="language-plaintext highlighter-rouge">00</code> or larger than <code class="language-plaintext highlighter-rouge">24</code>. Repeating the process until <code class="language-plaintext highlighter-rouge">24</code> different numbers are collected.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mean: 88.9</code></pre></figure>
+
+<h2 id="conclusion">Conclusion</h2>
+<p><code class="language-plaintext highlighter-rouge">$30 * 89 = $2670</code>, theoretically, I may need spend $2670 to collect the full set of LITTLE TREEHOUSE book.</p>
+
+<p>After 1,000 independent trials, this value converges to a number close to $2670.</p>
+
+<p>Thus, I decided to give up collecting those books…</p>
+
         
-          less than 1 minute read
+      </section>
+
+      <footer class="page__meta">
         
-      </span>
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
     
+      <a href="/tags/estimation" class="page__taxonomy-item p-category" rel="tag">estimation</a>
+    
+    </span>
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Introduction
-除了从NCBI，Rfam等这样的大库中分离5S rRNA序列之外，发现有人在收集相应的序列：http://www.combio.pl/rrna/。
-
-</p>
-  </article>
-</div>
-
-      
-        
 
 
+  
 
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/git/git_remote_repo/" rel="permalink">git操作远端仓库
-</a>
-      
-    </h2>
+      <a href="/categories/estimation" class="page__taxonomy-item p-category" rel="tag">estimation</a><span class="sep">, </span>
     
-
-  <p class="page__meta">
+      <a href="/categories/statistics" class="page__taxonomy-item p-category" rel="tag">statistics</a>
     
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2020-06-18T00:00:00+10:00">June 18, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
+    </span>
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Introduction
-确认SSH key
-第一步，首先确实自己的目录下是否已经有SSH key。这个一般在~/.ssh目录下，可查看目录是否有
-
-ls ~/.ssh/
-a  b  id_rsa  id_rsa.pub  known_hosts
-
-</p>
-  </article>
-</div>
-
-      
         
 
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2020-09-10T00:00:00+10:00">September 10, 2020</time></p>
 
+      </footer>
 
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/database/rrna/Silva_138/" rel="permalink">Silva updates to 138
-</a>
-      
-    </h2>
-    
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
 
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2020-06-18T00:00:00+10:00">June 18, 2020</time>
-      </span>
-    
+  <a href="https://twitter.com/intent/tweet?via=jlli6t&text=little+treehouse+collection+-+estimation%20http%3A%2F%2Flocalhost%3A3080%2Fstatistics%2Festimation%2FLittle_treehouse_collection%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-    <span class="page__meta-sep"></span>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3080%2Fstatistics%2Festimation%2FLittle_treehouse_collection%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-    
-      
-      
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A3080%2Fstatistics%2Festimation%2FLittle_treehouse_collection%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
 
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Introduction
-SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。
-
-</p>
-  </article>
-</div>
 
       
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+  <nav class="pagination">
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/git/git_local_repo/" rel="permalink">git操作本地仓库
-</a>
-      
-    </h2>
+      <a href="/database/rrna/5S_rRNA/" class="pagination--pager" title="5S rRNA 数据库
+">Previous</a>
     
-
-  <p class="page__meta">
     
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2020-06-17T00:00:00+10:00">June 17, 2020</time>
-      </span>
+      <a href="/database/sra/Upload_SRA/" class="pagination--pager" title="上传数据到SRA
+">Next</a>
     
+  </nav>
 
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">git 工具
-查看服务器上是否已经安装好git。服务器上有自带的git，直接使用即可，不需要另外安装了。
-
-which git
-/opt/rocks/bin/git
-
-</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/database/genome/GTDB/" rel="permalink">GTDB数据库
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2020-04-02T00:00:00+10:00">April 2, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">GTDB数据库介绍
-GTDB的下载地址
-
-</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/statistics/probability/hmm_vertibe/" rel="permalink">hmm vertibe 过程
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2020-04-01T00:00:00+10:00">April 1, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-
-
-
-
-</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/coding/perl/Perl_package_installation/" rel="permalink">Perl包安装
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2020-03-13T00:00:00+10:00">March 13, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Notes
-
-CPAN自动安装Perl包，这个最常用：
-
-/path/to/cpan # 启动
-&gt;&gt;&gt; install PackageName
-
-</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/bioinformatics/alignment/Diamond/" rel="permalink">Diamond比对
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2020-03-10T00:00:00+10:00">March 10, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">makedb建立数据库索引
-除了常用的--in和--db参数之外，--taxonmap，--taxonnodes，和--taxonnames这三个参数也可以在makedb的时候提供。这样在比对的时候可以选择性的对比特定的reference。例如只比对属于Bacteria的reference。如需实现此功能，则在m...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/bioinformatics/annotation/pfam_scan/" rel="permalink">pfam_scan注释Pfam
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2020-03-01T00:00:00+10:00">March 1, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">说明
-
-Pfam有个配套的perl写的工具叫PfamScan。
-但是在使用的过程中一直报错
-
-</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/database/protein/Pfam/" rel="permalink">Pfam数据库
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2020-03-01T00:00:00+10:00">March 1, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">ebi.ac.uk
-蛋白序列通常会包含一个至多个domains。不同domains的组合会得到不同的功能，导致了自然界中proteins的多样性。于是鉴定蛋白序列中的domains可以合理推测该蛋白潜在的功能。Pfam就是 这些保守的进化单元的集合。
-</p>
-  </article>
-</div>
-
-      
     </div>
-    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
-  </section>
-
-  <section id="2019" class="taxonomy__section">
-    <h2 class="archive__subtitle">2019</h2>
-    <div class="entries-list">
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/bioinformatics/metatranscriptomic/Sortmerna/" rel="permalink">SortMeRNA-Burst trie结合查找表，Levenshtein自动机搜索快速鉴定rRNA
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2019-06-19T00:00:00+10:00">June 19, 2019</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
 
     
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-1. Introduction
-SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork3...</p>
   </article>
+
+  
+  
 </div>
 
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/coding/python/Deep_shallow_copy/" rel="permalink">Deep and shallow copy in Python
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2019-04-01T00:00:00+10:00">April 1, 2019</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">总结
-shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。
-
-Shallow copy
-浅层的copy a list, 只是生成了一个新变量，指向的依然是原来变量的地址，如果原来变量发生改变，则新变量（copy）也...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/coding/python/Sequence_iterators/" rel="permalink">序列迭代器
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2019-03-01T00:00:00+10:00">March 1, 2019</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Introduction
-做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。
-需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的...</p>
-  </article>
-</div>
-
-      
-    </div>
-    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
-  </section>
-
-  <section id="2018" class="taxonomy__section">
-    <h2 class="archive__subtitle">2018</h2>
-    <div class="entries-list">
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/coding/python/Configure_Python3_with_TCL-TK/" rel="permalink">Configure Python3 with TCL-TK
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2018-06-20T00:00:00+10:00">June 20, 2018</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Introduction
-More and more projects are migrating from Python2 to Python3. On the one hand, Python3 has more features available, and secondly, the more impor...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/bioinformatics/dataqc/FastQC/" rel="permalink">FastQC质控测序数据
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2018-06-19T00:00:00+10:00">June 19, 2018</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">FastQC是一款用于对测序read进行QC的工具。工具可以查看碱基质量，含N，dup，碱基质量分布，GC含量，ATCGN碱基分布，以及adapter的比对情况。Adapter的序列目前可以使用例如trimmmomatic等工具提供的adapters库。也可以使用illumina官网提供的adapters。最好的...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/bioinformatics/amplicon/PICRUST/" rel="permalink">Notes of PICRUST
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2018-04-20T00:00:00+10:00">April 20, 2018</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Introduction
-picrust 只能基于greengenes database进行预测，并且只有 13_5和 12_8两个版本。
-picrust是基于已经计算好的数据库进行预测，数据库下载地址。
-下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PI...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/database/genome/NCBI_genomes_download/" rel="permalink">NCBI genomes下载
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2018-04-10T00:00:00+10:00">April 10, 2018</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">NCBI的这个genome reports的FTP site下，
-ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/
-有真核：
-ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/eukaryotes.txt
-原核：...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/database/protein/UniProtKB/" rel="permalink">Introduction to UniprotKB
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2018-04-02T00:00:00+10:00">April 2, 2018</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Introduction
-UniProt Knowledgebase (UniProtKB)数据库中收集的是蛋白序列的信息以及准确的，连续的，丰富的注释信息。除此之外还收集一些比较重要的信息例如氨基酸序列，蛋白名称/描述，tax分类信息以及引用信息。这些囊括的信息涵盖了被广泛认可的生物学知识，classifica...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/coding/bash/scp/" rel="permalink">scp demo
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2018-03-23T00:00:00+10:00">March 23, 2018</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1.Copy local files to remote server
-
-$scp local_file remore_username@remote_ip:remote_folder
-
-</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/Landed-Brisbane/" rel="permalink">Landed brisbane
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2018-03-23T00:00:00+10:00">March 23, 2018</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-Mark a mark. The first day in Brisbane.
-</p>
-  </article>
-</div>
-
-      
-    </div>
-    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
-  </section>
-
-
-  </div>
-</div>
     </div>
 
     
@@ -1831,25 +592,6 @@ Mark a mark. The first day in Brisbane.
 <script src="/assets/js/lunr/lunr-en.js"></script>
 
 
-
-
-    
-  <script>
-    var disqus_config = function () {
-      this.page.url = "http://localhost:3080/statistics/estimation/Little_treehouse_collection/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/statistics/estimation/Little_treehouse_collection"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
-    };
-    (function() { /* DON'T EDIT BELOW THIS LINE */
-      var d = document, s = d.createElement('script');
-      s.src = 'https://jlli6t.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-  
 
 
 

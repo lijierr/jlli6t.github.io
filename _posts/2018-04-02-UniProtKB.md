@@ -1,11 +1,6 @@
 ---
-layout: posts
 title: "Introduction to UniprotKB"
-author: Jie Li
-toc: true
 toc_label: "Introduction to UniprotKB"
-toc_icon: "heart"
-excerpt_separator: "<!--more-->"
 categories:
     - database
     - protein
@@ -14,7 +9,6 @@ tags:
     - annotation
     - protein
     - gene
-math: false
 ---
 
 ## Introduction

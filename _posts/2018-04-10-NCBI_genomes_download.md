@@ -1,17 +1,11 @@
 ---
-layout: posts
 title: "NCBI genomes下载"
-author: Jie Li
-toc: true
 toc_label: "NCBI genomes下载"
-toc_icon: "heart"
-excerpt_separator: "<!--more-->"
 categories:
     - database
     - genome
 tags:
     - genome
-math: false
 ---
 
 `NCBI`的这个`genome reports`的`FTP site`下，

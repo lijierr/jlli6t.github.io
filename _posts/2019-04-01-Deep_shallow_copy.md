@@ -1,17 +1,11 @@
 ---
-layout: posts
 title: "Deep and shallow copy in Python"
-author: Jie Li
-toc: true
 toc_label: "Deep and shallow copy in Python"
-toc_icon: "heart"
-excerpt_separator: "<!--more-->"
 categories:
     - coding
     - python
 tags:
     - syntax
-math: false
 ---
 
 ## 总结
