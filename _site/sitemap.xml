@@ -29,6 +29,14 @@
 <lastmod>2018-06-20T00:00:00+10:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:3080/coding/python/Sequence_iterators/</loc>
+<lastmod>2019-03-01T00:00:00+10:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:3080/coding/python/Deep_shallow_copy/</loc>
+<lastmod>2019-04-01T00:00:00+10:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:3080/bioinformatics/metatranscriptomic/Sortmerna/</loc>
 <lastmod>2019-06-19T00:00:00+10:00</lastmod>
 </url>
@@ -45,7 +53,7 @@
 <lastmod>2020-03-10T00:00:00+10:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:3080/coding/perl/Perl_package_installation_to_fix_Pfam_scan/</loc>
+<loc>http://localhost:3080/coding/perl/Perl_package_installation/</loc>
 <lastmod>2020-03-13T00:00:00+10:00</lastmod>
 </url>
 <url>
@@ -99,10 +107,6 @@
 <url>
 <loc>http://localhost:3080/statistics/alignment/Smith-Waterman_algorithm/</loc>
 <lastmod>2023-02-05T00:00:00+10:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:3080/2019-07-21-Comparison_of_Seqs_iterator/</loc>
-<lastmod>2023-02-06T15:40:14+10:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:3080/about/</loc>

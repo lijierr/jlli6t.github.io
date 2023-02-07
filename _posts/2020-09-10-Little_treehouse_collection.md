@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: little treehouse collection - estimation
+title: "little treehouse collection - estimation"
 author: Jie Li
 toc: true
 toc_label: "little treehouse collection - estimation"

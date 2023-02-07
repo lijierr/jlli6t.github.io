@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Jie Li (She/Her) - Page 4</title>
-<meta name="description" content="Passion can outweight the long years ❤ 热爱可抵岁月漫长">
+<meta name="description" content="Just a bioinformatician in microbial ecology.">
 
 
   <meta name="author" content="Jie Li">
@@ -24,7 +24,7 @@
 <meta property="og:url" content="http://localhost:3080/page4/">
 
 
-  <meta property="og:description" content="Passion can outweight the long years ❤ 热爱可抵岁月漫长">
+  <meta property="og:description" content="Just a bioinformatician in microbial ecology.">
 
 
 
@@ -32,7 +32,7 @@
 
   <meta name="twitter:site" content="@jlli6t">
   <meta name="twitter:title" content="Jie Li (She/Her)">
-  <meta name="twitter:description" content="Passion can outweight the long years ❤ 热爱可抵岁月漫长">
+  <meta name="twitter:description" content="Just a bioinformatician in microbial ecology.">
   <meta name="twitter:url" content="http://localhost:3080/page4/">
 
   
@@ -69,7 +69,7 @@
       "@type": "Person",
       "name": "Jie Li",
       "url": "http://localhost:3080/",
-      "sameAs": ["https://twitter.com/jlli6t"]
+      "sameAs": ["https://twitter.com/jlli6t","https://www.linkedin.com/in/jie-li-3201a57b/"]
     
   }
 </script>
@@ -303,53 +303,6 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/bioinformatics/alignment/Diamond/" rel="permalink">Diamond比对
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2020-03-10T00:00:00+10:00">March 10, 2020</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">makedb建立数据库索引
-除了常用的--in和--db参数之外，--taxonmap，--taxonnodes，和--taxonnames这三个参数也可以在makedb的时候提供。这样在比对的时候可以选择性的对比特定的reference。例如只比对属于Bacteria的reference。如需实现此功能，则在m...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
         <a href="/bioinformatics/annotation/pfam_scan/" rel="permalink">pfam_scan注释Pfam
 </a>
       
@@ -497,7 +450,7 @@ SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/coding/python/Configure_Python3_with_TCL-TK/" rel="permalink">Configure Python3 with TCL-TK
+        <a href="/coding/python/Deep_shallow_copy/" rel="permalink">Deep and shallow copy in Python
 </a>
       
     </h2>
@@ -509,7 +462,57 @@ SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工�
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2018-06-20T00:00:00+10:00">June 20, 2018</time>
+        <time datetime="2019-04-01T00:00:00+10:00">April 1, 2019</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">总结
+shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。
+
+Shallow copy
+浅层的copy a list, 只是生成了一个新变量，指向的依然是原来变量的地址，如果原来变量发生改变，则新变量（copy）也...</p>
+  </article>
+</div>
+
+  
+    
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/coding/python/Sequence_iterators/" rel="permalink">序列迭代器
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2019-03-01T00:00:00+10:00">March 1, 2019</time>
       </span>
     
 
@@ -530,7 +533,8 @@ SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工�
 
 
     <p class="archive__item-excerpt" itemprop="description">Introduction
-More and more projects are migrating from Python2 to Python3. On the one hand, Python3 has more features available, and secondly, the more impor...</p>
+做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。
+需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的...</p>
   </article>
 </div>
 

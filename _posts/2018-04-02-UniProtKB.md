@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: Introduction to UniprotKB
+title: "Introduction to UniprotKB"
 author: Jie Li
 toc: true
 toc_label: "Introduction to UniprotKB"

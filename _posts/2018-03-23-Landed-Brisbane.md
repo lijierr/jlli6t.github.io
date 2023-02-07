@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: Landed brisbane
+title: "Landed brisbane"
 ---
 
 ![]({{ 'assets/picbed/cover/mountains.jpg' | relative_url}})

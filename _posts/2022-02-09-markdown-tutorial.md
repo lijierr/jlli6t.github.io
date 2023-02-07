@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: markdown tutorial
+title: "markdown tutorial"
 author: Jie Li
 toc: true
 toc_label: "markdown tutorial"

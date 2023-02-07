@@ -15,7 +15,6 @@ math: false
 ---
 
 ![]({{ 'assets/picbed/statistics/Needleman–Wunsch_algorithm1.jpg' | relative_url}})
-
 <br>
 
 ![]({{ 'assets/picbed/statistics/Needleman–Wunsch_algorithm2.jpg' | relative_url}})

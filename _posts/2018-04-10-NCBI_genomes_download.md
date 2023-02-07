@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: NCBI genomes下载
+title: "NCBI genomes下载"
 author: Jie Li
 toc: true
 toc_label: "NCBI genomes下载"

@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: 上传数据到SRA
+title: "上传数据到SRA"
 author: Jie Li
 toc: true
 toc_label: "上传数据库到SRA"

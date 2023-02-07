@@ -1,7 +1,6 @@
 ---
 layout: posts
 title: pmoA基因序列数据库
-subtitle: ""
 author: Jie Li
 toc: true
 toc_label: "pmoA基因序列数据库"

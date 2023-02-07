@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: Configure Python3 with TCL-TK
+title: "Configure Python3 with TCL-TK"
 author: Jie Li
 toc: true
 toc_label: "Configure Python3 with TCL-TK"

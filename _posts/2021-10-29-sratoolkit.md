@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: sratoolkit下载测序数据
+title: "sratoolkit下载测序数据"
 author: Jie Li
 toc: true
 toc_label: "sratoolkit下载测序数据"

@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: git操作本地仓库
+title: "git操作本地仓库"
 subtitle: ""
 author: Jie Li
 toc: true

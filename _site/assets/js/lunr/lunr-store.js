@@ -41,6 +41,18 @@ var store = [{
         "url": "/coding/python/Configure_Python3_with_TCL-TK/",
         "teaser": null
       },{
+        "title": "序列迭代器",
+        "excerpt":"Introduction  做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。 需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。   Bio.SeqIO.QualityIO.FastqGeneralIterator同Bio.SeqIO.parse一样也是一个迭代器，只不过不生成对象record，而是生成序列id、序列、以及质量值本身，遍历的时候调用语法为   For title, seq, qual in FastqGeneralIterator(fh): \tDo something  FastqGeneralIterator速度很快了，但我偶然又看到大神Heng Li 12年写的一个小代码readfq，相信不少同学有看过源码（我看到不少项目都嵌了这段代码），也是一个序列遍历器，且居然还在活跃，还有人在提issue和pr。   测试文件为一个36,518,870条序列的fastq.gz文件，这个序列数量已经是人肠道微生物基因集的几倍了，大多数情况下都不会需要频繁迭代这么多的序列量。我测试迭代然后统计序列数，碱基数，及质量字符数。 考虑到服务器上其他用户的状态可能也会影响测试效果，所以做了多次测试，Bio版本为1.76，测试平台为x86_64 GNU/Linux：   通过5次单独的测试，总的来说readfq速度上比Bio慢一点点，不会超过20%，其中第四次测试readfq的速度超过了Bio，可能测试环境也有一定的影响。 强推大神代码的原因：     代码非常简洁，仅仅31行！相比于Bio来说，非常轻量。   大神的代码同时兼容fasta和fastq！而FastqGeneralIterator只能处理fastq文件，如果要处理fasta格式的文件的话，需要调用Bio.SeqIO.FastaIO.SimpleFastaParser   本着代码的简洁性以及减少对library的依赖，readfq胜任。   最后就是虽然在测试过程中，Bio略胜一筹，但是现实中大部分的情况我们不需要频繁遍历太大的数据，所以速度上可以认为readfq与Bio的FastqGeneralIterator不相上下。   测试代码：   print('start readfq', datetime.now()) n, slen, qlen = 0, 0, 0 for name, seq, qual in readfq(f): \tn+= 1 \tslen += len(seq) \tqlen += qual \tprint(n, '\\t', slen, '\\t', qlen) print('end readfq', datetime.now())  print('start Bio', datetime.now()) n, slen, qlen = 0, 0, 0 for name, seq, qual in FastqGeneralIterator(fh): \tn+=1 \tslen += len(seq) \tqlen += qual print(n, '\\t', slen, '\\t', qlen) print('end Bio', datetime.now())  附上测试结果供参考：  第一次测试: readfq比Bio: 118.88%   start readfq 2020-06-23 10:47:13.063023 end readfq 2020-06-23 10:51:32.138950 readfq用时：259.075927s start Bio 2020-06-23 10:51:35.854583 end Bio 2020-06-23 10:55:13.789172 Bio用时：217.934589s  第二次测试: readfq比Bio: 118.62%   start readfq 2020-06-23 10:55:58.999203 end readfq 2020-06-23 11:00:06.315406 readfq用时：247.316203s start Bio 2020-06-23 11:00:08.641087 end Bio 2020-06-23 11:03:37.140562 Bio用时：208.499475s  第三次测试: readfq比Bio: 15.51%   start readfq 2020-06-23 11:05:28.903198 end readfq 2020-06-23 11:09:53.790852 readfq用时：264.887654s start Bio 2020-06-23 11:09:53.912627 end Bio 2020-06-23 11:13:43.230618 Bio用时：229.317991s  第四次测试: readfq比Bio: 96.91%   start readfq 2020-06-23 11:13:52.750406 end readfq 2020-06-23 11:18:23.449189 readfq用时：270.698783s start Bio 2020-06-23 11:18:23.554306 end Bio 2020-06-23 11:23:02.897335 Bio用时：279.343029s  第五次测试: readfq比Bio: 116.17%   start readfq 2020-06-23 11:24:57.625076 end readfq 2020-06-23 11:28:58.973375 readfq用时：241.348299s start Bio 2020-06-23 11:28:59.101057 end Bio 2020-06-23 11:32:26.855097 Bio用时：207.754040s  附大神代码地址  地址  ","categories": ["coding","python"],
+        "tags": ["fastq","fasta","sequence"],
+        "url": "/coding/python/Sequence_iterators/",
+        "teaser": null
+      },{
+        "title": "Deep and shallow copy in Python",
+        "excerpt":"总结  shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。   Shallow copy  浅层的copy a list, 只是生成了一个新变量，指向的依然是原来变量的地址，如果原来变量发生改变，则新变量（copy）也随之发生改变，例如： that’s so called shallow copies, shallow copy： aliasing, 取了个别名，而不是真的copy了一个变量，其地址没有变。 having two lists unintentionally connected to each other   就是说使用a=[:] 这种操作来copy 一个list的时候，copy的只是最顶层的list.内层如果也有List的时候，并没有被copy.    Deep copy  实际就是给新copy的变量指定了一个新的地址，而非直接指向原来的地址，所以在original里增加元素之后，并不会影响copy的变量    当copy的对象结构很复杂的时候，例如是list 套list, 但又不是全部都是list, 做deep copy有更优雅的方法，例如copy 模块中的deepcopy函数，感觉这个deepcopy是无限循环copy一个对象   ","categories": ["coding","python"],
+        "tags": ["syntax"],
+        "url": "/coding/python/Deep_shallow_copy/",
+        "teaser": null
+      },{
         "title": "SortMeRNA-Burst trie结合查找表，Levenshtein自动机搜索快速鉴定rRNA",
         "excerpt":"  1. Introduction  SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。     2. 算法基本原理  底层算法与seed策略类似，主要是寻找rRNA数据库和read之间的一定数量的相似短区域。对rRNA序列建立索引的时候，与HMM一样，利用同源序列之间的冗余，建立所有rRNA序列的压缩模型。 然后设定一个窗口，对read进行窗口滑动扫描，基于设定的阈值，单个read中超过阈值数量的窗口比对到数据库则该read被鉴定为rRNA。其中窗口比对数据库时容错为1（例如碱基替换，插入或缺失）。 基础算法很容易理解，主要是提高算法效率，大比例缩短比对时间。 作者的策略如下图所示：      2.1 具体算法过程     使用Burst trie (BT)结合查找表策略存储数据库。假设窗口为w，窗口序列长度为s（14~20）。 1a，首先存储了数据库中每一个s/2-mer序列的出现频次（#occ） 1b，BT的结构，这个跟搜索树结构很像了，类比即可   处理输入read。同样窗口为w, 窗口长度为s，向右滑动。 2a, 滑动窗口示意图 2b, 将窗口分为窗口前段从w[1..s/2 +1]，和窗口后段w[s..s/2 + 1]   判断窗口序列在BT中是否存在。通过通用Levenshtein自动机和BT循环遍历，及确保错误不大于1。 遍历完所有的窗口后，判断接受的窗口数量是否高于阈值，高于阈值则认为该输入read判定为rRNA。   2.2 算法小结  总结思路：输入read，生成第一个窗口序列，先查找前半段窗口序列在数据库中的频次，达到要求则定位这半段序列在BT中的位置，然后开始在BT搜索（burst）后半段窗口的序列，沿着BT把整个窗口遍历完，最后如果遍历的时候发现的错误&gt;1，则把这个窗口记录为非比对；接着滑动到下一个窗口从头开始判定，直到所有的窗口判定完成后，如果判定为比对的窗口的数量&gt;给定的阈值，则判定read为rRNA。   3.关于作者使用的Levenshtein自动机  作者用自动机实现字符串之间的模糊匹配（文中是read和db）。假设字符串p和错误数k，经典的非确定性Levenshtein自动机可识别的最大编辑距离为k到p的字符集，文中k=1。    4. 与其他工具的对比：  Meta-RNA，SSU-ALIGN，rRNASelector使用了常见的概率模型，其中Meta-RNA和rRNASelector使用了HMM模型，然后利用HMMER3比对短read到数据库，SSU-ALIGN使用协方差模型来支持二级结构的信息。除了概率模型之外，riboPicker使用的是修改版的BWA算法。BLASTN也使用非常多，特别是大家各自用的workflow。   总结：  文章是12年发表，除了文章中提到的工具，后来大家各自用的workflow也有很多用bwa，bowtie，bowtie2等工具进行比对的。其次就是这个算法策略对错误的容忍低（为1）。再有就是作者使用的universal Levenshtein自动机，越看越像马尔科夫链，可能是我对自动机的理解还不够深？ 其次是对于作者，EK小姐姐至今仍然在一线社区活跃。  ","categories": ["bioinformatics","metatranscriptomic"],
         "tags": ["tutorials","RNA","mapping"],
@@ -68,7 +80,7 @@ var store = [{
         "title": "Perl包安装",
         "excerpt":"Notes   CPAN自动安装Perl包，这个最常用：   /path/to/cpan # 启动 &gt;&gt;&gt; install PackageName    当你没有root权限   假如你没有root权限，则你需要将包安装到你有写入权限的目录： 首先安装local::lib https://metacpan.org/pod/local::lib 使用的命令如下：   wget https://cpan.metacpan.org/authors/id/H/HA/HAARG/local-lib-2.000024.tar.gz tar -xvf local-lib-2.000024.tar.gz cd local-lib-2.000024 perl Makefile.PL --bootstrap=YOURPATH make test make install  当安装的时候报错，需要解决依赖包的问题   例如，需要安装Moose，CPAN安装的时候报错退出。提示此包的依赖包括: Package::DeprecationManager,Package::Stash::XS,Test::CleanNamespaces,Sub::Exporter,Params::Util,Devel::OverloadInfo,Class::Load::XS,Package::Stash,Class::Load,Sub::Name,Data::OptList,Sub::Identify 那么，需要依次安装这些包：   perl -MCPAN -Mlocal::lib -e 'CPAN::install(包名)'  把所有的依赖都准备好之后，安装Moose就成功了。   接下来安装IPC:Run包   echo 'eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)' &gt;&gt;~/.bashrc source ~/.bashrc  最后需要解决pfam_scan检索目录的问题。需要把安装好的包所在的目录加入到pfam_scan的检索目录中就可以成功导入需要的依赖包并运行了。  ","categories": ["coding","perl"],
         "tags": ["annotation","perl","linux"],
-        "url": "/coding/perl/Perl_package_installation_to_fix_Pfam_scan/",
+        "url": "/coding/perl/Perl_package_installation/",
         "teaser": null
       },{
         "title": "hmm vertibe 过程",
@@ -138,21 +150,15 @@ var store = [{
         "teaser": null
       },{
         "title": "Needleman Wunsch alignment DP",
-        "excerpt":"         ","categories": ["statistics","alignment"],
+        "excerpt":"       ","categories": ["statistics","alignment"],
         "tags": ["alignment"],
         "url": "/statistics/alignment/Needleman_Wunsch_alignment/",
         "teaser": null
       },{
         "title": "Smith Waterman alignment DP",
-        "excerpt":"         ","categories": ["statistics","alignment"],
+        "excerpt":"       ","categories": ["statistics","alignment"],
         "tags": ["alignment"],
         "url": "/statistics/alignment/Smith-Waterman_algorithm/",
-        "teaser": null
-      },{
-        "title": null,
-        "excerpt":"Introduction  做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。 需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。     Bio.SeqIO.QualityIO.FastqGeneralIterator同Bio.SeqIO.parse一样也是一个迭代器，只不过不生成对象record，而是生成序列id、序列、以及质量值本身，遍历的时候调用语法为   For title, seq, qual in FastqGeneralIterator(fh): \tDo something  FastqGeneralIterator速度很快了，但我偶然又看到大神Heng Li 12年写的一个小代码readfq，相信不少同学有看过源码（我看到不少项目都嵌了这段代码），也是一个序列遍历器，且居然还在活跃，还有人在提issue和pr。   测试文件为一个36,518,870条序列的fastq.gz文件，这个序列数量已经是人肠道微生物基因集的几倍了，大多数情况下都不会需要频繁迭代这么多的序列量。我测试迭代然后统计序列数，碱基数，及质量字符数。 考虑到服务器上其他用户的状态可能也会影响测试效果，所以做了多次测试，Bio版本为1.76，测试平台为x86_64 GNU/Linux：   通过5次单独的测试，总的来说readfq速度上比Bio慢一点点，不会超过20%，其中第四次测试readfq的速度超过了Bio，可能测试环境也有一定的影响。 强推大神代码的原因： \t1. 代码非常简洁，仅仅31行！相比于Bio来说，非常轻量。 \t2. 大神的代码同时兼容fasta和fastq！而FastqGeneralIterator只能处理fastq文件，如果要处理fasta格式的文件的话，需要调用Bio.SeqIO.FastaIO.SimpleFastaParser \t3. 本着代码的简洁性以及减少对library的依赖，readfq胜任。 \t4. 最后就是虽然在测试过程中，Bio略胜一筹，但是现实中大部分的情况我们不需要频繁遍历太大的数据，所以速度上可以认为readfq与Bio的FastqGeneralIterator不相上下。   测试代码：   print('start readfq', datetime.now()) n, slen, qlen = 0, 0, 0 for name, seq, qual in readfq(f): \tn+= 1 \tslen += len(seq) \tqlen += qual \tprint(n, '\\t', slen, '\\t', qlen) print('end readfq', datetime.now())  print('start Bio', datetime.now()) n, slen, qlen = 0, 0, 0 for name, seq, qual in FastqGeneralIterator(fh): \tn+=1 \tslen += len(seq) \tqlen += qual print(n, '\\t', slen, '\\t', qlen) print('end Bio', datetime.now())  附上测试结果供参考：  第一次测试: readfq比Bio: 118.88%   start readfq 2020-06-23 10:47:13.063023 end readfq 2020-06-23 10:51:32.138950 readfq用时：259.075927s start Bio 2020-06-23 10:51:35.854583 end Bio 2020-06-23 10:55:13.789172 Bio用时：217.934589s  第二次测试: readfq比Bio: 118.62%   start readfq 2020-06-23 10:55:58.999203 end readfq 2020-06-23 11:00:06.315406 readfq用时：247.316203s start Bio 2020-06-23 11:00:08.641087 end Bio 2020-06-23 11:03:37.140562 Bio用时：208.499475s  第三次测试: readfq比Bio: 15.51%   start readfq 2020-06-23 11:05:28.903198 end readfq 2020-06-23 11:09:53.790852 readfq用时：264.887654s start Bio 2020-06-23 11:09:53.912627 end Bio 2020-06-23 11:13:43.230618 Bio用时：229.317991s  第四次测试: readfq比Bio: 96.91%   start readfq 2020-06-23 11:13:52.750406 end readfq 2020-06-23 11:18:23.449189 readfq用时：270.698783s start Bio 2020-06-23 11:18:23.554306 end Bio 2020-06-23 11:23:02.897335 Bio用时：279.343029s  第五次测试: readfq比Bio: 116.17%   start readfq 2020-06-23 11:24:57.625076 end readfq 2020-06-23 11:28:58.973375 readfq用时：241.348299s start Bio 2020-06-23 11:28:59.101057 end Bio 2020-06-23 11:32:26.855097 Bio用时：207.754040s  附大神代码地址  地址  ","categories": [],
-        "tags": null,
-        "url": "/2019-07-21-Comparison_of_Seqs_iterator/",
         "teaser": null
       },{
     "title": null,

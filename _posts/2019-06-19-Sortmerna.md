@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: SortMeRNA-Burst trie结合查找表，Levenshtein自动机搜索快速鉴定rRNA
+title: "SortMeRNA-Burst trie结合查找表，Levenshtein自动机搜索快速鉴定rRNA"
 author: Jie Li
 toc: true
 toc_label: "SortMeRNA"

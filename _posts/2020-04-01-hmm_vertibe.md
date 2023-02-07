@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: hmm vertibe 过程
+title: "hmm vertibe 过程"
 author: Jie Li
 toc: true
 toc_label: "hmm vertibe 过程"
