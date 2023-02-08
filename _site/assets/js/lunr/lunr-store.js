@@ -29,16 +29,16 @@ var store = [{
         "url": "/bioinformatics/amplicon/PICRUST/",
         "teaser": null
       },{
-        "title": "FastQC质控测序数据",
-        "excerpt":"FastQC是一款用于对测序read进行QC的工具。工具可以查看碱基质量，含N，dup，碱基质量分布，GC含量，ATCGN碱基分布，以及adapter的比对情况。Adapter的序列目前可以使用例如trimmmomatic等工具提供的adapters库。也可以使用illumina官网提供的adapters。最好的已知测序时使用的adapters序列，直接提供该序列，则adapter比对更准确，运行的时间更短。     目前测序绝大部分是双端测序，测试对read1进行分析，得到的summary结果如下：    这个地方第一列的PASS/FAIL不建议直接作为结果，而是需要结合实际的样本情况。例如RNA测序的数据，dup就会高很多；16S amplicon测序的数据，ATCGN的含量就会不均匀。  ","categories": ["bioinformatics","dataQC"],
-        "tags": ["dataQC","sequencing data","quality control"],
-        "url": "/bioinformatics/dataqc/FastQC/",
+        "title": "Tax4Fun",
+        "excerpt":"1. Tax4Fun的安装  Tax4Fun的安装使用本地包： install.packages(\"Tax4Fun_0.3.1.tar\", repos=NULL, type=\"source\")。 必须加入repos=NULL, type=\"source\"参数，才能识别到是一个本地文件包；否则会误认为是一个在线包的名称，而报错not available for R-3-***。   2. 安装依赖包  加入repos=NULL,type=\"source\"两个参数后，能正常安装，发现依赖qiimer和biom两个包。 其中biom包因为已经从cran下线，需要手动下载安装: （ biom包有个依赖包RJSONIO可在线安装）: install.packages(\"biom_0.3.12.tar.gz\", repos=NULL, type=\"source\")。 安装完依赖后，再按照1中方法安装Tax4Fun包即可。  ","categories": ["bioinformatics","amplicon"],
+        "tags": ["annotation","amplicon","pathway","prokaryotic"],
+        "url": "/bioinformatics/amplicon/Tax4Fun/",
         "teaser": null
       },{
         "title": "FastQC质控测序数据",
         "excerpt":"FastQC是一款用于对测序read进行QC的工具。工具可以查看碱基质量，含N，dup，碱基质量分布，GC含量，ATCGN碱基分布，以及adapter的比对情况。Adapter的序列目前可以使用例如trimmmomatic等工具提供的adapters库。也可以使用illumina官网提供的adapters。最好的已知测序时使用的adapters序列，直接提供该序列，则adapter比对更准确，运行的时间更短。     目前测序绝大部分是双端测序，测试对read1进行分析，得到的summary结果如下：    这个地方第一列的PASS/FAIL不建议直接作为结果，而是需要结合实际的样本情况。例如RNA测序的数据，dup就会高很多；16S amplicon测序的数据，ATCGN的含量就会不均匀。  ","categories": ["bioinformatics","dataQC"],
         "tags": ["dataQC","sequencing data","quality control"],
-        "url": "/bioinformatics/dataqc/Tax4Fun/",
+        "url": "/bioinformatics/dataqc/FastQC/",
         "teaser": null
       },{
         "title": "Configure Python3 with TCL-TK",
