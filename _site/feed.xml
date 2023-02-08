@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:3080/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3080/" rel="alternate" type="text/html" /><updated>2023-02-07T16:14:19+10:00</updated><id>http://localhost:3080/feed.xml</id><title type="html">Jie Li (She/Her)</title><subtitle>Just a bioinformatician in microbial ecology.</subtitle><author><name>Jie Li</name></author><entry><title type="html">Smith Waterman alignment DP</title><link href="http://localhost:3080/statistics/alignment/Smith-Waterman_algorithm/" rel="alternate" type="text/html" title="Smith Waterman alignment DP" /><published>2023-02-05T00:00:00+10:00</published><updated>2023-02-05T00:00:00+10:00</updated><id>http://localhost:3080/statistics/alignment/Smith%E2%80%93Waterman_algorithm</id><content type="html" xml:base="http://localhost:3080/statistics/alignment/Smith-Waterman_algorithm/"><![CDATA[<h2 id="the-score-matrix">The score matrix</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:3080/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3080/" rel="alternate" type="text/html" /><updated>2023-02-08T14:57:16+10:00</updated><id>http://localhost:3080/feed.xml</id><title type="html">Jie Li (She/Her)</title><subtitle>Just a bioinformatician in microbial ecology.</subtitle><author><name>Jie Li</name></author><entry><title type="html">Smith Waterman alignment DP</title><link href="http://localhost:3080/statistics/alignment/Smith-Waterman_algorithm/" rel="alternate" type="text/html" title="Smith Waterman alignment DP" /><published>2023-02-05T00:00:00+10:00</published><updated>2023-02-05T00:00:00+10:00</updated><id>http://localhost:3080/statistics/alignment/Smith%E2%80%93Waterman_algorithm</id><content type="html" xml:base="http://localhost:3080/statistics/alignment/Smith-Waterman_algorithm/"><![CDATA[<h2 id="the-score-matrix">The score matrix</h2>
 <p><img src="/assets/picbed/statistics/Smith%E2%80%93Waterman_algorithm1.jpg" alt="" />
 <br /></p>
 
@@ -204,7 +204,78 @@
 <!--more-->
 
 <p>具体操作方式：更改文件 <code class="language-plaintext highlighter-rouge">.ncbi/user-settings.mkfg</code>里的<code class="language-plaintext highlighter-rouge">/repository/user/main/public/root</code>的目录为你想要存放的目录即可。
-<img src="/assets/picbed/post/sratoolkit_path_set.png" alt="" /></p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="bash" /><category term="bash" /><category term="linux" /><summary type="html"><![CDATA[说明 sratoolkit默认配置的下载数据目录是在HOME，这显然是不友好的，因为一般的集群给每个account的HOME目录下的存储是非常有限的，例如50Gb，所以最好把cache的目录设置到拥有大量存储可供写入的目录。]]></summary></entry><entry><title type="html">上传数据到SRA</title><link href="http://localhost:3080/database/sra/Upload_SRA/" rel="alternate" type="text/html" title="上传数据到SRA" /><published>2021-01-01T00:00:00+10:00</published><updated>2021-01-01T00:00:00+10:00</updated><id>http://localhost:3080/database/sra/Upload_SRA</id><content type="html" xml:base="http://localhost:3080/database/sra/Upload_SRA/"><![CDATA[<h2 id="说明">说明</h2>
+<img src="/assets/picbed/post/sratoolkit_path_set.png" alt="" /></p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="bash" /><category term="bash" /><category term="linux" /><summary type="html"><![CDATA[说明 sratoolkit默认配置的下载数据目录是在HOME，这显然是不友好的，因为一般的集群给每个account的HOME目录下的存储是非常有限的，例如50Gb，所以最好把cache的目录设置到拥有大量存储可供写入的目录。]]></summary></entry><entry><title type="html">python项目打包demo</title><link href="http://localhost:3080/coding/python/setuptools_python_package/" rel="alternate" type="text/html" title="python项目打包demo" /><published>2021-02-25T00:00:00+10:00</published><updated>2021-02-25T00:00:00+10:00</updated><id>http://localhost:3080/coding/python/setuptools_python_package</id><content type="html" xml:base="http://localhost:3080/coding/python/setuptools_python_package/"><![CDATA[<h2 id="1-基本配置">1. 基本配置：</h2>
+<h3 id="11-setuppy文件">1.1 setup.py文件：</h3>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># -*- coding:utf-8 -*-</span>
+
+from setuptools import setup, find_packages
+from os import path
+
+setup<span class="o">(</span>
+name <span class="o">=</span> <span class="s1">'testpypi11'</span>, <span class="c"># 包名称</span>
+version <span class="o">=</span> <span class="s1">'3.0.3'</span>, <span class="c">#版本号</span>
+description <span class="o">=</span> <span class="s1">'this is test for packing a pypi package.'</span>, <span class="c"># 包的描述</span>
+<span class="nv">url</span><span class="o">=</span><span class="s1">'***'</span>, <span class="c"># optional，项目地址</span>
+
+author <span class="o">=</span> <span class="s1">'**'</span>, <span class="c"># optional 项目作者</span>
+author_email <span class="o">=</span> <span class="s1">'**@**'</span>, <span class="c"># optional 项目作者邮箱</span>
+<span class="nv">maintainer</span><span class="o">=</span><span class="s1">'**'</span>, <span class="c"># 目前维护人员。如果和作者不一致，那setuptools会在PKG-INFO中把这个名字当做作者</span>
+<span class="nv">maintainer_email</span><span class="o">=</span><span class="s1">'**'</span>, <span class="c"># 维护人员的邮箱</span>
+classifiers <span class="o">=</span> <span class="o">[</span>
+<span class="s1">'License :: OSI Approved :: MIT License'</span>,
+<span class="s1">'Programming Language :: Python :: 3 :: Only'</span>, <span class="c"># indicate language you support, *not* checked by 'pip install'</span>
+<span class="s1">'Operating System :: Unix'</span>,
+<span class="o">]</span>,
+
+keywords <span class="o">=</span> <span class="s1">'test python3 pypi'</span>, 
+<span class="nv">include_package_data</span><span class="o">=</span>True, <span class="c"># 这个表明除了code之外，还有别的文件/目录需要一起打包。具体哪些内容，则是指定在MANIFEST.in文件中</span>
+packages <span class="o">=</span> find_packages<span class="o">()</span>, <span class="c">#这个功能非常好用，不用自己单独指定，特别如果是目录结构较复杂的项目</span>
+python_requires <span class="o">=</span> <span class="s1">'&gt;=3'</span>,
+
+install_requires <span class="o">=</span> <span class="o">[</span><span class="s1">'numpy&gt;=1.17.4'</span><span class="o">]</span>,
+<span class="nv">entry_points</span><span class="o">={</span>
+<span class="s1">'console_scripts'</span>:[
+<span class="s1">'testpypi=testpypi.info1:Info1'</span>,
+<span class="o">]</span>,
+<span class="o">}</span>,
+<span class="c">#scripts=['bin/testpypi'] # 这个和entry_points 二选一即可。表示项目已经自带控制台，不用自动生成新的控制台。setuptools会把这个文件cp到bin下</span>
+<span class="o">)</span></code></pre></figure>
+
+<h3 id="12-manifastin文件">1.2 MANIFAST.in文件</h3>
+<p>语法挺简单的，见文档：https://packaging.python.org/guides/using-manifest-in/</p>
+
+<h2 id="2-配置账号可选">2. 配置账号（可选）：</h2>
+<p>文件编写好之后，配置作者识别文件.pypirc，配置了这个文件可以省去很多输入账号密码的操作，不配置也可配置好放在home目录下：</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>distutils]
+index-servers<span class="o">=</span>pypi
+
+<span class="o">[</span>pypi]
+<span class="nv">username</span><span class="o">=</span>username
+<span class="nv">password</span><span class="o">=</span>password</code></pre></figure>
+
+<h2 id="3-上传项目">3. 上传项目：</h2>
+<h3 id="31-上传命令">3.1 上传命令：</h3>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">python setup.py sdist upload</code></pre></figure>
+
+<h3 id="32-upload的时候一直报错">3.2 upload的时候一直报错：</h3>
+<p>翻了一通官方的issue，原来是包的名字重了。</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Upload failed <span class="o">(</span>403<span class="o">)</span>: The user isn<span class="s1">'t allowed to upload to project '</span>testpypi<span class="s1">'. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information.
+error: Upload failed (403): The user isn'</span>t allowed to upload to project <span class="s1">'testpypi'</span><span class="nb">.</span> See <span class="o">[</span>https://pypi.org/help/#project-name]<span class="o">(</span>https://pypi.org/help/#project-name<span class="o">)</span> <span class="k">for </span>more information.</code></pre></figure>
+
+<h2 id="4-利用setuptools打包发布pypi的官方帮助文档">4. 利用setuptools打包发布Pypi的官方帮助文档：</h2>
+<p><a href="https://setuptools.readthedocs.io/en/latest/setuptools.html">https://setuptools.readthedocs.io/en/latest/setuptools.html</a></p>
+
+<h2 id="5-官方给的setuppy的例子">5. 官方给的setup.py的例子</h2>
+<p><a href="https://github.com/pypa/sampleproject/blob/master/setup.py">https://github.com/pypa/sampleproject/blob/master/setup.py</a></p>
+
+<h2 id="6-参考博客">6. 参考博客：</h2>
+<p><a href="https://blog.csdn.net/mouday/article/details/80736312">https://blog.csdn.net/mouday/article/details/80736312</a>
+<a href="https://zhuanlan.zhihu.com/p/37987613">https://zhuanlan.zhihu.com/p/37987613</a>
+<a href="https://www.chenshaowen.com/blog/how-to-pack-a-python-package-and-upload-it-to-pypi.html">https://www.chenshaowen.com/blog/how-to-pack-a-python-package-and-upload-it-to-pypi.html</a></p>]]></content><author><name>Jie Li</name></author><category term="coding" /><category term="python" /><category term="python" /><summary type="html"><![CDATA[1. 基本配置： 1.1 setup.py文件： # -*- coding:utf-8 -*- from setuptools import setup, find_packages from os import path setup( name = 'testpypi11', # 包名称 version = '3.0.3', #版本号 description = 'this is test for packing a pypi package.', # 包的描述 url='***', # optional，项目地址 author = '**', # optional 项目作者 author_email = '**@**', # optional 项目作者邮箱 maintainer='**', # 目前维护人员。如果和作者不一致，那setuptools会在PKG-INFO中把这个名字当做作者 maintainer_email='**', # 维护人员的邮箱 classifiers = [ 'License :: OSI Approved :: MIT License', 'Programming Language :: Python :: 3 :: Only', # indicate language you support, *not* checked by 'pip install' 'Operating System :: Unix', ], keywords = 'test python3 pypi', include_package_data=True, # 这个表明除了code之外，还有别的文件/目录需要一起打包。具体哪些内容，则是指定在MANIFEST.in文件中 packages = find_packages(), #这个功能非常好用，不用自己单独指定，特别如果是目录结构较复杂的项目 python_requires = '&gt;=3', install_requires = ['numpy&gt;=1.17.4'], entry_points={ 'console_scripts':[ 'testpypi=testpypi.info1:Info1', ], }, #scripts=['bin/testpypi'] # 这个和entry_points 二选一即可。表示项目已经自带控制台，不用自动生成新的控制台。setuptools会把这个文件cp到bin下 ) 1.2 MANIFAST.in文件 语法挺简单的，见文档：https://packaging.python.org/guides/using-manifest-in/ 2. 配置账号（可选）： 文件编写好之后，配置作者识别文件.pypirc，配置了这个文件可以省去很多输入账号密码的操作，不配置也可配置好放在home目录下： [distutils] index-servers=pypi [pypi] username=username password=password 3. 上传项目： 3.1 上传命令： python setup.py sdist upload 3.2 upload的时候一直报错： 翻了一通官方的issue，原来是包的名字重了。 Upload failed (403): The user isn't allowed to upload to project 'testpypi'. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information. error: Upload failed (403): The user isn't allowed to upload to project 'testpypi'. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information. 4. 利用setuptools打包发布Pypi的官方帮助文档： https://setuptools.readthedocs.io/en/latest/setuptools.html 5. 官方给的setup.py的例子 https://github.com/pypa/sampleproject/blob/master/setup.py 6. 参考博客： https://blog.csdn.net/mouday/article/details/80736312 https://zhuanlan.zhihu.com/p/37987613 https://www.chenshaowen.com/blog/how-to-pack-a-python-package-and-upload-it-to-pypi.html]]></summary></entry><entry><title type="html">上传数据到SRA</title><link href="http://localhost:3080/database/sra/Upload_SRA/" rel="alternate" type="text/html" title="上传数据到SRA" /><published>2021-01-01T00:00:00+10:00</published><updated>2021-01-01T00:00:00+10:00</updated><id>http://localhost:3080/database/sra/Upload_SRA</id><content type="html" xml:base="http://localhost:3080/database/sra/Upload_SRA/"><![CDATA[<h2 id="说明">说明</h2>
 <p>数据分析结束之后，通常需要将原始数据上传到公共数据库进行分享。例如测序数据通常上传至NCBI的SRA库。当样本数目比较小的时候，通过网页上传是非常方便的。但是当样本数量庞大的时候，通过网页上传数据就非常麻烦了，因为需要手动依次上传每一个样本。所以最直接的方法是从服务器往NCBI传，例如是用<code class="language-plaintext highlighter-rouge">aspera</code>：</p>
 
 <!--more-->
@@ -223,7 +294,7 @@
 <!--more-->
 
 <p>However, every redeemed book is <strong>wrapped with cover</strong>, thus, you won’t be able to know which number you get until you uncover it.
-<img src="/assets/picbed/post/little_treehouse.png" alt="photo" /></p>
+<img src="/assets/picbed/statistics/little_treehouse.png" alt="photo" /></p>
 
 <p>I am curious about roughly how much you gonna spend at Coles to collect a full set of LITTLE TREEHOUSE book (a single transaction of $30 or more but less than $60 is calculated as $30).</p>
 
@@ -288,61 +359,4 @@ SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和�
 
 <p>标注：<strong>138版本的SSU Ref NR 99比之前的版本包含更少的序列</strong>。因为团队把序列比对的工具从USEARCH中整合的UCLUST (1.0.50) 换到VSEARCH (2.13)，提升了聚类的性能，且有望使团队可以在将来提供更稳定的Ref NR库。</p>
 
-<p>Ref NR库减小是由于这两个工具使用不同的序列/比对identity的定义差异导致。团队还使用了第三方工具CD-HIT（v4.8）交叉检查了比对的结果。在使用同样的identity阈值条件下，VSEARCH和CD-HIT返回了相似的聚类簇，而UCLUST返回了<strong>显著更大数目</strong>的聚类簇。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="tutorial" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。]]></summary></entry><entry><title type="html">git操作远端仓库</title><link href="http://localhost:3080/linux/git/git_remote_repo/" rel="alternate" type="text/html" title="git操作远端仓库" /><published>2020-06-18T00:00:00+10:00</published><updated>2020-06-18T00:00:00+10:00</updated><id>http://localhost:3080/linux/git/git_remote_repo</id><content type="html" xml:base="http://localhost:3080/linux/git/git_remote_repo/"><![CDATA[<h2 id="确认ssh-key">确认SSH key</h2>
-<p>第一步，首先确实自己的目录下是否已经有<code class="language-plaintext highlighter-rouge">SSH key</code>。这个一般在<code class="language-plaintext highlighter-rouge">~/.ssh</code>目录下，可查看目录是否有</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">ls</span> ~/.ssh/
-a  b  id_rsa  id_rsa.pub  known_hosts</code></pre></figure>
-
-<!--more-->
-
-<p>需要的文件是一对以<code class="language-plaintext highlighter-rouge">id_rsa</code>或<code class="language-plaintext highlighter-rouge">id_dsa</code>命名的文件。例如上边我的目录中是<code class="language-plaintext highlighter-rouge">id_rsa</code>文件和<code class="language-plaintext highlighter-rouge">id_rsa.pub</code>文件，其中一个文件以<code class="language-plaintext highlighter-rouge">id_rsa.pub</code>文件是公钥，<code class="language-plaintext highlighter-rouge">id_rsa</code>是私钥。
-如果没有这样的文件，或者甚至都没有.ssh目录的话，那么需要自己生成<code class="language-plaintext highlighter-rouge">SSH</code>公钥：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ssh-keygen <span class="nt">-o</span></code></pre></figure>
-
-<p>然后将生成的<code class="language-plaintext highlighter-rouge">id_rsa.pub</code>里的内容复制粘贴给<code class="language-plaintext highlighter-rouge">github</code>自己的账号中的<code class="language-plaintext highlighter-rouge">SSH key</code>。<code class="language-plaintext highlighter-rouge">SSH keys</code>的目的是为了保证推送的提交是你本人推送的，而不是别人冒充的。<code class="language-plaintext highlighter-rouge">git</code>支持<code class="language-plaintext highlighter-rouge">SSH</code>协议，并允许你添加多个<code class="language-plaintext highlighter-rouge">KEY</code>, 这样即使你有N台电脑并都会进行提交的时候，只需要把每一台电脑的<code class="language-plaintext highlighter-rouge">SSH key</code>都添加进去，<code class="language-plaintext highlighter-rouge">github</code>就允许每一台key被添加的都电脑都推送过来啦!
-<img src="/assets/picbed/post/ssh_key.png" alt="" /></p>
-
-<h2 id="绑定用户名和邮箱">绑定用户名和邮箱</h2>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git config <span class="nt">--global</span> user.name 用户名
-git config <span class="nt">--global</span> user.email 邮箱</code></pre></figure>
-
-<p>测试查看自己的用户名和email</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git config user.name
-git config user.email</code></pre></figure>
-
-<h2 id="创建远端仓库">创建远端仓库</h2>
-<p>如果该项目在远端仓库还没有对应的项目仓库，那么需要先在远端建立一个新仓库，例如github的网页操作。例如创建仓库名称为test的公开项目仓库。
-<img src="/assets/picbed/post/create_remote_repo.png" alt="" /></p>
-
-<h2 id="关联仓库">关联仓库</h2>
-<p>项目仓库创建好之后，进入到本地的仓库，将项目仓库与本地仓库进行关联。</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git remote add <span class="nb">test </span>https://github.com/username/test.git</code></pre></figure>
-
-<h2 id="推送本地仓库">推送本地仓库</h2>
-<p>关联好之后，就可以开始推送啦, 因为是第一次推送这个仓库，所以加入-u参数，把当前分支master所有内容推送到远程，并且会将本地的master分支和远程的master分支关联起来，这样以后推送或者拉取时就可以简化命令
-首次推送：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git push <span class="nt">-u</span> <span class="nb">test </span>master</code></pre></figure>
-
-<p>其他推送：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git push <span class="nb">test </span>master</code></pre></figure>
-
-<h2 id="其他命令">其他命令</h2>
-<p>查看本地已关联的远端仓库：
-git remote -v
-删除某个远端仓库的关联：
-git remote rm NAME
-如果推送远端被拒，有可能是<code class="language-plaintext highlighter-rouge">ssh keys</code>的问题，可以尝试在<code class="language-plaintext highlighter-rouge">command line</code>输入<code class="language-plaintext highlighter-rouge">unset SSH_ASKPASS</code>，问题可解决。</p>
-
-<p>当远端仓库里有1个或多个文件是本地仓库里没有的的时候，需要先将远端仓库<code class="language-plaintext highlighter-rouge">pull</code>到本地:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git pull 远端仓库</code></pre></figure>
-
-<h2 id="ref">ref</h2>
-<p>https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5</p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="git" /><category term="tutorial" /><category term="git" /><summary type="html"><![CDATA[确认SSH key 第一步，首先确实自己的目录下是否已经有SSH key。这个一般在~/.ssh目录下，可查看目录是否有 ls ~/.ssh/ a b id_rsa id_rsa.pub known_hosts]]></summary></entry></feed>
+<p>Ref NR库减小是由于这两个工具使用不同的序列/比对identity的定义差异导致。团队还使用了第三方工具CD-HIT（v4.8）交叉检查了比对的结果。在使用同样的identity阈值条件下，VSEARCH和CD-HIT返回了相似的聚类簇，而UCLUST返回了<strong>显著更大数目</strong>的聚类簇。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="tutorial" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。]]></summary></entry></feed>

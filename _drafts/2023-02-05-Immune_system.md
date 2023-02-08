@@ -1,14 +1,11 @@
 ---
-layout: posts
 title: 免疫系统
-author: Jie Li
-toc: true
 toc_label: "免疫系统"
-toc_icon: "heart"
-excerpt_separator: "<!--more-->"
-categories: [immune system]
-tags: [lung cancer, nsclc]
-math: false
+categories:
+    - immune system
+tags:
+    - lung cancer
+    - nsclc
 ---
 
 ## Basic definitions

@@ -35,6 +35,12 @@ var store = [{
         "url": "/bioinformatics/dataqc/FastQC/",
         "teaser": null
       },{
+        "title": "FastQC质控测序数据",
+        "excerpt":"FastQC是一款用于对测序read进行QC的工具。工具可以查看碱基质量，含N，dup，碱基质量分布，GC含量，ATCGN碱基分布，以及adapter的比对情况。Adapter的序列目前可以使用例如trimmmomatic等工具提供的adapters库。也可以使用illumina官网提供的adapters。最好的已知测序时使用的adapters序列，直接提供该序列，则adapter比对更准确，运行的时间更短。     目前测序绝大部分是双端测序，测试对read1进行分析，得到的summary结果如下：    这个地方第一列的PASS/FAIL不建议直接作为结果，而是需要结合实际的样本情况。例如RNA测序的数据，dup就会高很多；16S amplicon测序的数据，ATCGN的含量就会不均匀。  ","categories": ["bioinformatics","dataQC"],
+        "tags": ["dataQC","sequencing data","quality control"],
+        "url": "/bioinformatics/dataqc/Tax4Fun/",
+        "teaser": null
+      },{
         "title": "Configure Python3 with TCL-TK",
         "excerpt":"Introduction  More and more projects are migrating from Python2 to Python3. On the one hand, Python3 has more features available, and secondly, the more important reason should be that with the development of Python3 and its community, Python2 will gradually no longer be maintained. Due to the needs of the work, my working python have to be configured with tk and tcl. The details are as follows:     很多项目在陆陆续续的往Python3迁移，一方面是Python3有更多的feature可用，其次更重要的原因应该是，随着Python3和社区的发展，Python2慢慢会不再维护了。 因工作内容需要，Python需要配置tk及tcl，细节如下：   tk=~/tk8.6.6/unix # path to configured tk tcl=~/tcl8.6.6/unix # path to configured tcl export LDFLAGS=\" -L$tk/lib -L $tcl/lib $LDFLAGS \" export CPPFLAGS=\" -I$tk/include -I$tk/include $CPPFLAGS \" export PATH=$tk/bin:$tcl/bin:$PATH export LD_LIBRARY_PATH=$tk/lib:$tcl/lib:$LD_LIBRARY_PATH  ./configure --prefix=~/Python-3.6.0 --disable-ipv6 --with-tcltk-libs=\"-L$tk/lib/ -L$tcl/lib\" --with-tcltk-includes=\"-I$tk/include -I$tcl/include\" &amp;&amp; echo configure done &amp;&amp; make -j 4 &amp;&amp; echo make done &amp;&amp; make install -j 5 &amp;&amp; echo make install done  Summary (结语)  No big difference of syntax between python3 and python2, I adapted well, I hope you are too.   Python3，Python2个人感觉语法差异没有很大，小编适应得不错，希望你们也是呀~~   Reference (参考)  stackoverflow thread  ","categories": ["coding","python"],
         "tags": ["TCK-TK","environment","linux"],
@@ -129,6 +135,12 @@ var store = [{
         "excerpt":"说明  数据分析结束之后，通常需要将原始数据上传到公共数据库进行分享。例如测序数据通常上传至NCBI的SRA库。当样本数目比较小的时候，通过网页上传是非常方便的。但是当样本数量庞大的时候，通过网页上传数据就非常麻烦了，因为需要手动依次上传每一个样本。所以最直接的方法是从服务器往NCBI传，例如是用aspera：     aspera的下载链接https://www.ibm.com/products/aspera/downloads 其安装操作手册可参考https://cloud.tencent.com/developer/article/1749467   上传的命令为：   ascp -i /home/.aspera/connect/aspera.openssh -QT -l100m -k1 -d DATA_PATH subasp@upload.ncbi.nlm.nih.gov:uploads/ACCOUNT_CODE  其他  这个命令应该是默认传到了root目录。此目录是一个暂存目录，时间为30天。30天过后自动移除文件。因此，整个数据submission的操作需要在30天之内完成。  ","categories": ["database","SRA"],
         "tags": ["bash","linux","database","rawdate","SRA"],
         "url": "/database/sra/Upload_SRA/",
+        "teaser": null
+      },{
+        "title": "python项目打包demo",
+        "excerpt":"1. 基本配置：  1.1 setup.py文件：   # -*- coding:utf-8 -*-  from setuptools import setup, find_packages from os import path  setup( name = 'testpypi11', # 包名称 version = '3.0.3', #版本号 description = 'this is test for packing a pypi package.', # 包的描述 url='***', # optional，项目地址  author = '**', # optional 项目作者 author_email = '**@**', # optional 项目作者邮箱 maintainer='**', # 目前维护人员。如果和作者不一致，那setuptools会在PKG-INFO中把这个名字当做作者 maintainer_email='**', # 维护人员的邮箱 classifiers = [ 'License :: OSI Approved :: MIT License', 'Programming Language :: Python :: 3 :: Only', # indicate language you support, *not* checked by 'pip install' 'Operating System :: Unix', ],  keywords = 'test python3 pypi',  include_package_data=True, # 这个表明除了code之外，还有别的文件/目录需要一起打包。具体哪些内容，则是指定在MANIFEST.in文件中 packages = find_packages(), #这个功能非常好用，不用自己单独指定，特别如果是目录结构较复杂的项目 python_requires = '&gt;=3',  install_requires = ['numpy&gt;=1.17.4'], entry_points={ 'console_scripts':[ 'testpypi=testpypi.info1:Info1', ], }, #scripts=['bin/testpypi'] # 这个和entry_points 二选一即可。表示项目已经自带控制台，不用自动生成新的控制台。setuptools会把这个文件cp到bin下 )  1.2 MANIFAST.in文件  语法挺简单的，见文档：https://packaging.python.org/guides/using-manifest-in/   2. 配置账号（可选）：  文件编写好之后，配置作者识别文件.pypirc，配置了这个文件可以省去很多输入账号密码的操作，不配置也可配置好放在home目录下：   [distutils] index-servers=pypi  [pypi] username=username password=password  3. 上传项目：  3.1 上传命令：   python setup.py sdist upload  3.2 upload的时候一直报错：  翻了一通官方的issue，原来是包的名字重了。   Upload failed (403): The user isn't allowed to upload to project 'testpypi'. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information. error: Upload failed (403): The user isn't allowed to upload to project 'testpypi'. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information.  4. 利用setuptools打包发布Pypi的官方帮助文档：  https://setuptools.readthedocs.io/en/latest/setuptools.html   5. 官方给的setup.py的例子  https://github.com/pypa/sampleproject/blob/master/setup.py   6. 参考博客：  https://blog.csdn.net/mouday/article/details/80736312 https://zhuanlan.zhihu.com/p/37987613 https://www.chenshaowen.com/blog/how-to-pack-a-python-package-and-upload-it-to-pypi.html  ","categories": ["coding","python"],
+        "tags": ["python"],
+        "url": "/coding/python/setuptools_python_package/",
         "teaser": null
       },{
         "title": "sratoolkit下载测序数据",
@@ -286,6 +298,9 @@ var store = [{
   },{
     "title": "SRA",
     "excerpt":"","url": "http://localhost:3080/tags/sra/"
+  },{
+    "title": "python",
+    "excerpt":"","url": "http://localhost:3080/tags/python/"
   },{
     "title": "markdown",
     "excerpt":"","url": "http://localhost:3080/tags/markdown/"

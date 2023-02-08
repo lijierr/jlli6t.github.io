@@ -1,0 +1,645 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>python项目打包demo - Jie Li (She/Her)</title>
+<meta name="description" content="1. 基本配置： 1.1 setup.py文件：  # -*- coding:utf-8 -*-  from setuptools import setup, find_packages from os import path  setup( name = &#39;testpypi11&#39;, # 包名称 version = &#39;3.0.3&#39;, #版本号 description = &#39;this is test for packing a pypi package.&#39;, # 包的描述 url=&#39;***&#39;, # optional，项目地址  author = &#39;**&#39;, # optional 项目作者 author_email = &#39;**@**&#39;, # optional 项目作者邮箱 maintainer=&#39;**&#39;, # 目前维护人员。如果和作者不一致，那setuptools会在PKG-INFO中把这个名字当做作者 maintainer_email=&#39;**&#39;, # 维护人员的邮箱 classifiers = [ &#39;License :: OSI Approved :: MIT License&#39;, &#39;Programming Language :: Python :: 3 :: Only&#39;, # indicate language you support, *not* checked by &#39;pip install&#39; &#39;Operating System :: Unix&#39;, ],  keywords = &#39;test python3 pypi&#39;,  include_package_data=True, # 这个表明除了code之外，还有别的文件/目录需要一起打包。具体哪些内容，则是指定在MANIFEST.in文件中 packages = find_packages(), #这个功能非常好用，不用自己单独指定，特别如果是目录结构较复杂的项目 python_requires = &#39;&gt;=3&#39;,  install_requires = [&#39;numpy&gt;=1.17.4&#39;], entry_points={ &#39;console_scripts&#39;:[ &#39;testpypi=testpypi.info1:Info1&#39;, ], }, #scripts=[&#39;bin/testpypi&#39;] # 这个和entry_points 二选一即可。表示项目已经自带控制台，不用自动生成新的控制台。setuptools会把这个文件cp到bin下 )  1.2 MANIFAST.in文件 语法挺简单的，见文档：https://packaging.python.org/guides/using-manifest-in/  2. 配置账号（可选）： 文件编写好之后，配置作者识别文件.pypirc，配置了这个文件可以省去很多输入账号密码的操作，不配置也可配置好放在home目录下：  [distutils] index-servers=pypi  [pypi] username=username password=password  3. 上传项目： 3.1 上传命令：  python setup.py sdist upload  3.2 upload的时候一直报错： 翻了一通官方的issue，原来是包的名字重了。  Upload failed (403): The user isn&#39;t allowed to upload to project &#39;testpypi&#39;. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information. error: Upload failed (403): The user isn&#39;t allowed to upload to project &#39;testpypi&#39;. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information.  4. 利用setuptools打包发布Pypi的官方帮助文档： https://setuptools.readthedocs.io/en/latest/setuptools.html  5. 官方给的setup.py的例子 https://github.com/pypa/sampleproject/blob/master/setup.py  6. 参考博客： https://blog.csdn.net/mouday/article/details/80736312 https://zhuanlan.zhihu.com/p/37987613 https://www.chenshaowen.com/blog/how-to-pack-a-python-package-and-upload-it-to-pypi.html">
+
+
+  <meta name="author" content="Jie Li">
+  
+  <meta property="article:author" content="Jie Li">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="Jie Li (She/Her)">
+<meta property="og:title" content="python项目打包demo">
+<meta property="og:url" content="http://localhost:3080/coding/python/setuptools_python_package/">
+
+
+  <meta property="og:description" content="1. 基本配置： 1.1 setup.py文件：  # -*- coding:utf-8 -*-  from setuptools import setup, find_packages from os import path  setup( name = &#39;testpypi11&#39;, # 包名称 version = &#39;3.0.3&#39;, #版本号 description = &#39;this is test for packing a pypi package.&#39;, # 包的描述 url=&#39;***&#39;, # optional，项目地址  author = &#39;**&#39;, # optional 项目作者 author_email = &#39;**@**&#39;, # optional 项目作者邮箱 maintainer=&#39;**&#39;, # 目前维护人员。如果和作者不一致，那setuptools会在PKG-INFO中把这个名字当做作者 maintainer_email=&#39;**&#39;, # 维护人员的邮箱 classifiers = [ &#39;License :: OSI Approved :: MIT License&#39;, &#39;Programming Language :: Python :: 3 :: Only&#39;, # indicate language you support, *not* checked by &#39;pip install&#39; &#39;Operating System :: Unix&#39;, ],  keywords = &#39;test python3 pypi&#39;,  include_package_data=True, # 这个表明除了code之外，还有别的文件/目录需要一起打包。具体哪些内容，则是指定在MANIFEST.in文件中 packages = find_packages(), #这个功能非常好用，不用自己单独指定，特别如果是目录结构较复杂的项目 python_requires = &#39;&gt;=3&#39;,  install_requires = [&#39;numpy&gt;=1.17.4&#39;], entry_points={ &#39;console_scripts&#39;:[ &#39;testpypi=testpypi.info1:Info1&#39;, ], }, #scripts=[&#39;bin/testpypi&#39;] # 这个和entry_points 二选一即可。表示项目已经自带控制台，不用自动生成新的控制台。setuptools会把这个文件cp到bin下 )  1.2 MANIFAST.in文件 语法挺简单的，见文档：https://packaging.python.org/guides/using-manifest-in/  2. 配置账号（可选）： 文件编写好之后，配置作者识别文件.pypirc，配置了这个文件可以省去很多输入账号密码的操作，不配置也可配置好放在home目录下：  [distutils] index-servers=pypi  [pypi] username=username password=password  3. 上传项目： 3.1 上传命令：  python setup.py sdist upload  3.2 upload的时候一直报错： 翻了一通官方的issue，原来是包的名字重了。  Upload failed (403): The user isn&#39;t allowed to upload to project &#39;testpypi&#39;. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information. error: Upload failed (403): The user isn&#39;t allowed to upload to project &#39;testpypi&#39;. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information.  4. 利用setuptools打包发布Pypi的官方帮助文档： https://setuptools.readthedocs.io/en/latest/setuptools.html  5. 官方给的setup.py的例子 https://github.com/pypa/sampleproject/blob/master/setup.py  6. 参考博客： https://blog.csdn.net/mouday/article/details/80736312 https://zhuanlan.zhihu.com/p/37987613 https://www.chenshaowen.com/blog/how-to-pack-a-python-package-and-upload-it-to-pypi.html">
+
+
+
+
+
+  <meta name="twitter:site" content="@jlli6t">
+  <meta name="twitter:title" content="python项目打包demo">
+  <meta name="twitter:description" content="1. 基本配置： 1.1 setup.py文件：  # -*- coding:utf-8 -*-  from setuptools import setup, find_packages from os import path  setup( name = &#39;testpypi11&#39;, # 包名称 version = &#39;3.0.3&#39;, #版本号 description = &#39;this is test for packing a pypi package.&#39;, # 包的描述 url=&#39;***&#39;, # optional，项目地址  author = &#39;**&#39;, # optional 项目作者 author_email = &#39;**@**&#39;, # optional 项目作者邮箱 maintainer=&#39;**&#39;, # 目前维护人员。如果和作者不一致，那setuptools会在PKG-INFO中把这个名字当做作者 maintainer_email=&#39;**&#39;, # 维护人员的邮箱 classifiers = [ &#39;License :: OSI Approved :: MIT License&#39;, &#39;Programming Language :: Python :: 3 :: Only&#39;, # indicate language you support, *not* checked by &#39;pip install&#39; &#39;Operating System :: Unix&#39;, ],  keywords = &#39;test python3 pypi&#39;,  include_package_data=True, # 这个表明除了code之外，还有别的文件/目录需要一起打包。具体哪些内容，则是指定在MANIFEST.in文件中 packages = find_packages(), #这个功能非常好用，不用自己单独指定，特别如果是目录结构较复杂的项目 python_requires = &#39;&gt;=3&#39;,  install_requires = [&#39;numpy&gt;=1.17.4&#39;], entry_points={ &#39;console_scripts&#39;:[ &#39;testpypi=testpypi.info1:Info1&#39;, ], }, #scripts=[&#39;bin/testpypi&#39;] # 这个和entry_points 二选一即可。表示项目已经自带控制台，不用自动生成新的控制台。setuptools会把这个文件cp到bin下 )  1.2 MANIFAST.in文件 语法挺简单的，见文档：https://packaging.python.org/guides/using-manifest-in/  2. 配置账号（可选）： 文件编写好之后，配置作者识别文件.pypirc，配置了这个文件可以省去很多输入账号密码的操作，不配置也可配置好放在home目录下：  [distutils] index-servers=pypi  [pypi] username=username password=password  3. 上传项目： 3.1 上传命令：  python setup.py sdist upload  3.2 upload的时候一直报错： 翻了一通官方的issue，原来是包的名字重了。  Upload failed (403): The user isn&#39;t allowed to upload to project &#39;testpypi&#39;. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information. error: Upload failed (403): The user isn&#39;t allowed to upload to project &#39;testpypi&#39;. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information.  4. 利用setuptools打包发布Pypi的官方帮助文档： https://setuptools.readthedocs.io/en/latest/setuptools.html  5. 官方给的setup.py的例子 https://github.com/pypa/sampleproject/blob/master/setup.py  6. 参考博客： https://blog.csdn.net/mouday/article/details/80736312 https://zhuanlan.zhihu.com/p/37987613 https://www.chenshaowen.com/blog/how-to-pack-a-python-package-and-upload-it-to-pypi.html">
+  <meta name="twitter:url" content="http://localhost:3080/coding/python/setuptools_python_package/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2021-02-25T00:00:00+10:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:3080/coding/python/setuptools_python_package/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "jie-li-3201a57b",
+      "url": "http://localhost:3080/",
+      "sameAs": ["https://twitter.com/jlli6t","https://www.linkedin.com/in/jie-li-3201a57b/","https://github.com/"]
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Jie Li (She/Her)
+          <span class="site-subtitle"></span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/"><u>About</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/index.html"><u>Posts</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/"><u>Projects</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/"><u>Publications</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/media/"><u>Media</u></a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/coding" itemprop="item"><span itemprop="name">Coding</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/python" itemprop="item"><span itemprop="name">Python</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">python项目打包demo</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:3080/">
+        <img src="/assets/prof_pic2.jpg" alt="Jie Li" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:3080/" itemprop="url">Jie Li</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Earth</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-google" aria-hidden="true"></i><span class="label">Google scholar</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/jlli6t" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">Github</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/jie-li-3201a57b/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+          
+            <li><a href="https://orcid.org/0000-0002-9623-9213" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fa-brands fa-orcid" aria-hidden="true"></i><span class="label">ORCID</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/jlli6t" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="python项目打包demo">
+    <meta itemprop="description" content="1. 基本配置：1.1 setup.py文件：# -*- coding:utf-8 -*-from setuptools import setup, find_packagesfrom os import pathsetup(name = &#39;testpypi11&#39;, # 包名称version = &#39;3.0.3&#39;, #版本号description = &#39;this is test for packing a pypi package.&#39;, # 包的描述url=&#39;***&#39;, # optional，项目地址author = &#39;**&#39;, # optional 项目作者author_email = &#39;**@**&#39;, # optional 项目作者邮箱maintainer=&#39;**&#39;, # 目前维护人员。如果和作者不一致，那setuptools会在PKG-INFO中把这个名字当做作者maintainer_email=&#39;**&#39;, # 维护人员的邮箱classifiers = [&#39;License :: OSI Approved :: MIT License&#39;,&#39;Programming Language :: Python :: 3 :: Only&#39;, # indicate language you support, *not* checked by &#39;pip install&#39;&#39;Operating System :: Unix&#39;,],keywords = &#39;test python3 pypi&#39;, include_package_data=True, # 这个表明除了code之外，还有别的文件/目录需要一起打包。具体哪些内容，则是指定在MANIFEST.in文件中packages = find_packages(), #这个功能非常好用，不用自己单独指定，特别如果是目录结构较复杂的项目python_requires = &#39;&gt;=3&#39;,install_requires = [&#39;numpy&gt;=1.17.4&#39;],entry_points={&#39;console_scripts&#39;:[&#39;testpypi=testpypi.info1:Info1&#39;,],},#scripts=[&#39;bin/testpypi&#39;] # 这个和entry_points 二选一即可。表示项目已经自带控制台，不用自动生成新的控制台。setuptools会把这个文件cp到bin下)1.2 MANIFAST.in文件语法挺简单的，见文档：https://packaging.python.org/guides/using-manifest-in/2. 配置账号（可选）：文件编写好之后，配置作者识别文件.pypirc，配置了这个文件可以省去很多输入账号密码的操作，不配置也可配置好放在home目录下：[distutils]index-servers=pypi[pypi]username=usernamepassword=password3. 上传项目：3.1 上传命令：python setup.py sdist upload3.2 upload的时候一直报错：翻了一通官方的issue，原来是包的名字重了。Upload failed (403): The user isn&#39;t allowed to upload to project &#39;testpypi&#39;. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information.error: Upload failed (403): The user isn&#39;t allowed to upload to project &#39;testpypi&#39;. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information.4. 利用setuptools打包发布Pypi的官方帮助文档：https://setuptools.readthedocs.io/en/latest/setuptools.html5. 官方给的setup.py的例子https://github.com/pypa/sampleproject/blob/master/setup.py6. 参考博客：https://blog.csdn.net/mouday/article/details/80736312https://zhuanlan.zhihu.com/p/37987613https://www.chenshaowen.com/blog/how-to-pack-a-python-package-and-upload-it-to-pypi.html">
+    <meta itemprop="datePublished" content="2021-02-25T00:00:00+10:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:3080/coding/python/setuptools_python_package/" class="u-url" itemprop="url">python项目打包demo
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-02-25T00:00:00+10:00">February 25, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-heart"></i> python项目打包demo</h4></header>
+              <ul class="toc__menu"><li><a href="#1-基本配置">1. 基本配置：</a><ul><li><a href="#11-setuppy文件">1.1 setup.py文件：</a></li><li><a href="#12-manifastin文件">1.2 MANIFAST.in文件</a></li></ul></li><li><a href="#2-配置账号可选">2. 配置账号（可选）：</a></li><li><a href="#3-上传项目">3. 上传项目：</a><ul><li><a href="#31-上传命令">3.1 上传命令：</a></li><li><a href="#32-upload的时候一直报错">3.2 upload的时候一直报错：</a></li></ul></li><li><a href="#4-利用setuptools打包发布pypi的官方帮助文档">4. 利用setuptools打包发布Pypi的官方帮助文档：</a></li><li><a href="#5-官方给的setuppy的例子">5. 官方给的setup.py的例子</a></li><li><a href="#6-参考博客">6. 参考博客：</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="1-基本配置">1. 基本配置：</h2>
+<h3 id="11-setuppy文件">1.1 setup.py文件：</h3>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># -*- coding:utf-8 -*-</span>
+
+from setuptools import setup, find_packages
+from os import path
+
+setup<span class="o">(</span>
+name <span class="o">=</span> <span class="s1">'testpypi11'</span>, <span class="c"># 包名称</span>
+version <span class="o">=</span> <span class="s1">'3.0.3'</span>, <span class="c">#版本号</span>
+description <span class="o">=</span> <span class="s1">'this is test for packing a pypi package.'</span>, <span class="c"># 包的描述</span>
+<span class="nv">url</span><span class="o">=</span><span class="s1">'***'</span>, <span class="c"># optional，项目地址</span>
+
+author <span class="o">=</span> <span class="s1">'**'</span>, <span class="c"># optional 项目作者</span>
+author_email <span class="o">=</span> <span class="s1">'**@**'</span>, <span class="c"># optional 项目作者邮箱</span>
+<span class="nv">maintainer</span><span class="o">=</span><span class="s1">'**'</span>, <span class="c"># 目前维护人员。如果和作者不一致，那setuptools会在PKG-INFO中把这个名字当做作者</span>
+<span class="nv">maintainer_email</span><span class="o">=</span><span class="s1">'**'</span>, <span class="c"># 维护人员的邮箱</span>
+classifiers <span class="o">=</span> <span class="o">[</span>
+<span class="s1">'License :: OSI Approved :: MIT License'</span>,
+<span class="s1">'Programming Language :: Python :: 3 :: Only'</span>, <span class="c"># indicate language you support, *not* checked by 'pip install'</span>
+<span class="s1">'Operating System :: Unix'</span>,
+<span class="o">]</span>,
+
+keywords <span class="o">=</span> <span class="s1">'test python3 pypi'</span>, 
+<span class="nv">include_package_data</span><span class="o">=</span>True, <span class="c"># 这个表明除了code之外，还有别的文件/目录需要一起打包。具体哪些内容，则是指定在MANIFEST.in文件中</span>
+packages <span class="o">=</span> find_packages<span class="o">()</span>, <span class="c">#这个功能非常好用，不用自己单独指定，特别如果是目录结构较复杂的项目</span>
+python_requires <span class="o">=</span> <span class="s1">'&gt;=3'</span>,
+
+install_requires <span class="o">=</span> <span class="o">[</span><span class="s1">'numpy&gt;=1.17.4'</span><span class="o">]</span>,
+<span class="nv">entry_points</span><span class="o">={</span>
+<span class="s1">'console_scripts'</span>:[
+<span class="s1">'testpypi=testpypi.info1:Info1'</span>,
+<span class="o">]</span>,
+<span class="o">}</span>,
+<span class="c">#scripts=['bin/testpypi'] # 这个和entry_points 二选一即可。表示项目已经自带控制台，不用自动生成新的控制台。setuptools会把这个文件cp到bin下</span>
+<span class="o">)</span></code></pre></figure>
+
+<h3 id="12-manifastin文件">1.2 MANIFAST.in文件</h3>
+<p>语法挺简单的，见文档：https://packaging.python.org/guides/using-manifest-in/</p>
+
+<h2 id="2-配置账号可选">2. 配置账号（可选）：</h2>
+<p>文件编写好之后，配置作者识别文件.pypirc，配置了这个文件可以省去很多输入账号密码的操作，不配置也可配置好放在home目录下：</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>distutils]
+index-servers<span class="o">=</span>pypi
+
+<span class="o">[</span>pypi]
+<span class="nv">username</span><span class="o">=</span>username
+<span class="nv">password</span><span class="o">=</span>password</code></pre></figure>
+
+<h2 id="3-上传项目">3. 上传项目：</h2>
+<h3 id="31-上传命令">3.1 上传命令：</h3>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">python setup.py sdist upload</code></pre></figure>
+
+<h3 id="32-upload的时候一直报错">3.2 upload的时候一直报错：</h3>
+<p>翻了一通官方的issue，原来是包的名字重了。</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Upload failed <span class="o">(</span>403<span class="o">)</span>: The user isn<span class="s1">'t allowed to upload to project '</span>testpypi<span class="s1">'. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information.
+error: Upload failed (403): The user isn'</span>t allowed to upload to project <span class="s1">'testpypi'</span><span class="nb">.</span> See <span class="o">[</span>https://pypi.org/help/#project-name]<span class="o">(</span>https://pypi.org/help/#project-name<span class="o">)</span> <span class="k">for </span>more information.</code></pre></figure>
+
+<h2 id="4-利用setuptools打包发布pypi的官方帮助文档">4. 利用setuptools打包发布Pypi的官方帮助文档：</h2>
+<p><a href="https://setuptools.readthedocs.io/en/latest/setuptools.html">https://setuptools.readthedocs.io/en/latest/setuptools.html</a></p>
+
+<h2 id="5-官方给的setuppy的例子">5. 官方给的setup.py的例子</h2>
+<p><a href="https://github.com/pypa/sampleproject/blob/master/setup.py">https://github.com/pypa/sampleproject/blob/master/setup.py</a></p>
+
+<h2 id="6-参考博客">6. 参考博客：</h2>
+<p><a href="https://blog.csdn.net/mouday/article/details/80736312">https://blog.csdn.net/mouday/article/details/80736312</a>
+<a href="https://zhuanlan.zhihu.com/p/37987613">https://zhuanlan.zhihu.com/p/37987613</a>
+<a href="https://www.chenshaowen.com/blog/how-to-pack-a-python-package-and-upload-it-to-pypi.html">https://www.chenshaowen.com/blog/how-to-pack-a-python-package-and-upload-it-to-pypi.html</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/python" class="page__taxonomy-item p-category" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/coding" class="page__taxonomy-item p-category" rel="tag">coding</a><span class="sep">, </span>
+    
+      <a href="/categories/python" class="page__taxonomy-item p-category" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-02-25T00:00:00+10:00">February 25, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=jlli6t&text=python%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85demo%20http%3A%2F%2Flocalhost%3A3080%2Fcoding%2Fpython%2Fsetuptools_python_package%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3080%2Fcoding%2Fpython%2Fsetuptools_python_package%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A3080%2Fcoding%2Fpython%2Fsetuptools_python_package%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/database/sra/Upload_SRA/" class="pagination--pager" title="上传数据到SRA
+">Previous</a>
+    
+    
+      <a href="/linux/bash/sratoolkit/" class="pagination--pager" title="sratoolkit下载测序数据
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    <center>
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+        <li text-align:center><a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" title="Google scholar"><i class="fab fa-google" aria-hidden="true"></i></a></li>
+        
+      
+        
+        <li text-align:center><a href="https://github.com/jlli6t" title="Github"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a></li>
+        
+      
+        
+        <li text-align:center><a href="https://www.linkedin.com/in/jie-li-3201a57b/" title="Linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+        
+      
+        
+        <li text-align:center><a href="https://orcid.org/0000-0002-9623-9213" title="ORCID"><i class="fa-brands fa-orcid" aria-hidden="true"></i></a></li>
+        
+      
+        
+        <li text-align:center><a href="https://twitter.com/jlli6t" title="Twitter"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i></a></li>
+        
+      
+    </center>
+
+    
+
+    
+  </ul>
+</div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">
+<script>
+  function time() {
+    var date = new Date();
+    var year = date.getFullYear();
+    var arr_month = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+    var month = arr_month[date.getMonth() + 1];
+    var day = date.getDate();
+    var hour = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    var arr_week = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+    var week = arr_week[date.getDay()]; 
+    var str = day + " " + month + " " + year + " | " + week + " | " + hour + ":" + minutes + ":" + seconds;
+    var div1 = document.getElementById("div1");
+    div1.innerHTML = str;
+    }
+  setInterval(time,1000);
+</script>
+<center><div class="page__footer-copyright"><span id="div1"></span> <font color=F08F8F> ❤</font> the <span id="busuanzi_value_site_pv"></span>th visit </div></center>
+  <center><div class="page__footer-copyright">&copy; 2023 Jie Li. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes.</a></div></center>
+
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

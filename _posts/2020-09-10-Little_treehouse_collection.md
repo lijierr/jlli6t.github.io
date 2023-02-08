@@ -14,7 +14,7 @@ Recently, Coles launched a membership campaign. One credit will be issued for ev
 <!--more-->
 
 However, every redeemed book is **wrapped with cover**, thus, you won't be able to know which number you get until you uncover it.
-![photo]( {{'assets/picbed/post/little_treehouse.png' | relative_url }})
+![photo]( {{'assets/picbed/statistics/little_treehouse.png' | relative_url }})
 
 I am curious about roughly how much you gonna spend at Coles to collect a full set of LITTLE TREEHOUSE book (a single transaction of $30 or more but less than $60 is calculated as $30).
 
