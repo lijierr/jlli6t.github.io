@@ -25,7 +25,7 @@
 <lastmod>2018-06-10T00:00:00+10:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:3080/bioinformatics/dataqc/FastQC/</loc>
+<loc>http://localhost:3080/bioinformatics/quality%20control/FastQC/</loc>
 <lastmod>2018-06-19T00:00:00+10:00</lastmod>
 </url>
 <url>
@@ -155,9 +155,6 @@
 <loc>http://localhost:3080/tags/pathway/</loc>
 </url>
 <url>
-<loc>http://localhost:3080/tags/dataqc/</loc>
-</url>
-<url>
 <loc>http://localhost:3080/tags/sequencing-data/</loc>
 </url>
 <url>
@@ -251,7 +248,7 @@
 <loc>http://localhost:3080/categories/amplicon/</loc>
 </url>
 <url>
-<loc>http://localhost:3080/categories/dataqc/</loc>
+<loc>http://localhost:3080/categories/quality-control/</loc>
 </url>
 <url>
 <loc>http://localhost:3080/categories/python/</loc>

@@ -36,9 +36,9 @@ var store = [{
         "teaser": null
       },{
         "title": "FastQC质控测序数据",
-        "excerpt":"FastQC是一款用于对测序read进行QC的工具。工具可以查看碱基质量，含N，dup，碱基质量分布，GC含量，ATCGN碱基分布，以及adapter的比对情况。Adapter的序列目前可以使用例如trimmmomatic等工具提供的adapters库。也可以使用illumina官网提供的adapters。最好的已知测序时使用的adapters序列，直接提供该序列，则adapter比对更准确，运行的时间更短。    目前测序绝大部分是双端测序，测试对read1进行分析，得到的summary结果如下：    这个地方第一列的PASS/FAIL不建议直接作为结果，而是需要结合实际的样本情况。例如RNA测序的数据，dup就会高很多；16S amplicon测序的数据，ATCGN的含量就会不均匀。  ","categories": ["bioinformatics","dataQC"],
-        "tags": ["dataQC","sequencing data","quality control"],
-        "url": "/bioinformatics/dataqc/FastQC/",
+        "excerpt":"FastQC是一款用于对测序read进行QC的工具。工具可以查看碱基质量，含N，dup，碱基质量分布，GC含量，ATCGN碱基分布，以及adapter的比对情况。Adapter的序列目前可以使用例如trimmmomatic等工具提供的adapters库。也可以使用illumina官网提供的adapters。最好的已知测序时使用的adapters序列，直接提供该序列，则adapter比对更准确，运行的时间更短。    目前测序绝大部分是双端测序，测试对read1进行分析，得到的summary结果如下：    这个地方第一列的PASS/FAIL不建议直接作为结果，而是需要结合实际的样本情况。例如RNA测序的数据，dup就会高很多；16S amplicon测序的数据，ATCGN的含量就会不均匀。  ","categories": ["bioinformatics","quality control"],
+        "tags": ["sequencing data","quality control"],
+        "url": "/bioinformatics/quality%20control/FastQC/",
         "teaser": null
       },{
         "title": "Configure Python3 with TCL-TK",
@@ -221,9 +221,6 @@ var store = [{
     "title": "pathway",
     "excerpt":"","url": "http://localhost:3080/tags/pathway/"
   },{
-    "title": "dataQC",
-    "excerpt":"","url": "http://localhost:3080/tags/dataqc/"
-  },{
     "title": "sequencing data",
     "excerpt":"","url": "http://localhost:3080/tags/sequencing-data/"
   },{
@@ -317,8 +314,8 @@ var store = [{
     "title": "amplicon",
     "excerpt":"","url": "http://localhost:3080/categories/amplicon/"
   },{
-    "title": "dataQC",
-    "excerpt":"","url": "http://localhost:3080/categories/dataqc/"
+    "title": "quality control",
+    "excerpt":"","url": "http://localhost:3080/categories/quality-control/"
   },{
     "title": "python",
     "excerpt":"","url": "http://localhost:3080/categories/python/"
