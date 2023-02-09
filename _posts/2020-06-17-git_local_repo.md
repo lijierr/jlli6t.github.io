@@ -15,7 +15,6 @@ tags:
 which git
 /opt/rocks/bin/git
 {% endhighlight %}
-
 <!--more-->
 
 ### 初始化仓库

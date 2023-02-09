@@ -309,54 +309,6 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/coding/python/Sequence_iterators/" rel="permalink">序列迭代器
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2019-03-01T00:00:00+10:00">March 1, 2019</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Introduction
-做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。
-需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，Biopython除了提供Bio.seqIO.parse函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
         <a href="/coding/python/Configure_Python3_with_TCL-TK/" rel="permalink">Configure Python3 with TCL-TK
 </a>
       
@@ -530,10 +482,60 @@ Tax4Fun的安装使用本地包： install.packages("Tax4Fun_0.3.1.tar", repos=N
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Introduction
-Picrust是一款基于16S rRNA gene数据库对amplicon测序的群落进行功能预测的工具。目前16S rRNA gene有并且只有 13_5和 12_8两个版本。
+    <p class="archive__item-excerpt" itemprop="description">1. Introduction
+Picrust是一款基于16S rRNA gene数据库对amplicon测序的群落进行功能预测的工具。目前16S rRNA gene有并且只有13_5和12_8两个版本。
 picrust是基于已经计算好的数据库进行预测，数据库下载地址。
-下载的数据库需要放到Python-2.7.1...</p>
+下载的数据库需要放到Python-2.7....</p>
+  </article>
+</div>
+
+  
+    
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/genome/NCBI_genomes_download/" rel="permalink">NCBI genomes下载
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2018-04-10T00:00:00+10:00">April 10, 2018</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">NCBI的这个genome reports的FTP site下，
+ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/
+有真核：
+ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/eukaryotes.txt
+原核：...</p>
   </article>
 </div>
 
@@ -669,7 +671,7 @@ picrust是基于已经计算好的数据库进行预测，数据库下载地址�
     var date = new Date();
     var year = date.getFullYear();
     var arr_month = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-    var month = arr_month[date.getMonth() + 1];
+    var month = arr_month[date.getMonth()];
     var day = date.getDate();
     var hour = date.getHours();
     var minutes = date.getMinutes();

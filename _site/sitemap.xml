@@ -101,10 +101,6 @@
 <lastmod>2021-10-29T00:00:00+10:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:3080/tutorial/git/markdown-tutorial/</loc>
-<lastmod>2022-03-23T02:04:00+10:00</lastmod>
-</url>
-<url>
 <loc>http://localhost:3080/database/gene/pmoA_database/</loc>
 <lastmod>2023-02-02T00:00:00+10:00</lastmod>
 </url>
@@ -234,9 +230,6 @@
 <loc>http://localhost:3080/tags/python/</loc>
 </url>
 <url>
-<loc>http://localhost:3080/tags/markdown/</loc>
-</url>
-<url>
 <loc>http://localhost:3080/categories/coding/</loc>
 </url>
 <url>
@@ -295,9 +288,6 @@
 </url>
 <url>
 <loc>http://localhost:3080/categories/sra/</loc>
-</url>
-<url>
-<loc>http://localhost:3080/categories/tutorial/</loc>
 </url>
 <url>
 <loc>http://localhost:3080/categories/gene/</loc>

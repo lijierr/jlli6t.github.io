@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Deep and shallow copy in Python - Jie Li (She/Her)</title>
-<meta name="description" content="总结 shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。  Shallow copy 浅层的copy a list, 只是生成了一个新变量，指向的依然是原来变量的地址，如果原来变量发生改变，则新变量（copy）也随之发生改变，例如： that’s so called shallow copies, shallow copy： aliasing, 取了个别名，而不是真的copy了一个变量，其地址没有变。 having two lists unintentionally connected to each other  就是说使用a=[:] 这种操作来copy 一个list的时候，copy的只是最顶层的list.内层如果也有List的时候，并没有被copy.   Deep copy 实际就是给新copy的变量指定了一个新的地址，而非直接指向原来的地址，所以在original里增加元素之后，并不会影响copy的变量   当copy的对象结构很复杂的时候，例如是list 套list, 但又不是全部都是list, 做deep copy有更优雅的方法，例如copy 模块中的deepcopy函数，感觉这个deepcopy是无限循环copy一个对象">
+<meta name="description" content="总结 shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。">
 
 
   <meta name="author" content="Jie Li">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="http://localhost:3080/coding/python/Deep_shallow_copy/">
 
 
-  <meta property="og:description" content="总结 shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。  Shallow copy 浅层的copy a list, 只是生成了一个新变量，指向的依然是原来变量的地址，如果原来变量发生改变，则新变量（copy）也随之发生改变，例如： that’s so called shallow copies, shallow copy： aliasing, 取了个别名，而不是真的copy了一个变量，其地址没有变。 having two lists unintentionally connected to each other  就是说使用a=[:] 这种操作来copy 一个list的时候，copy的只是最顶层的list.内层如果也有List的时候，并没有被copy.   Deep copy 实际就是给新copy的变量指定了一个新的地址，而非直接指向原来的地址，所以在original里增加元素之后，并不会影响copy的变量   当copy的对象结构很复杂的时候，例如是list 套list, 但又不是全部都是list, 做deep copy有更优雅的方法，例如copy 模块中的deepcopy函数，感觉这个deepcopy是无限循环copy一个对象">
+  <meta property="og:description" content="总结 shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。">
 
 
 
@@ -34,7 +34,7 @@
 
   <meta name="twitter:site" content="@jlli6t">
   <meta name="twitter:title" content="Deep and shallow copy in Python">
-  <meta name="twitter:description" content="总结 shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。  Shallow copy 浅层的copy a list, 只是生成了一个新变量，指向的依然是原来变量的地址，如果原来变量发生改变，则新变量（copy）也随之发生改变，例如： that’s so called shallow copies, shallow copy： aliasing, 取了个别名，而不是真的copy了一个变量，其地址没有变。 having two lists unintentionally connected to each other  就是说使用a=[:] 这种操作来copy 一个list的时候，copy的只是最顶层的list.内层如果也有List的时候，并没有被copy.   Deep copy 实际就是给新copy的变量指定了一个新的地址，而非直接指向原来的地址，所以在original里增加元素之后，并不会影响copy的变量   当copy的对象结构很复杂的时候，例如是list 套list, 但又不是全部都是list, 做deep copy有更优雅的方法，例如copy 模块中的deepcopy函数，感觉这个deepcopy是无限循环copy一个对象">
+  <meta name="twitter:description" content="总结 shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。">
   <meta name="twitter:url" content="http://localhost:3080/coding/python/Deep_shallow_copy/">
 
   
@@ -336,7 +336,7 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Deep and shallow copy in Python">
-    <meta itemprop="description" content="总结shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。Shallow copy浅层的copy a list, 只是生成了一个新变量，指向的依然是原来变量的地址，如果原来变量发生改变，则新变量（copy）也随之发生改变，例如： that’s so called shallow copies, shallow copy： aliasing, 取了个别名，而不是真的copy了一个变量，其地址没有变。 having two lists unintentionally connected to each other就是说使用a=[:] 这种操作来copy 一个list的时候，copy的只是最顶层的list.内层如果也有List的时候，并没有被copy.Deep copy实际就是给新copy的变量指定了一个新的地址，而非直接指向原来的地址，所以在original里增加元素之后，并不会影响copy的变量当copy的对象结构很复杂的时候，例如是list 套list, 但又不是全部都是list, 做deep copy有更优雅的方法，例如copy 模块中的deepcopy函数，感觉这个deepcopy是无限循环copy一个对象">
+    <meta itemprop="description" content="总结shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。">
     <meta itemprop="datePublished" content="2019-04-01T00:00:00+10:00">
     
 
@@ -389,7 +389,8 @@
           </aside>
         
         <h2 id="总结">总结</h2>
-<p>shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。</p>
+<p>shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。
+<!--more--></p>
 
 <h2 id="shallow-copy">Shallow copy</h2>
 <p>浅层的copy a list, 只是生成了一个新变量，指向的依然是原来变量的地址，如果原来变量发生改变，则新变量（copy）也随之发生改变，例如： that’s so called shallow copies, shallow copy： aliasing, 取了个别名，而不是真的copy了一个变量，其地址没有变。 having two lists unintentionally connected to each other</p>
@@ -482,6 +483,215 @@
 
   
   
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/statistics/alignment/Smith-Waterman_algorithm/" rel="permalink">Smith Waterman alignment DP
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-05T00:00:00+10:00">February 5, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">The score matrix
+
+
+
+The optimal path
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/statistics/alignment/Needleman_Wunsch_alignment/" rel="permalink">Needleman Wunsch alignment DP
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-04T00:00:00+10:00">February 4, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">The score matrix
+
+
+
+The optimal path
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/gene/pmoA_database/" rel="permalink">pmoA基因序列数据库
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-02T00:00:00+10:00">February 2, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+想找pmoA的序列构建数据库，找到了这个网站. 	里边包括核酸序列，以及序列对应的tax的信息。
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/bash/sratoolkit/" rel="permalink">sratoolkit下载测序数据
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-29T00:00:00+10:00">October 29, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">说明
+sratoolkit默认配置的下载数据目录是在HOME，这显然是不友好的，因为一般的集群给每个account的HOME目录下的存储是非常有限的，例如50Gb，所以最好把cache的目录设置到拥有大量存储可供写入的目录。
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
 </div>
 
     </div>
@@ -548,7 +758,7 @@
     var date = new Date();
     var year = date.getFullYear();
     var arr_month = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-    var month = arr_month[date.getMonth() + 1];
+    var month = arr_month[date.getMonth()];
     var day = date.getDate();
     var hour = date.getHours();
     var minutes = date.getMinutes();

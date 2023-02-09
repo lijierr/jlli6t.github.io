@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>SortMeRNA-Burst trie结合查找表，Levenshtein自动机搜索快速鉴定rRNA - Jie Li (She/Her)</title>
-<meta name="description" content="1. Introduction SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。">
+<meta name="description" content="1. Introduction SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova一作开发，发表于Bioinformatics。她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。">
 
 
   <meta name="author" content="Jie Li">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="http://localhost:3080/bioinformatics/metatranscriptomic/Sortmerna/">
 
 
-  <meta property="og:description" content="1. Introduction SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。">
+  <meta property="og:description" content="1. Introduction SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova一作开发，发表于Bioinformatics。她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。">
 
 
 
@@ -34,7 +34,7 @@
 
   <meta name="twitter:site" content="@jlli6t">
   <meta name="twitter:title" content="SortMeRNA-Burst trie结合查找表，Levenshtein自动机搜索快速鉴定rRNA">
-  <meta name="twitter:description" content="1. Introduction SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。">
+  <meta name="twitter:description" content="1. Introduction SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova一作开发，发表于Bioinformatics。她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。">
   <meta name="twitter:url" content="http://localhost:3080/bioinformatics/metatranscriptomic/Sortmerna/">
 
   
@@ -336,7 +336,7 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="SortMeRNA-Burst trie结合查找表，Levenshtein自动机搜索快速鉴定rRNA">
-    <meta itemprop="description" content="1. IntroductionSortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。">
+    <meta itemprop="description" content="1. IntroductionSortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova一作开发，发表于Bioinformatics。她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。">
     <meta itemprop="datePublished" content="2019-06-19T00:00:00+10:00">
     
 
@@ -388,41 +388,39 @@
             </nav>
           </aside>
         
-        <p><img src="/assets/picbed/post/sortmerna_title.png" alt="" /></p>
+        <p><img src="/assets/picbed/tools/sortmerna/sortmerna_title.png" alt="" /></p>
 <h2 id="1-introduction">1. Introduction</h2>
-<p>SortMeRNA是一款设计用于去除宏转录组数据中的核糖体RNA的工具，由Dr. Evguenia Kopylova小姐姐一作开发，发表于Bioinformatics，她目前依然活跃在这款软件的维护社区。目前已更新到4.2.0版本。引用次数920，github星标83，Fork38， Watch14。</p>
-
-<!--more-->
+<p><code class="language-plaintext highlighter-rouge">SortMeRNA</code>是一款设计用于去除宏转录组数据中的核糖体<code class="language-plaintext highlighter-rouge">RNA</code>的工具，由<code class="language-plaintext highlighter-rouge">Dr. Evguenia Kopylova</code>一作开发，发表于<code class="language-plaintext highlighter-rouge">Bioinformatics</code>。她目前依然活跃在这款软件的维护社区。目前已更新到<code class="language-plaintext highlighter-rouge">4.2.0</code>版本。引用次数<code class="language-plaintext highlighter-rouge">920</code>，<code class="language-plaintext highlighter-rouge">github</code>星标<code class="language-plaintext highlighter-rouge">83</code>，<code class="language-plaintext highlighter-rouge">Fork38</code>， <code class="language-plaintext highlighter-rouge">Watch14</code>。
+<!--more--></p>
 
 <h2 id="2-算法基本原理">2. 算法基本原理</h2>
-<p>底层算法与seed策略类似，主要是寻找rRNA数据库和read之间的一定数量的相似短区域。对rRNA序列建立索引的时候，与HMM一样，利用同源序列之间的冗余，建立所有rRNA序列的压缩模型。
-然后设定一个窗口，对read进行窗口滑动扫描，基于设定的阈值，单个read中超过阈值数量的窗口比对到数据库则该read被鉴定为rRNA。其中窗口比对数据库时容错为1（例如碱基替换，插入或缺失）。
+<p>底层算法与<code class="language-plaintext highlighter-rouge">seed</code>策略类似，主要是寻找<code class="language-plaintext highlighter-rouge">rRNA</code>数据库和<code class="language-plaintext highlighter-rouge">read</code>之间的一定数量的相似短区域。对<code class="language-plaintext highlighter-rouge">rRNA</code>序列建立索引的时候，与<code class="language-plaintext highlighter-rouge">HMM</code>一样，利用同源序列之间的冗余，建立所有<code class="language-plaintext highlighter-rouge">rRNA</code>序列的压缩模型。
+然后设定一个窗口，对<code class="language-plaintext highlighter-rouge">read</code>进行窗口滑动扫描，基于设定的阈值，单个<code class="language-plaintext highlighter-rouge">read</code>中超过阈值数量的窗口比对到数据库则该<code class="language-plaintext highlighter-rouge">read</code>被鉴定为<code class="language-plaintext highlighter-rouge">rRNA</code>。其中窗口比对数据库时容错为<code class="language-plaintext highlighter-rouge">1</code>（例如碱基替换，插入或缺失）。
 基础算法很容易理解，主要是提高算法效率，大比例缩短比对时间。
-作者的策略如下图所示：</p>
-
-<p><img src="/assets/picbed/post/sortmerna_algorithm.png" alt="" /></p>
+作者的策略如下图所示：
+<img src="/assets/picbed/tools/sortmerna/sortmerna_algorithm.png" alt="" /></p>
 
 <h3 id="21-具体算法过程">2.1 具体算法过程</h3>
 <ol>
   <li>使用<code class="language-plaintext highlighter-rouge">Burst trie (BT)</code>结合查找表策略存储数据库。假设窗口为<code class="language-plaintext highlighter-rouge">w</code>，窗口序列长度为<code class="language-plaintext highlighter-rouge">s（14~20）</code>。
-1a，首先存储了数据库中每一个<code class="language-plaintext highlighter-rouge">s/2-mer</code>序列的出现频次（#occ）
-1b，BT的结构，这个跟搜索树结构很像了，类比即可</li>
-  <li>处理输入read。同样窗口为w, 窗口长度为s，向右滑动。
-2a, 滑动窗口示意图
-2b, 将窗口分为窗口前段从<code class="language-plaintext highlighter-rouge">w[1..s/2 +1]</code>，和窗口后段<code class="language-plaintext highlighter-rouge">w[s..s/2 + 1]</code></li>
+1.1 首先存储了数据库中每一个<code class="language-plaintext highlighter-rouge">s/2-mer</code>序列的出现频次<code class="language-plaintext highlighter-rouge">(#occ)</code>
+1.2 <code class="language-plaintext highlighter-rouge">BT</code>的结构，这个跟搜索树结构很像了，类比即可</li>
+  <li>处理输入<code class="language-plaintext highlighter-rouge">read</code>。同样窗口为<code class="language-plaintext highlighter-rouge">w</code>, 窗口长度为<code class="language-plaintext highlighter-rouge">s</code>，向右滑动。
+2.1 滑动窗口示意图
+2.2 将窗口分为窗口前段从<code class="language-plaintext highlighter-rouge">w[1..s/2 +1]</code>，和窗口后段<code class="language-plaintext highlighter-rouge">w[s..s/2 + 1]</code></li>
   <li>判断窗口序列在BT中是否存在。通过通用Levenshtein自动机和BT循环遍历，及确保错误不大于1。
-遍历完所有的窗口后，判断接受的窗口数量是否高于阈值，高于阈值则认为该输入read判定为rRNA。</li>
+遍历完所有的窗口后，判断接受的窗口数量是否高于阈值，高于阈值则认为该输入<code class="language-plaintext highlighter-rouge">read</code>判定为<code class="language-plaintext highlighter-rouge">rRNA</code>。</li>
 </ol>
 
 <h3 id="22-算法小结">2.2 算法小结</h3>
-<p>总结思路：输入read，生成第一个窗口序列，先查找前半段窗口序列在数据库中的频次，达到要求则定位这半段序列在BT中的位置，然后开始在BT搜索（burst）后半段窗口的序列，沿着BT把整个窗口遍历完，最后如果遍历的时候发现的错误&gt;1，则把这个窗口记录为非比对；接着滑动到下一个窗口从头开始判定，直到所有的窗口判定完成后，如果判定为比对的窗口的数量&gt;给定的阈值，则判定read为rRNA。</p>
+<p>总结思路：输入<code class="language-plaintext highlighter-rouge">read</code>，生成第一个窗口序列，先查找前半段窗口序列在数据库中的频次，达到要求则定位这半段序列在<code class="language-plaintext highlighter-rouge">BT</code>中的位置，然后开始在<code class="language-plaintext highlighter-rouge">BT</code>搜索<code class="language-plaintext highlighter-rouge">（burst）</code>后半段窗口的序列，沿着<code class="language-plaintext highlighter-rouge">BT</code>把整个窗口遍历完，最后如果遍历的时候发现的错误<code class="language-plaintext highlighter-rouge">&gt;1</code>，则把这个窗口记录为非比对；接着滑动到下一个窗口从头开始判定，直到所有的窗口判定完成后，如果判定为比对的窗口的数量&gt;给定的阈值，则判定<code class="language-plaintext highlighter-rouge">read</code>为<code class="language-plaintext highlighter-rouge">rRNA</code>。</p>
 
 <h2 id="3关于作者使用的levenshtein自动机">3.关于作者使用的Levenshtein自动机</h2>
-<p>作者用自动机实现字符串之间的模糊匹配（文中是read和db）。假设字符串p和错误数k，经典的非确定性Levenshtein自动机可识别的最大编辑距离为k到p的字符集，文中k=1。
-<img src="/assets/picbed/post/sortmerna_levenshtein.png" alt="" /></p>
+<p>作者用自动机实现字符串之间的模糊匹配（文中是<code class="language-plaintext highlighter-rouge">read</code>和<code class="language-plaintext highlighter-rouge">db</code>）。假设字符串<code class="language-plaintext highlighter-rouge">p</code>和错误数<code class="language-plaintext highlighter-rouge">k</code>，经典的非确定性<code class="language-plaintext highlighter-rouge">Levenshtein</code>自动机可识别的最大编辑距离为<code class="language-plaintext highlighter-rouge">k</code>到<code class="language-plaintext highlighter-rouge">p</code>的字符集，文中<code class="language-plaintext highlighter-rouge">k=1</code>。
+<img src="/assets/picbed/tools/sortmerna/sortmerna_levenshtein.png" alt="" /></p>
 
 <h2 id="4-与其他工具的对比">4. 与其他工具的对比：</h2>
-<p>Meta-RNA，SSU-ALIGN，rRNASelector使用了常见的概率模型，其中Meta-RNA和rRNASelector使用了HMM模型，然后利用HMMER3比对短read到数据库，SSU-ALIGN使用协方差模型来支持二级结构的信息。除了概率模型之外，riboPicker使用的是修改版的BWA算法。BLASTN也使用非常多，特别是大家各自用的workflow。</p>
+<p><code class="language-plaintext highlighter-rouge">Meta-RNA</code>，<code class="language-plaintext highlighter-rouge">SSU-ALIGN</code>，<code class="language-plaintext highlighter-rouge">rRNASelector</code>使用了常见的概率模型，其中<code class="language-plaintext highlighter-rouge">Meta-RNA</code>和<code class="language-plaintext highlighter-rouge">rRNASelector</code>使用了<code class="language-plaintext highlighter-rouge">HMM</code>模型，然后利用<code class="language-plaintext highlighter-rouge">HMMER3</code>比对短<code class="language-plaintext highlighter-rouge">read</code>到数据库，<code class="language-plaintext highlighter-rouge">SSU-ALIGN</code>使用协方差模型来支持二级结构的信息。除了概率模型之外，<code class="language-plaintext highlighter-rouge">riboPicker</code>使用的是修改版的<code class="language-plaintext highlighter-rouge">BWA</code>算法。<code class="language-plaintext highlighter-rouge">BLASTN</code>也使用非常多，特别是大家各自用的<code class="language-plaintext highlighter-rouge">workflow</code>。</p>
 
 <h2 id="总结">总结：</h2>
 <p>文章是12年发表，除了文章中提到的工具，后来大家各自用的<code class="language-plaintext highlighter-rouge">workflow</code>也有很多用<code class="language-plaintext highlighter-rouge">bwa</code>，<code class="language-plaintext highlighter-rouge">bowtie</code>，<code class="language-plaintext highlighter-rouge">bowtie2</code>等工具进行比对的。其次就是这个算法策略对错误的容忍低（为1）。再有就是作者使用的<code class="language-plaintext highlighter-rouge">universal Levenshtein</code>自动机，越看越像马尔科夫链，可能是我对自动机的理解还不够深？
@@ -510,6 +508,215 @@
 
   
   
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/statistics/alignment/Smith-Waterman_algorithm/" rel="permalink">Smith Waterman alignment DP
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-05T00:00:00+10:00">February 5, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">The score matrix
+
+
+
+The optimal path
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/statistics/alignment/Needleman_Wunsch_alignment/" rel="permalink">Needleman Wunsch alignment DP
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-04T00:00:00+10:00">February 4, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">The score matrix
+
+
+
+The optimal path
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/gene/pmoA_database/" rel="permalink">pmoA基因序列数据库
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-02T00:00:00+10:00">February 2, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+想找pmoA的序列构建数据库，找到了这个网站. 	里边包括核酸序列，以及序列对应的tax的信息。
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/bash/sratoolkit/" rel="permalink">sratoolkit下载测序数据
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-29T00:00:00+10:00">October 29, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">说明
+sratoolkit默认配置的下载数据目录是在HOME，这显然是不友好的，因为一般的集群给每个account的HOME目录下的存储是非常有限的，例如50Gb，所以最好把cache的目录设置到拥有大量存储可供写入的目录。
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
 </div>
 
     </div>
@@ -576,7 +783,7 @@
     var date = new Date();
     var year = date.getFullYear();
     var arr_month = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-    var month = arr_month[date.getMonth() + 1];
+    var month = arr_month[date.getMonth()];
     var day = date.getDate();
     var hour = date.getHours();
     var minutes = date.getMinutes();

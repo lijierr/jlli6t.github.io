@@ -10,7 +10,6 @@ tags:
 
 ## 1. Introduction
 Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below). 
-
 <!--more-->
 
 However, every redeemed book is **wrapped with cover**, thus, you won't be able to know which number you get until you uncover it.

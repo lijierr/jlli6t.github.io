@@ -245,7 +245,6 @@
 
     <p class="archive__item-excerpt" itemprop="description">说明
 sratoolkit默认配置的下载数据目录是在HOME，这显然是不友好的，因为一般的集群给每个account的HOME目录下的存储是非常有限的，例如50Gb，所以最好把cache的目录设置到拥有大量存储可供写入的目录。
-
 </p>
   </article>
 </div>
@@ -294,7 +293,6 @@ sratoolkit默认配置的下载数据目录是在HOME，这显然是不友好的
 
     <p class="archive__item-excerpt" itemprop="description">说明
 数据分析结束之后，通常需要将原始数据上传到公共数据库进行分享。例如测序数据通常上传至NCBI的SRA库。当样本数目比较小的时候，通过网页上传是非常方便的。但是当样本数量庞大的时候，通过网页上传数据就非常麻烦了，因为需要手动依次上传每一个样本。所以最直接的方法是从服务器往NCBI传，例如是用aspera：
-
 </p>
   </article>
 </div>
@@ -517,7 +515,7 @@ $scp local_file remore_username@remote_ip:remote_folder
     var date = new Date();
     var year = date.getFullYear();
     var arr_month = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-    var month = arr_month[date.getMonth() + 1];
+    var month = arr_month[date.getMonth()];
     var day = date.getDate();
     var hour = date.getHours();
     var minutes = date.getMinutes();

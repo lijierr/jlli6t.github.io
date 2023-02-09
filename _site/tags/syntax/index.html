@@ -245,9 +245,7 @@
 
     <p class="archive__item-excerpt" itemprop="description">总结
 shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。
-
-Shallow copy
-浅层的copy a list, 只是生成了一个新变量，指向的依然是原来变量的地址，如果原来变量发生改变，则新变量（copy）也...</p>
+</p>
   </article>
 </div>
 
@@ -319,7 +317,7 @@ Shallow copy
     var date = new Date();
     var year = date.getFullYear();
     var arr_month = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-    var month = arr_month[date.getMonth() + 1];
+    var month = arr_month[date.getMonth()];
     var day = date.getDate();
     var hour = date.getHours();
     var minutes = date.getMinutes();

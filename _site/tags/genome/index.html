@@ -245,7 +245,6 @@
 
     <p class="archive__item-excerpt" itemprop="description">GTDB数据库介绍
 GTDB的下载地址
-
 </p>
   </article>
 </div>
@@ -368,7 +367,7 @@ ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/eukaryotes.txt
     var date = new Date();
     var year = date.getFullYear();
     var arr_month = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-    var month = arr_month[date.getMonth() + 1];
+    var month = arr_month[date.getMonth()];
     var day = date.getDate();
     var hour = date.getHours();
     var minutes = date.getMinutes();

@@ -17,7 +17,6 @@ tags:
 /path/to/cpan # 启动
 >>> install PackageName
 {% endhighlight %}
-
 <!--more-->
 
 ## 当你没有root权限

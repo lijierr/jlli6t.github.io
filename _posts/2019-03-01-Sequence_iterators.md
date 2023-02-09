@@ -13,6 +13,7 @@ tags:
 ## Introduction
 做生物数据的分析，处理序列就像日常操作。而更快速的序列迭代，就像打游戏时开了外挂。
 需要对fastq文件序列进行频繁的抽调，数据量大的时候，时间成本成指数增长。翻了翻文档，`Biopython`除了提供`Bio.seqIO.parse`函数解析文件之外，其实还提供了一种更底层的写法，可以成N倍的提高读文件的速度，我没有具体去计算会快多少倍（因为等不及了，kill掉了进程），目测的话，快几十倍是不成问题的。
+<!--more-->
 
 `Bio.SeqIO.QualityIO.FastqGeneralIterator`同`Bio.SeqIO.parse`一样也是一个迭代器，只不过不生成对象`record`，而是生成序列id、序列、以及质量值本身，遍历的时候调用语法为
 {% highlight python %}

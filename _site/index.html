@@ -443,55 +443,8 @@ The optimal path
 
     <p class="archive__item-excerpt" itemprop="description">Introduction
 想找pmoA的序列构建数据库，找到了这个网站. 	里边包括核酸序列，以及序列对应的tax的信息。
+
 </p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/tutorial/git/markdown-tutorial/" rel="permalink">markdown tutorial
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2022-02-09T00:00:00+10:00">February 9, 2022</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          8 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
-
-Cum sociis natoque penatibus et magnis dis parturient ...</p>
   </article>
 </div>
 
@@ -539,8 +492,63 @@ Cum sociis natoque penatibus et magnis dis parturient ...</p>
 
     <p class="archive__item-excerpt" itemprop="description">说明
 sratoolkit默认配置的下载数据目录是在HOME，这显然是不友好的，因为一般的集群给每个account的HOME目录下的存储是非常有限的，例如50Gb，所以最好把cache的目录设置到拥有大量存储可供写入的目录。
-
 </p>
+  </article>
+</div>
+
+  
+    
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/coding/python/setuptools_python_package/" rel="permalink">python项目打包demo
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-02-25T00:00:00+10:00">February 25, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">1. 基本配置：
+1.1 setup.py文件：
+
+# -*- coding:utf-8 -*-
+
+from setuptools import setup, find_packages
+from os import path
+
+setup(
+name = 'testpypi11', # 包名称
+version ...</p>
   </article>
 </div>
 
@@ -668,7 +676,7 @@ sratoolkit默认配置的下载数据目录是在HOME，这显然是不友好的
     var date = new Date();
     var year = date.getFullYear();
     var arr_month = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-    var month = arr_month[date.getMonth() + 1];
+    var month = arr_month[date.getMonth()];
     var day = date.getDate();
     var hour = date.getHours();
     var minutes = date.getMinutes();

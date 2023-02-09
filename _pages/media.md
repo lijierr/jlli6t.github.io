@@ -5,10 +5,6 @@ title: ""
 toc_label: "Media articles"
 ---
 
-**公众号数言微语(Math for Microbes)**
-
-本仓是公众号数言微语发布的原创文章目录索引。
-
 ### 文献解读-anammox
 - [DNRA微生物的繁殖降低anammox表现](https://mp.weixin.qq.com/s?__biz=MzU4MTc2NzMwOQ==&mid=2247487496&idx=1&sn=ab1ca9db976480a8aed1f7b14a8c5e22&chksm=fd43c9eaca3440fcc57a4ea7b887d4ad28dcd0b15aaba8787c2be73de9b026d3e6f55e049314&token=1051470455&lang=zh_CN#rd)
 - [ISME:昆士兰大学Gene Tyson组耦合AOM和Mn(IV)还原新古菌的富集和鉴定](https://mp.weixin.qq.com/s?__biz=MzU4MTc2NzMwOQ==&mid=2247487458&idx=1&sn=abcad5a7314023c597058f6ff5620043&chksm=fd43d600ca345f16df0a9efc46b5e1efcbc5206b6e514eb43157b9d324698725d245989034d6&token=1051470455&lang=zh_CN#rd)

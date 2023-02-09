@@ -245,6 +245,7 @@
 
     <p class="archive__item-excerpt" itemprop="description">Introduction
 想找pmoA的序列构建数据库，找到了这个网站. 	里边包括核酸序列，以及序列对应的tax的信息。
+
 </p>
   </article>
 </div>
@@ -293,7 +294,6 @@
 
     <p class="archive__item-excerpt" itemprop="description">说明
 数据分析结束之后，通常需要将原始数据上传到公共数据库进行分享。例如测序数据通常上传至NCBI的SRA库。当样本数目比较小的时候，通过网页上传是非常方便的。但是当样本数量庞大的时候，通过网页上传数据就非常麻烦了，因为需要手动依次上传每一个样本。所以最直接的方法是从服务器往NCBI传，例如是用aspera：
-
 </p>
   </article>
 </div>
@@ -342,7 +342,6 @@
 
     <p class="archive__item-excerpt" itemprop="description">Introduction
 除了从NCBI，Rfam等这样的大库中分离5S rRNA序列之外，发现有人在收集相应的序列：http://www.combio.pl/rrna/。
-
 </p>
   </article>
 </div>
@@ -391,7 +390,6 @@
 
     <p class="archive__item-excerpt" itemprop="description">Introduction
 SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。
-
 </p>
   </article>
 </div>
@@ -440,7 +438,6 @@ SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对
 
     <p class="archive__item-excerpt" itemprop="description">GTDB数据库介绍
 GTDB的下载地址
-
 </p>
   </article>
 </div>
@@ -658,7 +655,7 @@ UniProt Knowledgebase (UniProtKB)数据库中收集的是蛋白序列的信息�
     var date = new Date();
     var year = date.getFullYear();
     var arr_month = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-    var month = arr_month[date.getMonth() + 1];
+    var month = arr_month[date.getMonth()];
     var day = date.getDate();
     var hour = date.getHours();
     var minutes = date.getMinutes();

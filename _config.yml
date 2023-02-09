@@ -230,6 +230,7 @@ plugins:
   - jekyll-include-cache
   - jekyll-archives
 
+
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
@@ -237,6 +238,7 @@ whitelist:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+
 
 # Archives
 #  Type
@@ -298,10 +300,11 @@ defaults:
       read_time: true
       show_date: true
       share: true
+      related: true
       toc: true
       toc_icon: "heart"
       excerpt_separator: "<!--more-->"
-      related: true
+
 
   # _portfolio
   - scope:

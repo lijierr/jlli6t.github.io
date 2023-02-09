@@ -10,6 +10,7 @@ tags:
 
 ## 总结
 shallow copy 就是直接 new = old[:], new的地址仍然指向old的地址，故old的内容发生变化的时候new的内容也会发生变化。
+<!--more-->
 
 ## Shallow copy
 浅层的copy a list, 只是生成了一个新变量，指向的依然是原来变量的地址，如果原来变量发生改变，则新变量（copy）也随之发生改变，例如： that's so called shallow copies, shallow copy： aliasing, 取了个别名，而不是真的copy了一个变量，其地址没有变。 having two lists unintentionally connected to each other
