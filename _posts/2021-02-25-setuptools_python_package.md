@@ -9,6 +9,7 @@ tags:
 ---
 ## 1. 基本配置：
 ### 1.1 setup.py文件：
+
 {% highlight bash %}
 # -*- coding:utf-8 -*-
 
@@ -31,7 +32,7 @@ classifiers = [
 'Operating System :: Unix',
 ],
 
-keywords = 'test python3 pypi', 
+keywords = 'test python3 pypi',
 include_package_data=True, # 这个表明除了code之外，还有别的文件/目录需要一起打包。具体哪些内容，则是指定在MANIFEST.in文件中
 packages = find_packages(), #这个功能非常好用，不用自己单独指定，特别如果是目录结构较复杂的项目
 python_requires = '>=3',

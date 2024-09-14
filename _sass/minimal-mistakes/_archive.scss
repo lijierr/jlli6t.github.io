@@ -34,7 +34,7 @@
 .archive__subtitle {
   margin: 1.414em 0 0.5em;
   padding-bottom: 0.5em;
-  font-size: $type-size-5;
+  font-size: $type-size-1; // 5 不晓得
   color: $muted-text-color;
   border-bottom: 1px solid $border-color;
 
@@ -74,7 +74,7 @@
 
 .archive__item-excerpt {
   margin-top: 0;
-  font-size: $type-size-6;
+  font-size: $type-size-7; // 6 post以列表展示的时候，内容只展示开头一部分，这里控制这部分字体大小
 
   & + p {
     text-indent: 0;
@@ -103,7 +103,7 @@
   padding: 2px 5px;
   color: #fff;
   font-family: $caption-font-family;
-  font-size: $type-size-8;
+  font-size: $type-size-4; // recent post 这几个字母的大小（好像不对
   background: #000;
   text-align: right;
   z-index: 5;
@@ -211,7 +211,7 @@
 
   .archive__item-title {
     margin-top: 0.5em;
-    font-size: $type-size-5;
+    font-size: $type-size-6; //5 YOU MAY ALSO ENJOY这里post的标题大小
   }
 
   .archive__item-excerpt {
@@ -219,7 +219,7 @@
 
     @include breakpoint($medium) {
       display: block;
-      font-size: $type-size-6;
+      font-size: $type-size-8; // YOU MAY ALSO ENJOY这里post能看到的内容字体大小
     }
   }
 

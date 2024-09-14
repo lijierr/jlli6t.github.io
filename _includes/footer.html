@@ -34,13 +34,12 @@
     var minutes = date.getMinutes();
     var seconds = date.getSeconds();
     var arr_week = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
-    var week = arr_week[date.getDay()]; 
+    var week = arr_week[date.getDay()];
     var str = day + " " + month + " " + year + " | " + week + " | " + hour + ":" + minutes + ":" + seconds;
     var div1 = document.getElementById("div1");
     div1.innerHTML = str;
     }
   setInterval(time,1000);
 </script>
-<center><div class="page__footer-copyright"><span id="div1"></span> <font color=F08F8F> ❤</font> the <span id="busuanzi_value_site_pv"></span>th visit </div></center>
+<center><div class="page__footer-copyright"><span id="div1"></span></div></center>
   <center><div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes.</a></div></center>
-

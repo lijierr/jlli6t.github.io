@@ -10,9 +10,9 @@
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
-# theme                  : "minimal-mistakes-jekyll"
-# remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+theme                  : "minimal-mistakes-jekyll"
+#remote_theme           : "mmistakes/minimal-mistakes"
+minimal_mistakes_skin    : "mint" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-AU"
@@ -20,8 +20,8 @@ title                    : "Jie Li (She/Her)"
 title_separator          : "-"
 subtitle                 : "You can learn anything."
 name                     : "Jie Li"
-description              : "Just a bioinformatician in microbial ecology."
-url                      : "https://jlli6t.github.io"
+description              : "A fan of bioinformatics in microbiome."
+url                      : "https://llliijie.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -32,7 +32,7 @@ words_per_minute         : 100
 comments:
   provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
-    shortname            : jlli6t # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : llliijie # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -80,8 +80,8 @@ yandex_site_verification :
 baidu_site_verification  :
 
 # Social Sharing
-twitter                  : 
-  username               : &twitter "jlli6t"
+twitter                  :
+  username               : &twitter "lijie4_"
 facebook                 :
   username               :
   app_id                 :
@@ -93,7 +93,7 @@ social:
   type                   : linkedin # Person or Organization (defaults to Person)
   name                   : "jie-li-3201a57b" # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
-    - "https://twitter.com/jlli6t"
+    - "https://twitter.com/lijie4_"
     - "https://www.linkedin.com/in/jie-li-3201a57b/"
     - "https://github.com/"
 
@@ -107,16 +107,16 @@ analytics:
 # Site Author
 author:
   name        : "Jie Li"
-  bio         : ""
+  bio         : "A fan of bioinformatics in mirobiome."
   avatar      : "/assets/prof_pic2.jpg"
-  location    : "Earth"
+  location    : "岁月漫长"
   links:
     - label: "Google scholar"
       icon: "fab fa-google"
       url: "https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ"
     - label: "Github"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/jlli6t"
+      url: "https://github.com/llliijie"
     - label: "Linkedin"
       icon: "fab fa-linkedin"
       url: "https://www.linkedin.com/in/jie-li-3201a57b/"
@@ -125,7 +125,7 @@ author:
       url: "https://orcid.org/0000-0002-9623-9213"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/jlli6t"
+      url: "https://twitter.com/lijie4_"
 
 # Site Footer
 footer:
@@ -135,7 +135,7 @@ footer:
       url: "https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ"
     - label: "Github"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/jlli6t"
+      url: "https://github.com/llliijie"
     - label: "Linkedin"
       icon: "fab fa-linkedin"
       url: "https://www.linkedin.com/in/jie-li-3201a57b/"
@@ -144,7 +144,7 @@ footer:
       url: "https://orcid.org/0000-0002-9623-9213"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/jlli6t"
+      url: "https://twitter.com/lijie4_"
 
 # Reading Files
 include:

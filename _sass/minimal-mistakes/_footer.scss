@@ -52,7 +52,7 @@
 
 .page__footer-copyright {
   font-family: $global-font-family;
-  font-size: $type-size-6;
+  font-size: $type-size-8; //页面底部copyright的大小
 }
 
 .page__footer-follow {
@@ -67,7 +67,7 @@
     padding-top: 0px;
     padding-bottom: 1px;
     font-family: $sans-serif-narrow;
-    font-size: $type-size-6;
+    font-size: $type-size-8; // 页面底部，follow的contact List的大小
     text-transform: uppercase;
   }
 

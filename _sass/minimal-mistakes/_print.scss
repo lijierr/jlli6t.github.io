@@ -18,14 +18,14 @@
     margin: 0;
     padding: 0;
     min-height: auto !important;
-    font-size: 16px;
+    font-size: 8px; // 16px 没测试出来
   }
 
   body {
     margin: 0 auto;
     background: #fff !important;
     color: #000 !important;
-    font-size: 1rem;
+    font-size: 0.75em; // 1rem 没测试出来
     line-height: 1.5;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;

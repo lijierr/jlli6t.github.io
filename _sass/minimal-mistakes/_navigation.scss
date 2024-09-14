@@ -25,7 +25,7 @@
   ol {
     padding: 0;
     list-style: none;
-    font-size: $type-size-5;
+    font-size: $type-size-8; // Home/Linux/Bash/sratoolk页面上方路径字体大小
 
     @include breakpoint($large) {
       float: right;
@@ -74,7 +74,7 @@
       margin-bottom: 0.25em;
       padding: 0.5em 1em;
       font-family: $sans-serif;
-      font-size: 12px;
+      font-size: 8px;
       font-weight: bold;
       line-height: 1.5;
       text-align: center;
@@ -124,7 +124,7 @@
     float: left;
     width: 50%;
     font-family: $sans-serif;
-    font-size: $type-size-5;
+    font-size: $type-size-7; // previous & next两个按钮的大小
     font-weight: bold;
     text-align: center;
     text-decoration: none;
@@ -279,7 +279,7 @@
     a {
       margin: 0;
       padding: 10px 20px;
-      font-size: $type-size-5;
+      font-size: $type-size-1; // 测试没看出来这是控制的哪里
 
       &:hover {
         color: $masthead-link-color-hover;
@@ -352,7 +352,7 @@
       display: inline-block;
       padding: 0.5em 2.5em 0.5em 1em;
       color: $gray;
-      font-size: $type-size-6;
+      font-size: $type-size-1; //8 测试 有没看出来是哪里
       font-weight: bold;
       border: 1px solid $light-gray;
       border-radius: $border-radius;
@@ -484,7 +484,7 @@
   margin: 0;
   padding: 0.5rem 0.75rem;
   font-family: $sans-serif-narrow;
-  font-size: $type-size-5;
+  font-size: $type-size-1; //6 没看出来是哪里
   font-weight: bold;
 }
 
@@ -493,7 +493,7 @@
   margin: 0.5rem 0;
   padding: 0.25rem 0;
   font-family: $sans-serif-narrow;
-  font-size: $type-size-6;
+  font-size: $type-size-1; //8 没看出来是哪里
   font-weight: bold;
   text-transform: uppercase;
   border-bottom: 1px solid $border-color;
@@ -531,10 +531,10 @@
   padding: 0;
   width: 100%;
   list-style: none;
-  font-size: $type-size-6;
+  font-size: $type-size-5;
 
   @include breakpoint($large) {
-    font-size: $type-size-7;
+    font-size: $type-size-6;
   }
 
   a {

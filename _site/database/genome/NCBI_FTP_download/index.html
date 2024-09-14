@@ -1,0 +1,835 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>NCBI FTP下载 - Jie Li (She/Her)</title>
+<meta name="description" content="NCBI的这个genome reports的FTP site下， ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/ 有真核： ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/eukaryotes.txt 原核： ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/prokaryotes.txt 病毒： ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/viruses.txt 质粒： ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/plasmids.txt 等数据库， 更新得挺频繁的。  如果想要下载基因组，可直接下载对应的文件，然后提供相应的关键字，即可批量下载。  1. 链接NCBI FTP基本操作    启动lftp, 这个是loading ftp的意思   cd ftp://ftp.ncbi.nih.gov。 这个是NCBI的ftp目录   cd genomes/refseq   mirror bacteria/   mirror archaea/   2. 测试 2.1 测试1 TargetedLoci目录 cd进入ftp://ftp.ncbi.nih.gov目录后 进入refseq目录， mget了README文件 接着mirror了TargetedLoci目录，这个目录里根据说明信息是Archae, Bacteria, Fungi的16s, 18s, 23s等数据。  2.2 测试2 Bacteria目录 接下来mirror了release/plasmid目录  mget RELEASE_NUMBER mirror archaea lftp ftp.ncbi.nih.gov:/refseq/release mirror bacteria  下载文件用mget命令，例如mget bacteria.16SrRNA.fna.gz 下载目录用mirror。  3 其他方法 ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS 这个目录下有相应的文件，包含每个序列的版本信息以及ftp地址等等，可以根据这里边的文件进行下载。  找到了一个更简洁的方法来下载genomes, https://www.ncbi.nlm.nih.gov/assembly 从这里边可以筛选你想要下载的东西，限制各种条件啊什么的。  https://ncbiinsights.ncbi.nlm.nih.gov/2018/11/16/refseq-release-91/ RefSeq91发布了，ftp地址： https://ftp.ncbi.nlm.nih.gov/refseq/release/">
+
+
+  <meta name="author" content="Jie Li">
+  
+  <meta property="article:author" content="Jie Li">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="Jie Li (She/Her)">
+<meta property="og:title" content="NCBI FTP下载">
+<meta property="og:url" content="http://localhost:4000/database/genome/NCBI_FTP_download/">
+
+
+  <meta property="og:description" content="NCBI的这个genome reports的FTP site下， ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/ 有真核： ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/eukaryotes.txt 原核： ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/prokaryotes.txt 病毒： ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/viruses.txt 质粒： ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/plasmids.txt 等数据库， 更新得挺频繁的。  如果想要下载基因组，可直接下载对应的文件，然后提供相应的关键字，即可批量下载。  1. 链接NCBI FTP基本操作    启动lftp, 这个是loading ftp的意思   cd ftp://ftp.ncbi.nih.gov。 这个是NCBI的ftp目录   cd genomes/refseq   mirror bacteria/   mirror archaea/   2. 测试 2.1 测试1 TargetedLoci目录 cd进入ftp://ftp.ncbi.nih.gov目录后 进入refseq目录， mget了README文件 接着mirror了TargetedLoci目录，这个目录里根据说明信息是Archae, Bacteria, Fungi的16s, 18s, 23s等数据。  2.2 测试2 Bacteria目录 接下来mirror了release/plasmid目录  mget RELEASE_NUMBER mirror archaea lftp ftp.ncbi.nih.gov:/refseq/release mirror bacteria  下载文件用mget命令，例如mget bacteria.16SrRNA.fna.gz 下载目录用mirror。  3 其他方法 ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS 这个目录下有相应的文件，包含每个序列的版本信息以及ftp地址等等，可以根据这里边的文件进行下载。  找到了一个更简洁的方法来下载genomes, https://www.ncbi.nlm.nih.gov/assembly 从这里边可以筛选你想要下载的东西，限制各种条件啊什么的。  https://ncbiinsights.ncbi.nlm.nih.gov/2018/11/16/refseq-release-91/ RefSeq91发布了，ftp地址： https://ftp.ncbi.nlm.nih.gov/refseq/release/">
+
+
+
+
+
+  <meta name="twitter:site" content="@lijie4_">
+  <meta name="twitter:title" content="NCBI FTP下载">
+  <meta name="twitter:description" content="NCBI的这个genome reports的FTP site下， ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/ 有真核： ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/eukaryotes.txt 原核： ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/prokaryotes.txt 病毒： ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/viruses.txt 质粒： ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/plasmids.txt 等数据库， 更新得挺频繁的。  如果想要下载基因组，可直接下载对应的文件，然后提供相应的关键字，即可批量下载。  1. 链接NCBI FTP基本操作    启动lftp, 这个是loading ftp的意思   cd ftp://ftp.ncbi.nih.gov。 这个是NCBI的ftp目录   cd genomes/refseq   mirror bacteria/   mirror archaea/   2. 测试 2.1 测试1 TargetedLoci目录 cd进入ftp://ftp.ncbi.nih.gov目录后 进入refseq目录， mget了README文件 接着mirror了TargetedLoci目录，这个目录里根据说明信息是Archae, Bacteria, Fungi的16s, 18s, 23s等数据。  2.2 测试2 Bacteria目录 接下来mirror了release/plasmid目录  mget RELEASE_NUMBER mirror archaea lftp ftp.ncbi.nih.gov:/refseq/release mirror bacteria  下载文件用mget命令，例如mget bacteria.16SrRNA.fna.gz 下载目录用mirror。  3 其他方法 ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS 这个目录下有相应的文件，包含每个序列的版本信息以及ftp地址等等，可以根据这里边的文件进行下载。  找到了一个更简洁的方法来下载genomes, https://www.ncbi.nlm.nih.gov/assembly 从这里边可以筛选你想要下载的东西，限制各种条件啊什么的。  https://ncbiinsights.ncbi.nlm.nih.gov/2018/11/16/refseq-release-91/ RefSeq91发布了，ftp地址： https://ftp.ncbi.nlm.nih.gov/refseq/release/">
+  <meta name="twitter:url" content="http://localhost:4000/database/genome/NCBI_FTP_download/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2018-04-10T00:00:00+08:00">
+
+
+
+  <meta property="article:modified_time" content="2020-04-02T00:00:00+08:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/database/genome/NCBI_FTP_download/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "jie-li-3201a57b",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/lijie4_","https://www.linkedin.com/in/jie-li-3201a57b/","https://github.com/"]
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Jie Li (She/Her)
+          <span class="site-subtitle">You can learn anything.</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/"><u>About</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/index.html"><u>Posts</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/"><u>Projects</u></a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/"><u>Publications</u></a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/database" itemprop="item"><span itemprop="name">Database</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/genome" itemprop="item"><span itemprop="name">Genome</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">NCBI FTP下载</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/prof_pic2.jpg" alt="Jie Li" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Jie Li</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A fan of bioinformatics in mirobiome.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">岁月漫长</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-google" aria-hidden="true"></i><span class="label">Google scholar</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/llliijie" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">Github</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/jie-li-3201a57b/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+          
+            <li><a href="https://orcid.org/0000-0002-9623-9213" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fa-brands fa-orcid" aria-hidden="true"></i><span class="label">ORCID</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/lijie4_" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="NCBI FTP下载">
+    <meta itemprop="description" content="NCBI的这个genome reports的FTP site下，ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/有真核：ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/eukaryotes.txt原核：ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/prokaryotes.txt病毒：ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/viruses.txt质粒：ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/plasmids.txt等数据库，更新得挺频繁的。如果想要下载基因组，可直接下载对应的文件，然后提供相应的关键字，即可批量下载。1. 链接NCBI FTP基本操作  启动lftp, 这个是loading ftp的意思  cd ftp://ftp.ncbi.nih.gov。 这个是NCBI的ftp目录  cd genomes/refseq  mirror bacteria/  mirror archaea/2. 测试2.1 测试1 TargetedLoci目录cd进入ftp://ftp.ncbi.nih.gov目录后进入refseq目录，mget了README文件接着mirror了TargetedLoci目录，这个目录里根据说明信息是Archae, Bacteria, Fungi的16s, 18s, 23s等数据。2.2 测试2 Bacteria目录接下来mirror了release/plasmid目录mget RELEASE_NUMBERmirror archaealftp ftp.ncbi.nih.gov:/refseq/release mirror bacteria下载文件用mget命令，例如mget bacteria.16SrRNA.fna.gz下载目录用mirror。3 其他方法ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS这个目录下有相应的文件，包含每个序列的版本信息以及ftp地址等等，可以根据这里边的文件进行下载。找到了一个更简洁的方法来下载genomes,https://www.ncbi.nlm.nih.gov/assembly从这里边可以筛选你想要下载的东西，限制各种条件啊什么的。https://ncbiinsights.ncbi.nlm.nih.gov/2018/11/16/refseq-release-91/RefSeq91发布了，ftp地址：https://ftp.ncbi.nlm.nih.gov/refseq/release/">
+    <meta itemprop="datePublished" content="2018-04-10T00:00:00+08:00">
+    <meta itemprop="dateModified" content="2020-04-02T00:00:00+08:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/database/genome/NCBI_FTP_download/" class="u-url" itemprop="url">NCBI FTP下载
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2018-04-10T00:00:00+08:00">April 10, 2018</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-heart"></i> NCBI FTP下载</h4></header>
+              <ul class="toc__menu"><li><a href="#1-链接ncbi-ftp基本操作">1. 链接NCBI FTP基本操作</a></li><li><a href="#2-测试">2. 测试</a><ul><li><a href="#21-测试1-targetedloci目录">2.1 测试1 TargetedLoci目录</a></li><li><a href="#22-测试2-bacteria目录">2.2 测试2 Bacteria目录</a></li><li><a href="#3-其他方法">3 其他方法</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p><code class="language-plaintext highlighter-rouge">NCBI</code>的这个<code class="language-plaintext highlighter-rouge">genome reports</code>的<code class="language-plaintext highlighter-rouge">FTP site</code>下，
+<code class="language-plaintext highlighter-rouge">ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/</code>
+有真核：
+<code class="language-plaintext highlighter-rouge">ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/eukaryotes.txt</code>
+原核：
+<code class="language-plaintext highlighter-rouge">ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/prokaryotes.txt</code>
+病毒：
+<code class="language-plaintext highlighter-rouge">ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/viruses.txt</code>
+质粒：
+<code class="language-plaintext highlighter-rouge">ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/plasmids.txt</code>
+等数据库，
+更新得挺频繁的。</p>
+
+<p>如果想要下载基因组，可直接下载对应的文件，然后提供相应的关键字，即可批量下载。</p>
+
+<h2 id="1-链接ncbi-ftp基本操作">1. 链接NCBI FTP基本操作</h2>
+<ol>
+  <li>启动<code class="language-plaintext highlighter-rouge">lftp</code>, 这个是<code class="language-plaintext highlighter-rouge">loading ftp</code>的意思</li>
+  <li><code class="language-plaintext highlighter-rouge">cd ftp://ftp.ncbi.nih.gov</code>。 这个是<code class="language-plaintext highlighter-rouge">NCBI</code>的<code class="language-plaintext highlighter-rouge">ftp</code>目录</li>
+  <li>cd genomes/refseq</li>
+  <li>mirror bacteria/</li>
+  <li>mirror archaea/</li>
+</ol>
+
+<h2 id="2-测试">2. 测试</h2>
+<h3 id="21-测试1-targetedloci目录">2.1 测试1 TargetedLoci目录</h3>
+<p><code class="language-plaintext highlighter-rouge">cd</code>进入<code class="language-plaintext highlighter-rouge">ftp://ftp.ncbi.nih.gov</code>目录后
+进入<code class="language-plaintext highlighter-rouge">refseq</code>目录，
+<code class="language-plaintext highlighter-rouge">mget</code>了<code class="language-plaintext highlighter-rouge">README</code>文件
+接着<code class="language-plaintext highlighter-rouge">mirror</code>了<code class="language-plaintext highlighter-rouge">TargetedLoci</code>目录，这个目录里根据说明信息是<code class="language-plaintext highlighter-rouge">Archae</code>, <code class="language-plaintext highlighter-rouge">Bacteria</code>, <code class="language-plaintext highlighter-rouge">Fungi</code>的<code class="language-plaintext highlighter-rouge">16s</code>, <code class="language-plaintext highlighter-rouge">18s</code>, <code class="language-plaintext highlighter-rouge">23s</code>等数据。</p>
+
+<h3 id="22-测试2-bacteria目录">2.2 测试2 Bacteria目录</h3>
+<p>接下来<code class="language-plaintext highlighter-rouge">mirror</code>了<code class="language-plaintext highlighter-rouge">release/plasmid</code>目录</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mget RELEASE_NUMBER
+mirror archaea
+lftp ftp.ncbi.nih.gov:/refseq/release mirror bacteria</code></pre></figure>
+
+<p>下载文件用<code class="language-plaintext highlighter-rouge">mget</code>命令，例如<code class="language-plaintext highlighter-rouge">mget bacteria.16SrRNA.fna.gz</code>
+下载目录用<code class="language-plaintext highlighter-rouge">mirror</code>。</p>
+
+<h3 id="3-其他方法">3 其他方法</h3>
+<p><a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS">ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS</a>
+这个目录下有相应的文件，包含每个序列的版本信息以及<code class="language-plaintext highlighter-rouge">ftp</code>地址等等，可以根据这里边的文件进行下载。</p>
+
+<p>找到了一个更简洁的方法来下载<code class="language-plaintext highlighter-rouge">genomes</code>,
+<a href="https://www.ncbi.nlm.nih.gov/assembly">https://www.ncbi.nlm.nih.gov/assembly</a>
+从这里边可以筛选你想要下载的东西，限制各种条件啊什么的。</p>
+
+<p><a href="https://ncbiinsights.ncbi.nlm.nih.gov/2018/11/16/refseq-release-91/">https://ncbiinsights.ncbi.nlm.nih.gov/2018/11/16/refseq-release-91/</a>
+<code class="language-plaintext highlighter-rouge">RefSeq91</code>发布了，<code class="language-plaintext highlighter-rouge">ftp</code>地址：
+<a href="https://ftp.ncbi.nlm.nih.gov/refseq/release/">https://ftp.ncbi.nlm.nih.gov/refseq/release/</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/genome" class="page__taxonomy-item p-category" rel="tag">genome</a><span class="sep">, </span>
+    
+      <a href="/tags/ncbi" class="page__taxonomy-item p-category" rel="tag">NCBI</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/database" class="page__taxonomy-item p-category" rel="tag">database</a><span class="sep">, </span>
+    
+      <a href="/categories/genome" class="page__taxonomy-item p-category" rel="tag">genome</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2020-04-02">April 2, 2020</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=lijie4_&text=NCBI+FTP%E4%B8%8B%E8%BD%BD%20http%3A%2F%2Flocalhost%3A4000%2Fdatabase%2Fgenome%2FNCBI_FTP_download%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdatabase%2Fgenome%2FNCBI_FTP_download%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdatabase%2Fgenome%2FNCBI_FTP_download%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/database/protein/UniProtKB/" class="pagination--pager" title="Introduction to UniprotKB
+">Previous</a>
+    
+    
+      <a href="/bioinformatics/amplicon/PICRUST/" class="pagination--pager" title="Notes of PICRUST
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/statistics/alignment/Smith-Waterman_algorithm/" rel="permalink">Smith Waterman alignment DP
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-05T00:00:00+08:00">February 5, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">The score matrix
+
+
+
+The optimal path
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/statistics/alignment/Needleman_Wunsch_alignment/" rel="permalink">Needleman Wunsch alignment DP
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-04T00:00:00+08:00">February 4, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">The score matrix
+
+
+
+The optimal path
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/database/gene/pmoA_database/" rel="permalink">pmoA基因序列数据库
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-02T00:00:00+08:00">February 2, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+想找pmoA的序列构建数据库，找到了这个网站. 	里边包括核酸序列，以及序列对应的tax的信息。
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/bash/sratoolkit/" rel="permalink">sratoolkit下载测序数据
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-10-29T00:00:00+08:00">October 29, 2021</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">说明
+sratoolkit默认配置的下载数据目录是在HOME，这显然是不友好的，因为一般的集群给每个account的HOME目录下的存储是非常有限的，例如50Gb，所以最好把cache的目录设置到拥有大量存储可供写入的目录。
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    <center>
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+        <li text-align:center><a href="https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ" title="Google scholar"><i class="fab fa-google" aria-hidden="true"></i></a></li>
+        
+      
+        
+        <li text-align:center><a href="https://github.com/llliijie" title="Github"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a></li>
+        
+      
+        
+        <li text-align:center><a href="https://www.linkedin.com/in/jie-li-3201a57b/" title="Linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+        
+      
+        
+        <li text-align:center><a href="https://orcid.org/0000-0002-9623-9213" title="ORCID"><i class="fa-brands fa-orcid" aria-hidden="true"></i></a></li>
+        
+      
+        
+        <li text-align:center><a href="https://twitter.com/lijie4_" title="Twitter"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i></a></li>
+        
+      
+    </center>
+
+    
+
+    
+  </ul>
+</div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">
+<script>
+  function time() {
+    var date = new Date();
+    var year = date.getFullYear();
+    var arr_month = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+    var month = arr_month[date.getMonth()];
+    var day = date.getDate();
+    var hour = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    var arr_week = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+    var week = arr_week[date.getDay()];
+    var str = day + " " + month + " " + year + " | " + week + " | " + hour + ":" + minutes + ":" + seconds;
+    var div1 = document.getElementById("div1");
+    div1.innerHTML = str;
+    }
+  setInterval(time,1000);
+</script>
+<center><div class="page__footer-copyright"><span id="div1"></span></div></center>
+  <center><div class="page__footer-copyright">&copy; 2024 Jie Li. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes.</a></div></center>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
