@@ -32,7 +32,7 @@ words_per_minute         : 100
 comments:
   provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
-    shortname            : llliijie # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : lijierr # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -95,7 +95,7 @@ social:
   links: # An array of links to social media profiles
     - "https://twitter.com/lijie4_"
     - "https://www.linkedin.com/in/jie-li-3201a57b/"
-    - "https://github.com/"
+    - "https://github.com/lijierr"
 
 # Analytics
 analytics:
@@ -116,7 +116,7 @@ author:
       url: "https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ"
     - label: "Github"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/llliijie"
+      url: "https://github.com/lijierr"
     - label: "Linkedin"
       icon: "fab fa-linkedin"
       url: "https://www.linkedin.com/in/jie-li-3201a57b/"
@@ -135,7 +135,7 @@ footer:
       url: "https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ"
     - label: "Github"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/llliijie"
+      url: "https://github.com/lijierr"
     - label: "Linkedin"
       icon: "fab fa-linkedin"
       url: "https://www.linkedin.com/in/jie-li-3201a57b/"
