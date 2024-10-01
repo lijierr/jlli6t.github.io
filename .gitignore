@@ -1,9 +1,21 @@
+# Byte-compiled files
+**/__pycache__/
 
+# Distribution / packaging files
+/build/
+/dist/
+/develop-eggs/
+*.egg-info/
+
+# docs
+/docs/
+/_drafts/
+
+# other files
+/.git/
+/test/
+/test_project/
+Logger.py
 .DS_Store
-*.gem
-.bundle
-.jekyll-cache
-.sass-cache
-Gemfile.lock
-_drafts/*
 
+test_readtrim.tar.gz
