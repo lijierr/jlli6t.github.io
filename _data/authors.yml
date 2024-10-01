@@ -1,23 +1,12 @@
-# Authors
+## Template › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/advanced-usage.md#setting-author-url
+# -------------------------------------
+# {author_id}:
+#   name: {full name}
+#   twitter: {twitter_of_author}
+#   url: {homepage_of_author}
+# -------------------------------------
 
 Jie Li:
-  name        : "Jie Li"
-  bio         : " "
-  avatar      : "/assets/prof_pic2.jpg"
-  location    : "Earth"
-  links:
-    - label: "Google scholar"
-      icon: "fab fa-google"
-      url: "https://scholar.google.com/citations?hl=zh-CN&user=s_Uga6sAAAAJ"
-    - label: "Github"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/lijierr"
-    - label: "Linkedin"
-      icon: "fab fa-linkedin"
-      url: "https://www.linkedin.com/in/jie-li-3201a57b/"
-    - label: "ORCID"
-      icon: "fa-brands fa-orcid"
-      url: "https://orcid.org/0000-0002-9623-9213"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/lijie4_"
+  name: Jie Li
+  twitter: lijie4_
+  url: https://github.com/lijierr

@@ -1,238 +1,164 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-09-13T23:11:24+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jie Li (She/Her)</title><subtitle>A fan of bioinformatics in microbiome.</subtitle><author><name>Jie Li</name></author><entry><title type="html">Smith Waterman alignment DP</title><link href="http://localhost:4000/statistics/alignment/Smith-Waterman_algorithm/" rel="alternate" type="text/html" title="Smith Waterman alignment DP" /><published>2023-02-05T00:00:00+08:00</published><updated>2023-02-05T00:00:00+08:00</updated><id>http://localhost:4000/statistics/alignment/Smith%E2%80%93Waterman_algorithm</id><content type="html" xml:base="http://localhost:4000/statistics/alignment/Smith-Waterman_algorithm/"><![CDATA[<h2 id="the-score-matrix">The score matrix</h2>
-<p><img src="/assets/picbed/statistics/Smith%E2%80%93Waterman_algorithm1.jpg" alt="" />
-<br /></p>
-
-<h2 id="the-optimal-path">The optimal path</h2>
-<p><img src="/assets/picbed/statistics/Smith%E2%80%93Waterman_algorithm2.jpg" alt="" /></p>]]></content><author><name>Jie Li</name></author><category term="statistics" /><category term="alignment" /><category term="alignment" /><summary type="html"><![CDATA[The score matrix The optimal path]]></summary></entry><entry><title type="html">Needleman Wunsch alignment DP</title><link href="http://localhost:4000/statistics/alignment/Needleman_Wunsch_alignment/" rel="alternate" type="text/html" title="Needleman Wunsch alignment DP" /><published>2023-02-04T00:00:00+08:00</published><updated>2023-02-04T00:00:00+08:00</updated><id>http://localhost:4000/statistics/alignment/Needleman_Wunsch_alignment</id><content type="html" xml:base="http://localhost:4000/statistics/alignment/Needleman_Wunsch_alignment/"><![CDATA[<h2 id="the-score-matrix">The score matrix</h2>
-<p><img src="/assets/picbed/statistics/Needleman%E2%80%93Wunsch_algorithm1.jpg" alt="" />
-<br /></p>
-
-<h2 id="the-optimal-path">The optimal path</h2>
-<p><img src="/assets/picbed/statistics/Needleman%E2%80%93Wunsch_algorithm2.jpg" alt="" /></p>]]></content><author><name>Jie Li</name></author><category term="statistics" /><category term="alignment" /><category term="alignment" /><summary type="html"><![CDATA[The score matrix The optimal path]]></summary></entry><entry><title type="html">pmoA基因序列数据库</title><link href="http://localhost:4000/database/gene/pmoA_database/" rel="alternate" type="text/html" title="pmoA基因序列数据库" /><published>2023-02-02T00:00:00+08:00</published><updated>2023-02-02T00:00:00+08:00</updated><id>http://localhost:4000/database/gene/pmoA_database</id><content type="html" xml:base="http://localhost:4000/database/gene/pmoA_database/"><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>想找pmoA的序列构建数据库，找到了这个<a href="https://dataservices.gfz-potsdam.de/panmetaworks/showshort.php?id=escidoc:1423157">网站</a>. 	里边包括核酸序列，以及序列对应的tax的信息。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="gene" /><category term="protein" /><category term="gene" /><summary type="html"><![CDATA[Introduction 想找pmoA的序列构建数据库，找到了这个网站. 里边包括核酸序列，以及序列对应的tax的信息。]]></summary></entry><entry><title type="html">sratoolkit下载测序数据</title><link href="http://localhost:4000/linux/bash/sratoolkit/" rel="alternate" type="text/html" title="sratoolkit下载测序数据" /><published>2021-10-29T00:00:00+08:00</published><updated>2021-10-29T00:00:00+08:00</updated><id>http://localhost:4000/linux/bash/sratoolkit</id><content type="html" xml:base="http://localhost:4000/linux/bash/sratoolkit/"><![CDATA[<h2 id="说明">说明</h2>
-<p><code class="language-plaintext highlighter-rouge">sratoolkit</code>默认配置的下载数据目录是在<code class="language-plaintext highlighter-rouge">HOME</code>，这显然是不友好的，因为一般的集群给每个<code class="language-plaintext highlighter-rouge">account</code>的<code class="language-plaintext highlighter-rouge">HOME</code>目录下的存储是非常有限的，例如50Gb，所以最好把<code class="language-plaintext highlighter-rouge">cache</code>的目录设置到拥有大量存储可供写入的目录。
-<!--more--></p>
-
-<p>具体操作方式：更改文件 <code class="language-plaintext highlighter-rouge">.ncbi/user-settings.mkfg</code>里的<code class="language-plaintext highlighter-rouge">/repository/user/main/public/root</code>的目录为你想要存放的目录即可。
-<img src="/assets/picbed/post/sratoolkit_path_set.png" alt="" /></p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="bash" /><category term="bash" /><category term="linux" /><summary type="html"><![CDATA[说明 sratoolkit默认配置的下载数据目录是在HOME，这显然是不友好的，因为一般的集群给每个account的HOME目录下的存储是非常有限的，例如50Gb，所以最好把cache的目录设置到拥有大量存储可供写入的目录。]]></summary></entry><entry><title type="html">python项目打包demo</title><link href="http://localhost:4000/coding/python/setuptools_python_package/" rel="alternate" type="text/html" title="python项目打包demo" /><published>2021-02-25T00:00:00+08:00</published><updated>2021-02-25T00:00:00+08:00</updated><id>http://localhost:4000/coding/python/setuptools_python_package</id><content type="html" xml:base="http://localhost:4000/coding/python/setuptools_python_package/"><![CDATA[<h2 id="1-基本配置">1. 基本配置：</h2>
-<h3 id="11-setuppy文件">1.1 setup.py文件：</h3>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># -*- coding:utf-8 -*-
-</span>
-
-from setuptools import setup, find_packages
-from os import path
-
-setup<span class="o">(</span>
-name <span class="o">=</span> <span class="s1">'testpypi11'</span>, <span class="c"># 包名称
-</span>
-version <span class="o">=</span> <span class="s1">'3.0.3'</span>, <span class="c">#版本号
-</span>
-description <span class="o">=</span> <span class="s1">'this is test for packing a pypi package.'</span>, <span class="c"># 包的描述
-</span>
-<span class="nv">url</span><span class="o">=</span><span class="s1">'***'</span>, <span class="c"># optional，项目地址
-</span>
-
-author <span class="o">=</span> <span class="s1">'**'</span>, <span class="c"># optional 项目作者
-</span>
-author_email <span class="o">=</span> <span class="s1">'**@**'</span>, <span class="c"># optional 项目作者邮箱
-</span>
-<span class="nv">maintainer</span><span class="o">=</span><span class="s1">'**'</span>, <span class="c"># 目前维护人员。如果和作者不一致，那setuptools会在PKG-INFO中把这个名字当做作者
-</span>
-<span class="nv">maintainer_email</span><span class="o">=</span><span class="s1">'**'</span>, <span class="c"># 维护人员的邮箱
-</span>
-classifiers <span class="o">=</span> <span class="o">[</span>
-<span class="s1">'License :: OSI Approved :: MIT License'</span>,
-<span class="s1">'Programming Language :: Python :: 3 :: Only'</span>, <span class="c"># indicate language you support, *not* checked by 'pip install'
-</span>
-<span class="s1">'Operating System :: Unix'</span>,
-<span class="o">]</span>,
-
-keywords <span class="o">=</span> <span class="s1">'test python3 pypi'</span>,
-<span class="nv">include_package_data</span><span class="o">=</span>True, <span class="c"># 这个表明除了code之外，还有别的文件/目录需要一起打包。具体哪些内容，则是指定在MANIFEST.in文件中
-</span>
-packages <span class="o">=</span> find_packages<span class="o">()</span>, <span class="c">#这个功能非常好用，不用自己单独指定，特别如果是目录结构较复杂的项目
-</span>
-python_requires <span class="o">=</span> <span class="s1">'&gt;=3'</span>,
 
-install_requires <span class="o">=</span> <span class="o">[</span><span class="s1">'numpy&gt;=1.17.4'</span><span class="o">]</span>,
-<span class="nv">entry_points</span><span class="o">={</span>
-<span class="s1">'console_scripts'</span>:[
-<span class="s1">'testpypi=testpypi.info1:Info1'</span>,
-<span class="o">]</span>,
-<span class="o">}</span>,
-<span class="c">#scripts=['bin/testpypi'] # 这个和entry_points 二选一即可。表示项目已经自带控制台，不用自动生成新的控制台。setuptools会把这个文件cp到bin下
-</span>
-<span class="o">)</span></code></pre></figure>
-
-<h3 id="12-manifastin文件">1.2 MANIFAST.in文件</h3>
-<p>语法挺简单的，见文档：https://packaging.python.org/guides/using-manifest-in/</p>
-
-<h2 id="2-配置账号可选">2. 配置账号（可选）：</h2>
-<p>文件编写好之后，配置作者识别文件.pypirc，配置了这个文件可以省去很多输入账号密码的操作，不配置也可配置好放在home目录下：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>distutils]
-index-servers<span class="o">=</span>pypi
-
-<span class="o">[</span>pypi]
-<span class="nv">username</span><span class="o">=</span>username
-<span class="nv">password</span><span class="o">=</span>password</code></pre></figure>
-
-<h2 id="3-上传项目">3. 上传项目：</h2>
-<h3 id="31-上传命令">3.1 上传命令：</h3>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">python setup.py sdist upload</code></pre></figure>
 
-<h3 id="32-upload的时候一直报错">3.2 upload的时候一直报错：</h3>
-<p>翻了一通官方的issue，原来是包的名字重了。</p>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://localhost:4000/</id>
+  <title>Jie Li</title>
+  <subtitle>description description description description description description.</subtitle>
+  <updated>2024-10-01T13:07:42+08:00</updated>
+  <author>
+    <name>Jie Li</name>
+    <uri>http://localhost:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://localhost:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator>
+  <rights> © 2024 Jie Li </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>测序质量值计算及换算</title>
+    <link href="http://localhost:4000/posts/%E6%B5%8B%E5%BA%8F%E8%B4%A8%E9%87%8F%E5%80%BC%E8%AE%A1%E7%AE%97%E5%8F%8A%E6%8D%A2%E7%AE%97/" rel="alternate" type="text/html" title="测序质量值计算及换算" />
+    <published>2020-04-02T00:00:00+08:00</published>
+  
+    <updated>2020-04-02T00:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/posts/%E6%B5%8B%E5%BA%8F%E8%B4%A8%E9%87%8F%E5%80%BC%E8%AE%A1%E7%AE%97%E5%8F%8A%E6%8D%A2%E7%AE%97/</id>
+    <content src="http://localhost:4000/posts/%E6%B5%8B%E5%BA%8F%E8%B4%A8%E9%87%8F%E5%80%BC%E8%AE%A1%E7%AE%97%E5%8F%8A%E6%8D%A2%E7%AE%97/" />
+    <author>
+      <name>Jie Li</name>
+    </author>
+
+  
+    
+    <category term="bioinformatics" />
+    
+    <category term="sequencing" />
+    
+  
+
+  <summary>序列格式分为两种：fasta和fastq。测序碱基的质量值即存储在fastq格式的每第四行，用ASCII码表示。
+高通量测序发展后，测序服务得到了极大的推广，两种不同测序质量体系之间的转换，不知道之前有没有别的人研究过，我记得好像有人是直接用ASCII值减去质量体系然后再加上新的质量体系的值，形成新的ASCII值存回fastq文件中，这样的做法其实是不准确的，在测序质量很好的时候几乎没有差别，但是在测序质量相对较差的区域（例如P&amp;amp;gt;0.2），两者差得比较明显，但其实依然没有统计学差异。虽然没有统计学差异，但是人为引入了误差，这样不好。
+Sanger家的Q值计算公式：
+Q = -10 * log P
+\(Q = -10 * \log \left( \rho \right)\)
+
+Solexa家的Q值计算公式：
+\(Q = -10 * \log \left( \frac{\rho}{...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>简介bash命令scp</title>
+    <link href="http://localhost:4000/posts/scp-zh/" rel="alternate" type="text/html" title="简介bash命令scp" />
+    <published>2018-03-23T00:00:00+08:00</published>
+  
+    <updated>2018-03-23T00:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/posts/scp-zh/</id>
+    <content src="http://localhost:4000/posts/scp-zh/" />
+    <author>
+      <name>Jie Li</name>
+    </author>
+
+  
+    
+    <category term="coding" />
+    
+    <category term="bash" />
+    
+  
+
+  <summary>简介
+scp, 一个Linux系统里使用的命令，OpenSSH套件的一部分，是”secure copy”的简称。对比cp而言，scp是一个跨不同系统之间高效管理文件，同时确保数据的安全性和完整性的更加强大的工具。
+
+使用
+
+  复制本地文件到远程服务器
+    scp local_file remote-username@remote-host:/destination-path
+    
+  
+  从远程服务器复制文件到本地
+    scp remote-username@remote-host:remote-file-path local-destination-path
+    
+  
+  从远程服务器1复制文件到远程服务器2
+    scp remote-username1@remote-host1:/source-path remote-username2@remote-h...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Introduction to bash command scp</title>
+    <link href="http://localhost:4000/posts/scp-en/" rel="alternate" type="text/html" title="Introduction to bash command scp" />
+    <published>2018-03-23T00:00:00+08:00</published>
+  
+    <updated>2018-03-23T00:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/posts/scp-en/</id>
+    <content src="http://localhost:4000/posts/scp-en/" />
+    <author>
+      <name>Jie Li</name>
+    </author>
+
+  
+    
+    <category term="coding" />
+    
+    <category term="bash" />
+    
+  
+
+  <summary>Introduction
+scp, a Linux command and a part of OpenSSH suite of tools, short for “secure copy”. Comparing to the traditional cp command, scp is a more powerful tool for efficient files management across different system while ensuring data security and integrity.
+
+Usage
+
+  Copy local files to remote server
+    scp local_file remote-username@remote-host:/destination-path
+    
+  
+  Copy file fro...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>PICRUSt的笔记</title>
+    <link href="http://localhost:4000/posts/PICRUST-zh/" rel="alternate" type="text/html" title="PICRUSt的笔记" />
+    <published>2018-03-20T00:00:00+08:00</published>
+  
+    <updated>2023-07-30T00:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/posts/PICRUST-zh/</id>
+    <content src="http://localhost:4000/posts/PICRUST-zh/" />
+    <author>
+      <name>Jie Li</name>
+    </author>
+
+  
+    
+    <category term="amplicon" />
+    
+  
+
+  <summary>1. 简介
+Picrust是一款基于16S rRNA gene数据库对扩增子测序的群落进行功能预测的工具(只能基于greengenes数据库)。目前16S rRNA gene有并且只有13_5和12_8两个版本。 目前greengenes数据库的最新版本为greengenes2。
+picrust是基于已经计算好的数据库进行预测，数据库下载地址。
+下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库
+
+2. 安装
+安装picrust, 这个中间没有遇到麻烦；注意picrsut是基于python2.7版本(用的2.7.12)， 其他版本的python会报错例如python3.5.2。
+
+3. 使用
+因为pi...</summary>
+
+  </entry>
+
+</feed>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Upload failed <span class="o">(</span>403<span class="o">)</span>: The user isn<span class="s1">'t allowed to upload to project '</span>testpypi<span class="s1">'. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information.
-error: Upload failed (403): The user isn'</span>t allowed to upload to project <span class="s1">'testpypi'</span><span class="nb">.</span> See <span class="o">[</span>https://pypi.org/help/#project-name]<span class="o">(</span>https://pypi.org/help/#project-name<span class="o">)</span> <span class="k">for </span>more information.</code></pre></figure>
 
-<h2 id="4-利用setuptools打包发布pypi的官方帮助文档">4. 利用setuptools打包发布Pypi的官方帮助文档：</h2>
-<p><a href="https://setuptools.readthedocs.io/en/latest/setuptools.html">https://setuptools.readthedocs.io/en/latest/setuptools.html</a></p>
-
-<h2 id="5-官方给的setuppy的例子">5. 官方给的setup.py的例子</h2>
-<p><a href="https://github.com/pypa/sampleproject/blob/master/setup.py">https://github.com/pypa/sampleproject/blob/master/setup.py</a></p>
-
-<h2 id="6-参考博客">6. 参考博客：</h2>
-<p><a href="https://blog.csdn.net/mouday/article/details/80736312">https://blog.csdn.net/mouday/article/details/80736312</a>
-<a href="https://zhuanlan.zhihu.com/p/37987613">https://zhuanlan.zhihu.com/p/37987613</a>
-<a href="https://www.chenshaowen.com/blog/how-to-pack-a-python-package-and-upload-it-to-pypi.html">https://www.chenshaowen.com/blog/how-to-pack-a-python-package-and-upload-it-to-pypi.html</a></p>]]></content><author><name>Jie Li</name></author><category term="coding" /><category term="python" /><category term="python" /><summary type="html"><![CDATA[1. 基本配置： 1.1 setup.py文件： # -*- coding:utf-8 -*- from setuptools import setup, find_packages from os import path setup( name = 'testpypi11', # 包名称 version = '3.0.3', #版本号 description = 'this is test for packing a pypi package.', # 包的描述 url='***', # optional，项目地址 author = '**', # optional 项目作者 author_email = '**@**', # optional 项目作者邮箱 maintainer='**', # 目前维护人员。如果和作者不一致，那setuptools会在PKG-INFO中把这个名字当做作者 maintainer_email='**', # 维护人员的邮箱 classifiers = [ 'License :: OSI Approved :: MIT License', 'Programming Language :: Python :: 3 :: Only', # indicate language you support, *not* checked by 'pip install' 'Operating System :: Unix', ], keywords = 'test python3 pypi', include_package_data=True, # 这个表明除了code之外，还有别的文件/目录需要一起打包。具体哪些内容，则是指定在MANIFEST.in文件中 packages = find_packages(), #这个功能非常好用，不用自己单独指定，特别如果是目录结构较复杂的项目 python_requires = '&gt;=3', install_requires = ['numpy&gt;=1.17.4'], entry_points={ 'console_scripts':[ 'testpypi=testpypi.info1:Info1', ], }, #scripts=['bin/testpypi'] # 这个和entry_points 二选一即可。表示项目已经自带控制台，不用自动生成新的控制台。setuptools会把这个文件cp到bin下 ) 1.2 MANIFAST.in文件 语法挺简单的，见文档：https://packaging.python.org/guides/using-manifest-in/ 2. 配置账号（可选）： 文件编写好之后，配置作者识别文件.pypirc，配置了这个文件可以省去很多输入账号密码的操作，不配置也可配置好放在home目录下： [distutils] index-servers=pypi [pypi] username=username password=password 3. 上传项目： 3.1 上传命令： python setup.py sdist upload 3.2 upload的时候一直报错： 翻了一通官方的issue，原来是包的名字重了。 Upload failed (403): The user isn't allowed to upload to project 'testpypi'. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information. error: Upload failed (403): The user isn't allowed to upload to project 'testpypi'. See [https://pypi.org/help/#project-name](https://pypi.org/help/#project-name) for more information. 4. 利用setuptools打包发布Pypi的官方帮助文档： https://setuptools.readthedocs.io/en/latest/setuptools.html 5. 官方给的setup.py的例子 https://github.com/pypa/sampleproject/blob/master/setup.py 6. 参考博客： https://blog.csdn.net/mouday/article/details/80736312 https://zhuanlan.zhihu.com/p/37987613 https://www.chenshaowen.com/blog/how-to-pack-a-python-package-and-upload-it-to-pypi.html]]></summary></entry><entry><title type="html">上传数据到SRA</title><link href="http://localhost:4000/database/sra/Upload_SRA/" rel="alternate" type="text/html" title="上传数据到SRA" /><published>2021-01-01T00:00:00+08:00</published><updated>2021-01-01T00:00:00+08:00</updated><id>http://localhost:4000/database/sra/Upload_SRA</id><content type="html" xml:base="http://localhost:4000/database/sra/Upload_SRA/"><![CDATA[<h2 id="说明">说明</h2>
-<p>数据分析结束之后，通常需要将原始数据上传到公共数据库进行分享。例如测序数据通常上传至NCBI的SRA库。当样本数目比较小的时候，通过网页上传是非常方便的。但是当样本数量庞大的时候，通过网页上传数据就非常麻烦了，因为需要手动依次上传每一个样本。所以最直接的方法是从服务器往NCBI传，例如是用<code class="language-plaintext highlighter-rouge">aspera</code>：
-<!--more--></p>
-
-<p><code class="language-plaintext highlighter-rouge">aspera</code>的下载链接<code class="language-plaintext highlighter-rouge">https://www.ibm.com/products/aspera/downloads</code>
-其安装操作手册可参考<code class="language-plaintext highlighter-rouge">https://cloud.tencent.com/developer/article/1749467</code></p>
-
-<h2 id="上传的命令为">上传的命令为：</h2>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ascp <span class="nt">-i</span> /home/.aspera/connect/aspera.openssh <span class="nt">-QT</span> <span class="nt">-l100m</span> <span class="nt">-k1</span> <span class="nt">-d</span> DATA_PATH subasp@upload.ncbi.nlm.nih.gov:uploads/ACCOUNT_CODE</code></pre></figure>
-
-<h2 id="其他">其他</h2>
-<p>这个命令应该是默认传到了root目录。此目录是一个暂存目录，时间为30天。30天过后自动移除文件。因此，整个数据submission的操作需要在30天之内完成。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="SRA" /><category term="bash" /><category term="linux" /><category term="database" /><category term="rawdate" /><category term="SRA" /><summary type="html"><![CDATA[说明 数据分析结束之后，通常需要将原始数据上传到公共数据库进行分享。例如测序数据通常上传至NCBI的SRA库。当样本数目比较小的时候，通过网页上传是非常方便的。但是当样本数量庞大的时候，通过网页上传数据就非常麻烦了，因为需要手动依次上传每一个样本。所以最直接的方法是从服务器往NCBI传，例如是用aspera：]]></summary></entry><entry><title type="html">little treehouse collection - estimation</title><link href="http://localhost:4000/statistics/estimation/Little_treehouse_collection/" rel="alternate" type="text/html" title="little treehouse collection - estimation" /><published>2020-09-10T00:00:00+08:00</published><updated>2020-09-10T00:00:00+08:00</updated><id>http://localhost:4000/statistics/estimation/Little_treehouse_collection</id><content type="html" xml:base="http://localhost:4000/statistics/estimation/Little_treehouse_collection/"><![CDATA[<h2 id="1-introduction">1. Introduction</h2>
-<p>Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below). 
-<!--more--></p>
-
-<p>However, every redeemed book is <strong>wrapped with cover</strong>, thus, you won’t be able to know which number you get until you uncover it.
-<img src="/assets/picbed/statistics/little_treehouse.png" alt="photo" /></p>
-
-<p>I am curious about roughly how much you gonna spend at Coles to collect a full set of LITTLE TREEHOUSE book (a single transaction of $30 or more but less than $60 is calculated as $30).</p>
-
-<h2 id="preparation">Preparation</h2>
-<p>Hypothesis: Same quantity of each book was packed and evenly mixed. Books redeemed for every $30 are independent from each other.</p>
-
-<p>Randomly generated 1,000,000 numbers between 0 and 9 as an array. For example:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">1, 3, 1, 4, 0, 0, 5, 3, 0, 6, 7, 8, 4, 6, 3, 2, 6, 6, 4, 1, 0, 2, 5, 5, 6, 2, 2, 7, 9, 1, 6, 3, 5, 9, 6, 4, 4, 9, 7, 1, 3, 1, 3, 3, 4, 9, 5, 7, 8, 7, 4, 9, 6, 8, 6, 2, 8, 8, 5, 2, 8, 9, 5, 4, 6, 0, 8, 4, 1, 1, 0, 4, 7, 5, 6, 7, 8, 7, 2, 1, 7, 2, 0, 4, 5, 1, 6, 0, 7, 3, 6, 9, 9, 0, 7, 8, 8, 3, 4, 9, 9, 0, 0, 3, 5, 0, 6, 8, 0, 8, 4, 3, 1, 2, 5, 1, 4, 6, 7, 1, 7, 0, 8, 3, 3, 3, 1, 4, 8, 8, 5, 7, 3, 4, 5, 6, 2, 2, 6, 1, 9, 9, 0, 9, 4, 4, 4, 7, 1, 8, 8, 4, 9, 7, 5, 5, 6, 7, 1, 0, 2, 3, 4, 0, 6, 4, 4, 7, 8, 9, 7, 6, 7, 5, 5, 4, 6, 0, 0, 4, 0, 4, 9, 1, 7, 4, 4, 1, 8, 3, 7, 1, 2, 3, 8, 4, 6, 1, 5, 5, 5, 1, 9, 2, 5, 6, 1, 6, 0, 9, 5, 3, 7, 7, 4, 5, 4, 9, 0, 7, 9, 1, 0, 4, 7, 1, 1, 5, 8, 8, 9, 2, 8, 2, 9, 0, 8, 3, 0, 4, 0, 3, 2, 3, 4, 7, 9, 5, 0, 8, 0, 0, 0, 4, 0, 1, 5, 5, 9, 7, 9, 2, 3, 4, 1, 3, 0, 4, 0, 4, 3, 7, 7, 6, 6, 5, 7, 1, 1, 3, 9, 0, 7, 3, 1, 5, 7, 3, 3, 8, 8, 3, 0, 0, 4, 1, 0, 8, 9, 3, 3, 3, 9, 6, 0, 5, 0, 8, 7, 1, 5, 1, 3, 3, 7, 7, 0, 7, 6, 4, 6, 8, 5, 2, 5, 0, 1, 1, 7, 0, 1, 3, 4, 5, 4, 3, 1, 0, 9, 8, 8, 4, 2, 1, 7, 9, 5, 9, 9, 6, 4, 9, 5, 6, 8, 6, 3, 8, 8, 7, 8, 6, 7, 3, 2, 0, 2, 0, 5, 8, 3, 7, 8, 1, 4, 2, 9, 6, 5, 6, 9, 5, 9, 1, 5, 5, 1, 2, 7, 5, 1, 1, 6, 6, 9, 7, 0, 6, 3, 2, 3, 3, 4, 0, 3, 2, 0, 0, 8, 3, 7, 6, 7, 7, 9, 2, 3, 2, 4, 6, 5, 9, 4, 7, 9, 4, 0, 2, 6, 4, 9, 5, 0, 0, 4, 3, 3, 9, 8, 4, 7, 4, 8, 3, 3, 6, 2, 9, 6, 3, 0, 0, 7, 8, 1, 0, 9, 3, 3, 6, 3, 6, 2, 6, 6, 7, 6, 3, 8, 9, 2, 5, 0, 2, 4, 0, 2, 7, 3, 9, 2, 7, 1, 7, 8, 8, 0, 7, 8, 3, 0, 3, 2, 6, 2, 2, 9, 5, 1, 7, 4, 2, 0, 0, 5, 3, 1, 9, 0, 3, 3, 5, 4, 4, 2, 1, 9, 4, 0, 9, 0, 1, 2, 0, 8, 3, 6, 6, 0, 5, 2, 1, 2, 6, 8, 2, 9, 3, 8, 4, 9, 1, 5, 2, 1, 1, 2, 2, 3, 5, 4, 0, 2, 9, 5, 2, 8, 7, 8, 5, 9, 4, 2, 2, 3, 1, 5, 6, 3, 4, 0, 5, 0, 5, 0, 3, 3, 9, 8, 6, 9, 1, 6, 1, 8, 4, 9, 9, 6, 4, 1, 8, 2, 4, 0, 0, 4, 5, 8, 7, 2, 8, 5, 1, 1, 5, 0, 2, 8, 9, 7, 3, 1, 2, 1, 0, 5, 2, 3, 7, 3, 6, 0, 3, 5, 8, 7, 7, 4, 9, 9, 4, 3, 1, 8, 4, 6, 2, 3, 9, 3, 5, 2, 1, 9, 1, 2, 1, 4, 8, 9, 3, 8, 1, 5, 2, 7, 1, 7, 8, 2, 9, 6, 8, 8, 7, 2, 3, 9, 0, 5, 7, 0, 6, 1, 8, 2, 1, 5, 0, 3, 1, 9, 4, 8, 6, 9, 1, 6, 7, 0, 4, 6, 8, 4, 6, 8, 7, 9, 4, 1, 9, 4, 9, 6, 9, 5, 2, 9, 9, 2, 2, 3, 8, 2, 8, 6, 7, 6, 2, 9, 6, 3, 0, 8, 4, 2, 6, 5, 5, 4, 1, 4, 4, 3, 9, 8, 9, 9, 2, 4, 7, 3, 4, 0, 2, 0, 4, 7, 2, 7, 9, 1, 5, 3, 5, 5, 4, 7, 4, 1, 9, 9, 5, 1, 6, 7, 3, 5, 4, 6, 0, 9, 3, 4, 4, 2, 9, 0, 9, 6, 5, 5, 7, 1, 5, 4, 9, 1, 0, 7, 0, 8, 6, 9, 4, 5, 7, 1, 0, 7, 3, 9, 1, 4, 0, 3, 6, 1, 9, 9, 6, 7, 1, 1, 3, 7, 1, 8, 5, 7, 9, 2, 2, 6, 8, 3, 9, 1, 0, 1, 4, 9, 1, 1, 6, 0, 6, 3, 0, 4, 4, 6, 1, 6, 5, 5, 5, 2, 0, 2, 8, 6, 5, 9, 8, 6, 0, 4, 9, 5, 7, 2, 5, 7, 1, 6, 6, 6, 5, 5, 9, 5, 4, 0, 8, 1, 7, 1, 2, 9, 4, 9, 3, 6, 8, 7, 0, 0, 4, 1, 5, 9, 8, 8, 7, 5, 3, 3, 4, 8, 3, 9, 2, 1, 3, 1, 2, 4, 4</code></pre></figure>
-
-<h2 id="experiment">Experiment</h2>
-<p>Sampling from left to right from this array, take two numbers at a time as a combination. Skip combinations of <code class="language-plaintext highlighter-rouge">00</code> or larger than <code class="language-plaintext highlighter-rouge">24</code>. Repeating the process until <code class="language-plaintext highlighter-rouge">24</code> different numbers are collected.</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mean: 88.9</code></pre></figure>
-
-<h2 id="conclusion">Conclusion</h2>
-<p><code class="language-plaintext highlighter-rouge">$30 * 89 = $2670</code>, theoretically, I may need spend $2670 to collect the full set of LITTLE TREEHOUSE book.</p>
-
-<p>After 1,000 independent trials, this value converges to a number close to $2670.</p>
-
-<p>Thus, I decided to give up collecting those books…</p>]]></content><author><name>Jie Li</name></author><category term="statistics" /><category term="estimation" /><category term="estimation" /><summary type="html"><![CDATA[1. Introduction Recently, Coles launched a membership campaign. One credit will be issued for every $30 spent at Coles. Where one credit can be redeemed for one LITTLE TREEHOUSE book. The whole book set consists of 24 tiny books (number 1-24, It looks like something in the picture below).]]></summary></entry><entry><title type="html">5S rRNA 数据库</title><link href="http://localhost:4000/database/rrna/5S_rRNA/" rel="alternate" type="text/html" title="5S rRNA 数据库" /><published>2020-06-29T00:00:00+08:00</published><updated>2020-06-29T00:00:00+08:00</updated><id>http://localhost:4000/database/rrna/5S_rRNA</id><content type="html" xml:base="http://localhost:4000/database/rrna/5S_rRNA/"><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>除了从<code class="language-plaintext highlighter-rouge">NCBI</code>，<code class="language-plaintext highlighter-rouge">Rfam</code>等这样的大库中分离5S rRNA序列之外，发现有人在收集相应的序列：<code class="language-plaintext highlighter-rouge">http://www.combio.pl/rrna/</code>。
-<!--more--></p>
-
-<p>数据库已经在线<code class="language-plaintext highlighter-rouge">13</code>年。目前收录了<code class="language-plaintext highlighter-rouge">11419</code>条序列，包括<code class="language-plaintext highlighter-rouge">7174</code>个不同的物种，版本号<code class="language-plaintext highlighter-rouge">17</code>。</p>
-
-<p><code class="language-plaintext highlighter-rouge">Taxon</code>分类包括<code class="language-plaintext highlighter-rouge">Archaea</code>， <code class="language-plaintext highlighter-rouge">Bacteria</code>， <code class="language-plaintext highlighter-rouge">Eukaryota</code>，<code class="language-plaintext highlighter-rouge">Plastids</code>，和<code class="language-plaintext highlighter-rouge">Mitochondria</code>。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction 除了从NCBI，Rfam等这样的大库中分离5S rRNA序列之外，发现有人在收集相应的序列：http://www.combio.pl/rrna/。]]></summary></entry><entry><title type="html">Silva updates to 138</title><link href="http://localhost:4000/database/rrna/Silva_138/" rel="alternate" type="text/html" title="Silva updates to 138" /><published>2020-06-18T00:00:00+08:00</published><updated>2020-06-18T00:00:00+08:00</updated><id>http://localhost:4000/database/rrna/Silva_138</id><content type="html" xml:base="http://localhost:4000/database/rrna/Silva_138/"><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。
-<!--more--></p>
-
-<p>数据集的快速增长极大的增加了硬件需求，数据库越大，则越需要更多的资源例如内存来加载数据库。目前有两种策略解决此问题：1）升级硬件满足需求。2）减小数据库中的序列数。出于多种原因，只要结果数据集仍然具有<strong>代表性</strong>（这是环境微生物学中的一个非常重要的参数），第二种方法会更具性价比。SILVA项目选择了99% identity作为标准对SSU Ref进行去冗余构建了SSU Ref NR数据集。</p>
-
-<p><strong>这次138版本目前只更新了SSU库</strong>，LSU库还在进行中。taxonomy信息加入了GTDB的分类信息，138以前的版本中还有greengenes数据库的信息。GTDB项目的负责人是昆士兰大学的Prof. Phil Hugenholtz，他同时也参与了greengenes数据库的构建。</p>
-
-<h2 id="简介">简介：</h2>
-<p>silva是一个全面的比对的核糖体RNA序列数据的在线资源，由德国Microbial Genomics and Bioinformatics Research Group开发及维护。SILVA提供了三个域（细菌，古菌，真核生物）的对齐的小亚基（16S/18S，SSU）和大亚基（23S/28S，LSU）rRNA序列的全面、质量检查过并定期更新的数据集。且SILVA是软件包ARB的官方数据库。<br />
-SSU：核糖体小亚基库，包含了细菌和古菌的16S序列，以及真核生物的18S序列。<br />
-LSU：核糖体大亚基库，包含了细菌和古菌的23S序列，以及真核生物的28S序列</p>
-
-<h2 id="文件描述">文件描述：</h2>
-<p><strong>_tax_silva.fasta.gz</strong>
-SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息。
-标注：这些文件里包含的是原始的存储在公共数据库（ENA/GenBank/DDBJ）中的序列，没有对序列进行修剪。<br />
-<strong>_tax_silva_full_align_trunc.fasta.gz</strong>
-SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息，同时还包含了比对信息。
-标注：这些文件里的序列是修剪过的，数据库中没有被比对的序列皆被去除了。<br />
-<strong>_tax_silva_trunc.fasta.gz</strong>
-SSU和LSU数据库的FASTA序列文件，序列ID中包含了细菌，古菌和真核的taxonomy分类信息。
-标注：这些文件里的序列是修剪过的，数据库中没有被比对的序列皆被去除了。</p>
-
-<h2 id="库构建方法">库构建方法：</h2>
-<p><strong>SSU Parc库：</strong><br />
-包含所有比对identity&gt;=50，比对质量值&gt;=40，碱基对分数或序列质量值&gt;30的序列。Pintail值&lt;50或比对质量值&lt;75的所有序列在ARB中指定为红色。而ALL-&gt;Living Tree Project 或 StrainInfo中的typestrans在ARB中指定为浅蓝色。</p>
-
-<p><strong>SSU Ref库：</strong><br />
-细菌和真核生物序列&lt;1200bp，古菌序列&lt;900bp，比对identity&lt;70，或比对质量值&lt;50的序列被去除。而ALL-&gt;Living Tree Project 或 StrainInfo中的typestrans在ARB中指定为浅蓝色。</p>
-
-<p><strong>SSU Ref NR库：</strong><br />
-基于最后发行的Ref NR 99版本的数据库里自定义的序列顺序结合序列长度（加权两倍）和质量，以99%的identity标准，来去除高度相似相同的序列。而对于排序，序列的质量由ambiguties（50%），总体比对质量（45%）以及均聚物（5%）进行定义。序列的总体比对质量是根据其比对得分，比对identity，以及比对的百分比（相等的权重）计算得来。已可培养物种的序列在所有的情况下都进行保留。</p>
-
-<p>标注：<strong>138版本的SSU Ref NR 99比之前的版本包含更少的序列</strong>。因为团队把序列比对的工具从USEARCH中整合的UCLUST (1.0.50) 换到VSEARCH (2.13)，提升了聚类的性能，且有望使团队可以在将来提供更稳定的Ref NR库。</p>
-
-<p>Ref NR库减小是由于这两个工具使用不同的序列/比对identity的定义差异导致。团队还使用了第三方工具CD-HIT（v4.8）交叉检查了比对的结果。在使用同样的identity阈值条件下，VSEARCH和CD-HIT返回了相似的聚类簇，而UCLUST返回了<strong>显著更大数目</strong>的聚类簇。</p>]]></content><author><name>Jie Li</name></author><category term="database" /><category term="rRNA" /><category term="tutorial" /><category term="rRNA" /><category term="amplicon" /><summary type="html"><![CDATA[Introduction SILVA里使用率最高的，即是它的SSU数据库。当然它在线的比对工具，以及ARB进化相关套装也很受欢迎，不过小编使用最多的是SSU数据库，以及LSU数据库。所以介绍的重点也会偏向于这两个库。]]></summary></entry><entry><title type="html">git操作远端仓库</title><link href="http://localhost:4000/linux/git/git_remote_repo/" rel="alternate" type="text/html" title="git操作远端仓库" /><published>2020-06-18T00:00:00+08:00</published><updated>2020-06-18T00:00:00+08:00</updated><id>http://localhost:4000/linux/git/git_remote_repo</id><content type="html" xml:base="http://localhost:4000/linux/git/git_remote_repo/"><![CDATA[<h2 id="确认ssh-key">确认SSH key</h2>
-<p>第一步，首先确实自己的目录下是否已经有<code class="language-plaintext highlighter-rouge">SSH key</code>。这个一般在<code class="language-plaintext highlighter-rouge">~/.ssh</code>目录下，可查看目录是否有</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">ls</span> ~/.ssh/
-a  b  id_rsa  id_rsa.pub  known_hosts</code></pre></figure>
-
-<!--more-->
-
-<p>需要的文件是一对以<code class="language-plaintext highlighter-rouge">id_rsa</code>或<code class="language-plaintext highlighter-rouge">id_dsa</code>命名的文件。例如上边我的目录中是<code class="language-plaintext highlighter-rouge">id_rsa</code>文件和<code class="language-plaintext highlighter-rouge">id_rsa.pub</code>文件，其中一个文件以<code class="language-plaintext highlighter-rouge">id_rsa.pub</code>文件是公钥，<code class="language-plaintext highlighter-rouge">id_rsa</code>是私钥。
-如果没有这样的文件，或者甚至都没有.ssh目录的话，那么需要自己生成<code class="language-plaintext highlighter-rouge">SSH</code>公钥：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ssh-keygen <span class="nt">-o</span></code></pre></figure>
-
-<p>然后将生成的<code class="language-plaintext highlighter-rouge">id_rsa.pub</code>里的内容复制粘贴给<code class="language-plaintext highlighter-rouge">github</code>自己的账号中的<code class="language-plaintext highlighter-rouge">SSH key</code>。<code class="language-plaintext highlighter-rouge">SSH keys</code>的目的是为了保证推送的提交是你本人推送的，而不是别人冒充的。<code class="language-plaintext highlighter-rouge">git</code>支持<code class="language-plaintext highlighter-rouge">SSH</code>协议，并允许你添加多个<code class="language-plaintext highlighter-rouge">KEY</code>, 这样即使你有N台电脑并都会进行提交的时候，只需要把每一台电脑的<code class="language-plaintext highlighter-rouge">SSH key</code>都添加进去，<code class="language-plaintext highlighter-rouge">github</code>就允许每一台key被添加的都电脑都推送过来啦!
-<img src="/assets/picbed/post/ssh_key.png" alt="" /></p>
-
-<h2 id="绑定用户名和邮箱">绑定用户名和邮箱</h2>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git config <span class="nt">--global</span> user.name 用户名
-git config <span class="nt">--global</span> user.email 邮箱</code></pre></figure>
-
-<p>测试查看自己的用户名和email</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git config user.name
-git config user.email</code></pre></figure>
-
-<h2 id="创建远端仓库">创建远端仓库</h2>
-<p>如果该项目在远端仓库还没有对应的项目仓库，那么需要先在远端建立一个新仓库，例如github的网页操作。例如创建仓库名称为test的公开项目仓库。
-<img src="/assets/picbed/post/create_remote_repo.png" alt="" /></p>
-
-<h2 id="关联仓库">关联仓库</h2>
-<p>项目仓库创建好之后，进入到本地的仓库，将项目仓库与本地仓库进行关联。</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git remote add <span class="nb">test </span>https://github.com/username/test.git</code></pre></figure>
-
-<h2 id="推送本地仓库">推送本地仓库</h2>
-<p>关联好之后，就可以开始推送啦, 因为是第一次推送这个仓库，所以加入-u参数，把当前分支master所有内容推送到远程，并且会将本地的master分支和远程的master分支关联起来，这样以后推送或者拉取时就可以简化命令
-首次推送：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git push <span class="nt">-u</span> <span class="nb">test </span>master</code></pre></figure>
-
-<p>其他推送：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git push <span class="nb">test </span>master</code></pre></figure>
-
-<h2 id="其他命令">其他命令</h2>
-<p>查看本地已关联的远端仓库：
-git remote -v
-删除某个远端仓库的关联：
-git remote rm NAME
-如果推送远端被拒，有可能是<code class="language-plaintext highlighter-rouge">ssh keys</code>的问题，可以尝试在<code class="language-plaintext highlighter-rouge">command line</code>输入<code class="language-plaintext highlighter-rouge">unset SSH_ASKPASS</code>，问题可解决。</p>
-
-<p>当远端仓库里有1个或多个文件是本地仓库里没有的的时候，需要先将远端仓库<code class="language-plaintext highlighter-rouge">pull</code>到本地:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git pull 远端仓库</code></pre></figure>
-
-<h2 id="ref">ref</h2>
-<p>https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5</p>]]></content><author><name>Jie Li</name></author><category term="linux" /><category term="git" /><category term="tutorial" /><category term="git" /><summary type="html"><![CDATA[确认SSH key 第一步，首先确实自己的目录下是否已经有SSH key。这个一般在~/.ssh目录下，可查看目录是否有 ls ~/.ssh/ a b id_rsa id_rsa.pub known_hosts]]></summary></entry></feed>

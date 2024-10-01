@@ -1,0 +1,72 @@
+[
+  
+  {
+    "title": "测序质量值计算及换算",
+    "url": "/posts/%E6%B5%8B%E5%BA%8F%E8%B4%A8%E9%87%8F%E5%80%BC%E8%AE%A1%E7%AE%97%E5%8F%8A%E6%8D%A2%E7%AE%97/",
+    "categories": "bioinformatics, sequencing",
+    "tags": "sequencing",
+    "date": "2020-04-02 00:00:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "序列格式分为两种：fasta和fastq。测序碱基的质量值即存储在fastq格式的每第四行，用ASCII码表示。高通量测序发展后，测序服务得到了极大的推广，两种不同测序质量体系之间的转换，不知道之前有没有别的人研究过，我记得好像有人是直接用ASCII值减去质量体系然后再加上新的质量体系的值，形成新的ASCII值存回fastq文件中，这样的做法其实是不准确的，在测序质量很好的时候几乎没有差别，...",
+    "content": "序列格式分为两种：fasta和fastq。测序碱基的质量值即存储在fastq格式的每第四行，用ASCII码表示。高通量测序发展后，测序服务得到了极大的推广，两种不同测序质量体系之间的转换，不知道之前有没有别的人研究过，我记得好像有人是直接用ASCII值减去质量体系然后再加上新的质量体系的值，形成新的ASCII值存回fastq文件中，这样的做法其实是不准确的，在测序质量很好的时候几乎没有差别，但是在测序质量相对较差的区域（例如P&gt;0.2），两者差得比较明显，但其实依然没有统计学差异。虽然没有统计学差异，但是人为引入了误差，这样不好。Sanger家的Q值计算公式：Q = -10 * log P\\(Q = -10 * \\log \\left( \\rho \\right)\\)Solexa家的Q值计算公式：\\(Q = -10 * \\log \\left( \\frac{\\rho}{1-\\rho} \\right)\\)从公式可以看到这个差别，具体图形化就是。测序质量值与碱基检出精确度的关系            质量分值      碱基的错误检出率      推断的碱基检出精确度                  10(Q10)      1/10      90%              20(Q20)      1/100      99%              30(Q30)      1/1000      99.9%              40(Q40)      1/10000      99.99%              50(Q50)      1/100000      99.999%      "
+  },
+  
+  {
+    "title": "简介bash命令scp",
+    "url": "/posts/scp-zh/",
+    "categories": "coding, bash",
+    "tags": "bash, linux",
+    "date": "2018-03-23 00:00:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "简介scp, 一个Linux系统里使用的命令，OpenSSH套件的一部分，是”secure copy”的简称。对比cp而言，scp是一个跨不同系统之间高效管理文件，同时确保数据的安全性和完整性的更加强大的工具。使用  复制本地文件到远程服务器    scp local_file remote-username@remote-host:/destination-path        从远程服...",
+    "content": "简介scp, 一个Linux系统里使用的命令，OpenSSH套件的一部分，是”secure copy”的简称。对比cp而言，scp是一个跨不同系统之间高效管理文件，同时确保数据的安全性和完整性的更加强大的工具。使用  复制本地文件到远程服务器    scp local_file remote-username@remote-host:/destination-path        从远程服务器复制文件到本地    scp remote-username@remote-host:remote-file-path local-destination-path        从远程服务器1复制文件到远程服务器2    scp remote-username1@remote-host1:/source-path remote-username2@remote-host2:/destination-path      常用的参数  -r 递归地复制目录    scp -r local_directory remote-username@remote-host:/destination-pathscp -r remote-username@remote-host:remote-file-path local-destination-path        -P 为SSH连接指定端口号    scp -P 1111 local_file remote-username@remote-host:/destination-path      参考更多信息请参考链接。"
+  },
+  
+  {
+    "title": "Introduction to bash command scp",
+    "url": "/posts/scp-en/",
+    "categories": "coding, bash",
+    "tags": "bash, linux",
+    "date": "2018-03-23 00:00:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "Introductionscp, a Linux command and a part of OpenSSH suite of tools, short for “secure copy”. Comparing to the traditional cp command, scp is a more powerful tool for efficient files management a...",
+    "content": "Introductionscp, a Linux command and a part of OpenSSH suite of tools, short for “secure copy”. Comparing to the traditional cp command, scp is a more powerful tool for efficient files management across different system while ensuring data security and integrity.Usage  Copy local files to remote server    scp local_file remote-username@remote-host:/destination-path        Copy file from remote server to local    scp remote-username@remote-host:remote-file-path local-destination-path        Copy file on remote server 1 to remote server 2    scp remote-username1@remote-host1:/source-path remote-username2@remote-host2:/destination-path      Commonly used parameters  -r Recursively copy directories    scp -r local_directory remote-username@remote-host:/destination-pathscp -r remote-username@remote-host:remote-file-path local-destination-path        -P Specify a port number for the SSH connection    scp -P 1111 local_file remote-username@remote-host:/destination-path      ReferenceFor more details, check link."
+  },
+  
+  {
+    "title": "PICRUSt的笔记",
+    "url": "/posts/PICRUST-zh/",
+    "categories": "amplicon",
+    "tags": "amplicon, microbial metabolic",
+    "date": "2018-03-20 00:00:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "1. 简介Picrust是一款基于16S rRNA gene数据库对扩增子测序的群落进行功能预测的工具(只能基于greengenes数据库)。目前16S rRNA gene有并且只有13_5和12_8两个版本。 目前greengenes数据库的最新版本为greengenes2。picrust是基于已经计算好的数据库进行预测，数据库下载地址。下载的数据库需要放到Python-2.7.12/li...",
+    "content": "1. 简介Picrust是一款基于16S rRNA gene数据库对扩增子测序的群落进行功能预测的工具(只能基于greengenes数据库)。目前16S rRNA gene有并且只有13_5和12_8两个版本。 目前greengenes数据库的最新版本为greengenes2。picrust是基于已经计算好的数据库进行预测，数据库下载地址。下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库2. 安装安装picrust, 这个中间没有遇到麻烦；注意picrsut是基于python2.7版本(用的2.7.12)， 其他版本的python会报错例如python3.5.2。3. 使用因为picrust是读入biom文件所以先要生成biom格式的文件，其中biom需要包含的信息有每个样品注释上的物种信息及对应的丰度，生成biom的格式方法有两种：3.1 way 1通过利用qiime1的命令先挑选otu比对的ref, 这里相当于重新比对分类一次，默认方法是uclust(其他还有usearch_ref， sortmerna), 所以挑出来的otu比OTU_final.fasta里的序列要少, 整体预测的通路的矩阵里的值会小一些，通路数量上可能也小一些。这里好像不支持rdp的结果，因为rdp基于贝叶斯的概率方法，最后没有给出具体比对的哪个id, 而是只给出一个分类taxonomy信息。3.1.1 step 1首先用qiime1里的pick_closed_reference_otus.py命令挑选ref：(可以使用97，也可以使用90，99或者其他的)echo \"pick_otus:enable_rev_strand_match True\"&gt;&gt;otu_picking_params_97.txtecho \"pick_otus:similarity 0.97\"&gt;&gt;otu_picking_params_97.txtpick_closed_reference_otus.py -i OTU_final.fasta -o $PWD/ucrC972/ -p $PWD/otu_picking_params_97.txt -r ./gg_13_5_otus/rep_set/97_otus.fasta -t ./gg_13_5_otus/taxonomy/97_otu_taxonomy.txt -a -O 83.1.2 step 2将biom文件转换为tsv文件。biom convert -i ucrC972/otu_table.biom -o ucrC972/otu_table.biom.tsv --to-tsvtsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个0 1矩阵4. 测试PICRUST 1.1.34.1 介绍根据16S的测序数据，对样本的现在通路进行预测。picrust只能基于greengenes database进行预测，并且只有13_5和12_8两个版本。 picrust是基于已经计算好的数据库进行预测，数据库下载地址下载的数据库需要放到Python-2.7.12/lib/python2.7/site-packages/PICRUSt-1.1.3-py2.7.egg/picrust/data/目录下；因为picrust软件默认是访问这个目录来找数据库。4.2 测试过程4.2.1 生成biom文件因为picrust是读入biom文件，所以先要生成biom格式的文件。其中biom需要包含的信息有每个样品注释上的物种信息及对应的丰度，生成biom的格式方法有两种：4.2.1.1 方式1通过利用qiime1的命令先挑选otu比对的ref, 这里相当于重新比对分类一次，默认方法是uclust(其他还有usearch_ref， sortmerna)。所以挑出来的otu比OTU_final.fasta里的序列要少, 整体预测的通路的矩阵里的值会小一些，通路数量上可能也小一些。这里好像不支持rdp的结果，因为rdp基于贝叶斯的概率方法，最后没有给出具体比对的哪个id, 而是只给出一个分类taxonomy信息。  首先用qiime1里的pick_closed_reference_otus.py命令挑选ref：(可以使用97，也可以使用90，99或者其他的)    echo \"pick_otus:enable_rev_strand_match True\"&gt;&gt;otu_picking_params_97.txtecho \"pick_otus:similarity 0.97\"&gt;&gt;otu_picking_params_97.txtpick_closed_reference_otus.py -i OTU_final.fasta -o $PWD/ucrC972/ -p $PWD/otu_picking_params_97.txt -r ./gg_13_5_otus/rep_set/97_otus.fasta -t ./gg_13_5_otus/taxonomy/97_otu_taxonomy.txt -a -O 8        将biom文件转换为tsv文件:    biom convert -i ucrC972/otu_table.biom -o ucrC972/otu_table.biom.tsv --to-tsv        tsv文件如下图：主要是得到每个otu比对上的ref, 然后形成一个0 1矩阵:    结合OTU_shared_final.xls的每个样品的每个otu的绝对丰度文件:    perl -e 'open(IN,\"ucrC972/otu_table.biom.tsv\");$t=&lt;IN&gt;;print\"$t\";%hash;$t=&lt;IN&gt;;chop($t);@t=split/\\t/,$t;while(&lt;IN&gt;){chomp;@a=split;for($i=1;$i&lt;@a;$i++){if($a[$i]==1){$hash{$t[$i]}=$a[0];}}}close IN;$t=&lt;&gt;;chomp($t);print\"#OTU ID$t\\ttaxonomy\\n\";@t=split/\\s+/,$t;%out;while(&lt;&gt;){chomp;@a=split;next if(not exists $hash{$a[0]});for($i=1;$i&lt;@a;$i++){$out{$hash{$a[0]}}{$t[$i]}+=$a[$i];}}foreach $k(sort keys %out){print\"$k\";for($i=1;$i&lt;@t;$i++){print\"\\t$out{$k}{$t[$i]}\";}print\"\\n\";}' ../../OTU_shared_final.xls &gt;otu_table.biom.txt        生成的otu_table.biom.txt文件如下格式：    将文件convert为biom格式:    biom convert -i otu_table.biom.txt -o otu_table.biom --to-hdf5      4.2.1.2 方式2利用mothur软件的make.biom命令生成biom文件，直接将注释的结果转换成如上格式，需要用到otu的丰度值以及具体的greengenes数据库的注释信息。需要利用到注释的中间其他文件例如将otu id与ref id对应的文件。因为没有pick的过程，所以otu有多少，就有多少注释结果，通路上可能比第一种方法要多。而且这种方法要求必须有greengenes的注释结果。通常我们不会用greengenes进行注释，所以如果肯定不会使用greengenes的数据库注释结果，可以采用第一种方法生成biom文件；4.2.2 对物种注释信息标准化利用预先计算好好的16s拷贝数数据库，对otu的物种注释信息进行16s拷贝数的标准化。normalize_by_copy_number.py -i otu_table.biom -o normalized_otus.biompredict_metagenomes.py -t ko -i normalized_otus.biom -o metagenome_predictions.biom -a KEGG_predict_traits.tab4.2.3 功能预测利用predict_metagenomes.py命令对标准化后的otu丰度进行功能预测。这里包括kegg, cog, 和pfam3个数据库进行预测，-t cog 或者 -t rfampredict_metagenomes.py -t ko -i normalized_otus.biom -o metagenome_predictions.biom -a KEGG_predict_traits.tab其次，加入-f参数， predict_metagenomes.py -f -t ko -i normalized_otus.biom -o metagenome_predictions.txt -a KEGG_predict_traits.tab生成tab键隔开的文件得到的是每个样品中KO酶的丰度4.2.4 对预测的功能进行map划分将预测到的值进行map的划分，则KO的信息也是很重要，因为很多KO是不存在在map中的；categorize_by_function.py -f -i metagenome_predictions.biom -c KEGG_Pathways -l 3 -o KEGG_Pathways.L3.txt4.2.5 是否可以用每一个通路/基因在各个样品之间的值来做标准化。即例如K01361在样品MFC.1中，标准化之后为20/(20+24+21+24)。测试如下：在挑选了ref序列之后，在生成biom文件前身的时候，由输入OTU_shared_final.xls文件改为输入其相对丰度文件，在predict_metagenome.py的过程中，会出现报错：predict_metagenomes.py:371: RuntimeWarning: invalid value encountered in true_divide    result=total/n预测的结果文件能正常生成，但是和之前的结果不一致。推测，可能在前边输入OTU的相对丰度的时候导致在16S拷贝数的标准化等等过程中有四舍五入的过程，因为虽然不一致，但是最后预测的结果是整数, 并且很多原来用绝对值去预测的时候能得到很小的值，但是换成相对丰度之后就变为了0， 有四舍五入的可能性更大了。且最后预测到的值，每个样品的总和是不一致的。有三种可能性，第一种是标准化之后的输入文件，在分析过程中有四舍五入的嫌疑; 第二种是虽然做了标准化，但是不是每个样品的OTU都能全部被挑到，这里去掉了一些OTU, 导致了丰度的不一致，这个是肯定的; 第三种是1，2两种情况同时存在。暂时我的理解是如果输入绝对丰度文件，对最后的输出结果做标准化，就相当于将所有的unclassified去掉之后对能注释上的物种做了一次标准化, 但因为不确定中间是否有四舍五入或者其他简略过程，需要更多的测试4.2.6 待测试  可以将pick到ref的otu的丰度再做一次标准化，然后作为输入进行预测，计算每个样品的总和  Module没有预测出来，待解决。原文中有提到Module的信息，最好能预测到module的信息"
+  }
+  
+]
+
